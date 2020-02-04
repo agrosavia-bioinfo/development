@@ -1,0 +1,8 @@
+Ploidy	Type	GC	Model	Score	Threshold	Effect	Marker	Chrom	Position	Ref	Alt	Annotation	Best.Arabidopsis.Hit...Locus
+2	Naive	1.1	additive	6.96	4.79	-0.33	solcap_snp_c2_12601	7	53106007	0	1	3-hydroxybutyryl-CoA dehydrogenase	AT3G15290.1
+2	Naive	0.824	general	17.45	4.79	NA	solcap_snp_c2_49245	8	35651378	0	1	UDP-sulfoquinovose synthase	AT4G33030.1
+2	Naive	0.824	general	17.45	4.79	NA	solcap_snp_c2_41463	8	35922019	0	1	Conserved gene of unknown function	AT2G26110.1
+2	Naive	0.824	general	14.17	4.79	NA	solcap_snp_c2_12601	7	53106007	0	1	3-hydroxybutyryl-CoA dehydrogenase	AT3G15290.1
+2	Naive	0.824	general	7.95	4.79	NA	solcap_snp_c2_3512	5	51477749	0	1	Conserved gene of unknown function	AT3G04350.1
+2	Naive	0.824	general	5.43	4.79	NA	solcap_snp_c2_36660	1	534626	0	1	Circadian clock-associated FKF1	AT1G68050.1
+2	Naive	0.824	general	5.29	4.79	NA	solcap_snp_c1_5112	7	43125095	0	1	Phosphofructokinase	AT4G26270.1

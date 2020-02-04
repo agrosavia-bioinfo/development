@@ -1,0 +1,3 @@
+cfg=$1
+
+xterm -e "gwasp $1;p" &

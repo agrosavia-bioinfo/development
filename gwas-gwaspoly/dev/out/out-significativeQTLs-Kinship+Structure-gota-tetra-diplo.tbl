@@ -1,0 +1,24 @@
+Ploidy	Type			GC		Model	SNPs	Score	Threshold	Chrom	Position
+4	Kinship+Structure	1.011	1-dom-alt	6.35	4.35	-0.78	snp_c1_3484	4	71945107	Cinnamoyl-CoA reductase	AT2G33590.1
+4	Kinship+Structure	1.011	1-dom-alt	5.55	4.35	-0.69	snp_c2_10568	4	71954528	3-hydroxy-3-methylglutaryl coenzyme A reductase	AT1G76490.1
+4	Kinship+Structure	1.011	1-dom-alt	5.35	4.35	-0.59	snp_c2_36664	1	535454	Adagio protein 3	AT1G68050.1
+4	Kinship+Structure	1.011	1-dom-alt	4.98	4.35	-0.59	snp_c2_4875	1	83177518	Conserved gene of unknown function	AT5G65810.1
+4	Kinship+Structure	1.102	1-dom-ref	5.14	4.44	0.57	snp_c2_40748	12	12654160	Pentatricopeptide repeat-containing protein	AT2G37230.1
+4	Kinship+Structure	1.102	1-dom-ref	4.79	4.44	0.64	snp_c1_7325	2	42764457	POM30	AT5G67500.1
+4	Kinship+Structure	0.798	2-dom-ref	9.1	4.48	-0.76	snp_c2_2998	9	58689196	Gene of unknown function	No_Hit
+4	Kinship+Structure	0.798	2-dom-ref	4.84	4.48	0.55	snp_c1_10855	7	9998099	DNA repair protein RAD51 homolog	AT5G20850.1
+4	Kinship+Structure	0.798	2-dom-ref	4.65	4.48	-0.44	snp_c2_24064	6	54713088	Bell-like homeodomain protein 2	No_Hit
+4	Kinship+Structure	0.798	2-dom-ref	4.61	4.48	0.42	snp_c1_11907	9	51386555	ATP binding protein	AT5G35960.1
+4	Kinship+Structure	0.712	2-dom-alt	6.58	4.44	0.72	snp_c2_32854	5	10418984	Signal transducer	AT1G67900.1
+4	Kinship+Structure	0.712	2-dom-alt	4.91	4.44	-0.55	snp_c1_15787	11	6943511	Pectinesterase 51	AT5G09760.1
+4	Kinship+Structure	0.712	2-dom-alt	4.55	4.44	-0.45	snp_c1_6992	6	53677174	Conserved gene of unknown function	AT1G08760.1
+											
+											
+2	Kinship+Structure	0.683	1-dom-alt	6.8	4.42	-0.9	snp_c1_3484	4	71945107	Cinnamoyl-CoA reductase	AT2G33590.1
+2	Kinship+Structure	0.683	1-dom-alt	5.72	4.42	-0.76	snp_c2_10568	4	71954528	3-hydroxy-3-methylglutaryl coenzyme A reductase	AT1G76490.1
+2	Kinship+Structure	0.683	1-dom-alt	4.93	4.42	-0.63	snp_c2_4875	1	83177518	Conserved gene of unknown function	AT5G65810.1
+2	Kinship+Structure	0.683	1-dom-alt	4.61	4.42	-0.56	snp_c2_36664	1	535454	Adagio protein 3	AT1G68050.1
+2	Kinship+Structure	0.683	1-dom-alt	4.48	4.42	-0.52	snp_c2_49495	2	37017928	Protease C56	AT3G02720.1
+2	Kinship+Structure	0.666	1-dom-ref	5.31	4.53	0.6	snp_c2_40748	12	12654160	Pentatricopeptide repeat-containing protein	AT2G37230.1
+2	Kinship+Structure	0.635	additive	5.14	4.79	-0.47	snp_c2_12601	7	53106007	3-hydroxybutyryl-CoA dehydrogenase	AT3G15290.1
+2	Kinship+Structure	0.635	additive	4.79	4.79	0.54	snp_c2_49245	8	35651378	UDP-sulfoquinovose synthase	AT4G33030.1

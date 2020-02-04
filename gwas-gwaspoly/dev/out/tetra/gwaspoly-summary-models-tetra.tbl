@@ -1,0 +1,15 @@
+Ploidy	GWAS	Model	GC	nSNPs
+4	Naive	2-dom-ref	0.739	1
+4	Naive	general	0.53	15
+4	Kinship	2-dom-ref	0.698	1
+4	Kinship	general	0.482	16
+4	Structure	1-dom-alt	1.215	2
+4	Structure	1-dom-ref	1.301	1
+4	Structure	2-dom-alt	0.89	1
+4	Structure	2-dom-ref	0.906	5
+4	Structure	general	0.563	16
+4	Kin+Str	1-dom-alt	1.01	4
+4	Kin+Str	1-dom-ref	1.1	2
+4	Kin+Str	2-dom-alt	0.71	3
+4	Kin+Str	2-dom-ref	0.8	4
+4	Kin+Str	general	0.47	13

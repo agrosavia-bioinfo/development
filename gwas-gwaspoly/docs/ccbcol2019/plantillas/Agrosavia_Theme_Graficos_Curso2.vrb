@@ -1,0 +1,12 @@
+\frametitle{Diagramas de caja - plotly}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p<-}\KeywordTok{plot_ly}\NormalTok{(PlantGrowth,}\DataTypeTok{y=}\OperatorTok{~}\NormalTok{weight,}\DataTypeTok{color=}\OperatorTok{~}\NormalTok{group,}\DataTypeTok{type=}\StringTok{"box"}\NormalTok{)}
+\NormalTok{chart_link =}\StringTok{ }\KeywordTok{api_create}\NormalTok{(p, }\DataTypeTok{filename=}\StringTok{"box-multiple"}\NormalTok{)}
+\NormalTok{chart_link}
+\end{Highlighting}
+\end{Shaded}
+
+\url{https://plot.ly/~phreyes/3/}
+

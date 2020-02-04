@@ -1,0 +1,331 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package babel
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Flujo de trabajo bioinformático para estudios de asociación de genoma completo
+ en plantas de papa tetraploide.
+\end_layout
+
+\begin_layout Author
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+underline{Luis Garreta}
+\end_layout
+
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, Paula Helena Reyes-Herrera
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, Ivania Cerón-Souza
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+\size footnotesize
+{lgarreta, 
+\series default
+phreyes
+\series bold
+,
+\series default
+\lang english
+iceron}
+\lang spanish
+@agrosavia.co
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Corporación colombiana de investigación agropecuaria, AGROSAVIA
+\begin_inset Newline newline
+\end_inset
+
+Bogotá, Colombia
+\end_layout
+
+\begin_layout Abstract
+Uno de las plantas de cultivo más importantes en el país y en el mundo es
+ la papa (Solanum tuberosum), la cual es considerada como un alimento básico
+ en la dieta colombiana, es rica en carbohidratos, y tiene un alto potencial
+ para mejorar la seguridad alimentaria del país y la economía campesina.
+ Sin embargo, los cultivos de papa al igual que el de otras plantas, enfrentan
+ diversas enfermedades que pueden dañar parcial o completamente la planta.
+ Y aunque muchas de estas enfermedades se pueden controlar usando fungicidas,
+ estos pueden resultar inefectivos sin las condiciones ambientales favorecen
+ su dispersión o si emergen genotipos resistentes a los mismos.
+ Un modo efectivo de enfrentar estas enfermedades es a través de la generación
+ de variedades resistentes a estas enfermedades, pero la producción de estas
+ variedades mediante los medios tradicionales puede llevar varios años y
+ se necesita utilizar otras estrategias que ayuden a acelerar este proceso.
+\end_layout
+
+\begin_layout Abstract
+En este sentido, los estudios de asociación de genoma completo (GWAS) se
+ están convirtiendo actualmente en una herramienta muy importante para ubicar
+ en los mapas cromosómicos las variantes genéticas relacionadas con rasgos
+ complejos, tales como enfermedades causadas por distintos patógenos, que
+ afectan a los plantas de cultivo de papa.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Abstract
+en las plantas de cultivo, es decir, enfermedades que afecten a las plantas.
+\end_layout
+
+\begin_layout Abstract
+.
+\end_layout
+
+\begin_layout Abstract
+En este sentido, se ha hecho un gran esfuerzo en investigación a nivel nacional
+ e internacional para identificar cuáles son las bases genéticas cuantitativas
+ de la resistencia a varias enfermedades que se agravan con el cambio climático
+ como gota y polilla guatemalteca4,5, así como las bases genéticas de la
+ gran diversidad de características morfológicas que se encuentran en las
+ papas nativas de Colombia6.
+ 
+\end_layout
+
+\begin_layout Abstract
+.
+\end_layout
+
+\begin_layout Abstract
+Sin embargo, la producción de papa del país sufre de diversos problemas
+ fitosanitarios, los cuales son de gran interés en investigación porque
+ pueden generar pérdidas totales en la cosecha.
+\end_layout
+
+\begin_layout Abstract
+.
+\end_layout
+
+\begin_layout Abstract
+ABSTRACT Potato (Solanum tuberosum) is a staple food crop and is considered
+ one of the main sources of carbohydrates worldwide.
+ Late blight (Phytophthora infestans) and common scab (Streptomyces scabies)
+ are two of the primary production constraints faced by potato farming.
+ Previous studies have identiﬁed a few resistance genes for both late blight
+ and common scab; however, these genes explain only a limited fraction of
+ the heritability of these diseases.
+ 
+\end_layout
+
+\begin_layout Abstract
+.
+\end_layout
+
+\begin_layout Abstract
+La papa es uno de los cultivos más importantes del país.
+ Para 2016, la papa en Colombia representó 149.744 ha de área sembrada/área
+ plantada, con una producción anual de 3.034.031 toneladas2.
+ Adicionalmente, esta especie hace parte de la dieta básica colombiana con
+ alto potencial para mejorar la seguridad alimentaria del país y la economía
+ campesina3.
+\end_layout
+
+\begin_layout Abstract
+.
+\end_layout
+
+\begin_layout Abstract
+Genomic selection has been demonstrated to be an effective methodology for
+ breeding value prediction in many major crops (e.g., maize and wheat).
+ However, the technology has received little attention in potato breeding.
+ We present the ﬁrst genomic selection study involving late blight and common
+ scab in tetraploid potato.
+ Our data involves 4,110 (Single Nucleotide Polymorphisms, SNPs) and phenotypic
+ ﬁeld evaluations for late blight (n=1,763) and common scab (n=3,885) collected
+ in seven and nine years, respectively.
+ We report moderately high genomic heritability estimates (0.46 6 0.04 and
+ 0.45 6 0.017, for late blight and common scab, respectively).
+ The extent of genotype-by-year interaction was high for late blight and
+ low for common scab.
+ Our assessment of prediction accuracy demonstrates the applicability of
+ genomic prediction for tetraploid potato breeding.
+ For both traits, we found that more than 90% of the genetic variance could
+ be captured with an additive model.
+ For common scab, the highest prediction accuracy was achieved using an
+ additive model.
+ For late blight, small but statistically signiﬁcant gains in prediction
+ accuracy were achieved using a model that accounted for both additive and
+ dominance effects.
+ Using whole-genome regression models we identiﬁed SNPs located in previously
+ reported hotspots regions for late blight, on genes associated with systemic
+ disease resistance responses, and a new locus located in a WRKY transcription
+ factor for common scab.
+ The potato (Solanum tuberosum L.) is considered the sixth most im- portant
+ agricultural commodity worldwide after sugar cane, maize, rice, Copyright
+ © 2018 Enciso-Rodriguez et al.
+ doi: https://doi.org/10.1534/g3.118.200273 Manuscript received March 27, 2018;
+ accepted for publication May 19, 2018; published Early Online May 24, 2018.
+ This is an open-access article distributed under the terms of the Creative
+ Commons Attribution 4.0 International License (http://creativecommons.org/
+ licenses/by/4.0/), which permits unrestricted use, distribution, and reproductio
+n in any medium, provided the original work is properly cited.
+ Supplemental material available at Figshare: https://doi.org/10.25387/ g3.6262214.
+ 1 All authors contributed equally.
+ 2 Corresponding author: Gustavo de los Campos.
+ 775, Woodlot Dr, East Lansing, MI 48823.
+ gdeloscampos@epi.msu.edu KEYWORDS Potato
+\end_layout
+
+\begin_layout Abstract
+Genome-wide association studies (GWAS) have become a powerful tool for analyzing
+ complex traits in crop plants.
+ The current study evaluates the efﬁcacy of various GWAS models and methods
+ for elucidating population structure in potato.
+ The presence of signiﬁcant population structure can lead to
+\end_layout
+
+\end_inset
+
+ Así, al identificar estas variantes se puede guiar de forma más precisa
+ la generación de las nuevas variantes que tienen las características genéticas
+ para resistir a esas enfermedades.
+ 
+\end_layout
+
+\begin_layout Abstract
+En esta presentación, vamos a mostrar una propuesta de flujo de trabajo
+ bioinformático para realizar estudios de asociación de genoma completo
+ (GWAS) que permite realizar el proceso de GWAS para el caso de las plantas
+ de papa tetraploide.
+ Para realizar el estudio, vamos a utilizar los datos de fenotipo-genotipo
+ obtenidos de la Colección Central Colombiana de papa (CCC), administrada
+ por la Corporación Colombiana de Investigación Agropecuaria (AGROSAVIA).
+ Esta colección es considerada la segunda más biodiversa del mundo, con
+ más de 2.000 accesiones provenientes de diversas regiones del país, estas
+ accesiones cuentan hoy en día con una excelente base de datos de caracterizació
+n genómica y fenotípica.
+ El flujo de trabajo estará dividido en diferentes etapas correspondientes
+ al proceso general de GWAS.
+ En cada etapa se tendrá una o más técnicas que pueden seleccionarse para
+ realizar esa etapa del proceso.
+ El flujo de trabajo se ejecutará en modo línea de comandos, ya sea completament
+e o etapa por etapa.
+ Para la implementación se utilizarán diferentes tipos de software entre
+ programas, librerías y scripts en diferentes lenguajes, disponibles gratuitamen
+te y que son de amplio uso en proyectos GWAS.
+ Este software se cubrirá sobre otra capa de software que oculta los detalles
+ y pondrá una interfaz de comandos muy simple de usar para personas no expertas
+ en computación.
+\end_layout
+
+\end_body
+\end_document

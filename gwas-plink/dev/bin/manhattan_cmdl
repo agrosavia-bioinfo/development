@@ -1,0 +1,54 @@
+# Wrapper to call manhatten-plot function for PLINK and FaST-LMM output from allgwas module from command line
+
+# import dependencies
+import argparse
+from allgwas.analysis import manhattan
+from allgwas.parser import PlinkFiles, FlmmFiles, PlinkAdjustedFiles
+from allgwas import util
+ 
+def main():
+	# get command line argument
+	parser = argparse.ArgumentParser(description='wrapper to call manhattan-plot function from command line')
+
+	parser.add_argument('--pvalue_file', required=True, help='full path to file containing GWAS p-values')
+	parser.add_argument('--out_file', required=True, help='full path to filename of output figure')
+	parser.add_argument('--method', required=True, help='method that generated p-value file (plink, plink_adjusted or fastlmm)')
+	parser.add_argument('--bim_file', required=False, help='bim_file with SNP information, required when plink_adjusted is chosen')
+	parser.add_argument('--y_min', required=False, help='minimum of y-limits')
+	parser.add_argument('--y_max', required=False, help='maximum of y-limits')
+
+	args = parser.parse_args()
+
+	# parse input file depending on method chosen
+	if args.method == "plink_adjusted":
+		# when this method is used, a bim file with the SNP positions has to be passed
+		assert(args.bim_file != None), "bim-file required"
+
+		# parse input file (per default, the gc-corrected p-values are plotted)
+		file = PlinkAdjustedFiles(args.pvalue_file)
+		chromosome_lst = file.get_chromosome
+		pvalue_lst = file.get_gc_pvals
+		snp_lst = file.get_snp
+		print pvalue_lst[0:10]
+		# to get snp positions, call function based on bim file
+		position_lst = util.get_position_from_bim(snp_lst=snp_lst, bim_file=args.bim_file)	
+	else:	
+		if args.method=="plink":
+			file = PlinkFiles(args.pvalue_file)
+		elif args.method=="fastlmm":
+			file = FlmmFiles(args.pvalue_file)
+
+		# get chromosome, position and p-value lists
+		chromosome_lst = file.get_chromosome
+		position_lst = file.get_position
+		pvalue_lst = file.get_pvalues
+
+	# call manhattan plot function with specified flags
+	if args.y_min and args.y_max:
+		manhattan(chromosome_lst, position_lst, pvalue_lst, args.out_file, y_limits=[float(args.y_min), float(args.y_max)])
+	else:
+		manhattan(chromosome_lst, position_lst, pvalue_lst, args.out_file)
+
+
+if __name__ == '__main__':
+	main()

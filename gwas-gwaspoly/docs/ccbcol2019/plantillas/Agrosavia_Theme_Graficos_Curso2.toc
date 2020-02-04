@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Dise\IeC {\~n}o de gr\IeC {\'a}fica - propuesta estudiantes}{3}{0}{1}
+\beamer@sectionintoc {2}{Tipos de diagramas y correspondencia con an\IeC {\'a}lisis estad\IeC {\'\i }sticos}{5}{0}{2}
+\beamer@sectionintoc {3}{Diagramas de distribuci\IeC {\'o}n}{6}{0}{3}
+\beamer@sectionintoc {4}{Ejercicios pr\IeC {\'a}cticos}{47}{0}{4}
+\beamer@sectionintoc {5}{Referencias}{49}{0}{5}

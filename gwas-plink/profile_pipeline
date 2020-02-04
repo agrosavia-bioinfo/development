@@ -1,0 +1,12 @@
+# Extend the PATH to include all installed tools
+TOOLS_DIR=/home/gwasuser/tools
+PIPE_DIR=$TOOLS_DIR/pipeline
+SOFTWARE_DIR=/home/gwasuser/software
+export PATH=$TOOLS_DIR/vegas:$TOOLS_DIR/eigensoft/bin:$SOFTWARE_DIR/python/bin:$SOFTWARE_DIR/R/bin:$TOOLS_DIR/bolt-lmm:$TOOLS_DIR/plink/new:$TOOLS_DIR/plink/old:$PATH
+
+# Set the path to the Python module
+export PYTHONPATH=$PYTHONPATH:$TOOLS_DIR
+
+# Create environment variables to use in the shell and in scripts
+export EXAMPLES=/home/gwasuser/examples_chapter
+

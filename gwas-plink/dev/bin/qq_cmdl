@@ -1,0 +1,60 @@
+# Wrapper to call qq-plot function for output generated with PLINK or FaST-LMM from allgwas module from command line
+
+# import dependencies
+import argparse
+from allgwas.analysis import qq 
+from allgwas.parser import PlinkFiles, FlmmFiles, PlinkAdjustedFiles, PlinkLog 
+import scipy as sp
+import scipy.stats as stats
+ 
+def main():
+	# get command line argument
+	parser = argparse.ArgumentParser(description='wrapper to call manhattan-plot function from command line')
+
+	parser.add_argument('--pvalue_file', required=True, help='full path to file containing GWAS p-values')
+	parser.add_argument('--out_file', required=True, help='full path to filename of output figure')
+	parser.add_argument('--method', required=True, help='method that generated p-value file (plink plink_adjusted or fastlmm')
+	parser.add_argument('--log_file', required=False, help='full-path filename of log-File')	
+	parser.add_argument('--x_min', required=False, help='')
+	parser.add_argument('--x_max', required=False, help='')
+	parser.add_argument('--y_min', required=False, help='')
+	parser.add_argument('--y_max', required=False, help='')
+	
+	args = parser.parse_args()
+
+	# parse input files according to the method the pvalues were generated with 
+	if args.method == "plink_adjusted":
+		file = PlinkAdjustedFiles(args.pvalue_file)
+		pvalue_lst = file.get_gc_pvals
+	else:
+		if args.method == "plink":
+			file = PlinkFiles(args.pvalue_file)
+		elif args.method == "fastlmm":
+			file = FlmmFiles(args.pvalue_file)
+
+		pvalue_lst = file.get_pvalues
+
+	# if log-file is given, extract inflation value
+	if args.log_file:		
+		log_file = PlinkLog(args.log_file)
+		lambda_gc = log_file.get_lambdagc
+	else:
+		lambda_gc=1.0
+
+	if args.method == "fastlmm":
+		lambda_gc = sp.median(stats.chi2.isf(pvalue_lst, 1))/0.456	
+	
+	# call manhattan plot function with specified flags
+	if args.y_min and args.y_max and args.x_min and args.x_max:
+		qq(obs_pval=pvalue_lst, 
+		   output_fn=args.out_file,
+	           x_limits=[float(args.x_min),float(args.x_max)],
+		   y_limits=[float(args.y_min), float(args.y_max)])
+	else:
+		qq(obs_pval=pvalue_lst,
+		   lambda_gc=lambda_gc,
+		   output_fn= args.out_file)
+
+
+if __name__ == '__main__':
+	main()

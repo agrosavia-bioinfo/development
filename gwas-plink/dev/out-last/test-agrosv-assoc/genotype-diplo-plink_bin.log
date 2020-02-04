@@ -1,0 +1,28 @@
+PLINK v1.90b6.12 64-bit (28 Oct 2019)
+Options in effect:
+  --make-bed
+  --out genotype-diplo-plink_bin
+  --tfile genotype-diplo-plink
+
+Hostname: dell
+Working directory: /home/lg/agrosavia/projects/gwas-pipeline/dev
+Start time: Sat Nov  2 16:53:36 2019
+
+Random number seed: 1572731616
+7898 MB RAM detected; reserving 3949 MB for main workspace.
+Processing .tped file.
+genotype-diplo-plink_bin-temporary.bed + genotype-diplo-plink_bin-temporary.bim
++ genotype-diplo-plink_bin-temporary.fam written.
+4711 variants loaded from .bim file.
+604 people (0 males, 0 females, 604 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to genotype-diplo-plink_bin.nosex .
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 604 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.990183.
+4711 variants and 604 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to genotype-diplo-plink_bin.bed + genotype-diplo-plink_bin.bim +
+genotype-diplo-plink_bin.fam ... done.
+
+End time: Sat Nov  2 16:53:36 2019

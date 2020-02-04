@@ -1,0 +1,30 @@
+- Formato de Agrosavia
+- Imagen de fondo (sugerido)
+
+- Diferencias GWAS plantas vs. humanos
+  - Herramientas diploides
+  - Plantas poliploides (reto) que ya con NGS muchos mas marcadores
+  - Genotipar organismos que no se conocen muchos
+
+- Slide Agrosavia:
+	- Mover al principio,
+	- Inst de Inv. Agricultura
+	- Hablar posdoctorado
+
+- Slide CCC: Moverla
+	- Administrador Bancos germoplasma
+	- Patrimonio nacion
+	- No museo sino sitio de Investigacion
+	- Ayudar mejoram y caracterizacion diversidad.
+
+- Dif gwas hum plantas
+
+
+- GWAS Pipeline
+   - Estructura genetica poblacional
+
+- Adicion de covariables para reducir falsos positivos
+  - Struct Pob
+  - Kinship
+  - PCs
+

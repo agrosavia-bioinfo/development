@@ -1,0 +1,12 @@
+Trait	Model	Threshold	Marker	Chrom	Position	Ref	Alt	Score	Effect
+Gota	general	4.71	c2_26802	5	9525557	C	T	9.34	NA
+Gota	general	4.71	c2_37472	5	62092684	C	T	4.72	NA
+Gota	general	4.71	c1_15192	6	20318671	A	C	5.63	NA
+Gota	general	4.71	c2_50226	6	36824795	A	G	5.62	NA
+Gota	general	4.71	c2_50231	6	36834630	C	T	7.28	NA
+Gota	general	4.71	c2_57245	6	39681703	G	T	5.58	NA
+Gota	general	4.71	c2_5154	6	43218223	A	T	5.03	NA
+Gota	general	4.71	c2_18662	8	55213230	G	T	6.8	NA
+Gota	1-dom-ref	4.37	c2_12601	8	53106007	A	G	4.42	-0.14
+Gota	2-dom-ref	4.45	c2_16722	5	48815750	A	C	5.03	-0.14
+Gota	2-dom-ref	4.45	c2_18573	8	54997992	C	T	4.46	0.11

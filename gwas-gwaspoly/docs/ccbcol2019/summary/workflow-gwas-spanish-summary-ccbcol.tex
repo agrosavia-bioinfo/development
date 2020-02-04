@@ -1,0 +1,79 @@
+%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,spanish]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+
+\makeatletter
+\@ifundefined{date}{}{\date{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+
+\makeatother
+
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\begin{document}
+
+\title{Flujo de trabajo bioinformático para estudios de asociación de genoma
+completo en plantas de papa tetraploide.}
+
+\author{\underline{Luis Garreta}\textsuperscript{1}, Paula Helena Reyes-Herrera\textsuperscript{2},
+Ivania Cerón-Souza\\
+\textbf{\footnotesize{}\{lgarreta, }{\footnotesize{}phreyes}\textbf{\footnotesize{},}\foreignlanguage{english}{{\footnotesize{}iceron\}}}{\footnotesize{}@agrosavia.co}\\
+~\\
+Corporación colombiana de investigación agropecuaria, AGROSAVIA\\
+Bogotá, Colombia}
+\maketitle
+\begin{abstract}
+Uno de las plantas de cultivo más importantes en el país y en el mundo
+es la papa (Solanum tuberosum), la cual es considerada como un alimento
+básico en la dieta colombiana, es rica en carbohidratos, y tiene un
+alto potencial para mejorar la seguridad alimentaria del país y la
+economía campesina. Sin embargo, los cultivos de papa al igual que
+el de otras plantas, enfrentan diversas enfermedades que pueden dañar
+parcial o completamente la planta. Y aunque muchas de estas enfermedades
+se pueden controlar usando fungicidas, estos pueden resultar inefectivos
+sin las condiciones ambientales favorecen su dispersión o si emergen
+genotipos resistentes a los mismos. Un modo efectivo de enfrentar
+estas enfermedades es a través de la generación de variedades resistentes
+a estas enfermedades, pero la producción de estas variedades mediante
+los medios tradicionales puede llevar varios años y se necesita utilizar
+otras estrategias que ayuden a acelerar este proceso.
+
+En este sentido, los estudios de asociación de genoma completo (GWAS)
+se están convirtiendo actualmente en una herramienta muy importante
+para ubicar en los mapas cromosómicos las variantes genéticas relacionadas
+con rasgos complejos, tales como enfermedades causadas por distintos
+patógenos, que afectan a los plantas de cultivo de papa. Así, al
+identificar estas variantes se puede guiar de forma más precisa la
+generación de las nuevas variantes que tienen las características
+genéticas para resistir a esas enfermedades. 
+
+En esta presentación, vamos a mostrar una propuesta de flujo de trabajo
+bioinformático para realizar estudios de asociación de genoma completo
+(GWAS) que permite realizar el proceso de GWAS para el caso de las
+plantas de papa tetraploide. Para realizar el estudio, vamos a utilizar
+los datos de fenotipo-genotipo obtenidos de la Colección Central Colombiana
+de papa (CCC), administrada por la Corporación Colombiana de Investigación
+Agropecuaria (AGROSAVIA). Esta colección es considerada la segunda
+más biodiversa del mundo, con más de 2.000 accesiones provenientes
+de diversas regiones del país, estas accesiones cuentan hoy en día
+con una excelente base de datos de caracterización genómica y fenotípica.
+El flujo de trabajo estará dividido en diferentes etapas correspondientes
+al proceso general de GWAS. En cada etapa se tendrá una o más técnicas
+que pueden seleccionarse para realizar esa etapa del proceso. El flujo
+de trabajo se ejecutará en modo línea de comandos, ya sea completamente
+o etapa por etapa. Para la implementación se utilizarán diferentes
+tipos de software entre programas, librerías y scripts en diferentes
+lenguajes, disponibles gratuitamente y que son de amplio uso en proyectos
+GWAS. Este software se cubrirá sobre otra capa de software que oculta
+los detalles y pondrá una interfaz de comandos muy simple de usar
+para personas no expertas en computación.
+\end{abstract}
+
+\end{document}

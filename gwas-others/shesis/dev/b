@@ -1,0 +1,1 @@
+SHEsis --input geno.shesis --ploidy 2 --assoc --qtl --snpname-file snpnames.shesis --report-txt --adjust  --output out-shesis-adj-AGs 

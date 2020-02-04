@@ -1,0 +1,2629 @@
+/home/lg/agrosavia/opt/TASSEL5/lib/trove-3.0.3.jar:/home/lg/agrosavia/opt/TASSEL5/lib/guava-22.0.jar:/home/lg/agrosavia/opt/TASSEL5/lib/forester-1.038.jar:/home/lg/agrosavia/opt/TASSEL5/lib/htsjdk-2.19.0.jar:/home/lg/agrosavia/opt/TASSEL5/lib/sTASSEL.jar:/home/lg/agrosavia/opt/TASSEL5/lib/itextpdf-5.1.0.jar:/home/lg/agrosavia/opt/TASSEL5/lib/fastutil-8.2.2.jar:/home/lg/agrosavia/opt/TASSEL5/lib/snappy-java-1.1.1.6.jar:/home/lg/agrosavia/opt/TASSEL5/lib/jhdf5-14.12.5.jar:/home/lg/agrosavia/opt/TASSEL5/lib/json-simple-1.1.1.jar:/home/lg/agrosavia/opt/TASSEL5/lib/mail-1.4.jar:/home/lg/agrosavia/opt/TASSEL5/lib/kotlin-stdlib-1.3.50.jar:/home/lg/agrosavia/opt/TASSEL5/lib/jfreesvg-3.2.jar:/home/lg/agrosavia/opt/TASSEL5/lib/scala-library-2.10.1.jar:/home/lg/agrosavia/opt/TASSEL5/lib/biojava-phylo-4.0.0.jar:/home/lg/agrosavia/opt/TASSEL5/lib/kotlinx-coroutines-core-1.3.0.jar:/home/lg/agrosavia/opt/TASSEL5/lib/phg.jar:/home/lg/agrosavia/opt/TASSEL5/lib/ejml-0.23.jar:/home/lg/agrosavia/opt/TASSEL5/lib/jcommon-1.0.23.jar:/home/lg/agrosavia/opt/TASSEL5/lib/gs-ui-1.3.jar:/home/lg/agrosavia/opt/TASSEL5/lib/slf4j-api-1.7.10.jar:/home/lg/agrosavia/opt/TASSEL5/lib/jfreechart-1.0.19.jar:/home/lg/agrosavia/opt/TASSEL5/lib/commons-math3-3.4.1.jar:/home/lg/agrosavia/opt/TASSEL5/lib/commons-codec-1.10.jar:/home/lg/agrosavia/opt/TASSEL5/lib/sqlite-jdbc-3.8.5-pre1.jar:/home/lg/agrosavia/opt/TASSEL5/lib/ahocorasick-0.2.4.jar:/home/lg/agrosavia/opt/TASSEL5/lib/gs-core-1.3.jar:/home/lg/agrosavia/opt/TASSEL5/lib/postgresql-9.4-1201.jdbc41.jar:/home/lg/agrosavia/opt/TASSEL5/lib/biojava-core-4.0.0.jar:/home/lg/agrosavia/opt/TASSEL5/lib/javax.json-1.0.4.jar:/home/lg/agrosavia/opt/TASSEL5/lib/biojava-alignment-4.0.0.jar:/home/lg/agrosavia/opt/TASSEL5/lib/colt-1.2.0.jar:/home/lg/agrosavia/opt/TASSEL5/lib/junit-4.10.jar:/home/lg/agrosavia/opt/TASSEL5/lib/log4j-1.2.13.jar:/home/lg/agrosavia/opt/TASSEL5/lib/slf4j-simple-1.7.10.jar:/home/lg/agrosavia/opt/TASSEL5/sTASSEL.jar
+Memory Settings: -Xms512m -Xmx1536m
+Tassel Pipeline Arguments: -ListPlugins -usage true
+[main] INFO net.maizegenetics.tassel.TasselLogging - Tassel Version: 5.2.57  Date: October 10, 2019
+[main] INFO net.maizegenetics.tassel.TasselLogging - Max Available Memory Reported by JVM: 1536 MB
+[main] INFO net.maizegenetics.tassel.TasselLogging - Java Version: 11.0.5
+[main] INFO net.maizegenetics.tassel.TasselLogging - OS: Linux
+[main] INFO net.maizegenetics.tassel.TasselLogging - Number of Processors: 4
+[main] INFO net.maizegenetics.pipeline.TasselPipeline - Tassel Pipeline Arguments: [-fork1, -ListPlugins, -usage, true, -runfork1]
+net.maizegenetics.analysis.ListPlugins
+[pool-1-thread-1] INFO net.maizegenetics.plugindef.AbstractPlugin - Starting net.maizegenetics.analysis.ListPlugins: time: Jan 7, 2020 13:12:46
+[pool-1-thread-1] INFO net.maizegenetics.plugindef.AbstractPlugin - 
+ListPlugins Parameters
+full: false
+usage: true
+
+[pool-1-thread-1] INFO net.maizegenetics.matrixalgebra.Matrix.DoubleMatrixFactory - TasselBlas library for system-specific BLAS/LAPACK not found. Using system-independent EJML for DoubleMatrix operations.
+net.maizegenetics.analysis.ListPlugins
+--------------------------------------
+ListPlugins
+
+Full : Full (Default: false)
+
+Usage : Usage (Default: false)
+
+
+
+net.maizegenetics.analysis.association.EqtlAssociationPlugin
+--------------------------------------
+EqtlAssociationPlugin
+
+MaxPValue : The maximum p-value that will be output by the analysis. (Default: 0.001)
+
+Additive Only Model : Should an additive only model be fit? If true, an additive model will be fit. If false, an additive + dominance model will be fit. Default = false. (Default: false)
+
+Genotype Component : If the genotype table contains more than one type of genotype data, choose the type to use for the analysis. [Genotype, ReferenceProbability, AlleleProbability] (Default: Genotype)
+
+Write to file : Should the results be saved to a file rather than stored in memory? It true, the results will be written to a file as each SNP is analyzed in order to reduce memory requirementsand the results will NOT be saved to the data tree. Default = false. (Default: false)
+
+Output File : The name of the file to which these results will be saved.
+
+
+
+net.maizegenetics.analysis.association.FastMultithreadedAssociationPlugin
+--------------------------------------
+FastMultithreadedAssociationPlugin
+
+MaxPValue : The maximum p-value that will be output by the analysis. (Default: 0.001)
+
+Genotype Component : If the genotype table contains more than one type of genotype data, choose the type to use for the analysis. [Genotype, ReferenceProbability, AlleleProbability] (Default: Genotype)
+
+Write to file : Should the results be saved to a file rather than stored in memory? It true, the results will be written to a file as each SNP is analyzed in order to reduce memory requirementsand the results will NOT be saved to the data tree. Default = false. (Default: false)
+
+Output File : The name of the file to which these results will be saved.
+
+Max Threads : the maximum number of threads to be used by this plugin. (Default: 3)
+
+
+
+net.maizegenetics.analysis.association.FixedEffectLMPlugin
+--------------------------------------
+FixedEffectLMPlugin
+
+Analyze Phenotype Only : Should the phenotype be analyzed with no markers and BLUEs generated? (BLUE = best linear unbiased estimate) (Default: false)
+
+Save to file : Should the results be saved to a file rather than stored in memory? It true, the results will be written to a file as each SNP is analyzed in order to reduce memory requirementsand the results will NOT be saved to the data tree. Default = false. (Default: false)
+
+Statistics File : The name of the file to which these results will be saved.
+
+Genotype Effect File : The name of the file to which these results will be saved.
+
+max P value : Only results with p <= maxPvalue will be reported. Default = 1.0. [0.0..1.0] (Default: 1.0)
+
+Run Permutations : Should a permutation analysis be run? The permutation analysis controls the experiment-wise error rate for individual phenotypes. (Default: false)
+
+Number of Permutations : The number of permutations to be run for the permutation analysis. (Default: 0)
+
+Genotype Component : If the genotype table contains more than one type of genotype data, choose the type to use for the analysis. [Genotype, ReferenceProbability, AlleleProbability] (Default: Genotype)
+
+Minimum Class Size : The minimum acceptable genotype class size. Genotypes in a class with a smaller size will be set to missing. (Default: 0)
+
+Bi-Allelic Sites Only : Only test sites that are bi-allelic. The alternative is to test sites with two or more alleles. (Default: false)
+
+Output Site Stats : Generate an output dataset with only p-val, F statistic, and number of obs per site for all sites. (Default: false)
+
+Site Stat File : Site Stat File
+
+Append Effect Estimates to Stats : If true, additive and dominance effect estimates will be added to the stats report for bi-allelic sites only. The effect will only be estimated when the data source is genotype (not a probability). The additive effect will always be non-negative. (Default: false)
+
+
+
+net.maizegenetics.analysis.association.GenomicSelectionPlugin
+--------------------------------------
+GenomicSelectionPlugin
+
+Description: Predicts phenotypes using G-BLUP for genomic selection using a user-inputted kinship matrix and phenotype(s).
+
+
+Perform cross-validation : Perform cross-validation: True or False (Default: true)
+
+Number of folds : Number of folds to use for k-fold cross-validation (default = 5) (Default: 5)
+
+Number of iterations : Number of iterations when running k-fold cross-validation (default = 20) (Default: 20)
+
+
+
+net.maizegenetics.analysis.association.MLMPlugin
+--------------------------------------
+MLMPlugin
+
+
+
+net.maizegenetics.analysis.association.RidgeRegressionEmmaPlugin
+--------------------------------------
+RidgeRegressionEmmaPlugin
+
+
+
+net.maizegenetics.analysis.association.WeightedMLMPlugin
+--------------------------------------
+WeightedMLMPlugin
+
+
+
+net.maizegenetics.analysis.b4r.GetPhenotypeFromB4RPlugin
+--------------------------------------
+GetPhenotypeFromB4RPlugin
+
+B4R Database Name : B4R Database Name (required)
+
+B4R Host Name : B4R Host Name (Default: localhost)
+
+B4R User : B4R User Name (required)
+
+B4R Password : Password (Default: )
+
+Study Name : Name of the study (Default: )
+
+Taxa Name : Name of the taxa (Default: )
+
+Variable Name : Name of the variable (Default: )
+
+
+
+net.maizegenetics.analysis.chart.AbstractDisplayPlugin
+--------------------------------------
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - Self-describing Plugins should implement this constructor: net.maizegenetics.analysis.chart.AbstractDisplayPlugin
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - public Plugin(Frame parentFrame, boolean isInteractive) {
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin -    super(parentFrame, isInteractive);
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - }
+
+
+net.maizegenetics.analysis.chart.ChartDisplayPlugin
+--------------------------------------
+ChartDisplayPlugin
+
+
+
+net.maizegenetics.analysis.chart.ManhattanDisplayPlugin
+--------------------------------------
+ManhattanDisplayPlugin
+
+
+
+net.maizegenetics.analysis.chart.QQDisplayPlugin
+--------------------------------------
+QQDisplayPlugin
+
+
+
+net.maizegenetics.analysis.chart.TableDisplayPlugin
+--------------------------------------
+TableDisplayPlugin
+
+
+
+net.maizegenetics.analysis.data.AddReferenceAlleleToHDF5Plugin
+--------------------------------------
+AddReferenceAlleleToHDF5Plugin
+
+Input HDF5 Genotype File : Input HDF5 genotype (*.h5) file to be annotated with the reference allele (required)
+
+Reference Genome File : Reference genome file in fasta format (required)
+
+Reference Genome Version : Version of the reference genome (required)
+
+Output HDF5 Genotype File : Output HDF5 genotype file annotated with the reference allele (Default: write to same folder as input, with '*.h5' replaced '*_withRef.h5')
+
+
+
+net.maizegenetics.analysis.data.AddReferenceToGenotypePlugin
+--------------------------------------
+AddReferenceToGenotypePlugin
+
+Reference : Input Reference Fasta (required)
+
+
+
+net.maizegenetics.analysis.data.AdjustPhasingPlugin
+--------------------------------------
+AdjustPhasingPlugin
+
+Input VCF File : Input VCF file (required)
+
+Hapcut Dir : Directory containing Hapcut output files. (required)
+
+Output VCF File : Output VCF file (required)
+
+
+
+net.maizegenetics.analysis.data.BuildUnfinishedHDF5GenotypesPlugin
+--------------------------------------
+BuildUnfinishedHDF5GenotypesPlugin
+
+Input file : Input, unfinished HDF5 genotype (*.h5) file to be fininalized (required)
+
+Output file : Output, finished HDF5 genotype (*.h5) file which can be opened with the TASSEL5 GUI. __DATE__ is replaced with a _yyyyMMdd date stamp.
+
+Data set name : (Optional) Short data set name to be added as an root level annotation under "dataSetName"
+
+Data set description : (Optional) Short data set description to be added as an root level annotation under "dataSetDescription"
+
+
+
+net.maizegenetics.analysis.data.CombineDataSetsPlugin
+--------------------------------------
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - Self-describing Plugins should implement this constructor: net.maizegenetics.analysis.data.CombineDataSetsPlugin
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - public Plugin(Frame parentFrame, boolean isInteractive) {
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin -    super(parentFrame, isInteractive);
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - }
+
+
+net.maizegenetics.analysis.data.ConvertAlignmentCoordinatesPlugin
+--------------------------------------
+ConvertAlignmentCoordinatesPlugin
+
+Map File : Map File (required)
+
+Genome Version : Genome Version (Default: AGPv3)
+
+
+
+net.maizegenetics.analysis.data.CreateHybridGenotypesPlugin
+--------------------------------------
+CreateHybridGenotypesPlugin
+
+Hybrid File : Two column tab-delimited file defining parent crosses. (required)
+
+Hybrid Char : String used to combine taxa names to create hybrid name. (Default: /)
+
+
+
+net.maizegenetics.analysis.data.ExportMultiplePlugin
+--------------------------------------
+ExportMultiplePlugin
+
+
+
+net.maizegenetics.analysis.data.ExportPlugin
+--------------------------------------
+ExportPlugin
+
+Save As : Save file as... (required)
+
+Format : Export file format (Default format depends on data being exported) [SqrMatrix, Sequence, Unknown, Fasta, Hapmap, HapmapLIX, Plink, Phenotype, ProjectionAlignment, ProjectPCsandRunModelSelection, Phylip_Seq, Phylip_Inter, Table, Serial, HapmapDiploid, Text, VCF, HDF5, TOPM, HDF5Schema, Filter, NumericGenotype, TaxaList, PositionList, SqrMatrixRaw, SqrMatrixBin, GOBII, Depth, ReferenceProbability, Report, PlinkPhenotype, SqrMatrixDARwinDIS, Avro, Flapjack] (required)
+
+Keep Depth : Whether to keep depth if format supports depth. (Default: true)
+
+Include Taxa Annotations : Whether to include taxa annotations if format supports taxa annotations. (Default: true)
+
+
+
+net.maizegenetics.analysis.data.ExtractHapmapSubsetPlugin
+--------------------------------------
+The ExtractHapmapSubsetPlugin requires the following parameter:
+-h or -inputfile : a hapmap file containing the full data set.
+-o or -outputfile : the name of the file that will contain the subset specified by the pedfile.
+-p or -pedfile : the pedigree file containing a list of taxa to be extracted.
+The following parameter is optional:
+-a or -minalleles : only snps with the minimum number of alleles will be extracted. Default = 0.
+
+
+
+
+net.maizegenetics.analysis.data.FeatureListToPositionsPlugin
+--------------------------------------
+FeatureListToPositionsPlugin
+
+DB Config File : DB connection config file (required)
+
+Feature Type : Feature Type.  Examples: three_prime_utr, gene, exon, five_prime_utr, transcript, cds (Default: gene)
+
+Feature List Filename : File with list of features.  If this is not specified, all features of specified type are retrieved.
+
+Output File : Output filename (required)
+
+Number Bases Plus Or Minus : Number of bases plus or minus the range of each feature (Default: 0)
+
+
+
+net.maizegenetics.analysis.data.FileLoadPlugin
+--------------------------------------
+FileLoadPlugin
+
+Format : Import file format [SqrMatrix, Sequence, Unknown, Fasta, Hapmap, HapmapLIX, Plink, Phenotype, ProjectionAlignment, ProjectPCsandRunModelSelection, Phylip_Seq, Phylip_Inter, Table, Serial, HapmapDiploid, Text, VCF, HDF5, TOPM, HDF5Schema, Filter, NumericGenotype, TaxaList, PositionList, SqrMatrixRaw, SqrMatrixBin, GOBII, Depth, ReferenceProbability, Report, PlinkPhenotype, SqrMatrixDARwinDIS, Avro, Flapjack] (Default: Make Best Guess)
+
+Sort Positions : Whether to sort genotype positions if that's possible. (Default: false)
+
+Keep Depth : Whether to keep depth if that's possible. (Default: true)
+
+
+
+net.maizegenetics.analysis.data.FindInversionsPlugin
+--------------------------------------
+FindInversionsPlugin
+
+Window Unit : Window Unit [Sites, Positions] (Default: Sites)
+
+Step Size : Step Size [0..+∞) (Default: 100)
+
+Window Size : Window Size [0..+∞) (Default: 500)
+
+Number of PCAs : Number of PCAs [1..+∞) (Default: 1)
+
+Output File : Output File
+
+
+
+net.maizegenetics.analysis.data.GenomeAnnosDBQueryToPositionListPlugin
+--------------------------------------
+GenomeAnnosDBQueryToPositionListPlugin
+
+DB config file : DB connection config file (required)
+
+Query file : Query file
+
+
+
+net.maizegenetics.analysis.data.GenosToABHPlugin
+--------------------------------------
+GenosToABHPlugin
+
+Output file : Output genotype file (required)
+
+Parent A : The full name of file containing list of taxa names for parent A (required)
+
+Parent B : The full name of file containing list of taxa names for parent B (required)
+
+Output Format : Enter "c" for A,H,B to code for parent A, het, and parent B; Enter "i" for 0, 1, 2 to code for parent A, het, and parent B; Enter "r" for 0, 0.5, 1 to code for parent A, het, and parent B [c, i, r] (Default: c)
+
+
+
+net.maizegenetics.analysis.data.GenotypeSummaryPlugin
+--------------------------------------
+GenotypeSummaryPlugin
+
+Overview : Get Overview Report (Default: true)
+
+Site Summary : Get Site Summary (Default: true)
+
+Taxa Summary : Get Taxa Summary (Default: true)
+
+
+
+net.maizegenetics.analysis.data.GenotypeToAdditiveValuesPlugin
+--------------------------------------
+GenotypeToAdditiveValuesPlugin
+
+
+
+net.maizegenetics.analysis.data.GetPositionListPlugin
+--------------------------------------
+GetPositionListPlugin
+
+
+
+net.maizegenetics.analysis.data.GetTaxaListPlugin
+--------------------------------------
+GetTaxaListPlugin
+
+
+
+net.maizegenetics.analysis.data.HDF5SummaryPlugin
+--------------------------------------
+HDF5SummaryPlugin
+
+Description: This plugin takes a TASSEL-generated HDF5 file and prints out a set of summary data depending on which command-line flags are passed to it. It is meant to allow quick retrieval of certain basic data (taxa names, site count, etc.) that are not easily available without operations that could take considerable time (e.g., a genotype summary report). This plugin currently supports Genotype, TOPM (tags on physical map), andTBT (tags by taxa) files. (Note that the implementation of TOPM and TBT formats in HDF5 is still ongoing, so this plugin may not work on them.)
+
+
+
+HDF5 file : TASSEL HDF5 file to get summary data from (required)
+
+Output file : File to write summary data to (required)
+
+Output count of taxa? : Output number of taxa in file (Default: false)
+
+Output taxa names : Output names of all taxa in file (Default: false)
+
+Output site count : Output number of sites in file (Default: false)
+
+Output site names : Output names of all sites in file (Default: false)
+
+Output tag count : Output number of sequence tags in file (Default: false)
+
+Output tag sequences : Output sequence of all tags in file (Default: false)
+
+Output if has read depth : Output whether file contains read depth information (Default: false)
+
+Output all available information : Output all available information (overrides other options) (Default: false)
+
+Output only raw data : Include only the raw output (no metadata or descriptions) (Default: false)
+
+
+
+net.maizegenetics.analysis.data.HetsToUnknownPlugin
+--------------------------------------
+HetsToUnknownPlugin
+
+
+
+net.maizegenetics.analysis.data.IdentityRecognitionPlugin
+--------------------------------------
+IdentityRecognitionPlugin
+
+
+
+net.maizegenetics.analysis.data.IndelsToUnknownPlugin
+--------------------------------------
+IndelsToUnknownPlugin
+
+
+
+net.maizegenetics.analysis.data.IntersectionAlignmentPlugin
+--------------------------------------
+IntersectionAlignmentPlugin
+
+
+
+net.maizegenetics.analysis.data.KmerCountingPlugin
+--------------------------------------
+KmerCountingPlugin
+
+Fastq File : Fastq filename (required)
+
+Kmer Length : Length of Kmer (Default: 3)
+
+
+
+net.maizegenetics.analysis.data.LIXPlugin
+--------------------------------------
+LIXPlugin
+
+Create Index : Create Index for given file.
+
+
+
+net.maizegenetics.analysis.data.MaskGenotypePlugin
+--------------------------------------
+MaskGenotypePlugin
+
+Percentage Masked : Percentage of genotypes (not already unknown) to mask. (0.0..1.0] (Default: 0.01)
+
+Min Depth : Minimum depth required before masking. [0..+∞) (Default: 0)
+
+
+
+net.maizegenetics.analysis.data.MemoryUsagePlugin
+--------------------------------------
+MemoryUsagePlugin
+
+
+
+net.maizegenetics.analysis.data.MergeAlignmentsSameSitesPlugin
+--------------------------------------
+MergeAlignmentsSameSitesPlugin
+
+
+
+net.maizegenetics.analysis.data.MergeGenotypeTablesPlugin
+--------------------------------------
+MergeGenotypeTablesPlugin
+
+
+
+net.maizegenetics.analysis.data.MergeGenotypeTablesPluginV2
+--------------------------------------
+MergeGenotypeTablesPluginV2
+
+Description: This plugin takes a two or more GenotypeTables and Creates a CombinedGenotypeTable based on user-specified rules
+
+
+Taxa Merge Rule : Selection for Taxa Merge Rule (Default: Intersect)
+
+Position Merge Rule : Selection for Position Merge Rule (Default: Intersect)
+
+Call Merge Rule : Selection for Call Merging (Default: Depth)
+
+Depth Merge Rule : Selection for How to Merge Depths (Default: Additive)
+
+
+
+net.maizegenetics.analysis.data.MergeHDF5GenotypesSameSitesPlugin
+--------------------------------------
+MergeHDF5GenotypesSameSitesPlugin
+
+
+
+net.maizegenetics.analysis.data.MergeRenameDeleteTaxaPlugin
+--------------------------------------
+MergeRenameDeleteTaxaPlugin
+
+Description: Rename taxa, merging those with the same new name in the taxa rename key file. Taxa with the new name "delete" will be removed.
+
+
+Taxa Rename Key : Tab-delimited file with original and new taxa names. Taxa with the same new name will be merged. Taxa with the new name "delete" will be removed. Any other columns (and the header line) are ignored. (required)
+
+Output HDF Genotypes : Output HDF5 genotypes file (required)
+
+Avg Seq Error Rate : Average sequencing error rate per base (used to decide between heterozygous and homozygous calls when merging taxa) (Default: 0.01)
+
+No Depth Output : No depth output: do not write depths to the output HDF5 genotypes file (Default: false)
+
+Data set name : (Optional) Short data set name to be added as an root level annotation under "dataSetName"
+
+Data set description : (Optional) Short data set description to be added as an root level annotation under "dataSetDescription"
+
+
+
+net.maizegenetics.analysis.data.PassThroughPlugin
+--------------------------------------
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - Self-describing Plugins should implement this constructor: net.maizegenetics.analysis.data.PassThroughPlugin
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - public Plugin(Frame parentFrame, boolean isInteractive) {
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin -    super(parentFrame, isInteractive);
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - }
+
+
+net.maizegenetics.analysis.data.PlinkLoadPlugin
+--------------------------------------
+PlinkLoadPlugin
+
+Ped File : Ped File (required)
+
+Map File : Map File (required)
+
+Sort Positions : Whether to sort genotype positions. (Default: false)
+
+
+
+net.maizegenetics.analysis.data.PrincipalComponentsPlugin
+--------------------------------------
+PrincipalComponentsPlugin
+
+Description: This plugin performs principal components analysis and returns the requested number of PC axes (components), and, optionally, the eigenvalues and eigenvectors. It can take as input either phenotype data or ReferenceProbability from a GenotypeTable.
+
+
+covariance (alternative = correlation) : If the box is checked, then the analysis will do an eigenvalue decomposition of the covariance matrix. If the box is unchecked, it will use a correlation matrix. Using the covariance matrix is recommended for genotypes while the correlation matrix is often used for phenotypes. (Default: true)
+
+limit number of components by : This parameter determines the type of value that will be used to limit the number of principal components (axes) returned. The possible choices are number_of_components, min_eigenvalue, and total_variance. (Default: number_of_components)
+
+number of components : The analysis will return this many principal components up to the number of taxa. (Default: 5)
+
+minimum eigenvalue : All principal components with an eigenvalue greater than or equal to this value will be returned. (Default: 0.0)
+
+total variance : The first principal components that together explain this proportion of the total variance will be returned. [0.0..1.0] (Default: 0.5)
+
+Return Eigenvalues : Returns a list of eigenvalues sorted high to low. (Default: true)
+
+Return Eigenvectors : Returns the eigenvectors calculated from a Singular Value Decomposition of the data. The resulting table can be quite large if the number of variants and taxa are big. (Default: true)
+
+
+
+net.maizegenetics.analysis.data.ProjectPcsAndRunModelSelectionPlugin
+--------------------------------------
+ProjectPcsAndRunModelSelectionPlugin
+
+Recombination Breakpoints : Recombination Breakpoints (required)
+
+
+
+net.maizegenetics.analysis.data.ProjectionLoadPlugin
+--------------------------------------
+ProjectionLoadPlugin
+
+Recombination Breakpoints : Recombination Breakpoints (required)
+
+
+
+net.maizegenetics.analysis.data.SeparatePlugin
+--------------------------------------
+SeparatePlugin
+
+
+
+net.maizegenetics.analysis.data.SetLowDepthGenosToMissingPlugin
+--------------------------------------
+SetLowDepthGenosToMissingPlugin
+
+Description: Sets each genotype in the input genotypes to missing if the underlying allelic depth is below a specified minimum.
+
+
+minimum genotype depth : Minimum depth, below which genotypes are set to missing. Must be between 2 and 127, inclusive. [2..127] (required)
+
+
+
+net.maizegenetics.analysis.data.SortGenotypeFilePlugin
+--------------------------------------
+SortGenotypeFilePlugin
+
+Description: This plugin takes a Hapmap, VCF, or Plink genotype file and sorts it according to TASSEL's conventions, which rely on the position, locus (chromosome), physical position, and SNP name (to facilitate searching).
+
+
+Input file : Input file (required)
+
+Output file : Output file (required)
+
+File type : Input/output file type (if not obvious from file name)
+
+
+
+net.maizegenetics.analysis.data.SortTaxaAlphabeticallyPlugin
+--------------------------------------
+SortTaxaAlphabeticallyPlugin
+
+
+
+net.maizegenetics.analysis.data.SplitHDF5ByChromosomePlugin
+--------------------------------------
+SplitHDF5ByChromosomePlugin
+
+Input HDF5 Genotype File : Input HDF5 genotype (*.h5) file to be split by chromosome. The output files will be named *_chr#.h5 (where # = chromosome number) (required)
+
+Ignore Depth : If genotypic depth information is present in the input file, ignore it (i.e., do not write depth information to the output files). Default: keep depth. (Default: false)
+
+
+
+net.maizegenetics.analysis.data.SubtractGenotypesPlugin
+--------------------------------------
+SubtractGenotypesPlugin
+
+Hybrid File : Three column tab-delimited file defining parent crosses. Columns are hybrid, firstParent, secondParent. The second parent will be imputed from the hybrid by subtracting the first parent, which should be homozygous. (required)
+
+
+
+net.maizegenetics.analysis.data.SynonymizerPlugin
+--------------------------------------
+SynonymizerPlugin
+
+
+
+net.maizegenetics.analysis.data.ThinSitesByPositionPlugin
+--------------------------------------
+ThinSitesByPositionPlugin
+
+Output file : Output genotype file (required)
+
+Minimum distance : Minimum distance in bp between adjacent sites (required)
+
+
+
+net.maizegenetics.analysis.data.UnionAlignmentPlugin
+--------------------------------------
+UnionAlignmentPlugin
+
+
+
+net.maizegenetics.analysis.distance.AMatrixPlugin
+--------------------------------------
+AMatrixPlugin
+
+Description: Create Pedigree Matrix
+
+
+Pedigree Filename : Pedigree Filename (required)
+
+
+
+net.maizegenetics.analysis.distance.AddDistanceMatrixPlugin
+--------------------------------------
+AddDistanceMatrixPlugin
+
+
+
+net.maizegenetics.analysis.distance.DistanceMatrixPlugin
+--------------------------------------
+DistanceMatrixPlugin
+
+
+
+net.maizegenetics.analysis.distance.DistanceMatrixRangesPlugin
+--------------------------------------
+DistanceMatrixRangesPlugin
+
+
+
+net.maizegenetics.analysis.distance.HMatrixPlugin
+--------------------------------------
+HMatrixPlugin
+
+Pedigree Matrix : Pedigree Matrix (A Matrix) (required)
+
+Kinship Matrix : Kinship Matrix (G Matrix) (required)
+
+Weight : Weight (Default: 1.0)
+
+
+
+net.maizegenetics.analysis.distance.KinshipPlugin
+--------------------------------------
+KinshipPlugin
+
+Kinship method : The Centered_IBS (Endelman - previously Scaled_IBS) method produces a kinship matrix that is scaled to give a reasonable estimate of additive genetic variance. Uses algorithm http://www.g3journal.org/content/2/11/1405.full.pdf Equation-13. The Normalized_IBS (Previously GCTA) uses the algorithm published here: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3014363/pdf/main.pdf. [Centered_IBS, Normalized_IBS, Dominance_Centered_IBS, Dominance_Normalized_IBS] (Default: Centered_IBS)
+
+Max Alleles : Max Alleles [2..6] (Default: 6)
+
+Algorithm Variation : Algorithm Variation [Observed_Allele_Freq, Proportion_Heterozygous] (Default: Observed_Allele_Freq)
+
+
+
+net.maizegenetics.analysis.distance.MultiDimensionalScalingPlugin
+--------------------------------------
+MultiDimensionalScalingPlugin
+
+Description: MultiDimensionalScalingPlugin takes a DistanceMatrix as input and performs classic multidimensional scaling, which is also know as principal coordinate analysis (PCO).
+
+
+Number of Axes : The number of axes or dimensions and associated eigenvalues to be returned by the analysis. (Default: 5)
+
+Remove NaNs : Remove NaNs from matrix before performing MDS (Default: true)
+
+
+
+net.maizegenetics.analysis.distance.RemoveNaNFromDistanceMatrixPlugin
+--------------------------------------
+RemoveNaNFromDistanceMatrixPlugin
+
+Maximum Percent NaN : Maximum percent of NaN allowed [0.0..100.0] (Default: 0.0)
+
+
+
+net.maizegenetics.analysis.distance.SubtractDistanceMatrixPlugin
+--------------------------------------
+SubtractDistanceMatrixPlugin
+
+Whole Matrix : The filename of the whole matrix which will be used to subtract input sub-matrices. (required)
+
+
+
+net.maizegenetics.analysis.distance.VCAPScanPlugin
+--------------------------------------
+VCAPScanPlugin
+
+Scan method : Scan method [Chromosome, Site_Blocks, Directory_Of_Files, Bed_File] (Default: Chromosome)
+
+Blocking Window Size : Blocking window size. Number of sites (Site_Blocks) or physical positions (Bed_File) on each side of regions. [0..+∞) (Default: 0)
+
+Num Sites Per Block : For Site_Blocks method, this sets number of sites per block. Blocks do not span chromosomes. [1..+∞) (Default: 10000)
+
+Step Size : Step Size. If step size set to default 0, the step size will equal number sites per block. [0..+∞) (Default: 0)
+
+Dir Of Files : Directory contains files for sub-matrices. Can be text (.txt) containing chromosome / positions, Bed (.bed), or Position List (.json or .json.gz)
+
+Bed File : For Bed_File method, this specifies bed file to use.  Each line / range in the bed file will be a block in the scan.
+
+Blocking Bed File : For Bed_File method, this specifies optional bed file to define blocking window for each block in the main bed file.
+
+Phenotype File : The phenotype file to use with LDAK.  Must have only one phenotype. (required)
+
+Ldak Command : Command to call LDAK.  If not on PATH, full pathname needed. (Default: ldak.4.9.fast)
+
+Output Dir : Directory to output kinship matrices and LDAK reml results. (Default: .)
+
+Whole Matrix : Kinship matrix of whole genotype dataset.  This will be created if not specified.  Must have been exported from Tassel with export type SqrMatrixBin.
+
+
+
+net.maizegenetics.analysis.filter.FilterAlignmentPlugin
+--------------------------------------
+FilterAlignmentPlugin
+
+
+
+net.maizegenetics.analysis.filter.FilterDataSetPlugin
+--------------------------------------
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - Self-describing Plugins should implement this constructor: net.maizegenetics.analysis.filter.FilterDataSetPlugin
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - public Plugin(Frame parentFrame, boolean isInteractive) {
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin -    super(parentFrame, isInteractive);
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - }
+
+
+net.maizegenetics.analysis.filter.FilterSiteBuilderPlugin
+--------------------------------------
+FilterSiteBuilderPlugin
+
+Filter Name : Filter Name (Default: Filter)
+
+Site Min Count : Site Minimum Count of Alleles not Unknown [0..+∞) (Default: 0)
+
+Site Min Allele Freq : Site Minimum Minor Allele Frequency [0.0..1.0] (Default: 0.0)
+
+Site Max Allele Freq : Site Maximum Minor Allele Frequency [0.0..1.0] (Default: 1.0)
+
+Min Heterozygous Proportion : Min Heterozygous Proportion [0.0..1.0] (Default: 0.0)
+
+Max Heterozygous Proportion : Max Heterozygous Proportion [0.0..1.0] (Default: 1.0)
+
+Remove Minor SNP States : Remove Minor SNP States (Default: false)
+
+Remove Sites With Indels : Removes sites containing an indel (+ or -) (Default: false)
+
+Site Range Filter Type : True if filtering by site numbers. False if filtering by chromosome and position [NONE, SITES, POSITIONS] (Default: NONE)
+
+Start Site : Start Site [0..+∞) (Default: 0)
+
+End Site : End Site [0..+∞) (Default: 0)
+
+Start Chr : Start Chr
+
+Start Pos : Start Pos [0..+∞)
+
+End Chr : End Chr
+
+End Pos : End Pos [0..+∞)
+
+Include Sites : Include Sites (Default: true)
+
+Position List : Filter based on position list. Position list can come from .json, .bed, or any TASSEL supported genotype file.
+
+Site Names : Filter based on site names.
+
+Bed File : Filter based on BED file.
+
+Chr Pos File : Filter based on list of chromsome / position in file.
+
+
+
+net.maizegenetics.analysis.filter.FilterSiteNamePlugin
+--------------------------------------
+FilterSiteNamePlugin
+
+
+
+net.maizegenetics.analysis.filter.FilterSubsetPlugin
+--------------------------------------
+FilterSubsetPlugin
+
+
+
+net.maizegenetics.analysis.filter.FilterTaxaBuilderPlugin
+--------------------------------------
+FilterTaxaBuilderPlugin
+
+Filter Name : Filter Name (Default: Filter)
+
+Min Proportion of Sites Present : Min Proportion of Sites Present [0.0..1.0] (Default: 0.0)
+
+Min Heterozygous Proportion : Min Heterozygous Proportion [0.0..1.0] (Default: 0.0)
+
+Max Heterozygous Proportion : Max Heterozygous Proportion [0.0..1.0] (Default: 1.0)
+
+Include Taxa : Include taxa from list of names or taxa list if true. Exclude otherwise. (Default: true)
+
+Taxa List : Optional list of taxa to include. This can be a comma separated list of taxa (no spaces unless surrounded by quotes), file (.txt) with list of taxa names to include, or a taxa list file (.json or .json.gz). By default, all taxa will be included.
+
+
+
+net.maizegenetics.analysis.filter.FilterTaxaPropertiesPlugin
+--------------------------------------
+FilterTaxaPropertiesPlugin
+
+Min Proportion of Sites Present : Min Proportion of Sites Present [0.0..1.0] (Default: 0.0)
+
+Min Heterozygous Proportion : Min Heterozygous Proportion [0.0..1.0] (Default: 0.0)
+
+Max Heterozygous Proportion : Max Heterozygous Proportion [0.0..1.0] (Default: 1.0)
+
+
+
+net.maizegenetics.analysis.filter.FilterTraitsPlugin
+--------------------------------------
+FilterTraitsPlugin
+
+
+
+net.maizegenetics.analysis.gbs.AnnotateTOPMwSAMPlugin
+--------------------------------------
+AnnotateTOPMwSAMPlugin
+
+
+
+net.maizegenetics.analysis.gbs.BinaryToTextPlugin
+--------------------------------------
+BinaryToTextPlugin
+
+Description: Converts Binary GBS Files into Text format.
+
+
+Input File : Input File (required)
+
+Output File : Output File (required)
+
+File Type : File Type [TOPM..TBTByte] (Default: TOPM)
+
+
+
+net.maizegenetics.analysis.gbs.CompareGenosBetweenHapMapFilesPlugin
+--------------------------------------
+CompareGenosBetweenHapMapFilesPlugin
+
+
+
+net.maizegenetics.analysis.gbs.ContigPETagCountPlugin
+--------------------------------------
+ContigPETagCountPlugin
+
+
+
+net.maizegenetics.analysis.gbs.DiscoverySNPCallerPlugin
+--------------------------------------
+DiscoverySNPCallerPlugin
+
+Input Tags by Taxa File : Input TagsByTaxa file (if hdf5 format, use .hdf or .h5 extension) (required)
+
+Use Byte Format : Use byte format TagsByTaxa file (*.tbt.byte) (Default: false)
+
+Input TOPM File : TagsOnPhysicalMap (TOPM) file containing genomic positions of tags (required)
+
+Output TOPM File : Output TagsOnPhysicalMap (TOPM) file with allele calls (variants) added (for use with ProductionSNPCallerPlugin (required)
+
+Log File : TagLocus log file name. (Default: TagLocusLog.txt)
+
+Minimum F : Minimum F (inbreeding coefficient) (Default: -2.0)
+
+Pedigree File : Pedigree file containing full sample names (or expected names after merging) & expected inbreeding coefficient (F) for each.  Only taxa with expected F >= mnF used to calculate F = 1-Ho/He. (default: use ALL taxa to calculate F
+
+Min Minor Allele Freq : Minimum minor allele frequency (Default: 0.01)
+
+Min Minor Allele Count : Minimum minor allele count (Default: 10)
+
+Min Locus Coverage : Minimum locus coverage (proportion of Taxa with a genotype) (Default: 0.1)
+
+Ave Seq Error Rate : Average sequencing error rate per base (used to decide between heterozygous and homozygous calls) (Default: 0.01)
+
+Reference Genome File : Path to reference genome in fasta format. Ensures that a tag from the reference genome is always included when the tags at a locus are aligned against each other to call SNPs. DEFAULT: Don't use reference genome.
+
+Start Chromosome : Start Chromosome (required)
+
+End Chromosome : End Chromosome (required)
+
+Include Rare Alleles : Include the rare alleles at site (3 or 4th states) (Default: false)
+
+Include Gaps : Include sites where major or minor allele is a GAP (Default: false)
+
+Call Biallelic SNPs with Gap : Include sites where the third allele is a GAP (mutually exclusive with inclGaps) (Default: false)
+
+
+
+net.maizegenetics.analysis.gbs.FastqToPETagCountPlugin
+--------------------------------------
+FastqToPETagCountPlugin
+
+
+
+net.maizegenetics.analysis.gbs.FastqToTBTPlugin
+--------------------------------------
+FastqToTBTPlugin
+
+
+
+net.maizegenetics.analysis.gbs.FastqToTagCountPlugin
+--------------------------------------
+FastqToTagCountPlugin
+
+Input Directory : Input directory containing FASTQ files in text or gzipped text. NOTE: Directory will be searched recursively and should be written WITHOUT a slash after its name. (required)
+
+Key File : Key file listing barcodes distinguishing the samples (required)
+
+Enzyme : Enzyme used to create the GBS library, if it differs from the one listed in the key file (required)
+
+Max Good Reads : Max good reads per lane (Default: 300000000)
+
+Min Tag Count : Minimum tag count (Default: 1)
+
+Output Directory : Output directory to contain .cnt files (one per FASTQ file (one per FASTQ file) (required)
+
+
+
+net.maizegenetics.analysis.gbs.KeepSpecifiedReadsinFastqPlugin
+--------------------------------------
+KeepSpecifiedReadsinFastqPlugin
+
+
+
+net.maizegenetics.analysis.gbs.KeepSpecifiedSitesInTOPMPlugin
+--------------------------------------
+KeepSpecifiedSitesInTOPMPlugin
+
+
+
+net.maizegenetics.analysis.gbs.KmerToTBTPlugin
+--------------------------------------
+KmerToTBTPlugin
+
+
+
+net.maizegenetics.analysis.gbs.KmerToTagCountPlugin
+--------------------------------------
+KmerToTagCountPlugin
+
+
+
+net.maizegenetics.analysis.gbs.MergeDuplicateSNPsPlugin
+--------------------------------------
+MergeDuplicateSNPsPlugin
+
+
+
+net.maizegenetics.analysis.gbs.MergeMultipleTOPMPlugin
+--------------------------------------
+MergeMultipleTOPMPlugin
+
+
+
+net.maizegenetics.analysis.gbs.MergeMultipleTagCountPlugin
+--------------------------------------
+MergeMultipleTagCountPlugin
+
+Input Directory : Input directory containing .cnt files. (required)
+
+Output File : Output file name. (required)
+
+Min Count : Minimum count of reads to be output. (Default: 1)
+
+Text Output : Specifies that reads should be output in FASTQ text format. (Default: false)
+
+
+
+net.maizegenetics.analysis.gbs.MergePETagCountPlugin
+--------------------------------------
+MergePETagCountPlugin
+
+
+
+net.maizegenetics.analysis.gbs.MergeTagsByTaxaFilesByRowPlugin
+--------------------------------------
+MergeTagsByTaxaFilesByRowPlugin
+
+
+
+net.maizegenetics.analysis.gbs.MergeTagsByTaxaFilesPlugin
+--------------------------------------
+MergeTagsByTaxaFilesPlugin
+
+
+
+net.maizegenetics.analysis.gbs.ModifyTBTHDF5Plugin
+--------------------------------------
+ModifyTBTHDF5Plugin
+
+Target TBT HDF5 File : Target TBT HDF5 (*tbt.h5) file to be modified. (Depending on the modification that you wish to make, choose only one of the only three parameters) (required)
+
+Addition Taxa File : TBT HDF5 (*tbt.h5) file containing additional taxa to be added to the target TBT HDF5 file
+
+Pivot TBT HDF5 File : Pivot (transpose) the target TBT HDF5 file into a tag-optimized orientation
+
+Merge Taxa : Merge taxa in the target TBT HDF5 file with same LibraryPrepID (Default: false)
+
+
+
+net.maizegenetics.analysis.gbs.ProductionPipeline
+--------------------------------------
+ProductionPipeline
+
+Input Directory : Input directory containing subdirectories with fastq AND/OR qseq files (required)
+
+Enzyme : Enzyme used to create the GBS library (required)
+
+Production T O P M : Physical map file containing tags and corresponding variants (production TOPM) (required)
+
+Output Genotype File : Output (target) HDF5 genotypes file to add new genotypes to (new file created if it doesn't exist) (required)
+
+Archive Directory : Archive directory where to move processed files (required)
+
+
+
+net.maizegenetics.analysis.gbs.ProductionSNPCallerPlugin
+--------------------------------------
+ProductionSNPCallerPlugin
+
+Input Directory : Input directory containing fastq AND/OR qseq files. (required)
+
+Key File : Key file listing barcodes distinguishing the samples (required)
+
+Enzyme : Enzyme used to create the GBS library (required)
+
+Input TOPM File : Physical map file containing tags and corresponding variants (production TOPM) (required)
+
+Output HDF5 Genotypes File : Output (target) HDF5 genotypes file to add new genotypes to (new file created if it doesn't exist) (required)
+
+Ave Seq Error Rate : Average sequencing error rate per base (used to decide between heterozygous and homozygous calls) (Default: 0.01)
+
+Keep Genotypes Open : Keep hdf5 genotypes open for future runs that add more taxa or more depth (Default: false)
+
+No Depth to Output : No depth output: do not write depths to the output hdf5 genotypes file (Default: false)
+
+
+
+net.maizegenetics.analysis.gbs.QseqToPETagCountPlugin
+--------------------------------------
+QseqToPETagCountPlugin
+
+
+
+net.maizegenetics.analysis.gbs.QseqToTBTPlugin
+--------------------------------------
+QseqToTBTPlugin
+
+
+
+net.maizegenetics.analysis.gbs.QseqToTagCountPlugin
+--------------------------------------
+QseqToTagCountPlugin
+
+
+
+net.maizegenetics.analysis.gbs.SAMConverterPlugin
+--------------------------------------
+SAMConverterPlugin
+
+Input File : Name of input file in SAM text format (required)
+
+Output File : Name of output file (Default: output.topm.bin) (required)
+
+Tag Length : tag length in integer multiples of 32 bases (Default: 2)
+
+Text Output Format : Specifies text output format (Default: false)
+
+
+
+net.maizegenetics.analysis.gbs.SAMWGMapConverterPlugin
+--------------------------------------
+SAMWGMapConverterPlugin
+
+
+
+net.maizegenetics.analysis.gbs.SeqToTBTHDF5Plugin
+--------------------------------------
+SeqToTBTHDF5Plugin
+
+Input Directory : Input directory containing .fastq files (required)
+
+Key File : Barcode key file (required)
+
+Enzyme : Enzyme used to create the GBS library, if it differs from the one listed in the key file.
+
+Output File : Output HDF5 file (required)
+
+Max Good Reads : Max good reads per lane. (Default: 500000000)
+
+Log File : Output log file (required)
+
+Tag Count File : Tag count file. (Only -t or -m allowed)
+
+Physical Map File : Physical map file containing alignments. (Only -t or -m allowed)
+
+
+
+net.maizegenetics.analysis.gbs.TOPMSummaryPlugin
+--------------------------------------
+TOPMSummaryPlugin
+
+
+
+net.maizegenetics.analysis.gbs.TagAgainstAnchorPlugin
+--------------------------------------
+TagAgainstAnchorPlugin
+
+
+
+net.maizegenetics.analysis.gbs.TagCountToFastqPlugin
+--------------------------------------
+TagCountToFastqPlugin
+
+Input File : Input binary tag count (*.cnt) file (required)
+
+Output File : Output fastq file to use as input for BWA or bowtie2 (required)
+
+Min Count : Minimum count of reads for a tag to be output (Default: 1)
+
+
+
+net.maizegenetics.analysis.gbs.TextToBinaryPlugin
+--------------------------------------
+TextToBinaryPlugin
+
+
+
+net.maizegenetics.analysis.gbs.UTagCountToTagPairPlugin
+--------------------------------------
+UTagCountToTagPairPlugin
+
+Description: This plugin takes a set of merged tag counts from the TASSEL GBS pipeline and converts it into a set of tag pairs according to the UNEAK filter (see citation). This plugin is intended for GBS with organisms that lack a reference genome.
+
+
+Error tolerance : What fraction of errors to tolerate when filtering by UNEAK (Default: 0.03)
+
+Input file : Input file of merged tag counts (required)
+
+Output file : Output file of matched tag pairs (required)
+
+
+
+net.maizegenetics.analysis.gbs.UTagPairToTOPMPlugin
+--------------------------------------
+UTagPairToTOPMPlugin
+
+Description: This plugin takes a tag-pair file (from UTagCountToTagPairPlugin) and converts it into a TOPM (tags on physical map) file for use in the GBS pipeline. The resulting chromosome coordinates and other data are just filler to comply with the TOPM file specifications.
+
+
+Start chromosome : Chromosome to start numbering at (Default: 1)
+
+Pad distance : Distance to pad between each tag pair [1..2147483647] (Default: 1000)
+
+Input tag pair file : Input file of matched tag pairs (required)
+
+Output file (text) : File to output TOPM in text format
+
+Output file (binary) : File to output TOPM in binary format
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanAAddPosToTagMapPlugin
+--------------------------------------
+PanAAddPosToTagMapPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanABuildPivotTBTPlugin
+--------------------------------------
+PanABuildPivotTBTPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanABuildTagBlockPosPlugin
+--------------------------------------
+PanABuildTagBlockPosPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanABuildTagGWASMapPlugin
+--------------------------------------
+PanABuildTagGWASMapPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanABuildTrainingSetPlugin
+--------------------------------------
+PanABuildTrainingSetPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanAFilteringTagMapPlugin
+--------------------------------------
+PanAFilteringTagMapPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanAH5ToAnchorPlugin
+--------------------------------------
+PanAH5ToAnchorPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanAMergeMappingResultPlugin
+--------------------------------------
+PanAMergeMappingResultPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanAModelTrainingPlugin
+--------------------------------------
+PanAModelTrainingPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanAPredictionPlugin
+--------------------------------------
+PanAPredictionPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanAReadDigestPlugin
+--------------------------------------
+PanAReadDigestPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanAReadToKmerPlugin
+--------------------------------------
+PanAReadToKmerPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanASamToMultiPositionTOPMPlugin
+--------------------------------------
+PanASamToMultiPositionTOPMPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanASplitTBTPlugin
+--------------------------------------
+PanASplitTBTPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanASplitTagBlockPosPlugin
+--------------------------------------
+PanASplitTagBlockPosPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanATagGWASMappingPlugin
+--------------------------------------
+PanATagGWASMappingPlugin
+
+
+
+net.maizegenetics.analysis.gbs.pana.PanATagMapToFastaPlugin
+--------------------------------------
+PanATagMapToFastaPlugin
+
+
+
+net.maizegenetics.analysis.gbs.repgen.RGBSProductionSNPCallerPlugin
+--------------------------------------
+RGBSProductionSNPCallerPlugin
+
+Input Directory : Input directory containing fastq AND/OR qseq files. (required)
+
+Key File : Key file listing barcodes distinguishing the samples (required)
+
+Input GBS Database : Input Database file if using SQLite (required)
+
+Output Genotypes File : Output (target) genotypes file to produce.  Default output file type is VCF.  If file suffix is .h5, an hdf5 file will be created instead. (required)
+
+Ave Seq Error Rate : Average sequencing error rate per base (used to decide between heterozygous and homozygous calls) (Default: 0.01)
+
+Max Divergence : Maximum divergence (edit distance) between new read and previously mapped read (Default: 0 = perfect matches only) (Default: 0)
+
+Write Depths to Output : Depth output: True means write depths to the output hdf5 genotypes file, false means do NOT write depths to the hdf5 file (Default: true)
+
+Maximum Kmer Length : Length of kmers to process (Default: 64)
+
+Minimun snp quality score : Minimum quality score for snp position to be included (Default: 0.0)
+
+Batch size of fastq files : Number of flow cells being processed simultaneously (Default: 8)
+
+Minimum quality score : Minimum quality score within the barcode and read length to be accepted (Default: 0)
+
+
+
+net.maizegenetics.analysis.gbs.repgen.RampSeqAlignFromBlastTags
+--------------------------------------
+RampSeqAlignFromBlastTags
+
+Input DB : Input database file with tags and taxa distribution (required)
+
+Reference Genome File : Referemce Genome File for aligning against  (required)
+
+Min Tag Count : Minimum count of reads for a tag to be aligned (Default: 1)
+
+Match Reward Amount : Parameter sent to Smith Waterman aligner for use in calculating reward when base pairs match. (Default: 2)
+
+Mismatch Penalty Amount : Parameter sent to Smith Waterman aligner for use in calculating penalty when base pairs are mis-matched. (Default: -1)
+
+Gap Penalty Amount : Parameter sent to Smith Waterman aligner for use in calculating penalty when when a gap is identified. (Default: -1)
+
+Forward Primer : String containing the forward primer sequence. (required)
+
+Reverse Primer : String containing the reverse primer sequence. (required)
+
+Blast File : Tab delimited Blast file output with NO header line, that contains only the data from columns for chrom, start postion, end position. 
+This data should be filtered to contain only entries whose identiy value was 98% or greater. (required)
+
+
+
+net.maizegenetics.analysis.gbs.repgen.RepGenAlignerPlugin
+--------------------------------------
+RepGenAlignerPlugin
+
+Input DB : Input database file with tags and taxa distribution (required)
+
+Reference Genome File : Referemce Genome File for aligning against  (required)
+
+Min Tag Count : Minimum count of reads for a tag to be aligned (Default: 1)
+
+Minimum Hit Count : Minimum number of hits in a cluster for a reference tag to be created from that location. (Default: 4)
+
+Seed Kmer Length : Length of kmer seed created from DB tags and used as seeds for aligning against the reference genome. (Default: 17)
+
+Window Length for Seed Creation : Length of window between positions when creating seed from DB tags. (Default: 20)
+
+Kmer Length : Length of kmer from fastq reads stored as the tag sequence in the DB. (Default: 150)
+
+Reference Kmer Length : Length of kmers created from reference genome to store in the DB. 
+This should be at as long or longer than the kmerLen parameter used for storing input sequence tags. (Default: 300)
+
+Match Reward Amount : Parameter sent to Smith Waterman aligner for use in calculating reward when base pairs match. (Default: 2)
+
+Mismatch Penalty Amount : Parameter sent to Smith Waterman aligner for use in calculating penalty when base pairs are mis-matched. (Default: -1)
+
+Gap Penalty Amount : Parameter sent to Smith Waterman aligner for use in calculating penalty when when a gap is identified. (Default: -1)
+
+
+
+net.maizegenetics.analysis.gbs.repgen.RepGenLDAnalysisPlugin
+--------------------------------------
+RepGenLDAnalysisPlugin
+
+Input DB : Input database file with tags and taxa distribution (required)
+
+Min Taxa for RSquared : Minimum number of taxa that must be present for R-squared to be calculated. (Default: 20)
+
+
+
+net.maizegenetics.analysis.gbs.repgen.RepGenLoadSeqToDBPlugin
+--------------------------------------
+RepGenLoadSeqToDBPlugin
+
+Input Directory : Input directory containing FASTQ files in text or gzipped text.
+     NOTE: Directory will be searched recursively and should
+     be written WITHOUT a slash after its name. (required)
+
+Key File : Key file listing barcodes distinguishing the samples (required)
+
+Maximum Kmer Length : Specified length for each kmer to process (Default: 150)
+
+Minimum Kmer Length : Minimum kmer Length after second cut site is removed (Default: 120)
+
+Min Kmer Count : Minimum kmer count (Default: 10)
+
+Min Taxa Represented : Minimum numer of taxa where kmer is found (Default: 2)
+
+Output Database File : Output Database File (required)
+
+Minimum quality score : Minimum quality score within the barcode and read length to be accepted (Default: 0)
+
+Maximum Kmer Number : Maximum number of kmers (Default: 50000000)
+
+Batch size of fastq files : Number of flow cells being processed simultaneously (Default: 100)
+
+
+
+net.maizegenetics.analysis.gbs.repgen.RepGenPhase2AlignerPlugin
+--------------------------------------
+RepGenPhase2AlignerPlugin
+
+Input DB : Input database file with tags and taxa distribution (required)
+
+Reference Genome File : Referemce Genome File for aligning against  (required)
+
+Min Tag Count : Minimum count of reads for a tag to be aligned (Default: 1)
+
+Seed Kmer Length : Length of kmer seed created from DB tags and used as seeds for aligning against the reference genome. (Default: 31)
+
+Window Length for Seed Creation : Length of window between positions when creating seed from DB tags. (Default: 1)
+
+Kmer Length : Length of kmer from fastq reads stored as the tag sequence in the DB. (Default: 150)
+
+Reference Kmer Length : Length of kmers created from reference genome to store in the DB. 
+This should be at as long or longer than the kmerLen parameter used for storing input sequence tags. (Default: 300)
+
+Match Reward Amount : Parameter sent to Smith Waterman aligner for use in calculating reward when base pairs match. (Default: 2)
+
+Mismatch Penalty Amount : Parameter sent to Smith Waterman aligner for use in calculating penalty when base pairs are mis-matched. (Default: -1)
+
+Gap Penalty Amount : Parameter sent to Smith Waterman aligner for use in calculating penalty when when a gap is identified. (Default: -1)
+
+Primers : Tab delimited file that contains a list of forward,reverse primer pairs.  
+The values in each column are the forward primer sequence and the reverse primer sequence. (required)
+
+
+
+net.maizegenetics.analysis.gbs.v2.DiscoverySNPCallerPluginV2
+--------------------------------------
+DiscoverySNPCallerPluginV2
+
+Input GBS Database : Input Database file if using SQLite (required)
+
+Min Minor Allele Freq : Minimum minor allele frequency (Default: 0.01)
+
+Min Locus Coverage : Minimum locus coverage (proportion of Taxa with a genotype) (Default: 0.1)
+
+Reference Genome File : Path to reference genome in fasta format. Ensures that a tag from the reference genome is always included when the tags at a locus are aligned against each other to call SNPs. The reference allele for each site is then provided in the output HapMap files, under the taxon name "REFERENCE_GENOME" (first taxon). DEFAULT: Don't use reference genome.
+
+Start Chromosome : Start Chromosome
+
+End Chromosome : End Chromosome
+
+Include Gaps : Include sites where major or minor allele is a GAP (Default: false)
+
+Gap Alignment Threshold : Gap alignment threshold ratio of indel contrasts to non indel contrasts: IC/(IC + NC). Any loci with a tag alignment value above this threshold will be excluded from the pool. (Default: 1.0)
+
+Max Number of Cut Sites : Maximum number of tags per cut site (Default: 64)
+
+Delete Previous Discovery Data : Delete existing SNP data from tables (Default: true)
+
+
+
+net.maizegenetics.analysis.gbs.v2.GBSSeqToTagDBPlugin
+--------------------------------------
+GBSSeqToTagDBPlugin
+
+Input Directory : Input directory containing FASTQ files in text or gzipped text.
+     NOTE: Directory will be searched recursively and should
+     be written WITHOUT a slash after its name. (required)
+
+Key File : Key file listing barcodes distinguishing the samples (required)
+
+Enzyme : Enzyme used to create the GBS library, if it differs from the one listed in the key file (required)
+
+Maximum Kmer Length : Specified length for each kmer to process (Default: 64)
+
+Minimum Kmer Length : Minimum kmer Length after second cut site is removed (Default: 20)
+
+Min Kmer Count : Minimum kmer count (Default: 10)
+
+Output Database File : Output Database File (required)
+
+Minimum quality score : Minimum quality score within the barcode and read length to be accepted (Default: 0)
+
+Maximum Kmer Number : Maximum number of kmers (Default: 50000000)
+
+Batch size of fastq files : Number of flow cells being processed simultaneously (Default: 8)
+
+Delete Old Data : Delete existing SNP quality data from db tables (Default: true)
+
+
+
+net.maizegenetics.analysis.gbs.v2.GetTagSequenceFromDBPlugin
+--------------------------------------
+GetTagSequenceFromDBPlugin
+
+Input DB : Input database file with tags (required)
+
+Output File : Output txt file that can be imported to Excel (required)
+
+Tag Sequence : Enter specific tag sequence to verify existence in database.  If no sequence is provided, all tags from the DB will be printed
+
+
+
+net.maizegenetics.analysis.gbs.v2.GetTagTaxaDistFromDBPlugin
+--------------------------------------
+GetTagTaxaDistFromDBPlugin
+
+Input DB : Input database file with tags (required)
+
+Output File : Output txt file that can be imported to Excel (required)
+
+
+
+net.maizegenetics.analysis.gbs.v2.ProductionSNPCallerPluginV2
+--------------------------------------
+ProductionSNPCallerPluginV2
+
+Input Directory : Input directory containing fastq AND/OR qseq files. (required)
+
+Key File : Key file listing barcodes distinguishing the samples (required)
+
+Enzyme : Enzyme used to create the GBS library (required)
+
+Input GBS Database : Input Database file if using SQLite (required)
+
+Output Genotypes File : Output (target) genotypes file to produce.  Default output file type is VCF.  If file suffix is .h5, an hdf5 file will be created instead. (required)
+
+Ave Seq Error Rate : Average sequencing error rate per base (used to decide between heterozygous and homozygous calls) (Default: 0.01)
+
+Max Divergence : Maximum divergence (edit distance) between new read and previously mapped read (Default: 0 = perfect matches only) (Default: 0)
+
+Keep Genotypes Open : Only applicable to hdf5 output files: Keep hdf5 genotypes open for future runs that add more taxa or more depth (Default: false)
+
+Write Depths to Output : Depth output: True means write depths to the output hdf5 genotypes file, false means do NOT write depths to the hdf5 file (Default: true)
+
+Maximum Kmer Length : Length of kmers to process (Default: 64)
+
+Minimun snp quality score : Minimum quality score for snp position to be included (Default: 0.0)
+
+Batch size of fastq files : Number of flow cells being processed simultaneously (Default: 8)
+
+Minimum quality score : Minimum quality score within the barcode and read length to be accepted (Default: 0)
+
+
+
+net.maizegenetics.analysis.gbs.v2.SAMToGBSdbPlugin
+--------------------------------------
+SAMToGBSdbPlugin
+
+SAM Input File : Name of input file in SAM text format (required)
+
+GBS DB File : Name of output file (e.g. GBSv2.db) (required)
+
+SAM Min Align Proportion : Minimum proportion of sequence that must align to store the SAM entry [0.0..1.0] (Default: 0.0)
+
+SAM Min Align Length : Minimum length of bps aligning to store the SAM entry [0..1000] (Default: 0)
+
+Mapper : Mapping approach (one of Bowtie2, BWA, or bwaMem) (Default: BWA)
+
+Delete Old Data : Delete existing SNP data from db tables (Default: true)
+
+SAM Min MAPQ value : Minimum value of MAPQ to store the SAM entry (Default: 0)
+
+
+
+net.maizegenetics.analysis.gbs.v2.SNPCutPosTagVerificationPlugin
+--------------------------------------
+SNPCutPosTagVerificationPlugin
+
+Input DB : Input database file with SNP positions stored (required)
+
+Chromosome : Chromsome containing the positions (required)
+
+Cut or SNP Position : A cut or SNP position number (required)
+
+Strand : The strand - 0 for reverse, 1 for forward (required)
+
+Type of Position : Type of Position - either snp or cut - for which the TaxaDistribution will be presented (required)
+
+Output file : File name to which tab-delimited output will be written (required)
+
+
+
+net.maizegenetics.analysis.gbs.v2.SNPQualityProfilerPlugin
+--------------------------------------
+SNPQualityProfilerPlugin
+
+Taxa List File : Name of taxa list input file in taxa list format
+
+GBS DB File : Name of output file (e.g. GBSv2.db) (required)
+
+Name for taxa set in DB : Name of taxa set for database
+
+Name for Stat File Output : Name of Stat File for Output
+
+Delete Old Data : Delete existing SNP quality data from db tables (Default: true)
+
+
+
+net.maizegenetics.analysis.gbs.v2.TagExportToFastqPlugin
+--------------------------------------
+TagExportToFastqPlugin
+
+Input DB : Input database file with tags and taxa distribution (required)
+
+Output File : Output fastq file to use as input for BWA or bowtie2 (required)
+
+Min Count : Minimum count of reads for a tag to be output (Default: 1)
+
+
+
+net.maizegenetics.analysis.gbs.v2.UpdateSNPPositionQualityPlugin
+--------------------------------------
+UpdateSNPPositionQualityPlugin
+
+Input DB : Input database file with SNP positions stored (required)
+
+Quality Score File : tab-delimited txt file containing headers CHROM(String), POS(Integer) and QUALITYSCORE(Float) for filtering SNP positions from database (required)
+
+
+
+net.maizegenetics.analysis.gobii.GOBIIPlugin
+--------------------------------------
+GOBIIPlugin
+
+Dataset Name : Dataset Name (required)
+
+Database Name : Database Name (required)
+
+User : User Name (required)
+
+Password : Password (Default: )
+
+BMS Database Name : BMS Database Name (required)
+
+BMS Host Name : BMS Host Name (Default: localhost)
+
+BMS User : BMS User Name (required)
+
+BMS Password : Password (Default: )
+
+
+
+net.maizegenetics.analysis.gobii.GWAS_IFLPlugin
+--------------------------------------
+GWAS_IFLPlugin
+
+B4R Config File : DB config file containing connection information to the B4r database (required)
+
+Input File : Tab-delimited Input File containing a header line and entries, or Directory containing Tab-delimited files of gwas data.  
+If parameter is a directory, each file must contain a header line, and the files must end with .txt or .txt.gz (required)
+
+Method IDs : Method Id from the method table.  Must be in same order as the statNames, one for each statname. (required)
+
+GWAS Experiment  ID : ID of the GWAS experiment to which this data belongs. This experiment must already existin the gwas_experiment table. (required)
+
+Statistic Names : Comma separated list of column names from which to pull data.  
+These names must match values in the statistics field of the gwas_method table for the specified method name. (required)
+
+Path of output directory : Full path name of directory to which output files will be written.  If no user prefix, then end with / (required)
+
+
+
+net.maizegenetics.analysis.gobii.HapBreakpoints_IFLFilePlugin
+--------------------------------------
+HapBreakpoints_IFLFilePlugin
+
+Breakpoint File : Full path to a single file containing breakpoint blocks for projection alignment OR to a directory containing breakpoint files,
+ Files must end with *.pa.txt or *.pa.txt.gz (required)
+
+Breakpoint Set Name : Name to be given to this set of breakpoints.  This name will be stored in the breakpointSet table. (required)
+
+mapset : Name of the mapset to which these breakpoints refer.  Must match an existing name in the mapset table, e.g AGPV3 (required)
+
+Source Data Set : Name of the dataset from which these breakpoints were created.  Must match an existing name in the dataset table (required)
+
+Path of output directory : Full path name of directory to which output files will be written, must end with a / (required)
+
+Breakpoint Method : Method used to created the breakpoints, e.g. FILLIN, beagle, etc (required)
+
+mappingFile : tab-delimited File containing a TaxaColumn name to be used to map breakFile donors with a GID. 
+This may be the same file that was used for adding germplasm and marker data. (required)
+
+mappingFile : tab-delimited File containing a TaxaColumn name to be used to map breakFile taxa with a GID. 
+This may be a different file than was used for adding germplasm and marker data. (required)
+
+
+
+net.maizegenetics.analysis.gobii.MarkerDNARun_IFLFilePlugin
+--------------------------------------
+MarkerDNARun_IFLFilePlugin
+
+dbConfigFile : DB connection config file (required)
+
+inputFile : Full path of file or directory, each file including the header line. Files with format *.hmp.txt, *.hmp.txt.gz,*.vcf, *.vcf.gz will be processed. (required)
+
+outputFileDir : Directory where created files will be written.  Should end with / (required)
+
+Reference File : Species reference file used to determine ref allele at marker position (required)
+
+mappingFile : tab-delimited File containing columns: TaxaColumn, name, source,MGID, GID,libraryID, plate_code, well, species, type and project (required)
+
+Mapset Name : mapset name from the mapset table.  Used to identify correct linkage group, e.g. chrom 1 from agpv2 vs chrom 1 from agpv3 (required)
+
+Experiment Name : Name of experiment to which this data belongs.  Must match an experiment name from the db experiment table. (required)
+
+Platform Name : THe platform on which this data set was run, e.g. GBSv27.  Must match a platform name from the platform db table (required)
+
+Reference Name : Name of referenece, e.g agpv2.  Must match name from entry in reference table in db. (required)
+
+Dataset Name : Name of dataset for this data.  Must match the name of one of the administered datasets in the db. (required)
+
+
+
+net.maizegenetics.analysis.gobii.MonetDB_IFLFilePlugin
+--------------------------------------
+MonetDB_IFLFilePlugin
+
+dbConfigFile : DB connection config file (required)
+
+dataset name : Name of dataset whose marker and dnarun IDs are to be pulled (required)
+
+Path of output directory : Full path name of output directory, must end with a / (required)
+
+
+
+net.maizegenetics.analysis.gobii.PreProcessGOBIIMappingFilePlugin
+--------------------------------------
+PreProcessGOBIIMappingFilePlugin
+
+dbConfigFile : DB connection config file (required)
+
+dataset name : Name of existing database dataset.  Will be used to pull dataset_id from the db.  This id is incorporated into the output file names. (required)
+
+mappingFile : tab-delimited File containing columns: taxaColumn, name, source,MGID, GID,libraryID, plate_code, well, species, type, project (required)
+
+Path of output directory : Full path name of output directory, must end with a / (required)
+
+
+
+net.maizegenetics.analysis.gobii.SplitFile_IFLFilePlugin
+--------------------------------------
+SplitFile_IFLFilePlugin
+
+Input FIle : Name of file to split.  It must have 1 and only 1 period in the name to separate dataset name from table name (required)
+
+Maximum file size : Maximum size of each file after splitting. (required)
+
+Path of output directory : Full path name of output directory, must end with a / (required)
+
+
+
+net.maizegenetics.analysis.imputation.CallParentAllelesPlugin
+--------------------------------------
+The CallParentAllelesPlugin requires the following parameter:
+-p or -pedigrees : a file containing pedigrees of the individuals to be imputed
+The following parameters are optional:
+-w or -windowSize : the number of SNPs to examine for LD clusters (default = 50)
+-r or -minR : minimum R used to filter SNPs on LD (default = 0.2, use 0 for no ld filter)
+-m or -maxMissing : maximum proportion of missing data allowed for a SNP (default = 0.9)
+-f or -minMaf : minimum minor allele frequency used to filter SNPs. If negative, filters on expected segregation ratio from parental contribution (default = -1)
+-d or -maxHetDev : filter sites on maximum heterozygosity, max heterozygosity = maxHetDev * sd of percent het + mean percent het (default = 5)
+-mh or -minHap : haplotypes seen fewer than minHap times will not be used to infer parental haplotypes (default = 5)
+-d or -maxDiff : maximum allowable number of allele differences for treating two haplotypes as equivalent (default = 0)
+-b or -bc1 : use BC1 specific filter (default = true)
+-n or -bcn : use multipe backcross specific filter (default = false)
+-logfile : the name of a file to which all logged messages will be printed.
+-cluster : use the cluster algorithm. minMaf defaults to 0.05.
+-windowld : use the window LD method to impute parent haplotypes.
+-subpops : filter sites for heterozygosity in subpopulations. Only used for -cluster option.
+-nohets : delete het calls from original data before imputing.
+? : print the parameter list.
+
+
+
+net.maizegenetics.analysis.imputation.ClusterGenotypesPlugin
+--------------------------------------
+ClusterGenotypesPlugin
+
+Use Site List : If true, use the list of sites. If false, use start site and number of sites. (Default = false) (Default: false)
+
+Start Site : Start the cluster at this site (Default: 0)
+
+Number of Sites : Cluster this many sites. (Default = 30) (Default: 30)
+
+Site List : Comma separated list of sites. Example: 1-5, 8, 10-12.
+
+Max Diff : If the distance between two haplotypes is less than or equal to maxDiff, the haplotypes can be placed in the same cluster. (Default = 0) (Default: 0)
+
+Min Hap : Only keep clusters that have minHap members or more. (Default = 1) (Default: 1)
+
+One cluster per Haplotype : Place each haplotype in only one cluster. (Default = false) (Default: false)
+
+No Missing Values : Use only haplotypes with no missing values. (Default = false) (Default: false)
+
+Make Phenotype : Should the two biggest clusters be converted to a Phenotype? (Default = false) (Default: false)
+
+
+
+net.maizegenetics.analysis.imputation.FILLINFindHaplotypesPlugin
+--------------------------------------
+FILLINFindHaplotypesPlugin
+
+Target file : Input genotypes to generate haplotypes from. Usually best to use all available samples from a species. Accepts all file types supported by TASSEL5. (required)
+
+Donor dir/file basename : Output file directory name, or new directory path; Directory will be created, if doesn't exist. Outfiles will be placed in the directory and given the same name and appended with the substring '.gc#s#.hmp.txt' to denote chromosome and section (required)
+
+Max divergence from founder : Maximum genetic divergence from founder haplotype to cluster sequences (Default: 0.01)
+
+Max heterozygosity of output haplotypes : Maximum heterozygosity of output haplotype. Heterozygosity results from clustering sequences that either have residual heterozygosity or clustering sequences that do not share all minor alleles. (Default: 0.01)
+
+Min sites to cluster : The minimum number of sites present in two taxa to compare genetic distance to evaluate similarity for clustering (Default: 50)
+
+Max combined error to impute two donors : The maximum genetic divergence allowable to cluster taxa (Default: 0.05)
+
+Preferred haplotype size : Preferred haplotype block size in sites (minimum 64); will use the closest multiple of 64 at or below the supplied value (Default: 8192)
+
+Min sites to test match : Minimum number of present sites within input sequence to do the search (Default: 500)
+
+Max haplotypes per segment : Maximum number of haplotypes per segment (Default: 3000)
+
+Min taxa to generate a haplotype : Minimum number of taxa to generate a haplotype (Default: 2)
+
+Max frequency missing per haplotype : Maximum frequency of missing data in the output haplotype (Default: 0.4)
+
+Supress system out : Supress system out (Default: false)
+
+Detailed system out on haplotypes : Details of taxa included in each haplotype written to file (Default: false)
+
+
+
+net.maizegenetics.analysis.imputation.FILLINImputationPlugin
+--------------------------------------
+FILLINImputationPlugin
+
+Target file : Input HapMap file of target genotypes to impute. Accepts all file types supported by TASSEL5. This file should include _ALL_ available sites, not just those segregating in your material. (ie: don't filter the input) (required)
+
+Donor : Directory containing donor haplotype files from output of FILLINFindHaplotypesPlugin. All files with '.gc' in the filename will be read in, only those with matching sites are used. Alternately, a single file to use as a donor, will be cut into sub genos in size specified (eg, high densitySNP file for projection (required)
+
+Output filename : Output file; hmp.txt.gz and .hmp.h5 accepted. (required)
+
+Preferred haplotype size : Preferred haplotype block size in sites (use same as in FILLINFindHaplotypesPlugin) (Default: 8000)
+
+Heterozygosity threshold : Threshold per taxon heterozygosity for treating taxon as heterozygous (no Viterbi, het thresholds). (Default: 0.02)
+
+Max error to impute one donor : Maximum error rate for applying one haplotype to entire site window (Default: 0.01)
+
+Max combined error to impute two donors : Maximum error rate for applying Viterbi with two haplotypes to entire site window (Default: 0.003)
+
+Min sites to test match : Minimum number of sites to test for IBS between haplotype and target in focus block (Default: 20)
+
+Min num of minor alleles to compare : Minimum number of informative minor alleles in the search window (or 10X major) (Default: 20)
+
+Max donor hypotheses : Maximum number of donor hypotheses to be explored. (Note: For heterozygous samples you may want to set this number higher, but the computation load goes up quickly.) (Default: 20)
+
+Impute all het calls : Write all imputed heterozygous calls as such, even if the original file has a homozygous call. (Not recommended for inbred lines.) (Default: false)
+
+Combine two haplotypes as heterozygote : If true, uses combination mode in focus block, else does not impute (Default: true)
+
+Output projection alignment : Create a projection alignment for high density markers (Default: false)
+
+Impute donor file : Impute the donor file itself (Default: false)
+
+Supress system out : Supress system out (Default: false)
+
+Calculate accuracy : Masks input file before imputation and calculates accuracy based on masked genotypes (Default: false)
+
+Proportion of genotypes to mask if no depth : Proportion of genotypes to mask for accuracy calculation if depth not available (Default: 0.01)
+
+Depth of genotypes to mask : Depth of genotypes to mask for accuracy calculation if depth information available (Default: 9)
+
+Proportion of depth genotypes to mask : Proportion of genotypes of given depth to mask for accuracy calculation if depth available (Default: 0.2)
+
+Optional key to calculate accuracy : Key to calculate accuracy. Genotypes missing (masked) in target file should be present in key, with all other sites set to missing. Overrides otheraccuracy options if present and all sites and taxa present in target file present
+
+Calculate accuracy within MAF categories : Calculate R2 accuracy within MAF categories based on donor file (Default: false)
+
+
+
+net.maizegenetics.analysis.imputation.FSFHapImputationPlugin
+--------------------------------------
+FSFHapImputationPlugin
+
+Description: The FSFHapImputation Plugin infers parental haplotypes for a full sib family then uses those haplotypes in an HMM to impute variants. It is effective at correctly imputing heterzygotes in GBS data. To use from the command line, use TASSEL's default syntax that passes data from one plugin to another (Note that this creates 2 files, one of just parental calls (A/C) and one of imputed genotypes):
+
+	run_pipeline.pl -h input.hmp.txt -FSFHapImputationPlugin [options] -endPLugin -export output.hmp.txt
+
+
+Pedigree File : the pedigree file name (required)
+
+Log File : the name of a log file for runtime messages
+
+Use Cluster Algorithm : use the cluster algorithm (Default: false)
+
+Use Window LD Algorithm : use the windowLD algorithm (Default: false)
+
+Use Single Backcross Algorithm : use the single backcross algorithm (Default: true)
+
+Use Multiple Backcross Algorithm : use the multiple backcross algorithm (Default: false)
+
+Min Minor Allele Frequency : filter out sites with less than minimumMinorAlleleFrequency [0.0..1.0] (Default: 0.1)
+
+Window Size : Window Size (Default: 50)
+
+Min R : filter out sites not correlated with neighboring sites [0.0..1.0] (Default: 0.2)
+
+Max Missing : filter out sites with proportion missing > maxMissing [0.0..1.0] (Default: 0.8)
+
+Don't Use Heterozygous Calls : delete heterozygous calls before imputing (Default: false)
+
+Max Diff : use to decide if two haplotypes are equivalent (Default: 0)
+
+Min Hap : haplotype must be observed at least this often (Default: 5)
+
+Window Overlap : overlap between adjacent windows (Default: 25)
+
+Fill Gaps : replace missing values with flanking values if equal (Default: false)
+
+Proportion Heterozygous : proportion of sites that are heterozygous [0.0..1.0] (Default: 0.07)
+
+Merge : merge families and chromosomes (Default: false)
+
+Out Parents : replace missing values with flanking values if equal (Default: true)
+
+Out Nucleotides : replace missing values with flanking values if equal (Default: true)
+
+Output IUPAC Codes : use IUPAC ambiguity codes for output (Default: true)
+
+
+
+net.maizegenetics.analysis.imputation.FindMergeHaplotypesPlugin
+--------------------------------------
+FindMergeHaplotypesPlugin
+
+
+
+net.maizegenetics.analysis.imputation.ImputationAccuracyPlugin
+--------------------------------------
+ImputationAccuracyPlugin
+
+Imputed is subset of original : The imputed data does not contain all of the sites or taxa in the original data. (Default: false)
+
+
+
+net.maizegenetics.analysis.imputation.ImputeProgenyStatesPlugin
+--------------------------------------
+ImputeProgenyStatesPlugin
+
+Description: Impute progeny states using parental haplotypes either represented as nucleotides or as the probability that a haplotype carries the major allele at a site. The plugin also provides a method for estimating haplotype probabilities from progeny states.
+
+
+Rephase Parents First : If true, rephase parents before imputing. If false, input haplotypes from file. (Default: false)
+
+Parentage Input File : The input file containing the parentage which lists the parents of each progeny and whether they were derived by self or outcross. (required)
+
+Parent Haplotypes Input File : The input file containing the parent haplotypes expressed as nucleotides. 
+
+Progeny States Input File : The input file containing the progeny states (parentcalls). Needed for rephasing using haplotype probabilities or for writing breakpoints.
+
+Imputed Genotypes Output File : The output file containing the imputed progeny genotypes in hapmap format.
+
+Progeny States Output File : The output file containing the new progeny states (parentcalls) in hapmap format
+
+Updated Haplotype Probabilities Output File : The output file containing the new parent haplotype probabilities, binary format. A .bin extension will be appended if not present.
+
+Write Breakpoints : Write breakpoint file from imputed genotypes and parentage. Progeny states will not be imputed. (Default: false)
+
+Breakpoint Output File : The name of the output file for writing the breakpoints. If the file exists, it will be overwritten.
+
+
+
+net.maizegenetics.analysis.imputation.LDKNNiImputationHetV2Plugin
+--------------------------------------
+LDKNNiImputationHetV2Plugin
+
+High LD Sites : Number of sites in high LD to use in imputation [2..2000] (Default: 30)
+
+Number of nearest neighbors : Number of neighbors to use in imputation [2..200] (Default: 10)
+
+Max distance between site to find LD : Maximum physical distance between sites to search for LD (-1 for no distance cutoff - unlinked chromosomes will be tested) (Default: -1)
+
+Maximum distance from Nearest Neighbor : Maximum distance from Nearest Neighbor (Default: 0.1)
+
+HeterozygousThreshold : Threshold for defining heterozygous sites (Default: 0.05)
+
+Automatic MajorGenotype if MAF : Set to Major genotype if no imputation result and MAF is below threshold (Default: 0.01)
+
+Minimum coverage for donors and LD : Minimum coverage for donor genotype and LD calculation (Default: 0.5)
+
+Minimum support ratio for best genotype : Minimum ratio between best and second best genotype to make a call (Default: 10.0)
+
+Maximum number of cores for processing : Maximum number of cores to be used for processing (Default: 8)
+
+
+
+net.maizegenetics.analysis.imputation.LDKNNiImputationHetV3Plugin
+--------------------------------------
+LDKNNiImputationHetV3Plugin
+
+High LD Sites : Number of sites in high LD to use in imputation [2..2000] (Default: 30)
+
+Number of nearest neighbors : Number of neighbors to use in imputation [2..200] (Default: 10)
+
+Max distance between site to find LD : Maximum physical distance between sites to search for LD (-1 for no distance cutoff - unlinked chromosomes will be tested) (Default: -1)
+
+Maximum distance from Nearest Neighbor : Maximum distance from Nearest Neighbor (Default: 0.1)
+
+HeterozygousThreshold : Threshold for defining heterozygous sites (Default: 0.05)
+
+Automatic MajorGenotype if MAF : Set to Major genotype if no imputation result and MAF is below threshold (Default: 0.01)
+
+Minimum coverage for donors and LD : Minimum coverage for donor genotype and LD calculation (Default: 0.5)
+
+Minimum support ratio for best genotype : Minimum ratio between best and second best genotype to make a call (Default: 10.0)
+
+Maximum number of cores for processing : Maximum number of cores to be used for processing (Default: 8)
+
+
+
+net.maizegenetics.analysis.imputation.LDKNNiImputationPlugin
+--------------------------------------
+LDKNNiImputationPlugin
+
+High LD Sites : Number of sites in high LD to use in imputation [2..2000] (Default: 30)
+
+Number of nearest neighbors : Number of neighbors to use in imputation [2..200] (Default: 10)
+
+Max distance between site to find LD : Maximum physical distance between sites to search for LD (-1 for no distance cutoff - unlinked chromosomes will be tested) (Default: 10000000)
+
+
+
+net.maizegenetics.analysis.imputation.MergeBreakpointFilesPlugin
+--------------------------------------
+MergeBreakpointFilesPlugin
+
+Select Files to Merge : Select the files to merge. Alternatively, merge all files in a directory. (Default = false) (Default: false)
+
+List of files to merge : The name and path of a file containing the names of the breakpoint files to be merged.
+
+Output File : The output file. If the filename ends in gz it will be zipped. Required. (required)
+
+Fill to Ends : Should the first and last break point intervals in each chromosome be exended to the ends? (Default: false)
+
+
+
+net.maizegenetics.analysis.imputation.ParentPhasingPlugin
+--------------------------------------
+ParentPhasingPlugin
+
+Description: This plugin phases parents of full-sib families using parent and progeny genotypes and a parentage file as input.The method can use either selfed families only or all families.
+
+
+Phase Parents : Phase parents (Default: false)
+
+Re-Phase Parents : Rephase parents (Default: false)
+
+Parentage File : The file containing the parentage which lists the parents of each progeny and whether they were derived by self or outcross.
+
+Self Families Only : If checked or true, phases using only families created by selfing a single parent. The alternative is to use all families. Compared to using all families, self only generally does a better job of phasing with a lot less missing data. (Default: false)
+
+Window Size : Window Size (Default: 50)
+
+Max Proportion Missing Data : Maximum allowable proportion of missing data for a site. (Default: 0.7)
+
+Output File : The file contain the phased parent haplotypes in binary format. A .bin extension will be added to the filename.
+
+Progeny States (parentcalls) : The genotype file containing the imputed progeny states, probably identified as parentcalls.
+
+Parent Haplotype File : The file containing the haplotypes of the parents. Rephasing parents uses the progeny states to improve these haplotype calls.
+
+Rephase Output File : The file that will contain the rephased, improved parent haplotype calls.
+
+Combine Phasing : Combines two methods of phasing parents. Any sites that disagree are set to missing. Uses binary files as input. A report comparing the sites in common between the files will be generated. (Default: false)
+
+First Phased File : One of the binary phased parent haplotype files.
+
+Second Phased File : The other binary phased parent haplotype file.
+
+Combine Output Filename : The name of the combined output file. A .bin extension will be added. If this is blank, the files will not be combined and only a report comparing the two files will be generated.
+
+Convert Phasing : Converts a binary phasing results file to text. (Default: false)
+
+File to convert : The name of the binary file to be converted.
+
+Combine Output Filename : The name of the converted output file. A .txt extension will be added if not present.
+
+Correct Self Phasing : Exchanges sections of chromosomes so that self phase matches cross phase. (Default: false)
+
+Parent Name : The parent for which phase will be corrected. Required for phase correction.
+
+Chromosome Name : The chromosome for which phase will be corrected. Required for phase correction.
+
+Self Phased File : Phased parent haplotype files from self progeny.
+
+Cross Phased File : Phased parent haplotype files from self progeny.
+
+Corrected Output Filename : The name of the corrected self phased output file. A .bin extension will be added. If this is blank, the files will not be combined and only a report comparing the two files will be generated.
+
+
+
+net.maizegenetics.analysis.imputation.RandomGenotypeImputationPlugin
+--------------------------------------
+RandomGenotypeImputationPlugin
+
+Write Hapmap File : Should the imputed data be written directly to a hapmap file (in IUPAC format) rather than stored in memory. (Default = false). Data should be filtered on proportion missing prior to imputation. (Default: false)
+
+Hapmap File Name : The name of the Hapmap file to be written.
+
+
+
+net.maizegenetics.analysis.imputation.ReImputeUpdatedTaxaByFILLINPlugin
+--------------------------------------
+ReImputeUpdatedTaxaByFILLINPlugin
+
+Description: This plugin compares an unfinished HDF5 file containing raw genotypes to a corresponding unfinished HDF5 file containing FILLIN-imputed genotypes to find new taxa (or taxa with additional depth) in the raw geno file, then imputes (or reimputes) these with FILLIN and adds them to (or replaces them in) the imputed geno file.
+
+
+Raw HDF5 Genotype File : Input, unfinished HDF5 (*.h5) file containing raw (unimputed) genotypes (required)
+
+Imputed HDF5 Genotype File : Target, unfinished HDF5 (*.h5) file containing imputed genotypes to be updated (required)
+
+Donor Dir : Directory containing donor haplotype files from output of the FILLINFindHaplotypesPlugin. All files with '.gc' in the filename will be read in, only those with matching sites are used (required)
+
+Position Source HDF5 Geno File : Finished (built) HDF5 (*.h5) file to be used as a PositionList source (containing a small number of [ignored] taxa)
+
+Preferred haplotype size : Preferred haplotype block size in sites (use same as in FILLINFindHaplotypesPlugin) (Default: 8000)
+
+Keep Temp Genotypes : Keep the temporary hdf5 genotype files generated by this plugin (raw and imputed) rather than deleting them (Default: false)
+
+
+
+net.maizegenetics.analysis.imputation.RemoveIndelsForBeaglePlugin
+--------------------------------------
+RemoveIndelsForBeaglePlugin
+
+inFileName : The input file to prepare for beagle input (required)
+
+outFileName : the output file name. If not VCF, will be append .vcf to the name (required)
+
+Retain monomorphic sites : Retain monomorphic sites in the output file (Default: false)
+
+
+
+net.maizegenetics.analysis.imputation.ViterbiAlgorithmPlugin
+--------------------------------------
+The ViterbiAlgorithmPlugin can take the following optional parameters:
+-g or -fillgaps : true if missing values between SNPs from the same parent should be imputed to that parent, false otherwise (default = true)
+-h or -phet : expected frequency of heterozygous loci (default = 0.07). If the inbreeding coefficient is specified in the pedigree file that will used to calculate this value.
+-v or -varRecomb : If true use recombination rates that vary along the chromosome
+-f or -varRecombFile : The name of the file containing recombination rate as a function of position
+? : print the parameter list.
+
+
+
+net.maizegenetics.analysis.imputation.WritePopulationAlignmentPlugin
+--------------------------------------
+The WritePopulationAlignmentPlugin can take the following parameters:
+-f or -file : the base file name and path to which output will be written-m or -merge : if true families are merged into a data set, if false each family is output to a separate data set (default = false)
+-o or -outputType : parents = output parent calls, nucleotides = output nucleotides, both = output both (the default)
+-c or -minCoverage : the minimum coverage for a monomorphic snp to be included in the nucleotide output
+-x or -maxMono : the maximum minor allele frequency used to call monomorphic snps
+if -c or -x equals NaN and merge is true, then missing values at monomorphic sites (within a family) will be left missing
+-pa or -breakpointFile : the stem for the basepoint file names. Chromosome, family, algorithm and .pa.txt.gz will be appended.-al or -algorithm : the algorithm used for imputation. Only used to construct the full breakpoint file names.? : print the parameter list.
+
+
+
+net.maizegenetics.analysis.modelfitter.AdditiveSiteStorePlugin
+--------------------------------------
+AdditiveSiteStorePlugin
+
+Description: This plugin serializes a genotype as a list of additive sites. The objects stored are an Integer equal to the number of sites, the Genotype TaxaList, then all of the additive sites
+
+
+Output Filename : The name of file to which the additive sites will be written. (required)
+
+Is Genotype? : Is the input nucleotide genotypes? If false, then ReferenceProbability will be used. (Default: true)
+
+
+
+net.maizegenetics.analysis.modelfitter.ResamplingGWASPlugin
+--------------------------------------
+ResamplingGWASPlugin
+
+Description: ResamplingGWASPlugin uses forward regression to fit a multiple SNP model to each of a number of samples drawn from the phenotype data. 
+
+
+Enter Limit : A new term entering the model must have a p-value equal to or less than the enter limit. (Default: 1.0E-8)
+
+Max terms : The maximum number of variants that will be fit. If the chromosome residuals are being fit, the maximum number of variants fit per chromosome. (Default: 100)
+
+Use residuals : Should new terms be tested using residuals from the prior model? The analysis runs faster using this option. (Default: false)
+
+Number of Iterations : The number of times the data should be resampled. (Default: 100)
+
+Resample Proportion : The size of the sample is resample proportion times the number of observations in the complete data. For bootstrap, set this value to 1 and with replacement to true. (Default: 0.8)
+
+With Replacement : Should the sample be formed by sampling with replacement?  For bootstrap, set resample proportion to 1 and this value to true. (Default: false)
+
+Use Site File : Use an additive site file as the source of genotypes. (Default: false)
+
+Site Filename : The name of the file containing genotypes stored in site objects.
+
+Maximum Thread Number : The maximum number of threads to available to the plugin. If maxThreads = -1, then the value is set to the number of available processors - 2. (Default: -1)
+
+
+
+net.maizegenetics.analysis.modelfitter.StepwiseAdditiveModelFitterPlugin
+--------------------------------------
+StepwiseAdditiveModelFitterPlugin
+
+Description: A stepwise model fitter designed to select variants tested for association with a large number of nucleotide variants. It can be multi-threaded to handle large number of variants efficiently. It can fit an additive only model or an additive + dominance model.
+
+
+Model selection criterion : The model selection criterion used to determine which terms enter the model and how many. Value must be one of pval, bic, mbic, or aic [pval, aic, bic, mbic] (Default: pval)
+
+Fit using residuals : Should the each new term be tested using residuals from the previous model instead of fitting a complete model each time? (Default: false)
+
+Use permutations : Should permutations be used to set the enter and exit limits for stepwise regression? A permutation test will be used to determine the enter limit. The exit limit will be set to 2 times the enter limit. (Default: true)
+
+Number of permutations : The number of permutations used to determine the enter limit. (Default: 1000)
+
+Alpha for permutations : Type I errors will be controlled at this level. (Default: 0.05)
+
+enterLimit : When p-value is the model selection criteria, model fitting will stop when the next term chosen has a p-value greater than the enterLimit. This value will be over-ridden the permutation test, if used. (Default: 1.0E-5)
+
+exitLimit : During the backward step of model fitting if p-value has been chosen as the selection criterion, if the term in model with the highest p-value has a p-value > exitLimit, it will be removed from the model. (Default: 2.0E-5)
+
+Max SNPs/markers : The maximum number of SNPs/markers that will be fit. If the model selection criterion is met first, then the fitting process will stop at that point. (Default: 1000)
+
+Is Nested : Should SNPs/markers be nested within a factor, such as family? (Default: true)
+
+Nesting factor : Nest markers within this factor. This parameter cannot be set from the command line. Instead, the first factor in the data set will be used.
+
+Genotype Component : If the genotype table contains more than one type of genotype data, choose the type to use for the analysis. [Genotype, ReferenceProbability, Dosage, Depth, AlleleProbability] (Default: Genotype)
+
+Create anova reports : Create pre- and post-scan anova reports. (Default: true)
+
+Create effects report : Create a report of marker effects based on the scan results. (Default: true)
+
+Create prescan effects : Create a report of marker effects based on the results pre-scan. (Default: false)
+
+Create step report : Create a report of the which markers enter and leave the model as it is being fit. (Default: true)
+
+Create residuals : Create a phenotype dataset of model residuals for each chromosome. For each chromosome, the residuals will be calculated from a model with all terms EXCEPT the markers on that chromosome. (Default: false)
+
+Write to files : Should the requested output be written to files? (Default: false)
+
+Base file path : The base file path for the save files. Each file saved will add a descriptive name to the base name. (Default: )
+
+Fit AddDom Model : Should the plugin fit an additive plus dominance model? If false, an additive only model will be fit. Note this option does not implement a nested model. The isNested parameter will be ignored. (Default: false)
+
+Minimum number of heterozygotes : The minimum number of individuals that are heterozygous at a site for the dominance term to be included. If the number of hets is less than minHets at a site, an additive only model will be fit for that site. (Default: 20)
+
+Impute Dominance Score : Should the plugin impute a value for dominance if data is missing. If false, the dominance score in the design matrix will be 0 for missing genotypes. (Default: true)
+
+
+
+net.maizegenetics.analysis.modelfitter.StepwiseOLSModelFitterPlugin
+--------------------------------------
+StepwiseOLSModelFitterPlugin
+
+Model type : The model selection criteria used to determine which terms enter the model and how many. Value must be one of pvalue, bic, mbic, or aic [pvalue, bic, mbic, aic] (Default: pvalue)
+
+Entry limit : The enter limit or maximum p-value for which a term can enter the model [0.0..1.0] (Default: 1.0E-6)
+
+Exit limit : A term exits the model on a backward step if its p-value is greater than this value [0.0..1.0] (Default: 2.0E-6)
+
+Maximum markers : The maximum number of markers that will be fit, if the enter limit is not reached first [0..10000] (Default: 100)
+
+Nest markers : Should markers be nested within a model factor (Default: false)
+
+Nesting factor : Nest markers within this factor.
+
+Number of permutations : Number of permutations for the model to determine an empirical alpha [0..100000] (Default: 0)
+
+
+
+net.maizegenetics.analysis.monetdb.ColumnsToBinaryFullGenomeTablePlugin
+--------------------------------------
+ColumnsToBinaryFullGenomeTablePlugin
+
+Input File : Input File containing a header line and entries sorted by chromosome and position, or Directory containing Tab-delimited files split by chromosome and sorted by position.  
+If parameter is a directory, each file must contain a header line, and the files must end with .txt and be named in a maaner that sorts lexicographically by chromosome (required)
+
+refFile : A link to the species reference file. This must be the same reference file used by other columns in the monetdb table for your species. (required)
+
+outBase : Output directory and base filename to hold the binary files. Will make directory if neccesary (required)
+
+Columns keep as Real (Float) : Comma separated list of column names to generate real binaries for
+
+Columns keep as Int : Comma separated list of column names to generate int  binaries for
+
+Columns keep as Short : Comma separated list of column names to generate short binaries for
+
+Columns keep as Long : Comma separated list of column names to generate long binaries for
+
+Columns keep as Char String : Comma separated list of column names to generate character/text binaries for
+
+Columns keep as Byte : Comma separated list of column names to generate byte binaries for
+
+Columns translate Alleles : Comma separated list of column names to generate for single char alleles to be translated to 0-5 for A/C/G/T/+/-
+
+Columns to Keep and transform -log10 : Comma separated list of column names to first transform using -log10 then generate binaries for
+
+Range information? : Columns for range data. If true, will look for 'start' and 'end' (inclusive exclusive) or 'first' 'last' (inclusive inclusive) instead of 'Pos'  (Default: false)
+
+Negative floats to zero? : Will set negative column values to zero (otherwise they the negative value is stored (Default: false)
+
+Missing float values to zero? : Will set missing  column values to zero (otherwise they are set to null (Default: false)
+
+positions are 1 based? : Will assume all positions and ranges are 1-based unless this value is set to false (Default: true)
+
+
+
+net.maizegenetics.analysis.monetdb.ColumnsToBinarySNPOnlyTablePlugin
+--------------------------------------
+ColumnsToBinarySNPOnlyTablePlugin
+
+Input File : Input File containing a header line and entries sorted by chromosome and position, or Directory containing Tab-delimited files split by chromosome and sorted by position.  
+If parameter is a directory, each file must contain a header line, and the files must end with .txt and be named in a maaner that sorts lexicographically by chromosome (required)
+
+refDir : Directory holding files that contain all the SNP physical positions, separated by chr (required)
+
+outBase : Output directory and base filename to hold the binary files. Will make directory if neccesary (required)
+
+Columns keep as Real (Float) : Comma separated list of column names to generate real binaries for
+
+Columns keep as Int : Comma separated list of column names to generate int  binaries for
+
+Columns keep as Short : Comma separated list of column names to generate short binaries for
+
+Columns keep as Long : Comma separated list of column names to generate long binaries for
+
+Columns keep as Char String : Comma separated list of column names to generate character/text binaries for
+
+Columns keep as Byte : Comma separated list of column names to generate byte binaries for
+
+Columns translate Alleles : Comma separated list of column names to generate for single char alleles to be translated to 0-5 for A/C/G/T/+/-
+
+Columns to Keep and transform -log10 : Comma separated list of column names to first transform using -log10 then generate binaries for
+
+Range information? : Columns for range data. If true, will look for 'start' and 'end' (inclusive exclusive) or 'first' 'last' (inclusive inclusive) instead of 'Pos'  (Default: false)
+
+Negative floats to zero? : Will set negative column values to zero (otherwise they are stored as is (Default: false)
+
+Missing float values to zero? : Will set missing  column values to zero (otherwise they are set to NULL (Default: false)
+
+positions are 1 based? : Will assume all positions and ranges are 1-based unless this value is set to false (Default: true)
+
+
+
+net.maizegenetics.analysis.numericaltransform.AvgPhenotypeByTaxaPlugin
+--------------------------------------
+AvgPhenotypeByTaxaPlugin
+
+Add Small Value : Boolean to allow for a small random value to be added to each observed value. The value is calculated by the following:
+rand(0:1) * .5 * minObservedValue (Default: false)
+
+Random Seed : Random Seed to be used in the Random Small Number Generation (Default: 12345)
+
+
+
+net.maizegenetics.analysis.numericaltransform.BoxCoxTransformationPlugin
+--------------------------------------
+BoxCoxTransformationPlugin
+
+Start Lambda : Parameter to set the starting point for the Lambda search in Box Cox.  The algorithm will start at this value and iterate by Lambda Step until it reaches End Lambda. (Default: -5.0)
+
+End Lambda : Parameter to set the ending point for the Lambda search in Box Cox. The algorithm will start at Start Lambda and iterate by Lambda Step until it reaches this value. (Default: 5.0)
+
+Lambda Step : Parameter to set the iteration step for the Lambda search in Box Cox. The algorithm will start at Start Lambda and iterate by this value until it reaches the End Lambda. (Default: 0.2)
+
+Add Small Value : Boolean to allow for a small random value to be added to each observed value. The value is calculated by the following:
+rand(0:1) * .5 * minObservedValue (Default: true)
+
+Random Seed : Random Seed to be used in the Random Small Number Generation (Default: 12345)
+
+
+
+net.maizegenetics.analysis.numericaltransform.ImputationPlugin
+--------------------------------------
+ImputationPlugin
+
+Description: This plugin takes an input file (genotype/phenotype) with missing valuesand imputes the missing values using one the chosen methods.It returns the imputed file.
+
+
+Imputation by mean : If imputation is performed by computing mean of the respective column (Default: false)
+
+Number of nearest neighbors to be evaluated : Choice of k in k-nearest neighbors algorithm. Default is 5. (Default: 5)
+
+Choose Distance type : Distance choice for computing nearest neighbors. Default choice is Euclidean distance. (Default: Euclidean)
+
+
+
+net.maizegenetics.analysis.numericaltransform.NumericalGenotypePlugin
+--------------------------------------
+NumericalGenotypePlugin
+
+Description: This plugin creates a numerical genotype table for input genotype data
+
+
+
+
+net.maizegenetics.analysis.numericaltransform.SubtractPhenotypeByTaxaPlugin
+--------------------------------------
+SubtractPhenotypeByTaxaPlugin
+
+Use Abs Diff : Boolean to allow the user to use Absolute Difference when doing the subtraction. (Default: false)
+
+
+
+net.maizegenetics.analysis.numericaltransform.TransformDataPlugin
+--------------------------------------
+The TransformDataPlugin can take the following parameters. Cannot use both log and power parameters.:
+-traits: A comma delimited list of trait names with no embedded space. If this parameter is not specified then all traits will be transformed.-factor: The factor name or a comma-delimited list of factor names with no embedded spaces within which values are to be standardized. The default is to ignore factors and use the mean and standard deviation of all observations.
+-log: perform a log transformation. Can take one of natural, base_2, or base_10. Default = no transformation.-power: perform a power transformation. The parameter value is the exponent to which each value should be raised. Default = no transformation.-standardize: standardize values by subtracting the mean and dividing by the standard deviation. true or false. Default = false.
+
+
+net.maizegenetics.analysis.popgen.LinkageDiseqDisplayPlugin
+--------------------------------------
+LinkageDiseqDisplayPlugin
+
+
+
+net.maizegenetics.analysis.popgen.LinkageDisequilibriumPlugin
+--------------------------------------
+LinkageDisequilibriumPlugin
+
+
+
+net.maizegenetics.analysis.popgen.SequenceDiversityPlugin
+--------------------------------------
+SequenceDiversityPlugin
+
+Start Site : Start Site [0..+∞) (Default: 0)
+
+End Site : End Site [0..+∞)
+
+Sliding Window Analysis : Whether this is sliding window analysis (Default: false)
+
+Step Size : Step Size [0..+∞) (Default: 100)
+
+Window Size : Window Size [0..+∞) (Default: 500)
+
+
+
+net.maizegenetics.analysis.rna.LoadRNAContigsToGBSDBPlugin
+--------------------------------------
+LoadRNAContigsToGBSDBPlugin
+
+Input Fasta Contig File : Input file containing contigs in fasta format.
+ (required)
+
+Output Database File : Output Database File (required)
+
+Delete Old Data : Delete existing SNP quality data from db tables (Default: false)
+
+
+
+net.maizegenetics.analysis.rna.RNADeMultiPlexSeqToDBPlugin
+--------------------------------------
+RNADeMultiPlexSeqToDBPlugin
+
+Input Directory : Input directory containing FASTQ files in text or gzipped text.
+     NOTE: Directory will be searched recursively and should
+     be written WITHOUT a slash after its name. (required)
+
+Key File : Key file listing barcodes distinguishing the samples (required)
+
+Minimum Kmer Length : Minimum kmer Length after second cut site is removed (Default: 20)
+
+Min Kmer Count : Minimum kmer count (Default: 10)
+
+Output Database File : Output Database File (required)
+
+Minimum quality score : Minimum quality score within the barcode and read length to be accepted (Default: 0)
+
+
+
+net.maizegenetics.analysis.rna.RNADeMultiplexProductionPlugin
+--------------------------------------
+RNADeMultiplexProductionPlugin
+
+Input Directory : Input directory containing fastq AND/OR qseq files. (required)
+
+Key File : Key file listing barcodes distinguishing the samples (required)
+
+Input GBS Database : Input Database file if using SQLite (required)
+
+Matching approach : Approach used for matching the reads to the contigs [COMPLETE_SEQ..MODAL_KMER] (required)
+
+Word size used by match : Word size used to find matches with reference sequences (Default: 16)
+
+Maximum repeats of word : Maximum repetitiveness of the word (Default: 10)
+
+Search reverse complement : Search of the reverse complements of the reference sequences (Default: true)
+
+Batch size of fastq files : Number of flow cells being processed simultaneously (Default: 8)
+
+Minimum quality score : Minimum quality score within the barcode and read length to be accepted (Default: 0)
+
+
+
+net.maizegenetics.analysis.tree.ArchaeopteryxPlugin
+--------------------------------------
+ArchaeopteryxPlugin
+
+
+
+net.maizegenetics.analysis.tree.CreateTreePlugin
+--------------------------------------
+CreateTreePlugin
+
+Clustering Method : Clustering Method [Neighbor_Joining, UPGMA] (Default: Neighbor_Joining)
+
+Save Distance Matrix : Save Distance Matrix (Default: true)
+
+
+
+net.maizegenetics.analysis.workflow.WorkflowPlugin
+--------------------------------------
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - Self-describing Plugins should implement this constructor: net.maizegenetics.analysis.workflow.WorkflowPlugin
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - public Plugin(Frame parentFrame, boolean isInteractive) {
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin -    super(parentFrame, isInteractive);
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - }
+
+
+net.maizegenetics.plugindef.AbstractPlugin
+--------------------------------------
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - Self-describing Plugins should implement this constructor: net.maizegenetics.plugindef.AbstractPlugin
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - public Plugin(Frame parentFrame, boolean isInteractive) {
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin -    super(parentFrame, isInteractive);
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - }
+
+
+net.maizegenetics.tassel.PreferencesDialog
+--------------------------------------
+PreferencesDialog
+
+Retain Rare Alleles : True if rare alleles should be retained.  This has no effect on Nucleotide Data as all alleles will be retained regardless. (Default: false)
+
+Send Log To Console : Flag whether to send logging to the console. (Default: false)
+
+Config File : Global configuration file (Default: )
+
+Locale : Default locale for TASSEL
+
+
+
+net.maizegenetics.tassel.ShowParameterCachePlugin
+--------------------------------------
+ShowParameterCachePlugin
+
+
+
+net.maizegenetics.tassel.TasselLogging
+--------------------------------------
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - Self-describing Plugins should implement this constructor: net.maizegenetics.tassel.TasselLogging
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - public Plugin(Frame parentFrame, boolean isInteractive) {
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin -    super(parentFrame, isInteractive);
+[pool-1-thread-1] WARN net.maizegenetics.plugindef.Plugin - }
+
+
+net.maizegenetics.util.ConvertOldFastqToModernFormatPlugin
+--------------------------------------
+ConvertOldFastqToModernFormatPlugin
+
+Input Directory : Input file or directory containing FASTQ files in text or gzipped text.
+     NOTE: Directory will be searched recursively (required)
+
+Key File : Key file listing barcodes distinguishing the samples (required)
+
+Project File : Name for this project.  Project name becomes part of the newly created fastq file name (required)
+
+Output Directory : Output directory where new fastQ files will be written (required)
+
+Enzyme : Enzyme used to create the GBS library (required)
+
+
+
+[pool-1-thread-1] INFO net.maizegenetics.plugindef.AbstractPlugin - Finished net.maizegenetics.analysis.ListPlugins: time: Jan 7, 2020 13:12:47
+[pool-1-thread-1] INFO net.maizegenetics.plugindef.AbstractPlugin - net.maizegenetics.analysis.ListPlugins  Citation: Bradbury PJ, Zhang Z, Kroon DE, Casstevens TM, Ramdoss Y, Buckler ES. (2007) TASSEL: Software for association mapping of complex traits in diverse samples. Bioinformatics 23:2633-2635.

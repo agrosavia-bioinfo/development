@@ -1,0 +1,965 @@
+\documentclass[ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usefonttheme{serif}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={Gráficos Básicos en R},
+            pdfauthor={Paula Reyes},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight0.8\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+
+\usepackage{graphicx}
+\usepackage{rotating}
+%\setbeamertemplate{caption}[numbered]
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage[normalem]{ulem}
+%\mode<presentation>
+\usepackage{wasysym}
+\usepackage{amsmath}
+
+\setbeamertemplate{navigation symbols}{}
+\institute{Agrosavia}
+\titlegraphic{\includegraphics[width=0.3\paperwidth]{\string./images/Imagen2.png}}
+%\setbeamertemplate{title page}[empty]
+
+
+
+
+
+
+\setbeamertemplate{background}
+{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{\string./images/Imagen2_White_Background.png}}
+
+
+\pgfdeclareimage[width=\paperwidth]{mybackground}{\string./images/Imagen1_White_Background.png}
+
+\setbeamertemplate{title page}{
+
+        \begin{picture}(0,0)
+
+            \put(-28.9,-157.5){%
+                \pgfuseimage{mybackground}
+            }
+
+            \put(-165,-130){%
+                \begin{minipage}[b][45mm][t]{226mm}
+\begin{center}
+                    \usebeamerfont{title}{\inserttitle\par}
+\usebeamerfont{subtitle}{\insertsubtitle\par}
+\vspace{1cm}
+\usebeamerfont{author}{\insertauthor\par}
+\usebeamerfont{institute}{\insertinstitute\par}
+\vspace{1cm}
+\usebeamerfont{date}{\insertdate\par}
+\end{center}
+                \end{minipage}
+            }
+
+            \end{picture}
+
+    }
+
+
+
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{title}{size=\large}
+
+\setbeamerfont{frametitle}{size=\large}
+
+\setbeamerfont{normal text}{size=\small}
+
+\setbeamercovered{transparent}
+
+\definecolor{agrosaviablue}{HTML}{004F9F}
+\definecolor{agrosaviagreen}{HTML}{11A344}
+
+\setbeamercolor{frametitle}{fg=agrosaviablue}
+\setbeamercolor{title}{fg=agrosaviablue}
+\setbeamercolor{local structure}{fg=agrosaviablue}
+\setbeamercolor{section in toc}{fg=agrosaviablue,bg=white}
+\setbeamercolor{subsection in toc}{fg=agrosaviablue,bg=white}
+\setbeamercolor{item projected}{fg=agrosaviagreen,bg=white}
+\setbeamertemplate{itemize item}{\color{agrosaviagreen}$\bullet$}
+\setbeamertemplate{itemize subitem}{\color{agrosaviagreen}\scriptsize{$\bullet$}}
+\setbeamercolor{local structure}{fg=agrosaviagreen}
+
+%\let\Tiny=\tiny
+
+%\let\Tiny\tiny
+
+\AtBeginPart{}
+\AtBeginSection{}
+\AtBeginSubsection{}
+\AtBeginSubsubsection{}
+\setlength{\emergencystretch}{0em}
+\setlength{\parskip}{0pt}
+
+
+\AtBeginEnvironment{Shaded}{\scriptsize}% Step font down one size relative to current font
+\AtBeginEnvironment{verbatim}{\scriptsize}% Step font down one size relative to current font
+
+\AtBeginDocument{\usebeamerfont{normal text}} % Use normal text font previously defined
+
+\title{Gráficos Básicos en R}
+\subtitle{Módulo 1 - Exploración de datos mediante gráficas}
+\author{Paula Reyes}
+\institute{AGROSAVIA}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Diseño de gráfica - propuesta
+estudiantes}\label{diseno-de-grafica---propuesta-estudiantes}
+
+\begin{frame}{Diseño de gráfica - propuesta estudiantes}
+
+¿Qué hacen ustedes cuando tienen varias muestras de una misma variable y
+quieren ver la distibución?
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Excel
+\item
+  SAS (licencia)
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Diseño de gráfica - propuesta estudiantes}
+
+Usaremos un conjunto de datos de R \textit{PlantGrowth} resultados de un
+experimento de pesos de plantas en tres condiciones. Inicialmente
+queremos ver habilidades iniciales de los participantes del curso.
+
+Conjunto de datos
+\underline{\textcolor{blue}{\href{https://corpoicaorg.sharepoint.com/:x:/s/academiaagrosaviacurso.r/EfMk4erbqc9NmgwUukiYUIUBCy2gw9arMpAQbzHH3Cqq9Q?e=mJwDfK} {PlantGrowth}}}
+
+De este conjunto de datos obtener gráficas de distribución de datos.
+
+Enviar figuras al correo
+\href{mailto:academia@agrosavia.co}{\nolinkurl{academia@agrosavia.co}}.
+Figura primer día - Nombre.
+
+\end{frame}
+
+\section{Tipos de diagramas y correspondencia con análisis
+estadísticos}\label{tipos-de-diagramas-y-correspondencia-con-analisis-estadisticos}
+
+\begin{frame}{Tipos de diagramas - ¿Cómo seleccionar?}
+
+Cómo escogemos cada uno el tipo de gráfica a usar? Para poder convertir
+datos en conocimiento es importante poder presentar de la manera
+correcta (clara y concisa)
+
+\includegraphics[height=5cm]{images/selectchart.png}
+
+\underline{\tiny{\textcolor{blue}{\href{http://bigdata.black/analytics-predictions/visual-analytics/how-to-choose-the-right-chart/}{BigData is the New Black}}}}
+
+\end{frame}
+
+\section{Diagramas de distribución}\label{diagramas-de-distribucion}
+
+\begin{frame}{Histograma}
+
+En un histograma los datos estan agrupados en rangos (por ejemplo
+0-0.5,0.5-1). Se grafican los rangos como barras continuas, cada barra
+representa un rango.
+
+\begin{itemize}
+\item El ancho de la barra es proporcional al ancho del rango. 
+\item La altura de la barra es proporcional a la cantidad de datos en ese rango (frecuencia)
+\end{itemize}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-1-1.pdf}
+Es una representación gráfica de la distribución de los datos. Permite
+observar tenedencias (eg. donde estan agrupados la mayor parte de los
+datos).
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - datos - estructura
+- \textit{PlantGrowth}}
+
+Usaremos un conjunto de datos \textit{PlantGrowth} resultado de un
+experimento de pesos de plantas en tres condiciones (control - ctrl,
+tratamiento1 -trt1, tratamiento2 -trt2)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(PlantGrowth)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    30 obs. of  2 variables:
+##  $ weight: num  4.17 5.58 5.18 6.11 4.5 4.61 5.17 4.53 5.33 5.14 ...
+##  $ group : Factor w/ 3 levels "ctrl","trt1",..: 1 1 1 1 1 1 1 1 1 1 ...
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - datos}
+
+Usaremos un conjunto de datos \textit{PlantGrowth} resultados de un
+experimento de pesos de plantas en tres condiciones (control - ctrl,
+tratamiento1 -trt1, tratamiento2 -trt2)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#PlantGrowth}
+\KeywordTok{head}\NormalTok{(PlantGrowth)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   weight group
+## 1   4.17  ctrl
+## 2   5.58  ctrl
+## 3   5.18  ctrl
+## 4   6.11  ctrl
+## 5   4.50  ctrl
+## 6   4.61  ctrl
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-4-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - estructura}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(}\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{plot=}\OtherTok{FALSE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## List of 6
+##  $ breaks  : num [1:7] 3.5 4 4.5 5 5.5 6 6.5
+##  $ counts  : int [1:6] 2 5 6 9 4 4
+##  $ density : num [1:6] 0.133 0.333 0.4 0.6 0.267 ...
+##  $ mids    : num [1:6] 3.75 4.25 4.75 5.25 5.75 6.25
+##  $ xname   : chr "PlantGrowth$weight"
+##  $ equidist: logi TRUE
+##  - attr(*, "class")= chr "histogram"
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - número de rangos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{breaks=}\DecValTok{20}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-6-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - número de rangos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{breaks=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{7}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-7-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - valores por cada
+rango}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"gold"}\NormalTok{),}\DataTypeTok{labels=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-8-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - color}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"gold"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-9-1.pdf}
+\underline{\tiny{\textcolor{blue}{\href{http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf}{Rcolor}}}}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - color borde}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"gold"}\NormalTok{),}\DataTypeTok{border=}\StringTok{"orange"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-10-1.pdf}
+\underline{\tiny{\textcolor{blue}{\href{http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf}{Rcolor}}}}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - cambiando ejes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"gold"}\NormalTok{),}\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{),}\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-11-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - título (gráfico y
+eje x)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"gold"}\NormalTok{),}\DataTypeTok{main =}\StringTok{"Plant Growth"}\NormalTok{,}\DataTypeTok{xlab=}\StringTok{"Weight (kg)"}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-12-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{El histograma de frecuencias - con estima de
+densidad}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"gold"}\NormalTok{),}\DataTypeTok{prob=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight))}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{adjust =} \DecValTok{2}\NormalTok{),}\DataTypeTok{lty=}\StringTok{"dotted"}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-13-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histogramas por tratamiento}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{levels}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{group)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ctrl" "trt1" "trt2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{levels}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{group)[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ctrl"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PlantGrowthCtrl<-PlantGrowth[PlantGrowth}\OperatorTok{$}\NormalTok{group}\OperatorTok{==}\KeywordTok{levels}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{group)[}\DecValTok{1}\NormalTok{],]}
+\NormalTok{PlantGrowthTrt1<-PlantGrowth[PlantGrowth}\OperatorTok{$}\NormalTok{group}\OperatorTok{==}\KeywordTok{levels}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{group)[}\DecValTok{2}\NormalTok{],]}
+\NormalTok{PlantGrowthTrt2<-PlantGrowth[PlantGrowth}\OperatorTok{$}\NormalTok{group}\OperatorTok{==}\KeywordTok{levels}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{group)[}\DecValTok{3}\NormalTok{],]}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histogramas por tratamiento}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\KeywordTok{hist}\NormalTok{(PlantGrowthCtrl}\OperatorTok{$}\NormalTok{weight, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{7}\NormalTok{), }\DataTypeTok{col=}\KeywordTok{rgb}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.4}\NormalTok{), }
+     \DataTypeTok{xlab=}\StringTok{"weight"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Plant Growth distribution Control"}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(PlantGrowthTrt1}\OperatorTok{$}\NormalTok{weight, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{7}\NormalTok{), }\DataTypeTok{col=}\KeywordTok{rgb}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
+  \DataTypeTok{xlab=}\StringTok{"weight"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Plant Growth distribution Treatment 1"}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(PlantGrowthTrt2}\OperatorTok{$}\NormalTok{weight, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{7}\NormalTok{), }\DataTypeTok{col=}\KeywordTok{rgb}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
+  \DataTypeTok{xlab=}\StringTok{"weight"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Plant Growth distribution Treatment 2"}\NormalTok{)   }
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}{Histogramas por tratamiento}
+
+\includegraphics[height=10cm]{images/Par_PlantGrowth_byTreatment.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histogramas por tratamiento}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(PlantGrowthCtrl}\OperatorTok{$}\NormalTok{weight, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{7}\NormalTok{), }\DataTypeTok{col=}\KeywordTok{rgb}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.5}\NormalTok{), }
+     \DataTypeTok{xlab=}\StringTok{"weight"}\NormalTok{,}\DataTypeTok{ylab=}\StringTok{"nbr of plants"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Plant Growth distribution"}\NormalTok{ )}
+\KeywordTok{hist}\NormalTok{(PlantGrowthTrt1}\OperatorTok{$}\NormalTok{weight, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{7}\NormalTok{), }\DataTypeTok{col=}\KeywordTok{rgb}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{0.5}\NormalTok{), }\DataTypeTok{add=}\NormalTok{T)}
+\KeywordTok{hist}\NormalTok{(PlantGrowthTrt2}\OperatorTok{$}\NormalTok{weight, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{7}\NormalTok{), }\DataTypeTok{col=}\KeywordTok{rgb}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.5}\NormalTok{), }\DataTypeTok{add=}\NormalTok{T)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{"Control"}\NormalTok{,}\StringTok{"Treatment 1"}\NormalTok{,}\StringTok{"Treatment 2"}\NormalTok{), }
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\KeywordTok{rgb}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.5}\NormalTok{),}\KeywordTok{rgb}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{0.5}\NormalTok{),}\KeywordTok{rgb}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.5}\NormalTok{)), }\DataTypeTok{pt.cex=}\DecValTok{2}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{15}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}{Histogramas por tratamiento}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-17-1.pdf}
+
+\end{frame}
+
+\begin{frame}{Histograma - Otras librerias}
+
+A continuación hay ejemplos de otras librerias. Sin embargo, es
+necesario instar y cargar los paquetes.
+
+\begin{itemize}
+\item lattice
+\item ggplot2
+\item plotly
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histograma - libreria lattice}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# instala libreria}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"lattice"}\NormalTok{)}
+\CommentTok{# carga libreria}
+\KeywordTok{library}\NormalTok{(lattice)}
+\KeywordTok{histogram}\NormalTok{(}\OperatorTok{~}\NormalTok{weight,}\DataTypeTok{data=}\NormalTok{PlantGrowth)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=5cm]{images/Histogram_lattice.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histograma - libreria lattice divido por grupo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# instala libreria}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"lattice"}\NormalTok{)}
+\CommentTok{# carga libreria}
+\KeywordTok{library}\NormalTok{(lattice)}
+\KeywordTok{histogram}\NormalTok{(}\OperatorTok{~}\NormalTok{weight}\OperatorTok{|}\NormalTok{group,}\DataTypeTok{data=}\NormalTok{PlantGrowth,}\DataTypeTok{type=}\StringTok{"count"}\NormalTok{,}\DataTypeTok{xlab=}\StringTok{"weight (kg)"}\NormalTok{, }
+          \DataTypeTok{main=}\StringTok{"Plant Growth by treatment"}\NormalTok{,}\DataTypeTok{breaks =} \DecValTok{3}\OperatorTok{:}\DecValTok{8}\NormalTok{,}\DataTypeTok{layout=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=5cm]{images/lattice_histogram31.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histograma - libreria ggplot2 - qplot()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# instala libreria}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\CommentTok{# carga libreria}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{qplot}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{geom=}\StringTok{"histogram"}\NormalTok{,}\DataTypeTok{bins=}\DecValTok{7}\NormalTok{,}\DataTypeTok{main=}\StringTok{"Histogram for weight"}\NormalTok{,}
+      \DataTypeTok{xlab=}\StringTok{"Weight"}\NormalTok{,}\DataTypeTok{fill=}\KeywordTok{I}\NormalTok{(}\StringTok{"gold"}\NormalTok{),}\DataTypeTok{col=}\KeywordTok{I}\NormalTok{(}\StringTok{"gray"}\NormalTok{),}\DataTypeTok{alpha=}\KeywordTok{I}\NormalTok{(.}\DecValTok{4}\NormalTok{),}\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=5cm]{images/ggplotv1.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histograma - libreria ggplot2 - ggplot()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# instala libreria}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\CommentTok{# carga libreria}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data=}\NormalTok{PlantGrowth,}\KeywordTok{aes}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{(}\DataTypeTok{bins =} \DecValTok{7}\NormalTok{,}\DataTypeTok{col=}\StringTok{"gray"}\NormalTok{,}\DataTypeTok{fill=}\StringTok{"gold"}\NormalTok{,}\DataTypeTok{alpha=}\FloatTok{0.4}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Histogram for weight"}\NormalTok{,}\DataTypeTok{x=}\StringTok{"weight"}\NormalTok{,}\DataTypeTok{y=}\StringTok{"count"}\NormalTok{,}\KeywordTok{xlim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=5cm]{images/ggplot_histogramv2.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histograma - libreria ggplot2 - forma 2 - rango
+color}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data=}\NormalTok{PlantGrowth,}\KeywordTok{aes}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight))}\OperatorTok{+}
+\KeywordTok{geom_histogram}\NormalTok{(}\DataTypeTok{bins =} \DecValTok{7}\NormalTok{,}\DataTypeTok{col=}\StringTok{"gray"}\NormalTok{,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{fill=}\NormalTok{..count..))}\OperatorTok{+}
+\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Histogram for weight"}\NormalTok{,}\DataTypeTok{x=}\StringTok{"weight"}\NormalTok{,}\DataTypeTok{y=}\StringTok{"count"}\NormalTok{,}\KeywordTok{xlim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{)))}\OperatorTok{+}
+\KeywordTok{scale_fill_gradient}\NormalTok{(}\StringTok{"Count"}\NormalTok{,}\DataTypeTok{low=}\StringTok{"green"}\NormalTok{,}\DataTypeTok{high =} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=5cm]{images/ggplot_histogramv3.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histograma - libreria ggplot2 qplot() vs
+ggplot()}
+
+qplot() tiene una sintaxis más sencilla con respecto a ggplot(). qplot
+viene de ``quick plot''. Sin embargo, ggplot() es maś flexible y permite
+configurar otros parámetros. Generalmente se usa ggplot()
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data=}\NormalTok{PlantGrowth,}\KeywordTok{aes}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight))}\OperatorTok{+}
+\KeywordTok{geom_histogram}\NormalTok{(}\DataTypeTok{bins =} \DecValTok{7}\NormalTok{,}\DataTypeTok{col=}\StringTok{"gray"}\NormalTok{,}\DataTypeTok{fill=}\StringTok{"gold"}\NormalTok{,}\DataTypeTok{alpha=}\FloatTok{0.4}\NormalTok{,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{..density..))}\OperatorTok{+}
+\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Histogram for weight"}\NormalTok{,}\DataTypeTok{x=}\StringTok{"weight"}\NormalTok{,}\DataTypeTok{y=}\StringTok{"count"}\NormalTok{,}\KeywordTok{xlim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{)))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{col=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=4cm]{images/ggplot_histogram_trendline.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histograma - libreria plotly}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"plotly"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(plotly)}
+\CommentTok{#configurar usuario y key}
+\CommentTok{#Sys.setenv("plotly_username"=usuario)}
+\CommentTok{#Sys.setenv("plotly_api_key"=keygenerada)}
+\NormalTok{p<-}\KeywordTok{plot_ly}\NormalTok{(}\DataTypeTok{x=}\NormalTok{PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{type=}\StringTok{"histogram"}\NormalTok{)}
+\NormalTok{char_link =}\KeywordTok{api_create}\NormalTok{(p,}\DataTypeTok{filename =} \StringTok{"histogram_basic"}\NormalTok{)}
+\NormalTok{char_link}
+\end{Highlighting}
+\end{Shaded}
+
+\url{https://plot.ly/~phreyes/1#plot}
+
+\end{frame}
+
+\begin{frame}{Diagramas de caja - Boxplot}
+
+Es uno de los gráficos más comunes. Da un resumen bueno de una o varias
+variables numéricas.\\
+
+\begin{itemize}
+\item La línea que divide la caja en la mitad representa la mediana. 
+\item Los finales de la caja representan el primer $Q_{1}$ y el tercer cuartil $Q_{3}$.
+\item Las líneas externas representan el valor más alto y más bajo (excluyendo valores atípicos)
+\end{itemize}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-25-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - Boxplot}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{col =} \StringTok{"darkturquoise"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-26-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - Boxplot - Estructura}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(}\KeywordTok{boxplot}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{plot =} \OtherTok{FALSE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## List of 6
+##  $ stats: num [1:5, 1] 3.59 4.53 5.15 5.54 6.31
+##  $ n    : num 30
+##  $ conf : num [1:2, 1] 4.86 5.45
+##  $ out  : num(0) 
+##  $ group: num(0) 
+##  $ names: chr "1"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{quantile}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{0.25}\NormalTok{,}\FloatTok{0.5}\NormalTok{,}\FloatTok{0.75}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    0%   25%   50%   75%  100% 
+## 3.590 4.550 5.155 5.530 6.310
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - Boxplot dividiendo por grupo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(weight }\OperatorTok{~}\StringTok{ }\NormalTok{group, }\DataTypeTok{data =}\NormalTok{ PlantGrowth, }\DataTypeTok{col =} \StringTok{"lightgray"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-28-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(weight }\OperatorTok{~}\StringTok{ }\NormalTok{group, }\DataTypeTok{data =}\NormalTok{ PlantGrowth, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"darkorchid"}\NormalTok{,}\StringTok{"darkturquoise"}\NormalTok{,}
+                                                  \StringTok{"deepskyblue"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-28-2.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - Boxplot para un dataframe}
+
+Otro conjunto de datos \textit{trees}. Medidas del diámetro, altura y
+volumen de 31 arboles de mora.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(trees,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"darkorchid"}\NormalTok{,}\StringTok{"darkturquoise"}\NormalTok{,}\StringTok{"deepskyblue"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-29-1.pdf}
+En caso de usar una matriz se realiza el boxplot por columnas.
+
+\tiny{El diámetro esta etiquetado incorrectamente como Girth}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - Boxplot número de muestras}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a=}\KeywordTok{boxplot}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight}\OperatorTok{~}\NormalTok{PlantGrowth}\OperatorTok{$}\NormalTok{group,}
+          \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"darkorchid"}\NormalTok{,}\StringTok{"darkturquoise"}\NormalTok{,}\StringTok{"deepskyblue"}\NormalTok{),}
+          \DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\FloatTok{3.5}\NormalTok{,}\FloatTok{7.5}\NormalTok{))}
+\KeywordTok{text}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\KeywordTok{nlevels}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{group)),a}\OperatorTok{$}\NormalTok{stats[}\KeywordTok{nrow}\NormalTok{(a}\OperatorTok{$}\NormalTok{stats),]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{,}
+     \KeywordTok{paste}\NormalTok{(}\StringTok{"n="}\NormalTok{,a}\OperatorTok{$}\NormalTok{n[}\DecValTok{1}\OperatorTok{:}\KeywordTok{nlevels}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{group)],}\DataTypeTok{sep=}\StringTok{""}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-30-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - Horizontal}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(trees,}\DataTypeTok{horizontal=}\OtherTok{TRUE}\NormalTok{,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"darkorchid"}\NormalTok{,}\StringTok{"darkturquoise"}
+\NormalTok{                                    ,}\StringTok{"deepskyblue"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-31-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - Horizontal}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(trees,}\DataTypeTok{horizontal=}\OtherTok{TRUE}\NormalTok{,}\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"darkorchid"}\NormalTok{,}\StringTok{"darkturquoise"}
+\NormalTok{                             ,}\StringTok{"deepskyblue"}\NormalTok{),}\DataTypeTok{outline =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-32-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - 2 variables dividiendo por
+grupo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Creemos columna dosis para ver otro ejemplo tratamientos y dosis }
+\CommentTok{# Números aleatorios para la dosis por esto la gráfica va a cambiar }
+\CommentTok{# para cada uno}
+\NormalTok{PlantGrowth}\OperatorTok{$}\NormalTok{dose=}\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DataTypeTok{replace=}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# Boxplot dividiendo por grupo}
+\KeywordTok{boxplot}\NormalTok{(weight }\OperatorTok{~}\StringTok{ }\NormalTok{dose}\OperatorTok{:}\NormalTok{group, }\DataTypeTok{data =}\NormalTok{ PlantGrowth,}
+\DataTypeTok{boxwex =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"green"}\NormalTok{,}\StringTok{"blue"}\NormalTok{),}
+\DataTypeTok{main =} \StringTok{"Plant Growth"}\NormalTok{,}
+\DataTypeTok{xlab =} \StringTok{" dose (mg)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"weight (kg)"}\NormalTok{,}
+\DataTypeTok{sep =} \StringTok{":"}\NormalTok{, }\DataTypeTok{lex.order =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{8}\NormalTok{), }\DataTypeTok{yaxs =} \StringTok{"i"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}{Diagramas de caja - agregar}
+
+\includegraphics{Agrosavia_Theme_Graficos_Curso2_files/figure-beamer/unnamed-chunk-34-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - libreria lattice}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{bwplot}\NormalTok{(}\OperatorTok{~}\NormalTok{weight, }\DataTypeTok{data=}\NormalTok{PlantGrowth,}\DataTypeTok{xlab=}\StringTok{"weight (kg)"}\NormalTok{,}
+\DataTypeTok{main=}\StringTok{"Plant Growth by treatment"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=5cm]{images/boxplot_lattice.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - libreria lattice}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{bwplot}\NormalTok{(}\OperatorTok{~}\NormalTok{weight}\OperatorTok{|}\StringTok{ }\NormalTok{group, }\DataTypeTok{data=}\NormalTok{PlantGrowth,}\DataTypeTok{xlab=}\StringTok{"weight (kg)"}\NormalTok{,}
+\DataTypeTok{main=}\StringTok{"Plant Growth by treatment"}\NormalTok{,}\DataTypeTok{layout=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=5cm]{images/boxplot_lattice_3.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - libreria ggplot2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(PlantGrowth,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{group,}\DataTypeTok{y=}\NormalTok{weight,}\DataTypeTok{fill=}\NormalTok{group))}\OperatorTok{+}\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{alpha=}\FloatTok{0.3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=5cm]{images/boxplot_Basicoggplot.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histograma y Diagramas de caja - libreria
+ggplot2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Dividir la pantalla}
+\KeywordTok{layout}\NormalTok{(}\DataTypeTok{mat=}\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{),}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DataTypeTok{byrow=}\OtherTok{TRUE}\NormalTok{),}\DataTypeTok{height=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{8}\NormalTok{))}
+\CommentTok{#Dibujar el boxplot y el histograma}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{3.1}\NormalTok{,}\FloatTok{1.1}\NormalTok{,}\FloatTok{2.1}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{horizontal =} \OtherTok{TRUE}\NormalTok{,}\DataTypeTok{xaxt=}\StringTok{"n"}\NormalTok{,}
+        \DataTypeTok{col=}\NormalTok{(}\StringTok{"mediumvioletred"}\NormalTok{),}\DataTypeTok{frame=}\NormalTok{F)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\FloatTok{3.1}\NormalTok{,}\FloatTok{1.1}\NormalTok{,}\FloatTok{2.1}\NormalTok{))}
+\KeywordTok{hist}\NormalTok{(PlantGrowth}\OperatorTok{$}\NormalTok{weight,}\DataTypeTok{col=}\StringTok{"mediumturquoise"}\NormalTok{,}\DataTypeTok{border=}\NormalTok{F,}\DataTypeTok{main=}\StringTok{""}\NormalTok{,}\DataTypeTok{xlab=}\StringTok{"weight"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=5cm]{images/HistogramaBoxplotGGplot.png}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagramas de caja - plotly}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p<-}\KeywordTok{plot_ly}\NormalTok{(PlantGrowth,}\DataTypeTok{y=}\OperatorTok{~}\NormalTok{weight,}\DataTypeTok{color=}\OperatorTok{~}\NormalTok{group,}\DataTypeTok{type=}\StringTok{"box"}\NormalTok{)}
+\NormalTok{chart_link =}\StringTok{ }\KeywordTok{api_create}\NormalTok{(p, }\DataTypeTok{filename=}\StringTok{"box-multiple"}\NormalTok{)}
+\NormalTok{chart_link}
+\end{Highlighting}
+\end{Shaded}
+
+\url{https://plot.ly/~phreyes/3/}
+
+\end{frame}
+
+\section{Ejercicios prácticos}\label{ejercicios-practicos}
+
+\begin{frame}{Ejercicios prácticos - Diagramas de distribución 1}
+
+\begin{itemize}
+\item Inicialmente trabajaremos con un conjunto de datos predefinido en R.
+\item Si queda tiempo la idea es trabajar con un conjunto de datos de cada uno.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Ejercicios prácticos - Diagramas de distribución}
+
+Conjunto de datos \textit{ToothGrowth}. Este conjunto de datos consiste
+en la longitud de los dientes de cuyes. Se dividieron en grupos al los
+que se les dieron diferentes dosis de vitamina C (0.5, 1, y 2 mg)
+mediante dos métodos diferentes (jugo de naranja OJ o ácido ascórbico
+VC).
+
+\begin{itemize}
+\item Probar con este nuevo conjunto de datos a realizar las gráficas que se encuentran en las \href{}{diapositivas}. De histogramas y diagramas de caja.
+\end{itemize}
+
+\end{frame}
+
+\section{Referencias}\label{referencias}
+
+\begin{frame}{Referencias}
+
+\begin{itemize}
+\item help r
+\item \underline{\textcolor{blue}{\href{https://www.r-graph-gallery.com/}{The R Graph Gallery}}}
+\end{itemize}
+
+\includegraphics[height=4cm]{images/RGraphGallery.png}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,7646 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass bmcart
+\begin_preamble
+%% BioMed_Central_Tex_Template_v1.06
+\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+\usepackage{charter}
+
+%\usepackage[draft]{graphicx}
+
+%%  If you wish to display your graphics for   %%
+%%  your own use using includegraphic or       %%
+%%  includegraphics, then comment out the      %%
+%%  following two lines of code.               %%
+%%  NB: These line *must* be included when     %%
+%%  submitting to BMC.                         %%
+%%  All figure files must be submitted as      %%
+%%  separate graphics through the BMC          %%
+%%  submission process, not included in the    %%
+%%  submitted article.                         %%
+%
+%\def\includegraphic{}
+%\def\includegraphics{}
+
+\startlocaldefs
+\endlocaldefs
+
+% For micro seconds and picoseconds units
+\usepackage[load=prefixed]{siunitx}
+
+% For fixing placing wide figures in two-column doc
+\usepackage{dblfloatfix}
+\usepackage{multicol}
+%\usepackage{float}
+
+%Controlling figure and table placement in LaTeX
+\usepackage[section]{placeins}
+
+\renewcommand{\topfraction}{.85}
+ \renewcommand{\bottomfraction}{.7}
+ \renewcommand{\textfraction}{.15}
+ \renewcommand{\floatpagefraction}{.66}
+ \renewcommand{\dbltopfraction}{.66}
+ \renewcommand{\dblfloatpagefraction}{.66}
+ \setcounter{topnumber}{9}
+ \setcounter{bottomnumber}{9}
+ \setcounter{totalnumber}{20}
+ \setcounter{dbltopnumber}{9}
+
+% Colors
+\definecolor{dg}{rgb}{0.12, 0.3, 0.17}
+
+\usepackage{xcolor}
+\usepackage{sectsty}
+\sectionfont{\color{cyan}}
+\end_preamble
+\options twocolumn
+\use_default_options true
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frontmatter}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{fmbox}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dochead{Research}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+A fast parallel algorithm to reduce protein folding trajectories
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+author[
+\end_layout
+
+\begin_layout Plain Layout
+
+   addressref={aff1},                   % id's of addresses, e.g.
+ {aff1,aff2}   
+\end_layout
+
+\begin_layout Plain Layout
+
+   noteref={n1},                        % id's of article notes, if any
+\end_layout
+
+\begin_layout Plain Layout
+
+   email={1uis.garreta@correounivalle.edu.co}   % email address
+\end_layout
+
+\begin_layout Plain Layout
+
+]{
+\backslash
+inits{LG}
+\backslash
+fnm{Luis} 
+\backslash
+snm{Garreta}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+author[
+\end_layout
+
+\begin_layout Plain Layout
+
+   addressref={aff2},
+\end_layout
+
+\begin_layout Plain Layout
+
+   email={mmartinez@ebi.ac.uk}
+\end_layout
+
+\begin_layout Plain Layout
+
+]{
+\backslash
+inits{MM}
+\backslash
+fnm{Mauricio} 
+\backslash
+snm{Martinez}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+author[
+\end_layout
+
+\begin_layout Plain Layout
+
+   addressref={aff1},
+\end_layout
+
+\begin_layout Plain Layout
+
+   corref={aff1},                       % id of corresponding address, if
+ any
+\end_layout
+
+\begin_layout Plain Layout
+
+   email={pedro.moreno@correounivalle.edu.co}
+\end_layout
+
+\begin_layout Plain Layout
+
+]{
+\backslash
+inits{PM}
+\backslash
+fnm{Pedro A} 
+\backslash
+snm{Moreno}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+address[id=aff1]{%                           % unique id
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+orgname{Escuela de Ingeniería de Sistemas y Computación, Universidad del
+ Valle}, % university, etc
+\end_layout
+
+\begin_layout Plain Layout
+
+  %
+\backslash
+street{},                     %
+\end_layout
+
+\begin_layout Plain Layout
+
+  %
+\backslash
+postcode{}                                % post or zip code
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+city{Santiago de Cali},                              % city
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+cny{Colombia}                                    % country
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+address[id=aff2]{%
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+orgname{The European Bioinformatics Institute (EMBL-EBI)},
+\end_layout
+
+\begin_layout Plain Layout
+
+  %
+\backslash
+street{D
+\backslash
+"{u}sternbrooker Weg 20},
+\end_layout
+
+\begin_layout Plain Layout
+
+  %
+\backslash
+postcode{24105}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+city{Hinxton, Cambridgeshire},
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+cny{UK}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{artnotes}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+note[id=n1]{Equal contributor} % note, connected to author
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{artnotes}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+end{fmbox}% comment this for two column layout
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abstractbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+parttitle{Background}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename tmp-img-abstract-plaku2017.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The simulations are one of the most important tools for studying and understandi
+ng the underlying mechanisms of the protein folding process.
+ Protein folding simulations have experienced substantial progress in the
+ last years, they are performed using diverse technologies and they are
+ reaching the microseconds and greater timescales, which generates very
+ long trajectories.
+ As a result, the analysis of these trajectories entails to complications
+ and is necessary to create tools to simplify them, so that both the main
+ events and the temporal order in which they occur are preserved.
+\end_layout
+
+\begin_layout Abstract
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+parttitle{Results}
+\end_layout
+
+\end_inset
+
+ We present an algorithm to reduce long protein folding trajectories in
+ a fast and parallel way.
+ 
+\color blue
+The algorithm divides a trajectory into segments to be processed in parallel,
+ and from each segment selects the most representative conformations using
+ a rapid clustering strategy, which takes advantage of the temporal order
+ of the conformations to compare them locally, avoiding an all-versus-all
+ comparison.
+
+\color inherit
+ The algorithm reduces a trajectory in a high percentage, preserving both
+ the patterns and the structure obtained by other more complex reduction
+ techniques.
+ In addition, its performance is close to that shown by other efficient
+ reduction techniques, and this performance is improved when executed in
+ parallel using more than one core.
+\end_layout
+
+\begin_layout Abstract
+
+\lang spanish
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\lang spanish
+divide la trayectoria en segmentos y de cada uno de ellos toma los eventos
+ o conformaciones más representativas mediante una estrategia rápida de
+ agrupamiento toma los eventos más disimilares y luego selecciona entre
+ ellos a los más representativos.
+ El algoritmo se caracteriza porque aprovecha el orden temporal implícito
+ en la trayectoria para realizar en cada segmento comparaciones locales,
+ entre eventos vecinos, y así evitar realizar una comparación de todos contra
+ todos que es muy costosa computacionalmente.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+
+\lang spanish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+parttitle{Conclusions}
+\end_layout
+
+\end_inset
+
+ 
+\lang american
+The developed algorithm quickly reduces a protein folding trajectory by
+ selecting its most representative conformations and thus preserving both
+ its structure and its temporal order.
+ The reduced trajectories can be used as input for more complex analysis
+ techniques and even for other reduction techniques that become impractical
+ when faced with long folding trajectories.
+ The algorithm is fast and is designed to run in parallel on conventional
+ PCs with multi-core technology, which are present in most typical research
+ laboratories.
+\lang spanish
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\lang spanish
+Para mostrar la efectividad del algoritmo propuesto realizamos reducciones
+ sobre tres conjuntos de trayectorias disponibles públicamente: las del
+ supercomputador Anton, las del proyecto folding@home, y las del servidor
+ de desplegamiento de Parasol.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{keyword}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+kwd{Protein folding simulations}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+kwd{Protein structure comparison}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+kwd{Protein structure clustering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{keyword}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abstractbox}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{fmbox}% uncomment this for two column layout 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frontmatter}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Background
+\end_layout
+
+\begin_layout Standard
+
+\color red
+We present a parallel algorithm to reduce protein folding trajectories which
+ quickly obtains representative conformations, conserving both their three-dimen
+sional structure (3D) and their temporal order.
+ 
+\color inherit
+Proteins play a fundamental role in all living beings, but to be functional,
+ they must fold from their linear amino acid (AA) sequence to a unique 3D
+ or native state, which is known as the protein folding process.
+ 
+\color blue
+Understanding the mechanisms and rules of this process has been one of the
+ most pursued objectives of computational biology, and an important theoretical
+ tool to study it has been the simulations of protein folding.
+ These simulations generate folding trajectories (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Folding-Trajectory"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), which describe the sequence of states that proteins follow as a function
+ of time during their folding process.
+\color inherit
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Understanding the protein folding mechanism remains a grand challenge in
+ structural biology.
+ In the past several years, computational theories in molecular dynamics
+ have been employed to shed light on the folding process.
+ Coupled with high computing power and large scale storage, researchers
+ now can computationally simulate the protein folding process in atomistic
+ details at femtosecond temporal resolution.
+ Such simulation often produces a large number of folding trajectories,
+ each consisting of a series of 3D conformations of the protein under study.
+ As a result, effectively managing and analyzing such trajectories is becoming
+ increasingly important.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/trayectory-description/trajectory-description-2RN2-pdbs.pdf
+	lyxscale 200
+	BoundingBox 0bp 0bp 224bp 127bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Protein folding trajectory.
+ The evolution of the folding is measured at each step by comparing the
+ structure at time 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_i$
+\end_layout
+
+\end_inset
+
+ to the native structure (black image background) using a structure comparison
+ metric, in this work we use the TM-Score (see Methods).
+ X-axis: Simulation time from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_0$
+\end_layout
+
+\end_inset
+
+ to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_n$
+\end_layout
+
+\end_inset
+
+.
+ Y-axis: TM-score value, from 0 (different) to 1 (similar).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Folding-Trajectory"
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Trayectoria de plegamiento de una proteína.
+ El eje horizontal (Time steps) describe la secuencia de eventos o conformacione
+s de la proteína (estructuras 3D) a lo largo del tiempo de la simulación.
+ t_0 y t_n son el tiempo inicial (proteína desplegada) y final (proteína
+ plegada) respectivamente.
+ El eje vertical (TM-score) describe la evolución del plegamiento al comparar
+ mediante la métrica TM-score 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhan2004"
+literal "false"
+
+\end_inset
+
+ la estructura del tiempo actual con la estructura nativa de la proteina.
+ TM-score varia de 0 a 1, donde 1 significa estructuras similares
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+Folding simulations mainly use the molecular dynamics (DM) method, which
+ due to its computational cost is limited to small proteins (<100 AA) and
+ very short times (picoseconds or microseconds
+\color inherit
+).
+ 
+\color red
+However, technological innovations have allowed significant advances in
+ these simulations,
+\color purple
+ both on time scales and technology to execute them.
+ 
+\color red
+In 2011, using the Anton supercomputer, specially designed for protein folding
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2008"
+literal "false"
+
+\end_inset
+
+, full simulations of 12 proteins were published, several on the order of
+ milliseconds 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2011"
+literal "false"
+
+\end_inset
+
+.
+ And more recently, in 2016, the Anton 2 supercomputer became operational
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2014"
+literal "false"
+
+\end_inset
+
+, being up to ten times faster than its predecessor Anton.
+
+\color purple
+ As an economic alternative, in 2014 graphic processing units (GPU) were
+ used to simulate, on the order of microseconds, the folding of 17 proteins
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nguyen2014"
+literal "false"
+
+\end_inset
+
+.
+
+\color blue
+ 
+\color inherit
+And years earlier, in 2007, the "folding@home" distributed computing platform
+ utilized as many as 250,000 PCs, voluntarily available around the world,
+ to simulate on the order of microseconds the folding of the villin-headpiece
+ protein
+\color blue
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Larson2009"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color purple
+Un gran avance lo hizo D.
+ E.
+ Shaw Research en el 2008 al crear la supercomputadora Anton 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2008"
+literal "false"
+
+\end_inset
+
+ diseñada especialmente para ejecutar DM.
+ Luego, en el 2011 reportaron las simulaciones de 12 proteínas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2011"
+literal "false"
+
+\end_inset
+
+ con trayectorias en la escala de los milisegundos y con más de 14 millones
+ de conformaciones.
+
+\color blue
+ Años antes, en el 2007 el grupo de investigación de Pande usó computación
+ distribuida en el proyecto folding@home 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Larson2009"
+literal "false"
+
+\end_inset
+
+ para simular el plegamiento de la proteína villin headpice a partir de
+ distintas condiciones iniciales y reportó alrededor de 1000 trayectorias,
+ algunas de ellas en la escala de los microsegundos y con casi 2 millones
+ de conformaciones 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PandeEnsign07"
+literal "false"
+
+\end_inset
+
+.
+
+\color purple
+ 
+\color inherit
+Recientemente, en el 2016 se puso en operación Anton 2: la segunda generación
+ de supercomputadoras Anton 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2014"
+literal "false"
+
+\end_inset
+
+ 10 veces más rápidas que sus predecesoras 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2008"
+literal "false"
+
+\end_inset
+
+ y de las cuales se espera que empiecen a reportarse simulaciones en el
+ orden de los milisegundos con trayectorias de varios millones de conformaciones.
+ 
+\color blue
+Sin embargo, como una alternativa más económica y accesible que Anton, se
+ utilizan ahora las unidades de procesamiento gráfico (GPUs) para acelerar
+ las simulaciones de DM y ya se reportan trayectorias del orden de los microsegu
+ndos para diferentes proteínas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nguyen2014"
+literal "false"
+
+\end_inset
+
+.
+
+\color inherit
+ 
+\color purple
+De forma paralela a todo lo anterior, se han utilizado métodos alternos
+ a la DM como los algoritmos de planeación de movimiento 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Al-Bluwi2012"
+literal "false"
+
+\end_inset
+
+ que generan trayectorias de desplegamiento a partir de la estructura nativa
+ de una proteína.
+ Uno de estos métodos es el Probabilistic Roadmap Method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AmatoSong01,Amato2010"
+literal "false"
+
+\end_inset
+
+ implementado en el servidor público de plegamiento de
+\color inherit
+ Parasol(
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://parasol.tamu.edu/foldingserver/
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color purple
+These innovations show significant progress in protein folding simulations,
+ both on time scales and technology to execute them, and as a result the
+ generation of trajectories with millions of conformations.
+ 
+\color red
+But due to their large number of conformations, their processing and analysis
+ in conventional PCs is computationally expensive, and new algorithms are
+ needed to efficiently simplify them, seeking to preserve as much information
+ as possible
+\color purple
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename tmp-img-computational-methdos-background.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+Two approaches used to reduce these simulations have been the dimensionality
+ reduction 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Duan2013"
+literal "false"
+
+\end_inset
+
+ and clustering 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Peng2018"
+literal "false"
+
+\end_inset
+
+.
+ In the dimensionality reduction approach, conformations are transformed
+ into reduced sets of variables that represent them as well as possible.
+ Here, both linear and non-linear techniques have been used (e.g.
+ principal component analysis (PCA) and multidimensional scaling 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RajanSchulten10"
+literal "false"
+
+\end_inset
+
+, Isomap 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Das2006"
+literal "false"
+
+\end_inset
+
+, diffusion maps 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kim2015"
+literal "false"
+
+\end_inset
+
+).
+ However, many of these techniques, instead of reducing a trajectory, analyze
+ it, losing the structural information of the conformations (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lost-info-dimensionality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, top) and making the results explainable only when observed together.
+ In addition, many of these techniques require pairwise comparisons, which
+ are computationally expensive when trajectories are very large.
+\end_layout
+
+\begin_layout Standard
+
+\color purple
+In the clustering approach, the conformations are assigned to groups that
+ share similar characteristics (e.g., similarity with the native structure),
+ and from each group an average representative or its general characteristics
+ can be taken.
+ Here, hierarchical and partitioned groupings have been used (e.g., 
+\color inherit
+k-means 
+\color purple
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Doerr2017"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+, link 
+\color purple
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shao2007"
+literal "false"
+
+\end_inset
+
+).
+ However, the groups lose their temporal order since they can include conformati
+ons that occur in very distant times (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lost-info-dimensionality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, bottom).
+ And also they require pairwise comparisons, which are computationally expensive
+ when trajectories are very large.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/reduction-weakness/2RN2-trajectory-weakness.pdf
+	scale 105
+	BoundingBox 0bp 0bp 210bp 104bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+csentence{Loss of information in dimensionality reduction and clustering.}
+\end_layout
+
+\end_inset
+
+ The dimensionality reduction (above) transforms the conformations (c1,
+ c2 and c3) into a new set of values (c'1, c'2 and, c'3), but their structural
+ information is lost.
+ While the clustering (bottom) forms two groups (G1 and G2), but their temporal
+ order is lost since they contain conformations that overlap in time (c2,
+ c3, c4, c5).
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lost-info-dimensionality"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Hace algunos años Hobohm y Sander crearon una estrategia de agrupamiento
+ muy rápido para seleccionar conjuntos representativos de secuencias de
+ proteínas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hobohm1992"
+literal "false"
+
+\end_inset
+
+.
+ 
+\color blue
+Desde entonces la estrategia se ha utilizado en varios algoritmos de agrupamient
+o rápido para distintos tipos de datos biológicos de gran tamaño 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Liu2009,Edgar2010,Li2012b,Li2012"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+.
+ La estrategia realiza los agrupamientos sin necesidad de comparar todas
+ las secuencias.
+ Primero las ordena de forma decreciente por su longitud y toma la primera
+ como representante del primer grupo.
+ Luego toma la siguiente y la compara con las representantes de los grupos
+ encontrados, si encuentra una que sea similar (de acuerdo a un umbral)
+ la asigna a ese grupo o sino la coloca como representante de un nuevo grupo,
+ y sigue así con las restantes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Nuestro algoritmo reduce una trayectoria de plegamiento primero dividiéndola
+ en segmentos que luego se procesan en paralelo, primero extrayendo rápidiamente
+ sus eventos caracterísiticos, y luego seleccionando exhaustivamente de
+ estos ultimos a los más representativos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To reduce a folding trajectory, the proposed algorithm divides the path
+ into segments that are processed in parallel.
+ For each segment, characteristic events are quickly extracted using the
+ rapid clustering strategy of Hobohm and Sander (1992) adapted for protein
+ folding trajectories; and from these results, the most representative events
+ are selected by a strategy of k-medoids 
+\color purple
+\lang spanish
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kaufman1990"
+literal "false"
+
+\end_inset
+
+.The results of each segment are joined to form the reduced trajectory with
+ the most representative conformations of the original trajectory, while
+ retaining both its 3D representation as their temporal order.
+\end_layout
+
+\begin_layout Standard
+The algorithm is implemented in the R language, except the function for
+ pairwise structure comparison, the TM-score 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang2004"
+literal "false"
+
+\end_inset
+
+, which is the function executed more times and that is implemented in the
+ Fortran language.
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color blue
+Our algorithm reduces a folding trajectory in three stages (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Algorithm-Description"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+): (1) Trajectory partition, which divides the trajectory into segments
+ with equal number of conformations; (2) Characteristics extraction, which
+ quickly extracts the set of characteristic conformations for each segment
+ by following the rapid clustering approach of Hobohm and Sander (1992);
+ and (3) Representatives selection, which selects the most representative
+ conformations from each of the previous sets by following a strategy of
+ type k-medoids 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kaufman1990"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Methods
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Subsection*
+Datasets of protein folding trajectories
+\end_layout
+
+\begin_layout Plain Layout
+In this work, we used the trajectories from three simulation projects of
+ protein folding, two using Molecular Dynamics simulations (MD) and one
+ using the Probabilistic Roadmap Method (PRM).
+ First, the trajectory of the trp-cage protein, simulated with DM using
+ the Anton supercomputer 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2011"
+literal "false"
+
+\end_inset
+
+, with a simulation time of 208 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+, a 200 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+time step, and 1044001 conformations.
+ Second, the trajectory of the villin-headpiece protein, simulated with
+ DM using the folding@home distributed platform 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PandeEnsign07"
+literal "false"
+
+\end_inset
+
+, with a simulation time of 8 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+, a 50 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ time step, and 15201 conformations.
+ And third, the trajectory of the ribonuclease H protein, simulated with
+ the PRM using the Parasol folding server 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Amato2010"
+literal "true"
+
+\end_inset
+
+, with 429 folding steps each corresponding to 429 conformations.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Time steps and Folding steps
+\end_layout
+
+\begin_layout Standard
+A time step in MD trajectories is the time length at which conformations
+ are sampled or evaluated during the simulation.
+ While a folding step, in the PRM and in our reduced trajectories, represents
+ the most likely conformation occurring during a time interval or from a
+ set of likely candidate conformations.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+trajectory was simulated with MD using the Anton supercomputer 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2011"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+the first two of these used Molecular Dynamics simulations: Anton supercomputer
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2011"
+literal "false"
+
+\end_inset
+
+ and folding@home 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PandeEnsign07"
+literal "false"
+
+\end_inset
+
+, and the third used the Probabilistic Roadmap Method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Amato2010"
+literal "true"
+
+\end_inset
+
+, and Parasol folding server using .
+ One trajectory was taken from each: the trajectory of the trp-cage protein
+ from the Anton supercomputer project, with a simulation time of 208 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+, a 200 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+time step, and 1044001 conformations.
+ The trajectory of the villin-headpiece protein from the folding@home projec,
+ simulated, with a simulation time of 8 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+, a 50 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ time step, and 15201 conformations.
+ And the trajectory of the ribonuclease H protein from the Parasol folding
+ server project, with 429 folding steps each corresponding to 429 conformations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Subsection*
+Algoritmo de Hobohm y Sander para agrupamiento rápidos
+\end_layout
+
+\begin_layout Plain Layout
+Una de las fases de nuestro algoritmo consiste en encontrar las conformaciones
+ que caracterizan a una subtrayectoria, para esto nos basamos en la estrategia
+ de Hobohm y Sander para agrupamientos rápidos utilizada en la selección
+ de conjuntos representativos de secuencias de proteínas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hobohm1992"
+literal "false"
+
+\end_inset
+
+.
+ 
+\color blue
+Por su rápidez, esta estrategia ha sido utilizado en varios algoritmos de
+ agrupamiento para distintos tipos de datos biológicos de gran tamaño 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Liu2009,Edgar2010,Li2012b,Li2012"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+.
+ La estrategia realiza los agrupamientos sin necesidad de comparar todas
+ las secuencias.
+ Primero las ordena de forma decreciente por su longitud y toma la primera
+ como representante del primer grupo.
+ Luego toma la siguiente y la compara con las representantes de los grupos
+ encontrados, si existe una que sea similar (de acuerdo a un umbral) la
+ asigna a ese grupo o sino la coloca como representante de un nuevo grupo,
+ y sigue así con las restantes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Pairwise comparison of protein structures using the TM-score 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Comparing-Structures"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this work, we used the TM-score metric for pairwise comparison of protein
+ structures 
+\color blue
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang2004"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+.
+ This metric is used in both the proposed algorithm and in the techniques
+ for reduction of protein folding used to compare its results.
+ The TM-score is more sensitive to the global topology than local variations,
+ and so it estimates the pairwise similarity of protein structures much
+ more accurately than the Root Mean Square-Deviation (RMSD), a common metric
+ used for the same purpose.
+ The TM-score ranges from 0 to 1, where 1 is a perfect match.
+ Based on statistics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zhang2010"
+literal "false"
+
+\end_inset
+
+, a Tm-score lower than 0.17 indicates two random structures with no relation
+ of similarity, and a Tm-score higher than 0.5 indicates that the structures
+ have a degree of similarity that is not given by chance.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Nuestro algoritmo requiere como uno de sus parámetro de entrada un valor
+ de puntaje mínimo de TM-score para aceptar como similares a dos conformaciones.
+ Este parámetro se usa después tanto en la fase de extracción de características
+, al comparar las conformaciones para encontrar disimilares y remover redundante
+s, como en la fase de selección de representativas, al calcular la matriz
+ de distancias de todas las conformaciones.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Other techniques for protein folding reduction 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Techniques-for-reduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+nMDS and clustering techniques were used to get the intrinsic information
+ from both the original and two reduced trajectories of the villin-headpiece
+ protein 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Larson2009"
+literal "false"
+
+\end_inset
+
+, and then compare them (See results).
+\end_layout
+
+\begin_layout Standard
+nMDS reductions were carried out using the R-function monoMDS 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Oksanen2019"
+literal "false"
+
+\end_inset
+
+, taking as input the dissimilarity matrix obtained from the pairwise comparison
+ of all the protein conformations of the folding trajectory.
+ And, the complete-linkage clustering reductions were carried out using
+ the R-function hclust 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RCoreTeam2018"
+literal "false"
+
+\end_inset
+
+, taking as input a matrix with the first two principal components from
+ a PCA analysis.
+ This PCA analysis was carried out using the R-function pca.xyz 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Grant2006"
+literal "false"
+
+\end_inset
+
+, taking as input a matrix with the 3D coordinates of the Cα atoms of all
+ the protein conformations of the folding trajectory.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+with one row per protein conformation and columns for the Cartesian coordinates
+ (x, y and z columns).
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color purple
+Comparamos los resultados de nuestro algoritmo frente a los resultados de
+ tres métodos comúnmente utilizados en reducción de trayectorias de plegamiento
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Doerr2017"
+literal "false"
+
+\end_inset
+
+: escalamiento multidimensional no-métrico (nMDS), análisis de componentes
+ principales (PCA), y agrupamientos (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparaciones-PCA-nMDS-3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+Para la reducción con nMDS, calculamos la matriz de 
+\emph on
+disimilaridades
+\emph default
+ entre las conformaciones mediante la métrica TM-score 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang2004"
+literal "false"
+
+\end_inset
+
+, con esta matriz calculamos los nuevos puntos para un espacio geométrico
+ de 2D mediante la función 
+\emph on
+monoMDS
+\emph default
+ del paquete 
+\emph on
+vegan
+\emph default
+ del sistema R 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Oksanen2019"
+literal "false"
+
+\end_inset
+
+, y los desplegamos sobre un plano 2D.
+\end_layout
+
+\begin_layout Plain Layout
+Para la reducción con PCA caracterizamos cada conformación con las coordenadas
+ XYZ de sus átomos, calculamos los componentes principales mediante la función
+ 
+\emph on
+pca.xyz
+\emph default
+ del paquete 
+\emph on
+Bio3D
+\emph default
+ del sistema R 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Grant2006"
+literal "false"
+
+\end_inset
+
+, y seleccionamos los dos primeros componentes que explican la mayor varianza.
+\end_layout
+
+\begin_layout Plain Layout
+Y para el agrupamiento, caracterizamos cada conformación con sus dos primeros
+ componentes principales y realizamos un agrupamiento jerárquico con el
+ método 
+\emph on
+complete linkage 
+\emph default
+de la función 
+\emph on
+hclust
+\emph default
+ del paquete 
+\emph on
+stats 
+\emph default
+del sistema R 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RCoreTeam2018"
+literal "false"
+
+\end_inset
+
+.
+ El número de grupos k=7 lo seleccionamos mediante un enfoque de promedios
+ Silhouette al variar k desde 1 hasta 10 utilizando la función 
+\emph on
+fviz_nbclust
+\emph default
+ del paquete 
+\emph on
+factoextra
+\emph default
+ del sistema R 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kassambara2017"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Los basados en agrupamientos de estructuras se implementa en varias herramientas
+ de simulación de plegamiento como el algoritmo de agrupamiento de GROMACS
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Daura1999"
+literal "false"
+
+\end_inset
+
+ donde toman todas las estructuras, miden la distancia entre ellas, toman
+ como representativa la que más vecinos tenga de acuerdo a un valor de corte
+ 
+\emph on
+(cutoff),
+\emph default
+ la eliminan junto a sus vecinos, y repiten el prtooceso para las restantes
+\lang english
+.
+
+\lang american
+ Sin embargo, este tipo de algoritmos generalmente dependen de distintos
+ parámetros tales como la especificación inicial del rádio o número de grupos,
+ o la medida de similaridad para comparar las estructuras.
+ Estos parámetros tienden a hacer artificial el agrupamiento donde los cambios
+ del valor de alguno de los parámetros, pueden producir resultados que varian
+ de forma considerable.
+\end_layout
+
+\begin_layout Plain Layout
+Entre los basados en transformaciones tanto lineales como no-lineales están
+ los que usan PCA y MDS.
+ Los que usan PCA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Duan2013"
+literal "false"
+
+\end_inset
+
+ transforman la estructura de la proteína desde un espacio N-dimensional–dado
+ por los puntos de datos de las N coordenadas de sus átomos–a un espacio
+ lineal K-dimensional (K < D) que corresponde a un nuevo sistema de coordenadas
+ llamado componentes principales.
+ Estos componentes representan los vectores tangentes que describen un hiperplan
+o que pasa a través de los puntos de datos tanto como sea posible cuando
+ se evalúan sus mínimos cuadrados.
+ Los componentes se ordenan de acuerdo a su varianza y los primeros (los
+ de mayor varianza) son los que resumen mejor los cambios conformacionales
+ globales de la proteína.
+ Sin embargo PCA tiene problemas cuando los espacios son no-lineales, como
+ se piensa que es el espacio conformacional de la proteína y por lo tanto
+ el nuevo espacio K-dimensional puede resultar distorsionado 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Das2006"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Para evitar el problema de la linearidad con el PCA, Rajan et al.
+ 2010 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RajanSchulten10"
+literal "false"
+
+\end_inset
+
+ adaptan un método de escalamiento multidimensional no métrico (
+\emph on
+nMDS)
+\emph default
+ para obtener una representación reducida 2D de toda la trayectoria.
+ Inicialmente transforman la estructura 3D de la proteina a sus respectivos
+ ángulos dihédricos para luego aplicarles el método de escalamiento y obtener
+ un conjunto de puntos que representa las estructuras de proteínas.
+ Estos puntos se despliegan sobre un espacio métrico (generalmente 2D) que
+ representa la trayectoria de tal manera que la distancia cada par de puntos
+ 
+\emph on
+x,y
+\emph default
+ es consistente con las distancias de cada par de estructuras 
+\emph on
+X,Y
+\emph default
+ representadas por los respectivos puntos.
+ Aunque esta forma de reducción simplifica a 2D las estructuras N dimensionales
+ (N coordenadas XYZ de sus átomos), la información de la estructura se pierde
+ y la reducción se vuelve específica para ciertos análisis como el de analizar
+ visualmente la ocurrencia de eventos en el tiempo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The reduced trajectories were calculated with the proposed algorithm from
+ the villin-headpiece trajectory with 15201 conformations.
+ The first with 7197 conformations (reduced by 52%), and the second with
+ 2258 conformations (reduced by 80%).
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color purple
+To show that the intrinsic information of the original trajectory is preserved
+ in the reduced trajectories generated by the proposed algorithm, we used
+ two typical techniques for protein folding reduction 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Doerr2017"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+: a non-metric multidimensional scaling method (nMDS) and a complete-linkage
+ clustering.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The trajectory of the villin-headpiece protein, from the folding@home project
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Larson2009"
+literal "false"
+
+\end_inset
+
+ and with 15201 conformations, was used as input by the proposed algorithm
+ to generate two reduced trajectories: one reduced by 52% with 7197 conformation
+s, and the other reduced by 80% with 2258 conformations.
+ Then, both nMDS and clustering were achieved on these reduced trajectories.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Implementation
+\end_layout
+
+\begin_layout Standard
+The proposed algorithm reduces a trajectory of protein folding in three
+ steps: partitioning, extraction, and selection.
+ The first step runs only once, while the other two runs several times independe
+ntly, allowing them to run in parallel.
+ Each step involves a strategy to improve the efficiency of the algorithm
+ when working with large protein folding trajectories.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Algorithm-Description"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the overview of the algorithm and the steps are given below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement !h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/algorithm-description-general.pdf
+	lyxscale 150
+	scale 120
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Overview of the proposed algorithm.
+ Step 1: Divide the trajectory into segments (vertical dashed lines) and
+ reduce each individually.
+ Each segment has n conformations from time 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_1$
+\end_layout
+
+\end_inset
+
+ to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_n$
+\end_layout
+
+\end_inset
+
+.
+ Step 2: For each segment, extract characteristic conformations (blue dots)
+ and remove redundant ones (red dots).
+ Stage 3: Select the most representatives from the previous conformations.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Algorithm-Description"
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+La trayectoria se divide en subtrayectorias (líneas discontinuas) que se
+ reducen individualmente.
+ Mediante una estrategia de agrupamiento rápido 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hobohm1992"
+literal "false"
+
+\end_inset
+
+ se selecciona la primera conformación como primera característica (t0)
+ y se compara la siguiente con las características existentes.
+ Si son disimilares se adicionan como nueva características (puntos rojos),
+ de lo contrario, son redundantes y se ignora (puntos azules), y se sigue
+ así con el resto.
+ Después, mediante una estrategia tipo k-medoides 
+\color purple
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kaufman1990"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+ se agrupan las características y de cada grupo se extraen las representativas
+ que forman la subtrayectoria reducida.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Step 1: Partitioning
+\end_layout
+
+\begin_layout Standard
+Divide the trajectory into segments to reduce them locally and in parallel
+ (dotted vertical lines, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Algorithm-Description"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ This is carried out by dividing the trajectory from the start to the end
+ in segments with 
+\emph on
+N
+\emph default
+ conformations each, where 
+\emph on
+N
+\emph default
+ is an input parameter.
+ Local reductions allow to focus on the particular characteristics of each
+ segment that will determine the global characteristics of the trajectory.
+ And parallel reductions allow to improve the algorithm efficiency when
+ it runs on machines with more than one processor (e.g.
+ multi-core computers) (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Algorithm-Parallel"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Each segment contains 
+\emph on
+N
+\emph default
+ conformations and the number of segments per trajectory is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$M={S/N}$
+\end_layout
+
+\end_inset
+
+, where 
+\emph on
+S
+\emph default
+ is the total number of conformations of the trajectory.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/algorithm-description-parallel.pdf
+	lyxscale 150
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Parallel processing of trajectory segments.
+ The trajectory is divided into m segments (S1, ..., Sm), and each segment
+ is processed separately and in parallel on a machine with n processing
+ cores.
+ The results of the extraction and selection steps (S1 ', ..., Sm') are independent
+ of each other and join to form the reduced trajectory.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Algorithm-Parallel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Stage 2: Extraction
+\end_layout
+
+\begin_layout Standard
+Quickly extract the characteristic conformations of each segment and eliminate
+ the redundant ones.
+ This is carried out efficiently by means of a rapid clustering approach
+ that performs relatively few pairwise comparisons and, instead of grouping
+ similar conformations of a segment, extracts the most dissimilar ones.
+\end_layout
+
+\begin_layout Standard
+Here, we improved the fast clustering algorithm of Hobohm and Sander (1992)
+ to work with a trajectory segment and exploit the implicit order of its
+ conformations given by its simulation time (black horizontal line, Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Algorithm-Description"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The algorithm selects the initial conformation at time 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_1$
+\end_layout
+
+\end_inset
+
+ as the first characteristic.
+ Then, the algorithm compares the previous characteristic with the following
+ conformation.
+ If dissimilar, then the conformation becomes a new characteristic, otherwise,
+ the conformation is redundant and is removed (red dots, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Algorithm-Description"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The process continues with the rest of conformations until finishing in
+ the final one at time 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t_n$
+\end_layout
+
+\end_inset
+
+, thus producing the set of representative characteristics of the segment
+ (green dots, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Algorithm-Description"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Subsection*
+Step 3: Selection
+\end_layout
+
+\begin_layout Standard
+Take the conformations of previously extracted characteristics and cluster
+ them to select the most representative characteristics.
+ To find these rep
+\begin_inset Formula $\text{\ensuremath{\text{\ensuremath{\text{}}}}}$
+\end_inset
+
+resentatives, the algorithm uses a k-medoids strategy (PAM algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kaufman1990"
+literal "false"
+
+\end_inset
+
+) that calculates the k conformations (medoids) whose average difference
+ between all the other members of the group is minimal.
+\end_layout
+
+\begin_layout Standard
+However, the PAM algorithm needs as input the dissimilarity matrix with
+ the pairwise comparison of all-versus-all conformations of the trajectory
+ segment, which is an intensive computational task when the number of conformati
+ons is very large.
+ But, this task is feasible to perform since the algorithm is working here
+ with a reduced set of characteristic conformations (previous step) of a
+ trajectory segment and not of the complete trajectory.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Esta fase necesita tres datos de entrada: el conjunto de conformaciones
+ características de la fase anterior (C), el umbral mínimo de TM-score para
+ aceptar dos conformaciones como similares (T), y el número deseado de represent
+antes seleccionadas (
+\emph on
+K)
+\emph default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+El algoritmo inicia con tres acciones: calcula la matriz de distancias de
+ todas las conformaciones; selecciona 
+\emph on
+k
+\emph default
+ conformaciones como medoides iniciales de cada grupo; y asigna cada una
+ de las conformaciones restantes al grupo del medoide más cercano.
+ Después, itera por cada grupo buscando si existe otra conformación no-medoide
+ que mejore el agrupamiento, si es así esta se convierte en el nuevo medoide
+ y se vuelve a recalcular los grupos siguiendo la misma estrategia hasta
+ que no hayan más cambios.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Results and Discussion
+\end_layout
+
+\begin_layout Standard
+Three tests were carried out to evaluate the capacity and performance of
+ the proposed algorithm: first, reduction of three trajectories using the
+ proposed algorithm; second, comparison of the intrinsic information preserved
+ by the reductions from both the proposed algorithm and two other folding
+ reduction techniques; and third a performance comparison.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+three trajectories of different proteins were reduced using the proposed
+ algorithm to show how the main folding events of the original trajectory
+ are retained in the reductions; second, one trajectory was reduced by the
+ proposed algorithm and extracted the intrinsic information using other
+ reduction techniques to 
+\end_layout
+
+\begin_layout Plain Layout
+we reduced the trajectory of three proteins; second, we compare the results
+ of the algorithm with the results of other reduction techniques; and third,
+ we compare the performance of the algorithm against that of other techniques,
+ as well as when it is executed in parallel.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Datasets of protein folding trajectories
+\end_layout
+
+\begin_layout Standard
+We used the folding trajectories of three proteins taken from different
+ simulation projects.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+, two using Molecular Dynamics simulations (MD) and one using the Probabilistic
+ Roadmap Method (PRM)
+\end_layout
+
+\end_inset
+
+.
+ First, the trajectory of the trp-cage protein, simulated with molecular
+ dynamics (MD) using the Anton supercomputer 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2011"
+literal "false"
+
+\end_inset
+
+, with a simulation time of 208 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+, a 200 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+time step, and 1044001 conformations.
+ Second, the trajectory of the villin-headpiece protein, also simulated
+ with DM using the folding@home distributed platform 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PandeEnsign07"
+literal "false"
+
+\end_inset
+
+, with a simulation time of 8 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+, a 50 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ time step, and 15201 conformations.
+ And third, the trajectory of the ribonuclease H protein was simulated with
+ the Probabilistic Roadmap Method using the Parasol folding server 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Amato2010"
+literal "true"
+
+\end_inset
+
+, with 429 folding steps (instead of time steps, see below) each corresponding
+ to 429 conformations.
+ 
+\end_layout
+
+\begin_layout Standard
+A time step in MD trajectories is the time length at which conformations
+ are sampled or evaluated during the simulation.
+ While a folding step, in the PRM and in the reduced trajectories produced
+ by our algorithm, represents the most likely conformation occurring during
+ a time interval or from a set of likely candidate conformations.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+trajectory was simulated with MD using the Anton supercomputer 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2011"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+the first two of these used Molecular Dynamics simulations: Anton supercomputer
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shaw2011"
+literal "false"
+
+\end_inset
+
+ and folding@home 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PandeEnsign07"
+literal "false"
+
+\end_inset
+
+, and the third used the Probabilistic Roadmap Method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Amato2010"
+literal "true"
+
+\end_inset
+
+, and Parasol folding server using .
+ One trajectory was taken from each: the trajectory of the trp-cage protein
+ from the Anton supercomputer project, with a simulation time of 208 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+, a 200 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+time step, and 1044001 conformations.
+ The trajectory of the villin-headpiece protein from the folding@home projec,
+ simulated, with a simulation time of 8 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+, a 50 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ time step, and 15201 conformations.
+ And the trajectory of the ribonuclease H protein from the Parasol folding
+ server project, with 429 folding steps each corresponding to 429 conformations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement !t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "98text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "white"
+status open
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+A:
+\begin_inset Newline newline
+\end_inset
+
+Protein name: 
+\series default
+Trp-cage
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+PDB code: 
+\series default
+2JOF
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Simulation time:
+\series default
+ 208 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Time step:
+\series default
+ 200 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+No.
+ of conformations:
+\series default
+ 1044001 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/natives/native-2jof.png
+	lyxscale 25
+	scale 25
+	rotateOrigin leftBottom
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "60col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/trajectories/trajectory-2JOF-full-pdbs.png
+	lyxscale 20
+	scale 15
+	BoundingBox 0bp 0bp 1920bp 480bp
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/trajectories/trajectory-2JOF-full-pdbsGlobal.pdf
+	lyxscale 30
+	scale 20
+	BoundingBox 0bp 0bp 1410bp 337bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hrule
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "98text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "white"
+status collapsed
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+B:
+\begin_inset Newline newline
+\end_inset
+
+Protein name: 
+\series default
+Villin headpiece
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+PDB code: 
+\series default
+2F4K
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Simulation time:
+\series default
+ 8 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Time step:
+\series default
+ 50 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+No.
+ of conformations:
+\series default
+ 15201 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/natives/native-2f4k.png
+	lyxscale 25
+	scale 25
+	rotateOrigin leftBottom
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "60col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/trajectories/trajectory-2F4Kfh-r5c1-full-pdbs.pdf
+	lyxscale 30
+	scale 20
+	BoundingBox 0bp 0bp 1440bp 360bp
+	clip
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/trajectories/trajectory-2F4Kfh-r5c1-full-pdbsGlobal.pdf
+	lyxscale 30
+	scale 20
+	BoundingBox 0bp 0bp 1410bp 337bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hrule
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "98text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "white"
+status collapsed
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+C:
+\begin_inset Newline newline
+\end_inset
+
+Protein name: 
+\series default
+Ribonuclease H
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+PDB code: 
+\series default
+2RN2
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+No.
+ of conformations
+\series default
+ 429
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/natives/native-2rn2.png
+	lyxscale 25
+	scale 25
+	rotateOrigin leftBottom
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "60col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/trajectories/trajectory-2RN2-pdbs.pdf
+	lyxscale 30
+	scale 20
+	BoundingBox 0bp 0bp 1440bp 330bp
+	clip
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/trajectories/trajectory-2RN2-pdbsGlobal.pdf
+	lyxscale 30
+	scale 20
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hrule
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plots of the TM-score values for the original and reduced trajectories.
+ Protein and simulation details on the left.
+ Trajectories on the right: original (upper part), and reduced (lower part).
+ (A) Trajectory of trp-cage protein, 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+simulation time of 208 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+us
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space ~
+\end_inset
+
+with time steps of 200 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ps
+\end_layout
+
+\end_inset
+
+,
+\end_layout
+
+\end_inset
+
+ reduced by 98%, from 1044001 to 20881 conformations.
+ (B) Trajectory of the villin-headpiece protein, reduced by 80%, from 15201
+ to 3011 conformations.
+ (C) Trajectory of ribonuclease H protein, reduced by 49%, from 429 to 217
+ conformations.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Trajectory-Results"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Reduction of protein folding trajectories
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/tmp-datasets.png
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Trajectory-Results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the TM-score plots of the reduced trajectories produced by the proposed
+ algorithm.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+We reduced the folding trajectories of three proteins: trp-cage, villin-headpiec
+e and ribonuclease H (see Methods for the details of the simulation).
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Trajectory-Results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the TM-score plots resulting from the original and reduced trajectories.
+\end_layout
+
+\end_inset
+
+ It can be seen from the plots that the algorithm try to find the most represent
+ative conformations from their original trajectories, conserving two fundamental
+ properties: the structure and the temporal ordering of the original conformatio
+ns.
+ Other folding reduction methods lose these properties in their reductions,
+ as we will see in the next section.
+\end_layout
+
+\begin_layout Standard
+As a result, these reduced trajectories become a summary of the original
+ ones and can be used as inputs for more complex analyzes, or even for other
+ reduction methods that require pairwise comparisons and become impractical
+ for large trajectories.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color teal
+Sin embargo, aunque las conformaciones de las trayectorias reducidas conservan
+ el orden temporal que tienen en la trayectoria original, el tiempo de simulació
+n en que suceden no se conserva explícitamente.
+
+\color purple
+ Es decir, las reducciones no describen pasos de tiempo sino pasos de plegamient
+o, 
+\color red
+que se refieren a la secuencia de eventos destacados que resumen el plegamiento
+ de la proteína y no al tiempo exacto en que estos ocurren.
+
+\color inherit
+ No obstante, para obtener estos tiempos, se puede tomar el nombre o identificad
+or de la conformación de interés en la trayectoria reducida y localizar
+ su tiempo en la trayectoria original.
+\end_layout
+
+\end_inset
+
+
+\color purple
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color purple
+Por el contrario, otros métodos usados en reducción de trayectorias de plegamien
+to o bien transforman las conformaciones en estructuras de menos dimensiones
+ solo interpretables cuando se observan en conjunto, como el caso de PCA,
+ MDS, Isomap o difussion maps 
+\color blue
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Duan2014,Kim2015"
+literal "false"
+
+\end_inset
+
+
+\color purple
+; o crean grupos de ellas que resaltan alguna similaridad, sin importar
+ su orden temporal, como en el caso de los agrupamientos 
+\color blue
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Duan2014,Kim2015"
+literal "false"
+
+\end_inset
+
+
+\color purple
+.
+
+\color brown
+ 
+\color blue
+Por ejemplo, varias técnicas lineales y no-lineales usadas en reducción
+ de trayectorias 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Duan2014,Kim2015"
+literal "false"
+
+\end_inset
+
+,
+\color inherit
+ reducen las conformaciones a un grupo pequeño de variables que solo tienen
+ sentido cuando se analizan en conjunto ya que estas buscan que las similaridade
+s o distancias que presentan en su espacio original se mantengan lo mejor
+ posible en el nuevo espacio reducido.
+ En contraste, en las reducciones por agrupamientos, el orden temporal se
+ pierde a la hora de agrupar conformaciones que aunque comparten diferentes
+ características, ya sea estructurales o energéticas, ocurren en tiempos
+ muy distintos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% 1x1 TM-score Table
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength
+\backslash
+tabcolsep{0.1pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength
+\backslash
+columnsep{10pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfh-fullk-nb-fullk-pdbs-trj-palette.pdf
+	lyxscale 25
+	scale 16
+	BoundingBox 0bp 40bp 1008bp 288bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfhr-red7k-pdbsGlobal-trj-palette.pdf
+	lyxscale 25
+	scale 16
+	BoundingBox 60bp 40bp 1008bp 288bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfhr-red3k-pdbsGlobal-trj-palette.pdf
+	lyxscale 25
+	scale 16
+	BoundingBox 60bp 40bp 1008bp 288bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Original Trajectory
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Trajectory reduced by 52%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Trajectory reduced by 80%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plots for the reductions produced by the proposed algorithm for the villin-headp
+iece trajectories.
+ The figure shows the TM-scores plots for the original, with 15201 conformations
+, and two reductions: one with with 7197 conformations (reduced by 52%),
+ the other with 2258 conformations (reduced by 80%).
+ It is noted that the reductions preserve the main folding events.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% 2x3 TM-score and clustering Table
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength
+\backslash
+tabcolsep{1.5pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="bottom">
+<column alignment="center" valignment="middle" width="2cm">
+<column alignment="center" valignment="middle" width="4.4cm">
+<column alignment="center" valignment="middle" width="4.4cm">
+<column alignment="center" valignment="middle" width="4.4cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align left
+
+\series bold
+\size footnotesize
+Patterns for nMDS reductions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfh-fullk-nmds-palette.pdf
+	lyxscale 35
+	scale 23
+	BoundingBox 0bp 0bp 504bp 432bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red7k-pdbsGlobal-nmds-palette.pdf
+	lyxscale 35
+	scale 23
+	BoundingBox 0bp 0bp 504bp 432bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red3k-nmds-palette.pdf
+	lyxscale 35
+	scale 23
+	BoundingBox 0bp 0bp 504bp 432bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align left
+
+\series bold
+\size footnotesize
+Structure for clustering reductions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfh-fullk-clus-palette-small.pdf
+	lyxscale 40
+	scale 27
+	BoundingBox 0bp 0bp 360bp 335bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red7k-pdbsGlobal-clus-palette.pdf
+	lyxscale 40
+	scale 28
+	BoundingBox 0bp 0bp 360bp 335bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red3k-pdbsGlobal-clus-palette.pdf
+	lyxscale 40
+	scale 28
+	BoundingBox 0bp 0bp 360bp 335bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Original Trajectory
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Trajectory reduced by 52%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Trajectory reduced by 80%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Intrinsic information captured by nMDS and clustering reductions.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+for the original and the reduced trajectories of the villin-headpiece trajectori
+es.
+ 
+\end_layout
+
+\end_inset
+
+The figure shows that the intrinsic information captured from the original
+ trajectory of the villin-headpiece protein (plots of the nMDS pattern and
+ clustering structure on the left) largely preserves in the reduced trajectories
+ produced by the proposed algorithm (plots on the center and right).
+ The nMDS produces a set of circular patterns associated with conformations
+ occurring in different times of the simulation, while clustering produces
+ a structure of three clusters associated with the first two principal component
+s of the Cα atoms of the conformations.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength
+\backslash
+tabcolsep{1.5pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*
+\backslash
+rot[1]{
+\backslash
+rotatebox[origin=c]{90}{#1}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features tabularvalignment="bottom">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="5.3cm">
+<column alignment="center" valignment="top" width="5.3cm">
+<column alignment="center" valignment="top" width="5.3cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\size footnotesize
+Original
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Reduced by 52%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Reduced by 80%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell mroffset="2cm" alignment="left" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Algorithm 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfh-fullk-nb-fullk-pdbs-trj-palette.pdf
+	lyxscale 25
+	scale 15
+	BoundingBox 0bp 0bp 1008bp 288bp
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfhr-red7k-pdbsGlobal-trj-palette.pdf
+	lyxscale 25
+	scale 15
+	BoundingBox 0bp 0bp 1008bp 288bp
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfhr-red3k-pdbsGlobal-trj-palette.pdf
+	lyxscale 25
+	scale 15
+	BoundingBox 0bp 0bp 1008bp 288bp
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" mroffset="2.8cm" alignment="left" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+nMDS
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfh-fullk-nmds-palette.pdf
+	lyxscale 35
+	scale 23
+	BoundingBox 0bp 0bp 504bp 432bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red7k-pdbsGlobal-nmds-palette.pdf
+	lyxscale 35
+	scale 23
+	BoundingBox 0bp 0bp 504bp 432bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red3k-nmds-palette.pdf
+	lyxscale 35
+	scale 23
+	BoundingBox 0bp 0bp 504bp 432bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" mroffset="2.8cm" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Clustering 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfh-fullk-clus-palette-small.pdf
+	lyxscale 40
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red7k-pdbsGlobal-clus-palette.pdf
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red3k-pdbsGlobal-clus-palette.pdf
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Intrinsic information preserved in the reductions of the folding trajectory
+ of the villin-headpiece protein.
+ The figure shows in the first row the TM-score plots for both the original
+ and two reduced trajectories computed by our algorithm.
+ 
+\begin_inset Newline newline
+\end_inset
+
+that the nMDS pattern and the clustering structure, calculated from the
+ original trajectory (first row), repeat in the reductions produced by our
+ algorithm (second and third rows).
+ It means that the intrinsic information contained in the original trajectory
+ largely preserves in the reductions produced by our algorithm.
+ The circular patterns from the nMDS are associated with the conformations
+ occurring during different simulation times: initials (yellow-green dots),
+ finals (red dots) and intermediates (blue-magenta dots).
+ And, the structure of three clusters from clustering is associated with
+ the first two principal components of the Cα atoms of all the protein conformat
+ions.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The figure shows that the intrinsic information contained in the original
+ trajectory and shown by the nMDS pattern and clustering structure (first
+ row), largely preserve in the reductions produced by our algorithm.
+ The circular patterns from the nMDS are associated with the time at which
+ conformations occur: initials (yellow-green dots), finals (red dots) and
+ intermediates (blue-magenta dots).
+ And, the structure of three clusters from clustering is associated with
+ the first two principal components of the Cα atoms of all the protein conformat
+ions.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Intrinsic information computed by nMDS and clustering techniques.
+ The figure shows that the reduction patterns resulting from nMDS and clustering
+ techniques (second and third column, respectively) largely preserve on
+ the patterns of the three trajectories: the original (first row) and the
+ two reduced by the proposed algorithm (second and third row).
+ It means that the intrinsic information 
+\begin_inset Newline newline
+\end_inset
+
+is preserved in the reductions from the proposed algorithm 
+\begin_inset Newline newline
+\end_inset
+
+The nMDS produces a set of circular patterns associated with types of conformati
+ons occurring during different simulation times: initials (yellow-green
+ dots), finals (red dots) and intermediates (blue-magenta dots).
+ And, clustering produces a structure of three clusters associated with
+ the first two principal components of the Cα atoms of all the protein conformat
+ions.
+ As it can be seen, the nMDS pattern only can be interpreted when all conformati
+ons are viewed toguther, while clustering do not preserve temporal ordering
+ as clusters merge configurations from different simulation times.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Reduced trajectories of the villin-headpiece protein reduced by nMDS and
+ clustering Original trajectory of the villin-headpiece protein reduced
+ by nMDS and clustering.
+ The figure shows the TM-core plot (left) and the patterns produced by nMDS
+ and clustering (center and right, respectively).
+ The nMDS produces a set of circular patterns that we interpret as types
+ of conformations occurring in different times of the simulation: initials
+ (yellow-green dots), finals (red dots) and intermediates (blue-magenta
+ dots).
+ And, clustering produces a structure of three clusters associated with
+ the first two principal components of the of the Cα atoms of all the protein
+ conformations.
+ As it can be seen, clusters merge configurations of different simulation
+ times.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement !t
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "105col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfh-fullk-nb-fullk-pdbs-trj-palette.pdf
+	lyxscale 40
+	scale 24
+	BoundingBox 0bp 0bp 1008bp 288bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+TM-score Original Trajectory
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "43col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename img/analysis/villinfh-fullk-nmds-palette.pdf
+	lyxscale 40
+	scale 23
+	BoundingBox 0bp 0bp 432bp 360bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+nMDS pattern
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename img/analysis/villinfh-fullk-clus-palette-small.pdf
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+Clustering structure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ 
+\begin_inset Newline newline
+\end_inset
+
+Plots for the nMDS and clustering reductions of the original trajectory.
+ 
+\begin_inset Newline newline
+\end_inset
+
+TM-score plot, nMDS reduction, and clustering structure , Original trajectory
+ 
+\begin_inset Newline newline
+\end_inset
+
+Original trajectory of the villin-headpiece protein reduced by nMDS and
+ clustering.
+ The figure shows the TM-core plot of the original tra
+\begin_inset Newline newline
+\end_inset
+
+ and the patterns produced by nMDS and clustering.
+ The nMDS produces a set of circular patterns that we interpret as types
+ of conformations occuring in different times of the simulation: initials
+ (yellow-green dots), finals (red dots) and intermediates (blue-magenta
+ dots).
+ And, clustering produces a structure of three clusters, each merging configurat
+ions of different simulation times.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Reducciones preservan la información intrinsica contenida en los datos.
+ Se muestran tres trayectorias: (A) Original, (B) Reducida en un 52%, y
+ (C) Reducida en un 80%.
+ Frente a cada trajectoria se muestran los patrones resultantes de las reduccion
+es hechas por dos métodos de reducción: nMDS y agrupamiento.
+ Se puede observar que tanto el patrón resultante del nMDS como la estructura
+ de 7 grupos del agrupamiento encontrados en la trayectoria original se
+ preservan en gran medida en las trayectorias reducidas, lo que demuestra
+ que la información intrinsica contenida en la trayectoria se mantiene en
+ las reducciones.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparaciones-PCA-nMDS-1-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement !t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "105col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfhr-red7k-pdbsGlobal-trj-palette.pdf
+	lyxscale 40
+	scale 24
+	BoundingBox 0bp 0bp 1008bp 288bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Trajectory reduced by 52%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "43col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red7k-pdbsGlobal-nmds-palette.pdf
+	lyxscale 40
+	scale 23
+	BoundingBox 0bp 0bp 432bp 360bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+nMDS
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red7k-pdbsGlobal-clus-palette.pdf
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Clustering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hrule
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+\series bold
+\begin_inset VSpace 0.2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "105col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfhr-red3k-pdbsGlobal-trj-palette.pdf
+	lyxscale 40
+	scale 24
+	BoundingBox 0bp 0bp 1008bp 288bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Trajectory reduced by 80%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "43col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red3k-nmds-palette.pdf
+	lyxscale 40
+	scale 23
+	BoundingBox 0bp 0bp 432bp 360bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+nMDS
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red3k-pdbsGlobal-clus-palette.pdf
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Clustering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+nMDS and clustering for the reduced trajectories of the villin-headpiece
+ protein.
+ It is noted that the nMDS pattern and clustering structure of the original
+ trajectory (Figure 6) largely repeat in these ones computed for the reduced
+ trajectories, meaning that the intrinsic information captured by these
+ techniques on the original largely preserve in the reduced trajectories.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Reducciones preservan la información intrinsica contenida en los datos.
+ Se muestran tres trayectorias: (A) Original, (B) Reducida en un 52%, y
+ (C) Reducida en un 80%.
+ Frente a cada trajectoria se muestran los patrones resultantes de las reduccion
+es hechas por dos métodos de reducción: nMDS y agrupamiento.
+ Se puede observar que tanto el patrón resultante del nMDS como la estructura
+ de 7 grupos del agrupamiento encontrados en la trayectoria original se
+ preservan en gran medida en las trayectorias reducidas, lo que demuestra
+ que la información intrinsica contenida en la trayectoria se mantiene en
+ las reducciones.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+En la fila superior se presenta la trayectoria original de la proteína villin-he
+adpiece con 15201 conformaciones, y al frente los patrones resultantes obtenidos
+ mediante dos métodos de reducción: nMDS (centro) y agrupamiento (derecha).
+ En la fila central está una primera reducción 
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparaciones-PCA-nMDS-1-1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% Table Figure of methods 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength
+\backslash
+tabcolsep{1.5pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand*
+\backslash
+rot[1]{
+\backslash
+rotatebox[origin=c]{90}{#1}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="8cm">
+<column alignment="center" valignment="top" width="4.1cm">
+<column alignment="center" valignment="top" width="3.8cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+TM-score plot
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+nMDS pattern
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Clustering structure
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" mroffset="2cm" alignment="left" valignment="middle" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Original
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfh-fullk-nb-fullk-pdbs-trj-palette.pdf
+	lyxscale 35
+	scale 22
+	BoundingBox 0bp 0bp 1008bp 288bp
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfh-fullk-nmds-palette.pdf
+	lyxscale 35
+	scale 23
+	BoundingBox 0bp 0bp 504bp 432bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfh-fullk-clus-palette-small.pdf
+	lyxscale 40
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" mroffset="2.8cm" alignment="left" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Reduced by 52%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfhr-red7k-pdbsGlobal-trj-palette.pdf
+	lyxscale 35
+	scale 22
+	BoundingBox 0bp 0bp 1008bp 288bp
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red7k-pdbsGlobal-nmds-palette.pdf
+	lyxscale 35
+	scale 23
+	BoundingBox 0bp 0bp 504bp 432bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red7k-pdbsGlobal-clus-palette.pdf
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" mroffset="2.8cm" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Reduced by 80%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfhr-red3k-pdbsGlobal-trj-palette.pdf
+	lyxscale 35
+	scale 22
+	BoundingBox 0bp 0bp 1008bp 288bp
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red3k-nmds-palette.pdf
+	lyxscale 35
+	scale 23
+	BoundingBox 0bp 0bp 504bp 432bp
+	rotateOrigin leftTop
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red3k-pdbsGlobal-clus-palette.pdf
+	lyxscale 40
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+nMDS and clustering reductions for the folding trajectory of the villin-headpiec
+e protein.
+ The figure shows that the nMDS pattern and the clustering structure, calculated
+ from the original trajectory (first row), repeat in the reductions produced
+ by our algorithm (second and third rows).
+ It means that the intrinsic information contained in the original trajectory
+ largely preserves in the reductions produced by our algorithm.
+ The circular patterns from the nMDS are associated with the conformations
+ occurring during different simulation times: initials (yellow-green dots),
+ finals (red dots) and intermediates (blue-magenta dots).
+ And, the structure of three clusters from clustering is associated with
+ the first two principal components of the Cα atoms of all the protein conformat
+ions.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The figure shows that the intrinsic information contained in the original
+ trajectory and shown by the nMDS pattern and clustering structure (first
+ row), largely preserve in the reductions produced by our algorithm.
+ The circular patterns from the nMDS are associated with the time at which
+ conformations occur: initials (yellow-green dots), finals (red dots) and
+ intermediates (blue-magenta dots).
+ And, the structure of three clusters from clustering is associated with
+ the first two principal components of the Cα atoms of all the protein conformat
+ions.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Intrinsic information computed by nMDS and clustering techniques.
+ The figure shows that the reduction patterns resulting from nMDS and clustering
+ techniques (second and third column, respectively) largely preserve on
+ the patterns of the three trajectories: the original (first row) and the
+ two reduced by the proposed algorithm (second and third row).
+ It means that the intrinsic information 
+\begin_inset Newline newline
+\end_inset
+
+is preserved in the reductions from the proposed algorithm 
+\begin_inset Newline newline
+\end_inset
+
+The nMDS produces a set of circular patterns associated with types of conformati
+ons occurring during different simulation times: initials (yellow-green
+ dots), finals (red dots) and intermediates (blue-magenta dots).
+ And, clustering produces a structure of three clusters associated with
+ the first two principal components of the Cα atoms of all the protein conformat
+ions.
+ As it can be seen, the nMDS pattern only can be interpreted when all conformati
+ons are viewed toguther, while clustering do not preserve temporal ordering
+ as clusters merge configurations from different simulation times.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Reduced trajectories of the villin-headpiece protein reduced by nMDS and
+ clustering Original trajectory of the villin-headpiece protein reduced
+ by nMDS and clustering.
+ The figure shows the TM-core plot (left) and the patterns produced by nMDS
+ and clustering (center and right, respectively).
+ The nMDS produces a set of circular patterns that we interpret as types
+ of conformations occurring in different times of the simulation: initials
+ (yellow-green dots), finals (red dots) and intermediates (blue-magenta
+ dots).
+ And, clustering produces a structure of three clusters associated with
+ the first two principal components of the of the Cα atoms of all the protein
+ conformations.
+ As it can be seen, clusters merge configurations of different simulation
+ times.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Comparison with other methods 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Comparing-other-methods"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here, we compared how the intrinsic information captured by other folding
+ reductions techniques from a folding trajectory is also preserved in the
+ reductions produced by the proposed algorithm.
+ First, two reduced trajectories were computed from the original trajectory
+ of the villin-headpiece protein using the proposed algorithm (Figure 6),
+ and then the intrinsic information was computed on these trajectories using
+ nMDS and clustering reductions (Figure 7) (see Methods for the details
+ of the trajectory and techniques).
+ 
+\end_layout
+
+\begin_layout Standard
+As it can be seen from the Figure 7, the pattern of circles of points from
+ nMDS, and the structure of three groups from clustering, repeat in both
+ the original and the reduced trajectories.
+ This shows that the reductions produced by the proposed algorithm largely
+ preserve the intrinsic information observed in the original trajectory.
+ Furthermore, the proposed algorithm has several advantages.
+ First, it avoids the calculation of the dissimilarity matrix as it is done
+ by nMDS and clustering, that is a computationally expensive task for medium
+ to large trajectories.
+ Second, its reductions are a set of protein conformations, contrary to
+ reduced transformations as the produced with other techniques as nMDS,
+ PCA, Isomap or diffusion maps 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RajanSchulten10,Duan2014,Kim2015"
+literal "false"
+
+\end_inset
+
+ that lose structural information and that can only be interpreted when
+ viewed together.
+ And third, temporal ordering of conformations is conserved, contrary to
+ clustering methods 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Peng2018"
+literal "false"
+
+\end_inset
+
+ that merge configurations from different simulation times into clusters.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+that we interpret as types of conformations occurring in different times
+ of the simulation: initials (yellow-green dots), finals (red dots) and
+ intermediates (blue-magenta dots).
+ And, clustering produces a structure of three clusters associated with
+ the first two principal components of the of the Cα atoms of all the protein
+ conformations.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nMDS generates a representation of the protein conformations in a low dimensiona
+l space based just on the relations between the relative pairwise distances.
+ While clustering 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Para las comparaciones utilizamos los datos de la simulación de plegamiento
+ de la proteína villin-headpiece del proyecto folding@home 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Larson2009"
+literal "false"
+
+\end_inset
+
+.
+ Tomamos la trayectoria original y calculamos su reducción por los métodos
+ de nMDS y PCA.
+ Luego, calculamos dos reducciones con nuestro algoritmo sobre esta trayectoria
+ y a los datos resultantes le calculamos nuevamente las reducciones por
+ nMDS y PCA.
+ Los resultados se muestran en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparaciones-PCA-nMDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, donde cada fila contiene tres despliegues en 2D: de la trayectoria, del
+ patrón resultante de la reducción por nMDS, y del agrupamiento al proyectar
+ los dos primeros componentes del PCA.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color purple
+Observamos que las reducciones de la trayectoria original producen un despliegue
+ en 2D característico en ambos métodos de reducción: un patrón de círculos
+ de puntos, para el nMDS; y una estructura de 7 grupos, para el agrupamiento
+ por PCA (fila superior, figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparaciones-PCA-nMDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Así mismo, este mismo despliegue se repite en gran medida en las dos reduccione
+s calculadas por nuestro algoritmo, la de onsión media del 52% y la de compresió
+n alta del 80% (filas central e inferior de la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparaciones-PCA-nMDS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, respectivamente).
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "98col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align left
+
+\series bold
+A: Running time with different methods
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/performance/performance-methods-multicore-sizes-jave.pdf
+	lyxscale 30
+	scale 30
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\series default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "90col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+
+\series bold
+B: Running time with multiple cores
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename img/performance/times-villin-100k-cores-ink.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Desempeño del algoritmo frente a otros métodos y cuando se ejecuta en paralelo
+ con múltiples núcleos.
+ (A) Comparación del nuestro algoritmo FR1 con nMDS, PCA, y agrupamiento.
+ Observamos que PCA y FR1 son los más eficientes, pero si nuestro algoritmo
+ utiliza dos núcleos (FR2), el tiempo se disminuye a la mitad y se vuelve
+ más eficiente que PCA.
+ Por el contrario, nMDS y clustering toman demasiado tiempo, aún con trayectoria
+s pequeñas.
+ (B) Ejecución del algoritmo con múltiples núcleos.
+ Al duplicar el número de núcleos de procesamiento el tiempo se disminuye
+ casi a la mitad y por lo tanto la aceleración crece casi de forma lineal,
+ por lo menos hasta los 8 núcleos (8x).
+ Después de esto, la aceleración sigue siendo apreciable hasta casi después
+ de los 30 núcleos.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Performance-methods-both"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\color blue
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color blue
+Lo anterior nos indica que nuestras reducciones preservan en gran medida
+ los eventos principales de la trayectoria al observar que tanto las reducciones
+ con nMDS y PCA siguen conservando el mismo patrón y la misma estructura
+ de grupos.
+
+\color inherit
+ Además, nuestro algoritmo presenta ventajas adicionales sobre los otros
+ métodos de reducción.
+
+\color purple
+ Primero, el cálculo de las reducciones es más eficiente que el de nMDS
+ ya que no necesita la matriz de disimilaridades, que es sumamente costosa
+ de calcular cuando el número de conformaciones es grande.
+
+\color inherit
+ Segundo, la interpretación de los resultados es directa ya que los resultados
+ son conformaciones de la proteína y no transformaciones de los datos, como
+ en el caso del nMDS y PCA, o grupos de conformaciones, como en el caso
+ de los agrupamientos.
+ Y tercero, el orden temporal se conserva ya que el resultado es una nueva
+ trayectoria, a diferencia del agrupamiento en donde los grupos resultantes
+ pueden contener conformaciones que ocurren en tiempos muy distintos.
+\end_layout
+
+\begin_layout Subsection*
+Desempeño del algoritmo
+\end_layout
+
+\end_inset
+
+
+\color inherit
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Lam2010:
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Prediction Performance
+\end_layout
+
+\begin_layout Plain Layout
+To assess the prediction performance of our approach, we benchmarked with
+ two existing methods
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Algorithm performance
+\end_layout
+
+\begin_layout Standard
+The performance of the proposed algorithm was tested in two cases: first,
+ comparing its runtime with the ones of three typical techniques for folding
+ reduction: nMDS, clustering, and PCA (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Performance-methods"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+); and second, comparing the runtimes when it runs in parallel on multi-core
+ computers (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Performance-methods-cores"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The trajectory for these tests was conformed by the first 100k conformations
+ from the full trajectory of the trp-cage protein, described above in datasets
+ section.
+ 
+\end_layout
+
+\begin_layout Standard
+For the comparison between techniques (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Performance-methods"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), several subtrajectories of different lengths were reduced by all the
+ techniques.
+ PCA showed the most efficient runtimes followed by the proposed algorithm
+ FR1, contrary to nMDS and clustering that becomes impractical when faced
+ with short to medium trajectories.
+ However, the proposed algorithm has the advantage to easily run in parallel,
+ contrary to the other techniques, and when it runs using two cores, its
+ runtime is reduced by half and becomes faster than PCA.
+ (FR2, black dashed line).
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color blue
+El desempeño de nuestro algoritmo lo evaluamos en dos situaciones: comparándolo
+ frente a otros métodos de reducción (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Performance-methods"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) y ejecutándolo en paralelo usando múltiples núcleos de procesamiento (Figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Performance-methods-cores"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\color inherit
+Para esto utilizamos las 100K primeras conformaciones de la trayectoria
+ de la proteína Trp-cage (ver Métodos).
+ Para la primera evaluación ejecutamos los métodos con diferentes tamaños
+ de subtrayectorias, desde 100 hasta 100K conformaciones, y en la segunda
+ evaluación ejecutamos nuestro algoritmo con diferente número de núcleos
+ de procesamiento.
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+primero comparando los tiempos que toma en reducir subtrayectorias de diferentes
+ tamaños frente a los tiempos que toman otros métodos de reducción (Figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Performance-methods-both"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.A); y segundo, comparando los tiempos que toma en reducir una subtrayectoria
+ cuando utiliza múltiples núcleos (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Performance-methods-both"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.B).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/performance/performance-methods-multicore-sizes-jave.pdf
+	lyxscale 30
+	scale 30
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Runtime comparisons for the folding reduction techniques.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The proposed algorithm was run in two ways: using one core (FR1) and using
+ two cores (FR2, blue line).
+ The other techniques were run using one core.
+ 
+\end_layout
+
+\end_inset
+
+PCA followed by the proposed algorithm FR1 are the most efficient techniques
+ when run using one core.
+ But when the proposed algorithm run using two cores (FR2), its runtime
+ is reduced by half, being more efficient than PCA.
+ On the contrary, nMDS and clustering take too long, inclusive with short
+ trajectories..
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Performance-methods"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Kopylova2014
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename tmp-runtime-description.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To test how the parallelization improves the algorithm performance, the
+ full dataset of 100k conformations was reduced by the algorithm using different
+ number of cores.
+ The runtimes are shown in the Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Performance-methods-cores"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where it is notable a good speedup that reduces the time by half every
+ time the number of cores is duplicated.
+ This speedup maintains for up to ~8 cores, and then it reduces to the minimum
+ after ~30 cores.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/performance/times-villin-100k-cores-ink.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Evaluation of the algorithm paralellization.
+ When the number of processing cores is multiplied by two, the processing
+ time reduces by half with a quasi-linear speedup that maintains for up
+ to ~8 cores (8x).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Performance-methods-cores"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These results show that the algorithm has a good performance when compared
+ with the other techniques, and this performance improves more when it is
+ run in parallel using more than one core.
+ As a consequence, the speedup of the algorithm scale quasi-linearly with
+ the number of processing cores, almost until 8x, and with 32 cores the
+ algorithm still achieves a speedup of 16x
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+la velocidad de ejecución cuando utiliza 8 núcleos es 8 veces más que cuando
+ utiliza solo uno
+\end_layout
+
+\end_inset
+
+.
+ Now, considering that multi-core technology is quite commonplace for even
+ desktop computers, the proposed algorithm has the capacity to take advantage
+ of this technology to reduce large protein folding trajectories in a fast
+ parallel manner, with runtimes closer or better than other techniques commonly
+ used for this task.
+\end_layout
+
+\begin_layout Section*
+Conclusions
+\end_layout
+
+\begin_layout Standard
+Although the progress in long timescale simulations of protein folding has
+ enabled the generation of large folding trajectories, the new challenge
+ is in their analysis, but due to the millions of conformations they can
+ contain, their processing and analysis becomes difficult or impractical.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Many methods have been proposed to reduce large trajectories, but rather
+ than simplify them, these methods analyze them, and either lose the structural
+ information of protein conformations or lose their temporal ordering.
+\end_layout
+
+\begin_layout Plain Layout
+
+\color purple
+, del orden de millones de conformaciones, lo cual hace difícil su procesamiento
+ y análisis
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color purple
+, por lo cual se hace necesario simplificarlas
+\end_layout
+
+\end_inset
+
+.
+
+\color red
+ Para simplificarlas se han planteado diferentes técnicas que más bien son
+ técnicas de análisis que transforman las conformaciones o crean grupos
+ de ellas y sus resultados tienen sentido solo cuando se observan en conjunto
+\color inherit
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Además, varias de estás también tienen problemas cuando las trayectorias
+ son muy grandes y así mismo necesitan versiones simplificadas de las trayectori
+as para trabajar adecuadamente.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Here, we have proposed a fast and parallel algorithm to simplify large protein
+ folding trajectories.
+ The algorithm reduces a trajectory by splitting it into segments and then
+ reducing each in parallel using a fast clustering strategy which avoids
+ the pairwise comparison of all structures.
+ 
+\end_layout
+
+\begin_layout Standard
+According to the results, the algorithm can achieve resumed trajectories
+ with high compression of data and preserving their main conformations,
+ what was confirmed when patterns and clusters produced by other folding
+ reduction techniques were also observed in the algorithm reductions.
+ Furthermore, the algorithm outperformed the performance of the other techniques
+, apart from the PCA technique.
+ However if the algorithm uses additional processing cores, it outperforms
+ all the other techniques at larger values.
+ 
+\end_layout
+
+\begin_layout Standard
+Nevertheless, the reductions produced by the proposed algorithm are limited
+ to create a summary of the main events of a protein folding trajectory
+ without performing any kind of analysis, as other techniques do.
+ But, these summarized trajectories can be used as input to these and other
+ techniques that serve the same purpose and which were not designed to handle
+ large protein folding trajectories.
+ 
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Aquí, nosotros hemos planteado un algoritmo para simplificar trayectorias
+ de plegamiento que divide la trayectoria en segmentos y extrae de ellos
+ sus eventos principales o conformaciones hedestacadas en dos fases: primero
+ extrae rápidamente las conformaciones disimilares y luego selecciona de
+ estas a las más representativas.
+ El algoritmo se caracteriza por ser rápido y fácilmente paralelizable,
+ y por lo tanto ejecutable en máquinas ordinarias con múltiples cores, disponibl
+es ya en la mayoría de laboratorios de investigación.
+\end_layout
+
+\begin_layout Plain Layout
+
+\color blue
+De acuerdo a los resultados, el algoritmo produce simplificaciones de las
+ trayectorias originales con una compresión alta y con los eventos principales
+ visualmente conservados.
+ Así mismo, estos resultados conservan en gran medida los patrones y la
+ estructura que producen las reducciones hechas por otras técnicas de reducción
+ y análisis de trayectorias.
+ En cuanto al desempeño del algoritmo, este se aproxima al mostrado por
+ algunas de las técnicas más eficientes y mejora mucho cuando se ejecuta
+ en paralelo
+\color inherit
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Sin embargo, las simplificaciones producidas por el algoritmo están limitadas
+ a crear resúmenes de las trayectorias sin realizarles ningún tipo de análisis,
+ como lo hacen otras técnicas.
+ Por esta misma razón, estas trayectorias resumidas pueden servir de entrada
+ tanto a técnicas de análisis complejas como a otras técnicas de reducción
+ que empiezan a tener problemas a medida que las trayectorias se vuelven
+ más grandes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Itemize
+With the advent of high-throughput methods, the availability of structural
+ information of proteins is increasing at a much accelerated pace.
+ There is a requirement of automatic annotation and classification of proteins
+ in order to save resources in terms of time.
+ Therefore, the fast and efficient algorithm is developed that will find
+ the best alignment between two protein structures.
+\end_layout
+
+\begin_layout Itemize
+In this study, a computationally efficient algorithm has been developed
+ in terms of run time for comparing protein structures based on ESA approach.
+ The 3D coordinates of protein backbone atoms using different criteria have
+ been used including the auxiliary information based on side-chain properties
+ residue wise.
+ The proposed algorithm has been developed using R.
+\end_layout
+
+\begin_layout Itemize
+The proposed algorithm performed equally well in terms of accuracy with
+ respect to existing techniques due to the inclusion of side chain and amino
+ acid properties.
+ Inclusion of hydrophobicity as auxiliary information shows better result
+ since it plays important role in the folding of protein structures.
+ Incorporation of molecular properties as auxiliary information led to the
+ improvement in comparison of two protein 3D structures.
+ The proposed algorithm is faster in terms of computational time than the
+ existing algorithm since it is based on n number of data instead of 3n
+ in data size employed by existing algorithms.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Gracias a los avances tecnológicos, hoy en día las simulaciones de plegamiento
+ de proteínas se pueden realizar por tiempo más largos, y para un mayor
+ número de proteínas.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Además, estas simulaciones se pueden pueden llevar a cabo tanto en supercomputad
+oras especializadas como en clusters de PCS, clusters de GPUs, e incluso
+ en PCs interconectados alrededor del mundo.
+\end_layout
+
+\end_inset
+
+Como consecuencia, se espera un incremento notable de trayectorias de plegamient
+o para nuevas proteínas, mucho más extensas que las que se tienen hasta
+ ahora, con millones de conformaciones,
+\color blue
+ y las cuales necesitan simplificarse para poderse ser analizadas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Meanwhile, with recent advancements in both computer hardware and soft-
+ ware [5−9], state-of-the-art MD simulations are able to simulate protein
+ conformational dynamics at microsec- onds or even longer, which opyen up
+ opportunities to investigate a wide range of important biological pro-
+ cesses such as protein folding, functional conformational changes, protein-liga
+nd recognition, and protein aggregation [10−21].
+ Modern MD simulations often produce massive datasets, which typically contain
+ hundreds of MD tra- jectories and millions of conformations.
+ One major challenge facing the MD simulation community is thus how to rapidly
+ and accurately extract useful informa- tion from these large datasets to
+ comprehend mech- anisms underlying biological processes.
+ One
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Finally, a significant concern when clustering based on pairwise distance
+ evaluations is that the computational costs rapidly become excessive as
+ the number of conformations to cluster grows.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "reduccion-trayectorias"
+options "bmc-mathphys"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Trayectorias
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+nMDs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+PCA and Clustering
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Original
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/lg/ppath/Reduction/paper_bmc/img/analysis/villinfh-fullk-nb-fullk-pdbs-trj-palette.pdf
+	lyxscale 20
+	scale 28
+	BoundingBox 0bp 10bp 720bp 260bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfh-fullk-nmds-palette.pdf
+	lyxscale 20
+	scale 20
+	BoundingBox 0bp 0bp 360bp 360bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Boxed
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "white"
+status collapsed
+
+\begin_layout Plain Layout
+
+\size tiny
+Average Silhouette width = 0.59
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/pca-villinfhrb-clus-hc-fviz-groups.pdf
+	lyxscale 20
+	scale 19
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+Reduced by 52%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red7k-pdbsGlobal-trj-palette.pdf
+	lyxscale 20
+	scale 28
+	BoundingBox 0bp 10bp 720bp 260bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red7k-pdbsGlobal-nmds-palette.pdf
+	lyxscale 20
+	scale 20
+	BoundingBox 0bp 0bp 360bp 330bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Boxed
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "white"
+status collapsed
+
+\begin_layout Plain Layout
+
+\size tiny
+Average Silhouette width = 0.59
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/pca-villinfhb-reduced7k-clus-hc-fviz-groups.pdf
+	lyxscale 20
+	scale 19
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+Reduced by 80%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red3k-pdbsGlobal-trj-palette.pdf
+	lyxscale 20
+	scale 28
+	BoundingBox 0bp 10bp 720bp 260bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/villinfhr-red3k-nmds-palette.pdf
+	lyxscale 20
+	scale 20
+	BoundingBox 0bp 0bp 360bp 330bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Box Boxed
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "white"
+status collapsed
+
+\begin_layout Plain Layout
+
+\size tiny
+Average Silhouette width = 0.60
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/analysis/pca-villinfhr-reduced3k-clus-hc-fviz-groups.pdf
+	lyxscale 20
+	scale 19
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Reducciones de la trayectoria de la proteína villin-headpiece con otros
+ métodos.
+ Fila superior: trayectoria original y despliegue en 2D de las reducciones
+ con nMDS y PCA (agrupando los dos primeros componentes).
+ Fila central e inferior: trayectorias reducidas por nuestro algoritmo en
+ un 52% y un 80% junto con el despliegue en 2D de sus reducciones por nMDS
+ y PCA.
+ Observamos que el patrón nMDS y la estructura de grupos del PCA de la trayector
+ia original también aparecen al calcularlos sobre las trayectorias reducidas,
+ lo que indica que nuestras reducciones conservan los eventos principales
+ de la trayectoria original.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparaciones-PCA-nMDS-3"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Dado que el nMDS se calcula de la matriz de disimilaridades, sus patrones
+ están relacionados con el orden temporal de las conformaciones (escala
+ de colores: verde-amarillo, conformaciones iniciales; rojo: finales; cyan-azul-
+magenta: intermedias)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+En este trabajo presentamos un algoritmo rápido para reducción de trayectorias
+ de plegamiento de proteínas que toma como base la idea del algoritmo de
+ Hobohm&Sander y que se basa en tres estrategias: primero una partición
+ de la trayectoria en múltiples secciones; segundo, una reducción local
+ muy rápida sobre cada una de ellas que aprovecha el tiempo de ocurrencia
+ de las conformaciones; y tercero, una reducción global que busca encontrar
+ las conformaciones más representativas de cada partición.
+ Estas tres estrategias permiten que este algoritmo sea fácilmente paralelizable
+, obtenga unos resultados previos de forma rápida, y de esos resultados
+ seleccione los más importantes.
+\end_layout
+
+\begin_layout Plain Layout
+Nuestro enfoque trabaja sobre las trayectorias de plegamiento ya realizadas
+ y disponibles como un conjunto de snapshots a determinado 
+\emph on
+time step 
+\emph default
+y sobre estás realiza la selección de las más representativas por segmentos
+ de tiempo que se ingresan como parámetros.
+ El resultado es otra trayectoría con estructuras que representan de forma
+ resumida la trayectoria original y que contiene los eventos o estructuras
+ principales.
+ El algoritmo se puede ajustar con diferentes parámetros para definir el
+ tamaño de las particiones en número de conformaciones y número de representativ
+as por cada partición, por ejemplo se puede definir que cada 1000 conformaciones
+ se seleccionen 500 representativas, lo que reduce a la mitad el número
+ de conformaciones, o cada 10000 conformaciones se selecciones 100, lo que
+ la reduce a la trayectoria en 99%.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Hobohm explanation through CD-HIT (Li2012)
+\end_layout
+
+\begin_layout Plain Layout
+CD-HIT uses a greedy incremental algorithm.
+ Basically, sequences are first ordered by decreasing length, and the longest
+ one becomes the seed of the first cluster.
+ Then, each remaining sequence is compared with existing seeds.
+ If the similarity with any seed meets a pre-defined cutoff, it is grouped
+ into that cluster; otherwise, it becomes the seed of a new cluster
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Para reducir estas trayectorias los métodos actuales buscan conjuntos de
+ conformaciones representativas, que generalmente utilizan métodos de agrupamien
+to donde se construye una matriz con las distancias entre cada una de las
+ conformaciones, usualmente se usa la distancia conocida como RMSD o 
+\emph on
+Root Mean Square-Deviation
+\emph default
+.
+ Estos agrupamientos se vuelven muy costosos en tiempo y recursos computacionale
+s cuando se trata de muchas conformaciones y por esta razón los algoritmos
+ buscan reducir estos costos, como por ejemplo, reducir el número de átomos
+ que comparar en las conformaciones (solo carbonos alfa).
+\end_layout
+
+\begin_layout Plain Layout
+Otra forma de reducir estas trayectorias es crear agrupamientos rápidos
+ que no tengan que comparar todas las conformaciones, parecido a lo que
+ realiza el algoritmo de Hobohm&Sander 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hobohm1992"
+literal "true"
+
+\end_inset
+
+ para comparar secuencias de ADN.
+ En este trabajo presentamos un algoritmo rápido para reducción de trayectorias
+ de plegamiento de proteínas que toma como base la idea del algoritmo de
+ Hobohm&Sander y que se basa en tres estrategias: primero una partición
+ de la trayectoria en múltiples secciones; segundo, una reducción local
+ muy rápida sobre cada una de ellas que aprovecha el tiempo de ocurrencia
+ de las conformaciones; y tercero, una reducción global que busca encontrar
+ las conformaciones más representativas de cada partición.
+ Estas tres estrategias permiten que este algoritmo sea fácilmente paralelizable
+, obtenga unos resultados previos de forma rápida, y de esos resultados
+ seleccione los más importantes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Guide for background
+\series default
+ 
+\series bold
+(Srivastava2016) :
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Importance:
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+\size small
+Comparison of protein structures is an important for understanding structural,
+ functional and evolutionary relationship among protein specially in case
+ of novel proteins [1].
+ In addition to this, it is being extensively used for identifying homologous
+ residues [2, 3], finding recurrent folds [4], identifying structural motifs
+ and functional sites, searching similar structure in structural database,
+ predicting interaction among residues/proteins, and hierarchical classification
+ of proteins [5, 6, 7, 8, 9, 10].
+ Structural analysis of proteins is much more important than sequence analysis
+ as protein structures are more conserved than sequences [1, 11].
+ The comparison of protein can also be used for evaluation of sequence alignment
+ methods [12, 13], prediction of unknown protein structures and evaluation
+ of predicted 3D structure of a protein.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+\size small
+In the last two decades, research in the area of protein structure comparison
+ has gained momentum but the problem of finding optimal alignment having
+ significant role in biological context still continues [1].
+ Number of methods for comparing two protein structures has been proposed
+ in the literature.
+ These methods are either based on various distance measures or scoring
+ schemes.
+ There is strong need to develop standard scoring function [14, 15] based
+ on strong theoretical foundation as majority of existing techniques are
+ heuristic in nature [1].
+ These existing techniques are not only less accurate but have more computationa
+l time and space complexity [16].
+ Hence, there is a scope for improvement in the existing methods for better
+ comparison of protein structures [1, 15, 17].
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+\size small
+Algorithms of two protein 3D structures comparison approaches can be broadly
+ classified into two categories, i.e., (1) is based on rigid body alignment
+ by super positioning protein structures heuristically with scaling, rotation,
+ transformation and then super-positioning [18] and (2) based on fragmentation
+ of structures and assembling by non-sequential alignment [18, 19].
+ The techniques of first category can perform better when the protein structures
+ are small and each having equal number of residues in their sequences.
+ The basic limitations of second category are selection of appropriate fragments
+ size, computational time and space complexity for alignments.
+ Various metrics for comparing and scoring identity between two protein
+ structures are employed in both category of approaches, but the most commonly
+ used are p values and root mean square deviation (RMSD).
+ These metrics are rarely used for protein structure comparison with respect
+ to single technique.
+ Further, method such as Distance mAtrix aLIgnment (DALI) employ similarity
+ score which is not a metric but it uses heuristic rule to search the neighborho
+ods based on strong matches [20].
+ Comparing of these techniques with respect to implementation and their
+ practical utilities, these methods are difficult to use practically due
+ to space and time complexity [21].
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+\size small
+Recently, an attempt has been made for protein structure comparison using
+ geodesic distance as dissimilarity score based on a particular Riemannian
+ metric [22].
+ In this technique 3D coordinates of backbone atoms have been used to derive
+ parameterized curve in real numbers in three dimensional space i.e.
+ R3, for representing the protein structures.
+ The alignment of two protein structures is being defined as the alignment
+ of the two curves derived from backbone atoms of two structures i.e., one
+ from each protein.
+ Each of these parameterized curve is represented by a special function
+ called square root velocity function (SRVF).
+ Further, shapes comparison has been done after removing all shape preserving
+ transformations from these curves.
+ It has been pointed out that this comparison can be improved further by
+ using higher dimensional composite curves by concatenating the geometric
+ (3D) coordinates with primary and secondary structures as auxiliary coordinates
+ [23, 24] and side chain atoms.
+ These side chain atoms play an important role in determination of protein
+ structure and consequently protein functions.
+ The orientations of side chains and molecular properties of residues have
+ significant effect on protein conformational dynamics and hence the protein
+ function [25].
+ Therefore, the inclusion of the side chain atoms and molecular properties
+ are likely to improve this protein structures comparative analysis and
+ it may lead to a better alignment as compared to the alignment obtained
+ from existing techniques.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+\size small
+Therefore, in this study an attempt has been made to develop a method/algorithm
+ based on the elastic shape analysis [26, 27, 28, 29] considering both geometric
+al and molecular properties of protein.
+ In the proposed algorithm, side chain atoms along with molecular properties
+ such as hydrophobicity, polarity, orientation (dihedral angles), mass of
+ residues, functional group type (aliphatic, acyclic, hydroxyl or sulphur-contai
+ning, aromatic) and number of side-chain atoms as auxiliary information
+ have been included.
+ The proposed technique requires significantly less time without compromising
+ with the accuracy for comparing protein structures.
+ The developed algorithm has been implemented using open source R software.
+ The method has been elaborated stepwise in the âProposed algorithmâ
+ section.
+ The performance of the developed method was compared with the existing
+ methods i.e., ESA [22, 23], combinatorial extension (CE) [30] and jFATCAT
+ [31], Matt [32], multiple structural alignment algorithm (MUSTANG) [33]
+ for which the details are provided in the âResults and discussionâ
+ section.
+ Our method was found to be more accurate for classification purpose and
+ efficient in terms of computational time.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+Hobohm algorithm flowchar 
+\series default
+(
+\series bold
+Kclust, Hauser2013)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/tmp-hobohm-algorithm-flowchar.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+Backgraound for fast clustering algorithms (Kclust, Hauser2013
+\series default
+):
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+\size small
+CD-HIT [25-27] and UCLUST [28] are sequence clustering methods that, like
+ kClust, do not rely on an external sequence search tool.
+ All three methods aim at clustering large sequence databases much faster
+ than what is possible using BLAST or FASTA.
+ They start with zero clusters and pick one sequence after the other from
+ the database.
+ If the query is sufficiently similar to the representative sequence of
+ a cluster, the query is added to that cluster.
+ Otherwise it becomes the founding member and representative sequence for
+ a new cluster.
+ For the fast comparison of the query to the representative sequences of
+ the clusters, these methods first prefilter the representative sequences
+ using an alignment-free, k-mer-based sequence comparison.
+ Sequences that pass the prefilter are aligned to the query using Smith-Waterman
+ alignment.
+ The clustering finishes when all sequences have been picked and assigned
+ to a cluster.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+\size small
+For prefiltering, CD-HIT and UCLUST simply count the number of identical
+ k-mers between sequences.
+ Because this number drops quickly as the similarity of the compared sequences
+ decreases, CD-HIT uses shorter k-mers for achieving higher sensitivity:
+ (e.
+ g.
+ 5-mers for clustering thresholds down to 70% sequence identity, and 2-mers
+ below 50%).
+ The choice of k follows from the requirement for near-perfect sensitivity,
+ between 95% and 99%.
+ Reducing k comes at a considerable loss of speed, however, since decrementing
+ k by one results in approximately 20 times more chance k-mers matches and
+ a 20-fold longer run time.
+ CD-HIT can therefore cluster large databases such as UniProt only to down
+ to ∼ 50% sequence identity.
+ UCLUST uses 5-mers at all clustering thresholds.
+ This allows it to maintain a high speed even at low thresholds, at the
+ cost of a loss of sensitivity.
+ It ranks the representative sequences by the number of 5-mers they have
+ in common with the query sequence and aligns them in this order until one
+ of them is similar to the query sequence or until the highest-ranked eight
+ clusters have been rejected.
+ An apparent disadvantage of UCLUST is that, in order to increase sensitivity
+ despite its word length of 5, it uses rather loose acceptance criteria.
+ At clustering thresholds below 50%, this leads to a high fraction of corrupted
+ clusters containing non-homologous sequences.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+\size small
+Both CD-HIT and UCLUST use banded dynamic programming to speed up the Smith-Wate
+rman search.
+ In addition, UCLUST extends the alignment around identical 5-mer matches
+ in a way similar to BLAST [11].
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{backmatter}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{backmatter}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{document}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

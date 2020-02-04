@@ -1,0 +1,27 @@
+PLINK v1.90b6.12 64-bit (28 Oct 2019)
+Options in effect:
+  --file agrosavia-genotype-diplo-AGs-plink
+  --make-bed
+  --out aggb
+
+Hostname: dell
+Working directory: /home/lg/agrosavia/projects/gwas-plink/dev
+Start time: Tue Nov 19 21:58:20 2019
+
+Random number seed: 1574218700
+7898 MB RAM detected; reserving 3949 MB for main workspace.
+Scanning .ped file... done.
+Performing single-pass .bed write (4605 variants, 604 people).
+--file: aggb-temporary.bed + aggb-temporary.bim + aggb-temporary.fam written.
+4605 variants loaded from .bim file.
+604 people (0 males, 0 females, 604 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to aggb.nosex .
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 604 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.990197.
+4605 variants and 604 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to aggb.bed + aggb.bim + aggb.fam ... done.
+
+End time: Tue Nov 19 21:58:20 2019

@@ -1,0 +1,6 @@
+set terminal postscript color
+set title  "" 
+set xlabel  "eigenvector 1" 
+set ylabel  "eigenvector 2" 
+plot  "genotype-diplo-plink_bin_filtered_eigensoft.eigenvecs.evec.1:2:???" using 2:3 title "???" 
+## pause 9999

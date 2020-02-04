@@ -1,0 +1,16 @@
+Ploidy	Type	GC	Model	Score	Threshold	Effect	Marker	Chrom	Position	Ref	Alt	Annotation	Best.Arabidopsis.Hit...Locus
+2	Kinship	0.71	1-dom-ref	5.34	4.53	0.58	solcap_snp_c2_40748	12	12654160	0	1	Pentatricopeptide repeat-containing protein	AT2G37230.1
+2	Kinship	0.71	1-dom-ref	4.59	4.53	0.59	solcap_snp_c1_7325	2	42764457	0	1	POM30	AT5G67500.1
+2	Kinship	0.673	1-dom-alt	6.03	4.42	-0.77	solcap_snp_c1_3484	4	71945107	0	1	Cinnamoyl-CoA reductase	AT2G33590.1
+2	Kinship	0.673	1-dom-alt	5.3	4.42	-0.68	solcap_snp_c2_10568	4	71954528	0	1	3-hydroxy-3-methylglutaryl coenzyme A reductase	AT1G76490.1
+2	Kinship	0.673	1-dom-alt	4.83	4.42	-0.59	solcap_snp_c2_4875	1	83177518	0	1	Conserved gene of unknown function	AT5G65810.1
+2	Kinship	0.673	1-dom-alt	4.67	4.42	-0.54	solcap_snp_c2_36664	1	535454	0	1	Adagio protein 3	AT1G68050.1
+2	Kinship	0.657	additive	5.61	4.79	-0.47	solcap_snp_c2_12601	7	53106007	0	1	3-hydroxybutyryl-CoA dehydrogenase	AT3G15290.1
+2	Kinship	0.459	general	10.95	4.79	NA	solcap_snp_c2_49245	8	35651378	0	1	UDP-sulfoquinovose synthase	AT4G33030.1
+2	Kinship	0.459	general	10.95	4.79	NA	solcap_snp_c2_41463	8	35922019	0	1	Conserved gene of unknown function	AT2G26110.1
+2	Kinship	0.459	general	7.65	4.79	NA	solcap_snp_c2_12601	7	53106007	0	1	3-hydroxybutyryl-CoA dehydrogenase	AT3G15290.1
+2	Kinship	0.459	general	6.25	4.79	NA	solcap_snp_c2_3512	5	51477749	0	1	Conserved gene of unknown function	AT3G04350.1
+2	Kinship	0.459	general	5.58	4.79	NA	solcap_snp_c2_36660	1	534626	0	1	Circadian clock-associated FKF1	AT1G68050.1
+2	Kinship	0.459	general	5.36	4.79	NA	solcap_snp_c2_40745	12	12655349	0	1	Pentatricopeptide repeat-containing protein	AT2G37230.1
+2	Kinship	0.459	general	5.27	4.79	NA	solcap_snp_c2_19081	8	52490785	0	1	L-lactate dehydrogenase	AT4G17260.1
+2	Kinship	0.459	general	5.23	4.79	NA	solcap_snp_c1_3484	4	71945107	0	1	Cinnamoyl-CoA reductase	AT2G33590.1

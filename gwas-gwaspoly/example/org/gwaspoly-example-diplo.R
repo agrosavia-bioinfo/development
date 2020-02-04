@@ -1,0 +1,1 @@
+/home/lg/agrosavia/projects/gwas-gwaspoly/example/gwaspoly-example-diplo.R

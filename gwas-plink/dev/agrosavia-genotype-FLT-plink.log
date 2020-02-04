@@ -1,0 +1,40 @@
+PLINK v1.90b6.12 64-bit (28 Oct 2019)
+Options in effect:
+  --adjust
+  --all-pheno
+  --allow-no-sex
+  --assoc
+  --bfile agrosavia-genotype-FLT-plink-bin
+  --linear
+  --out agrosavia-genotype-FLT-plink
+  --pheno agrosavia-phenotype-FLT.plink
+
+Hostname: agro
+Working directory: /home/lg/agrosavia/projects/gwas-plink/dev
+Start time: Thu Dec 12 13:08:58 2019
+
+Random number seed: 1576174138
+7829 MB RAM detected; reserving 3914 MB for main workspace.
+2016 variants loaded from .bim file.
+578 people (0 males, 0 females, 578 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to agrosavia-genotype-FLT-plink.nosex .
+578 phenotype values present after --pheno.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 578 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.995399.
+2016 variants and 578 people pass filters and QC.
+Phenotype data is quantitative.
+578 phenotype values present after --pheno.
+Writing QT --assoc report to agrosavia-genotype-FLT-plink.BLIGHT.qassoc ...
+done.
+--adjust: Genomic inflation est. lambda (based on median chisq) = 1.2902.
+--adjust values (2016 variants) written to
+agrosavia-genotype-FLT-plink.BLIGHT.qassoc.adjusted .
+Writing linear model association results to
+agrosavia-genotype-FLT-plink.BLIGHT.assoc.linear ... done.
+--adjust: Genomic inflation est. lambda (based on median chisq) = 1.2902.
+--adjust values (2016 variants) written to
+agrosavia-genotype-FLT-plink.BLIGHT.assoc.linear.adjusted .
+
+End time: Thu Dec 12 13:08:58 2019

@@ -1,0 +1,23 @@
+# Wrapper to parse eigensoft PCA files
+
+# import dependencies
+import argparse
+from allgwas import file_converter 
+
+def main():
+	# get command line argument
+	parser = argparse.ArgumentParser(description='wrapper to parse eigensoft files')
+
+	parser.add_argument('--eigenvec_file', required=True, help='full path to file containing the eigenvectors')
+	parser.add_argument('--fam_file', required=True, help='full path to fam-file')
+	parser.add_argument('--out_file', required=True, help='full path to file output should be stored in')
+	
+	args = parser.parse_args()
+
+	# call FaST-LMM with the specified parameters
+	file_converter.parse_eigensoft_eigenvectors(eigensoft_file=args.eigenvec_file,
+					 fam_file=args.fam_file,
+					 output_file=args.out_file)
+
+if __name__ == '__main__':
+	main()

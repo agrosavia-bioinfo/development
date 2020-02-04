@@ -1,0 +1,5 @@
+1. How to convert numeric genotype to ACGT:
+	- Using del scaffolds, but was it ref or alt allele?
+2. How to translate tetra ACGT to diplo ACGT:
+	- Using sccafold ref/alt
+	- Using gwaspoly ref/alt

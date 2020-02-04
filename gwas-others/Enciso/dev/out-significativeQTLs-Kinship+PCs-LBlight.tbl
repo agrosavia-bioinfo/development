@@ -1,0 +1,4 @@
+Ploidy	Type	GC	Model	Score	Threshold	Effect	Marker	Chrom	Position	Ref	Alt	Annotation	Best.Arabidopsis.Hit...Locus
+4	Kinship+PCs	1.081	1-dom-ref	5.75	4.58	12.56	c2_27764	9	61466189	0	1	Sucrose synthase	AT5G49190.1
+4	Kinship+PCs	1.048	general	5.75	4.91	NA	c2_27764	9	61466189	0	1	Sucrose synthase	AT5G49190.1
+4	Kinship+PCs	1.001	additive	5.75	4.91	12.56	c2_27764	9	61466189	0	1	Sucrose synthase	AT5G49190.1

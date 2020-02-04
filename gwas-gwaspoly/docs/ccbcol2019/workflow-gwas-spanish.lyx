@@ -1,0 +1,517 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package babel
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Flujo de trabajo bioinformático para estudios de asociación de genoma completo
+ en plantas
+\end_layout
+
+\begin_layout Abstract
+Presentamos un flujo de trabajo blgioinformático para estudios de asociación
+ de genoma completo (GWAS) que permite realizar el proceso completo de GWAS
+ en plantas.
+ El flujo de trabajo está dividido en diferentes etapas correspondientes
+ al proceso general de GWAS.
+ En cada etapa se tienen una o más técnicas que pueden seleccionarse para
+ realizar esa etapa del proceso.
+ El flujo de trabajo se ejecuta en modo línea de comandos, ya sea completamente
+ o etapa por etapa.
+ Para la implementación se utilizan diferentes tipos de software entre programas
+, librerías y scripts en diferentes lenguajes, los cuales están disponibles
+ gratuitamente y que son de amplio uso en proyectos GWAS.
+ Este software se envuelve sobre otra capa de software que oculta los detalles
+ y pone una interfaz de comandos muy simple de usar para personas no expertas
+ en computación.
+\end_layout
+
+\begin_layout Section
+Flujo de Trabajo GWAS
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename images/workflow-gwas.pdf
+	lyxscale 40
+	scale 95
+	BoundingBox 0bp 0bp 540bp 576bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Flujo de trabajo GWAS para plantas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Formatos de Archivos de Entrada
+\end_layout
+
+\begin_layout Standard
+Se necesitan dos archivos de entrada: uno con la información del genotipo/fenoti
+po y otro con la información de los SNPs.
+ Estos archivos están son de tipo texto y sigen el formato estándar establecido
+ por el software PLINK 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Purcell2010"
+literal "true"
+
+\end_inset
+
+.
+ El primer archivo, con extensión 
+\emph on
+.ped,
+\emph default
+ contiene la información del genotipo con 6 columnas iniciales fijas seguidas
+ después por la información del SNP, así: (1) ID de la famila, (2) ID del
+ individuo, (3) ID parental, (4) ID maternal, (5) Genero, y (6) Fenotip
+ (Valor cuantitativo ó Estado de afectación).
+ Las columnas 7 y 8 contienen el código de los alelos observados en el primer
+ SNP, las columnas 9 y 10 para los alelos en del seguno SNP y así sucesivamente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+http://zzz.bwh.harvard.edu/plink/data.shtml
+\end_layout
+
+\begin_layout Plain Layout
+The IDs are alphanumeric: the combination of family and individual ID should
+ uniquely identify a person.
+ A PED file must have 1 and only 1 phenotype in the sixth column.
+ The phenotype can be either a quantitative trait or an affection status
+ column: PLINK will automatically detect which type (i.e.
+ based on whether a value other than 0, 1, 2 or the missing genotype code
+ is observed).
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename images/ejemplo-archivo-formato-ped-plink.png
+	scale 80
+	BoundingBox 0bp 0bp 739bp 323bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Archivo de genotipo
+\emph on
+ 
+\emph default
+formato PLINK
+\series default
+.
+ Columnas: (1) ID de la famila, (2) ID del individuo, (3) ID parental, (4)
+ ID maternal, (5) Genero, y (6) Fenotipo (Valor cuantitativo ó Estado de
+ afectación).
+ Las columnas 7 y 8 contienen el código de los alelos observados en el primer
+ SNP, las columnas 9 y 10 para los alelos en del seguno SNP y así sucesivamente.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El segundo archivo, con extensión 
+\emph on
+.map,
+\emph default
+ contiene la información del SNP y su posición, una línea por cada SNP y
+ con las siguientes 6 columnas: (1) Número del cromosoma, (2) Identificador
+ de variante, (3) Distancia genética (en Morgans), y (4) Posición física
+ (en pares de bases).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/ejemplo-archivo-formato-map-plink.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Archivo posiciones SNPs formato PLINK.
+ Columnas: (1) Número del cromosoma, (2) Identificador de variante, (3)
+ Distancia genética (en Morgans), y (4) Posición física (en pares de bases).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Generalmente, los anteriores archivos son muy grandes y se necesita transformarl
+os de tipo texto a binario para procesarlos más fácilmente.
+ Al transformalos a binario se generan tres archivos con extensiones .
+\emph on
+bed
+\emph default
+, .
+\emph on
+bid
+\emph default
+, y .
+\emph on
+fam
+\emph default
+, que sigen también los formatos establecidos por PLINK
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Purcell2010"
+literal "true"
+
+\end_inset
+
+.
+ Los archivos 
+\emph on
+.bed
+\emph default
+ contienen el registro del genotipo de cada individuo y sus primeros seis
+ campos son: (1) ID de la famila, (2) ID del individuo, (3) ID parental,
+ (4) ID maternal, (5) Genero, y (6) Estado de afectación.
+ Los campos siguientes del registro corresponden a información del genotipo.
+ Los archivos 
+\emph on
+.bim
+\emph default
+ contienen la información del SNP y su mapa de posiciones a través de 6
+ campos: (1) Número del cromosoma, (2) Identificador de variante, (3) Distancia
+ genética (en Morgans), (4) Posición física (en pares de bases), (5 y 6)
+ Alelo 1 y alelo 2.
+ Y los archivos 
+\emph on
+.fam
+\emph default
+ contienen la información del pedigree/fenotipo, así: (1) ID de la famila,
+ (2) ID de la muestra, (3) ID parental, (4) ID maternal, (5) Genero, y (6)
+ Fenotipo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/ejemplo-archivo-formato-fenotipo.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Formato archivo fenotipo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Preprocesamiento
+\end_layout
+
+\begin_layout Standard
+En esta etapa se realiza un procesamiento de los datos para excluir individuos
+ y SNPs que no cumplan algunas de las siguientes condiciones:
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The following example uses PLINK to perform a preprocessing data and to
+ exclude individuals and SNPs that do not fulfill certain conditions.
+ These conditions are:
+\end_layout
+
+\begin_layout Itemize
+Hardy-Weinberg equilibrium (--hwe): discard SNPs that deviate from Hardy-Weinber
+g equilibrium with a p-value of the statistical test < 1e-10 
+\end_layout
+
+\begin_layout Itemize
+Minor allele frequency (--maf): discard SNPs that have a minor allele frequency
+ < 1% 
+\end_layout
+
+\begin_layout Itemize
+Missing genotypes per individual (--mind): discard individuals with missing
+ genotypes in more than 10% of all SNPs 
+\end_layout
+
+\begin_layout Itemize
+Missing genotypes per SNP (--geno): discard SNPs with missing genotypes
+ in more than 10% of all individuals 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Filtro de equilibrio de Hardy-Weinberg (HWE), donde se descarta los SNPs
+ que se desvian del equilibrio de Hardy-Weinberg con un 
+\emph on
+p-valor
+\emph default
+ de la prueba estadística < 1e-10.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+que establece que dentro de una población, la variación genética permanecerá
+ constante de una generación a otra mientras no se presenten factores o
+ circunstancias que la alteren, es decir, que tanto el genotipo como la
+ frecuencia de los alelos mantienen su frecuencia en la población a través
+ de las generaciones.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Filtro de fecuencia del alelo menos común (MAF), que descarta los SNPs con
+ una MAF < 1%.
+\end_layout
+
+\begin_layout Itemize
+Filtro de perdida de genotipos por individuo, que descarta individuos que
+ tienen perdida de genotipos en más del 10% de los SNPs.
+\end_layout
+
+\begin_layout Itemize
+Filtro de perdida de genotipos por SNP, que descarta los SNPs que tienen
+ una perdida de genotipo en más del 10% de los individuos.
+\end_layout
+
+\begin_layout Section
+Implementación Python
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "GWAS-Workflow-references"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

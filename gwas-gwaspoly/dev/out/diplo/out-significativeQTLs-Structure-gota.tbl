@@ -1,0 +1,13 @@
+Ploidy	Type	GC	Model	Score	Threshold	Effect	Marker	Chrom	Position	Ref	Alt	Annotation	Best.Arabidopsis.Hit...Locus
+2	Structure	1.115	1-dom-ref	4.62	4.53	0.36	solcap_snp_c1_7325	2	42764457	0	1	POM30	AT5G67500.1
+2	Structure	1.091	1-dom-alt	4.97	4.42	-0.36	solcap_snp_c2_10568	4	71954528	0	1	3-hydroxy-3-methylglutaryl coenzyme A reductase	AT1G76490.1
+2	Structure	1.091	1-dom-alt	4.85	4.42	-0.35	solcap_snp_c1_3484	4	71945107	0	1	Cinnamoyl-CoA reductase	AT2G33590.1
+2	Structure	1.061	additive	6.76	4.79	-0.34	solcap_snp_c2_12601	7	53106007	0	1	3-hydroxybutyryl-CoA dehydrogenase	AT3G15290.1
+2	Structure	1.061	additive	5.69	4.79	0.39	solcap_snp_c2_49245	8	35651378	0	1	UDP-sulfoquinovose synthase	AT4G33030.1
+2	Structure	1.061	additive	5.68	4.79	0.39	solcap_snp_c2_41463	8	35922019	0	1	Conserved gene of unknown function	AT2G26110.1
+2	Structure	0.827	general	17.31	4.79	NA	solcap_snp_c2_49245	8	35651378	0	1	UDP-sulfoquinovose synthase	AT4G33030.1
+2	Structure	0.827	general	17.31	4.79	NA	solcap_snp_c2_41463	8	35922019	0	1	Conserved gene of unknown function	AT2G26110.1
+2	Structure	0.827	general	13.71	4.79	NA	solcap_snp_c2_12601	7	53106007	0	1	3-hydroxybutyryl-CoA dehydrogenase	AT3G15290.1
+2	Structure	0.827	general	7.78	4.79	NA	solcap_snp_c2_3512	5	51477749	0	1	Conserved gene of unknown function	AT3G04350.1
+2	Structure	0.827	general	5.62	4.79	NA	solcap_snp_c2_36660	1	534626	0	1	Circadian clock-associated FKF1	AT1G68050.1
+2	Structure	0.827	general	5.1	4.79	NA	solcap_snp_c1_5112	7	43125095	0	1	Phosphofructokinase	AT4G26270.1

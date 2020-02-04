@@ -1,0 +1,12 @@
+TASKS:
+	1. Gene actions models
+	2. GWASpoly with different models:
+		a. Naive: No Structure No Kinship No LD
+		b. With Structure
+		c. With Structure and Kinship
+		d. With Structure/Kinship/LD
+
+	3. Fix Graphics scale:
+		- Why the 0.5 threshold
+
+	4. Gene based approach

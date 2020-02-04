@@ -1,0 +1,6 @@
+Trait	Model	Threshold	Marker	Chrom	Position	Ref	Alt	Score	Effect
+tuber_shape	general	4.82	c2_25471	10	48808404	C	T	5.34	NA
+tuber_shape	general	4.82	c1_8019	10	48863165	A	G	8.04	NA
+tuber_shape	additive	4.82	c2_25471	10	48808404	C	T	6.23	0.34
+tuber_shape	additive	4.82	c1_8019	10	48863165	A	G	9.48	-0.42
+tuber_shape	2-dom-alt	4.65	c1_8019	10	48863165	A	G	5.15	-0.53

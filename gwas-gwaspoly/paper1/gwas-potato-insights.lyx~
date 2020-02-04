@@ -1,0 +1,218 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Insights Into the Genetic Basis of Potato Plant-Related Traits Using Diploid
+ and Polyploid Models in a GWAS Context
+\end_layout
+
+\begin_layout Abstract
+...
+\end_layout
+
+\begin_layout Section
+INTRODUCTION
+\end_layout
+
+\begin_layout Section
+MATERIALS AND METHODS
+\end_layout
+
+\begin_layout Subsection
+Structure Population and Kinship
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Bourke2018:
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+One challenge in applying GWAS to polyploid species is how to define a relatedne
+ss metric between polyploid individuals (i.e., how to generate the kinship
+ matrix, K).
+ So far, there have been two software tools released for polyploid GWAS,
+ namely the R package GWASpoly (Rosyara et al., 2016) and the previously
+ mentioned SHEsisPlus (Shen et al., 2016).
+ Of these, only GWASpoly looks critically at the form of the kinship matrix
+ K.
+ Three different forms of K were tested in the development of the package,
+ with the canonical relationship matrix (VanRaden, 2008) [termed the realized
+ relationship matrix by the authors (Rosyara et al., 2016)] found to best
+ control against inflation of significance values.
+ This is also the default K provided in the GWASpoly package.
+ An alternative approach to GWAS mapping for polyploids is provided by the
+ netgwas package (Behrouzi and Wit, 2017b), previously mentioned for its
+ linkage mapping capacity.
+ Again, graphical models form the basis of the approach, which goes beyond
+ single-marker association mapping to investigate genotype-phenotype interaction
+s using all markers simultaneously in a graph structure.
+ There is almost no discussion on how confoundedness between population
+ structure and phenotypes are handled, but the authors claim the detection
+ of false positive associations is not problematic.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gene action models
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Ferrao2018
+\series default
+:
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Eight gene action models were tested for the tetraploid genotype calling:
+ general, additive, simplex dominant alternative (simplex-dom-alt), simplex
+ dominant reference (simplex-dom-ref), duplex dominant alternative (duplex-dom-a
+lt), duplex dominant reference (duplex-dom-ref), diplo-additive, and diplo-gener
+al.
+ According to Rosyara et al.
+ (2016), the general type of genetic model allows the SNP effect for each
+ genotypic class to be arbitrary and statistically equivalent.
+ In the additive model the SNP effect is proportional to the dosage of the
+ minor allele.
+ In the simplex dominant models, all the heterozygotes (AAAB, AABB, ABBB)
+ are equivalent to one of the homozygotes (AAAA or BBBB).
+ In the duplex dominant models, the duplex state (AABB) has the same effect
+ as either the simplex (AAAB) and nulliplex (AAAA) or the triplex (ABBB)
+ and quadriplex (BBBB) states.
+ In the diploidized models (diplo), all heterozygous classes have the same
+ effect, resembling a traditional diploid dosage model (AA, AB, BB), and
+ have gene action models encompassing the general and additive effects.
+ The diploid genotype calling was also used for GWAS analyses, using the
+ following gene actions: diplo-general, diplo-additive, simplex-dom-alt,
+ and simplex-dom-ref.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+RESULTS
+\end_layout
+
+\begin_layout Section
+DISCUSSION
+\end_layout
+
+\begin_layout Section
+CONCLUSION
+\end_layout
+
+\begin_layout Section
+DATA AVAILABILITY
+\end_layout
+
+\begin_layout Section
+AUTHOR CORRESPONDING
+\end_layout
+
+\begin_layout Section
+FUNDING
+\end_layout
+
+\begin_layout Section
+SUPPLEMENTARY MATERIAL
+\end_layout
+
+\begin_layout Section*
+REFERENCES
+\end_layout
+
+\end_body
+\end_document

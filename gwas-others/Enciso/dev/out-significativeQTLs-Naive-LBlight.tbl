@@ -1,0 +1,33 @@
+Ploidy	Type	GC	Model	Score	Threshold	Effect	Marker	Chrom	Position	Ref	Alt	Annotation	Best.Arabidopsis.Hit...Locus
+4	Naive	2.304	additive	11.01	4.91	16.45	c2_27764	9	61466189	0	1	Sucrose synthase	AT5G49190.1
+4	Naive	2.304	additive	6.09	4.91	8.79	c1_1125	5	51698150	0	1	Phenylalanine ammonia-lyase	AT3G53260.1
+4	Naive	2.304	additive	5.73	4.91	-5.79	c2_23740	5	389266	0	1	Mitochondrial processing peptidase	AT3G02090.1
+4	Naive	2.304	additive	5.66	4.91	9.57	c2_51957	8	1767949	0	1	Gene of unknown function	No_Hit
+4	Naive	2.304	additive	5.56	4.91	14.3	c2_7529	2	41088098	0	1	CER6	AT1G68530.1
+4	Naive	2.304	additive	5.56	4.91	-14.3	c2_7556	2	41356967	0	1	Mannose-6-phosphate isomerase	AT1G67070.1
+4	Naive	2.304	additive	5.56	4.91	14.3	c2_7560	2	41359045	0	1	Mannose-6-phosphate isomerase	AT1G67070.1
+4	Naive	2.304	additive	5.52	4.91	6.84	c2_27918	1	6587872	0	1	Sterol delta-7 reductase DWF5	AT1G50430.1
+4	Naive	2.304	additive	4.91	4.91	-8.88	c1_10590	9	60279259	0	1	Gene of unknown function	No_Hit
+4	Naive	2.138	general	11.01	4.91	NA	c2_27764	9	61466189	0	1	Sucrose synthase	AT5G49190.1
+4	Naive	2.138	general	5.56	4.91	NA	c2_7529	2	41088098	0	1	CER6	AT1G68530.1
+4	Naive	2.138	general	5.56	4.91	NA	c2_7556	2	41356967	0	1	Mannose-6-phosphate isomerase	AT1G67070.1
+4	Naive	2.138	general	5.56	4.91	NA	c2_7560	2	41359045	0	1	Mannose-6-phosphate isomerase	AT1G67070.1
+4	Naive	2.138	general	5.03	4.91	NA	c2_23740	5	389266	0	1	Mitochondrial processing peptidase	AT3G02090.1
+4	Naive	2.138	general	5.01	4.91	NA	c1_1125	5	51698150	0	1	Phenylalanine ammonia-lyase	AT3G53260.1
+4	Naive	1.87	2-dom-ref	6.82	4.73	-13.12	c2_23740	5	389266	0	1	Mitochondrial processing peptidase	AT3G02090.1
+4	Naive	1.83	1-dom-alt	5.78	4.66	-12.13	c2_48042	9	59139277	0	1	RabGAP/TBC domain-containing protein	AT4G13730.1
+4	Naive	1.83	1-dom-alt	5.56	4.66	14.3	c2_7529	2	41088098	0	1	CER6	AT1G68530.1
+4	Naive	1.83	1-dom-alt	5.56	4.66	14.3	c2_7560	2	41359045	0	1	Mannose-6-phosphate isomerase	AT1G67070.1
+4	Naive	1.83	1-dom-alt	5.45	4.66	12.5	c2_51957	8	1767949	0	1	Gene of unknown function	No_Hit
+4	Naive	1.83	1-dom-alt	4.77	4.66	-12.28	c2_54598	5	13164523	0	1	Leucine-rich repeat receptor kinase	AT1G67510.1
+4	Naive	1.83	1-dom-alt	4.66	4.66	11.05	c2_27918	1	6587872	0	1	Sterol delta-7 reductase DWF5	AT1G50430.1
+4	Naive	1.83	1-dom-alt	4.66	4.66	11.59	c1_9786	8	1220894	0	1	Conserved gene of unknown function	AT2G35360.1
+4	Naive	1.714	1-dom-ref	11.01	4.58	16.45	c2_27764	9	61466189	0	1	Sucrose synthase	AT5G49190.1
+4	Naive	1.714	1-dom-ref	5.56	4.58	-14.3	c2_7556	2	41356967	0	1	Mannose-6-phosphate isomerase	AT1G67070.1
+4	Naive	1.714	1-dom-ref	4.61	4.58	-11.46	c2_32702	8	1367551	0	1	Multidrug resistance-associated protein	AT1G30400.1
+4	Naive	1.697	2-dom-alt	5.56	4.75	12.63	c2_12746	8	7267927	0	1	Protein IQ-DOMAIN 14	AT3G59690.1
+4	Naive	1.697	2-dom-alt	5.17	4.75	11.47	c1_12945	4	57899405	0	1	Glycosyltransferase, CAZy family GT8	AT2G20810.1
+4	Naive	1.697	2-dom-alt	4.92	4.75	-13.42	c2_54725	5	14541535	0	1	Conserved gene of unknown function	No_Hit
+4	Naive	1.697	2-dom-alt	4.82	4.75	11.88	c2_47901	8	7838596	0	1	Beta-galactosidase	AT3G54440.1
+4	Naive	1.697	2-dom-alt	4.81	4.75	-11.37	c2_4844	1	83060566	0	1	L-galactose dehydrogenase	AT4G33670.1
+4	Naive	1.697	2-dom-alt	4.78	4.75	16.78	c1_14394	9	739893	0	1	Fructose-1,6-bisphosphatase	AT3G54050.1
