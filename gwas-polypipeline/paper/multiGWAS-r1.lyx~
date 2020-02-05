@@ -238,87 +238,91 @@ twocolumn[
 begin{@twocolumnfalse}
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
 \begin_layout Plain Layout
 
-
+%
 \backslash
 abstract{
 \backslash
-textbf{Motivation:} Muchas de las plantas son tetraploides sin embargo la
- mayoria de  herramientas para realizar estudios de asociación de genoma
- completo (GWAS) están desarrolladas para especies tetraplodies.
-\backslash
+textbf{Motivation:}}
+\end_layout
 
-\backslash
+\end_inset
+
 
 \end_layout
 
+\begin_layout Abstract
+\begin_inset ERT
+status open
+
 \begin_layout Plain Layout
 
-
-\backslash
-textbf{Results:} Presentamos aquí un flujo de trabajo que realiza GWAS sobre
- plantas tetraplodes utilizando cuatro herramientas de GWAS: dos diseñadas
- para especias tetraploides, y dos diseñadas para diploides.
- La herramienta tomo como datos de entrada un archivo de genotipo y otro
- de fenotipo, los preprocesa y los ejecuta en paralelo en las cuatro herramienta
-s.
- De los resultados finales de cada herramienta se construye un resumen tanto
- gráfico como de forma tabular para que le ayuden  al investigador a realizar
- un mejor análisis.
-\backslash
-
-\backslash
-
+{
 \end_layout
 
+\end_inset
+
+
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+Motivation:
+\series default
+ Although the GWAS software for polyploids organisms is scarce, other diploid
+ software has also been use to analyze these organisms.
+ This set of available GWAS software provides the possibility to replicate
+ a study by using multiple tools, which helps to researches to check for
+ true associations when these one are found by more than one tool.
+ However, each tool has its own characteristics (interface, inputs, outputs,
+ and options) which can may cost time and effort to succesfully use them.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Results:
+\series default
+ We have developed an R tool, MultiGWAS, to do GWAS analysis in polyploids
+ organisms by executing and integrating the analysis results from four existing
+ GWAS software: two for polyploid (GWASpoly and SHEsis) and the other two
+ for diploid organisms (Plink and Tassel).
+ MultiGWAS allows users to run two kinds of GWAS: Full and Naive.
+ The first considering the population structure and cryptic relatedness,
+ and the second without these considerations.
+ MultiGWAS receives a simple configuration file and the tool deals with
+ all matters of the GWAS process to finally summarize and report results
+ in a table and intuitive graphics formats to help researches to check potential
+ true or false associations.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Availability and implementation:
+\series default
+ Source code is freely available at https://github.com/agrosavia/multiGWAS
+ along with examples, documentation and instalation instructions.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Contact:
+\series default
+ lgarreta@agrosavia.com
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
 \begin_layout Plain Layout
 
-
-\backslash
-textbf{Availability:} Tanto la herramienta como su código fuente son de
- libre acceso y se puede descargar del repositorio: https://github.com/agrosavia/
-gwas-polypilene
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Contact:} 
-\backslash
-href{lgarreta@agrosavia.co}{lgarreta@agrosavia.co}
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Supplementary information:} Supplementary data are available at 
-\backslash
-textit{Bioinformatics}
-\end_layout
-
-\begin_layout Plain Layout
-
-online.}
+}
 \end_layout
 
 \end_inset
@@ -328,15 +332,67 @@ online.}
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
 maketitle 
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-end{@twocolumnfalse}]
+end{@twocolumnfalse}
+\end_layout
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename diagrams/multi-gwas-flowchart-horizontal-input-outputs.pdf
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Flowchar of the central steps in the MultGWAS tool.
+ The input is a simple config file including among other information the
+ genotype/phenotype files, which are cleaned, filtered, and converted to
+ the specific formats for each tool.
+ Results for the four tools are processed and summarized in score tables,
+ charts showing shared and individual markers, SNPs profiles and Manhattan/QQ
+ plots.
+ 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -349,7 +405,7 @@ end{@twocolumnfalse}]
 placement !t
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Box Frameless
@@ -476,68 +532,6 @@ Caso 2:
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status collapsed
-
-\begin_layout Plain Layout
-Caso 3:
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Graphics
-	filename /home/lg/agrosavia/development/gwas-polypipeline/paper/old/paper0/results/out-Gota-Structure-BONF-Best8.pdf
-	lyxscale 30
-	scale 43
-	BoundingBox 5bp 15bp 500bp 400bp
-	clip
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -559,6 +553,122 @@ name "fig:Cases"
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Motivation:
+\end_layout
+
+\begin_layout Itemize
+The multiple available software packages provide the potential to enhance
+ data analyses, but also create challenges for users.
+ Most packages only use a command-line interface (CLI), which has a very
+ steep learning curve for non-programmers.
+ Furthermore, users must spend great effort when shifting from one package
+ to another due to incon- sistent format requirements for input data.
+ Users must take the time to reformat their data accordingly.
+ As a result, a user-friendly graphical user interface (GUI)-based software
+ package that can access multiple CLI packages, use any type of the input
+ file format, and perform both GWAS and genomic prediction or selection
+ is critically needed.
+ (Chem2018)
+\end_layout
+
+\begin_layout Itemize
+Different GWAS programs often produce dissimilar association results.
+ Newer proposed approaches usually claim to have increased statistical power
+ over previous of GWAS programs, evaluations methods.
+ However, there are few independent especially in a plant and plant genomics
+ context.
+ It is important to understand the behaviour of these popular GWAS programs,
+ and their sensitivity to input data quantity and to phenotypes where varying
+ numbers of biological replicates are observed.
+ (Yan2019)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Abstract
+\series default
+ (Raasch2010)
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Background
+\series default
+: Non-coding RNAs gain more attention as their diverse roles in many cellular
+ processes are discovered.
+ At the same time, the need for efficient computational prediction of ncRNAs
+ increases with the pace of sequencing technology.
+ Existing tools are based on various approaches and techniques, but none
+ of them provides a reliable ncRNA detector yet.
+ Consequently, a natural approach is to combine existing tools.
+ Due to a lack of standard input and output formats combination and comparison
+ of existing tools is difficult.
+ Also, for genomic scans they often need to be incorporated in detection
+ workflows using custom scripts, which decreases transparency and reproducibilit
+y.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Results
+\series default
+: We developed a Java-based framework to integrate existing tools and methods
+ for ncRNA detection.
+ This framework enables users to construct transparent detection workflows
+ and to combine and compare different methods efficiently.
+ We demonstrate the effectiveness of combining detection methods in case
+ studies with the small genomes of Escherichia coli, Listeria monocytogenes
+ and Streptococcus pyogenes.
+ With the combined method, we gained 10% to 20% precision for sensitivities
+ from 30% to 80%.
+ Further, we investigated Streptococcus pyogenes for novel ncRNAs.
+ Using multiple methods–integrated by our framework–we determined four highly
+ probable candidates.
+ We verified all four candidates experimentally using RT-PCR.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Conclusions
+\series default
+: We have created an extensible framework for practical, transparent and
+ reproducible combination and comparison of ncRNA detection methods.
+ We have proven the effectiveness of this approach in tests and by guiding
+ experiments to find new ncRNAs.
+ The software is freely available under the GNU General Public License (GPL),
+ version 3 at http://www.sbi.uni-rostock.de/moses along with source code, screen
+ shots, examples and tutorial
 \end_layout
 
 \end_inset
@@ -628,14 +738,14 @@ However, each tool has its own way of doing things: different user interfaces
  such a way to help researchers in the selection of true associations across
  GWAS.
  The tool scans the different results files, calculates new scores and threshold
-s from resulting markers, select best ranked an significative makers, and
+s from resulting markers, select best ranked and significative makers, and
  create summary tables and graphics that show in an intuitive manner the
  common and different markers found by the four tools.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Motivation:
@@ -780,42 +890,8 @@ The GWAS Pipeline was built in Python 2.6 and facilitates running GWAS.
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename diagrams/multi-gwas-flowchart-horizontal-config-output-simple.pdf
-	scale 55
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Multi-GWAS workflow.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
-Métodos
+Methods and Implementation
 \end_layout
 
 \begin_layout Standard
