@@ -75,7 +75,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language french
+\quotes_language swedish
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
@@ -90,7 +90,7 @@
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -106,7 +106,7 @@ firstpage{1}
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -122,7 +122,7 @@ subtitle{Genetics and population analysis}
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -139,7 +139,7 @@ title[short Title]{MultiGWAS: Integrando múltiples herramientas para realizar
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -222,7 +222,7 @@ editor{Associate Editor: XXXXXXX}
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -254,7 +254,7 @@ textbf{Motivation:}}
 
 \begin_layout Abstract
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -312,13 +312,13 @@ Availability and implementation:
 \series bold
 Contact:
 \series default
- lgarreta@agrosavia.com
+ lgarreta@agrosavia.co
 \begin_inset Newline newline
 \end_inset
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -363,12 +363,12 @@ end{@twocolumnfalse}
 placement t
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename diagrams/multi-gwas-flowchart-horizontal-input-outputs.pdf
+	filename diagrams/multi-gwas-flowchart-horizontal-stages.pdf
 	scale 55
 
 \end_inset
@@ -388,6 +388,13 @@ Flowchar of the central steps in the MultGWAS tool.
  charts showing shared and individual markers, SNPs profiles and Manhattan/QQ
  plots.
  
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Flowchar"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -402,10 +409,9 @@ Flowchar of the central steps in the MultGWAS tool.
 
 \begin_layout Standard
 \begin_inset Float figure
-placement !t
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Box Frameless
@@ -535,13 +541,13 @@ Caso 2:
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Markers view from MultiGwas tool.
- aplicado en tres rasgos de poblaciones de papa.
- En rojo los marcadores comúnes.
- Caso1: las cuatro herramientas encuentran marcadores comunes.
- Caso 2: Las dos herramientas diploides encuentran un marcador común, mientras
- que las dos poliploides encuentran un marcador común diferente.
- Caso 3: Tres de las cuatro herramientas encuentran marcadores comunes.
+Markers view from the MultiGwas tool for the SolCAP potato panel.
+ Case 1: when Naive GWAS was performed, the four tools found the same set
+ of five markers (center area, red marker names).
+ Case 2: when Full GWAS was performed, the two diploid tools found one common
+ marker (upper-central area, red marker name), but the other two polyploid
+ tools found a different common marker (lower-central area, yellow marker
+ name) .
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Cases"
@@ -896,6 +902,96 @@ Methods and Implementation
 \end_layout
 
 \begin_layout Standard
+A flowchart of the main central steps in the MultiGWAS tool is outlined
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Flowchar"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Preprocessing
+\end_layout
+
+\begin_layout Standard
+MultiGWAS takes as input a config file where the user defines the input
+ files and the parameters to use with the four tools to perform GWAS.
+ They are: (1) The genotype/phenotype filenames, (2) The genome-wide significanc
+e threshold 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+alpha$
+\end_layout
+
+\end_inset
+
+ (commonly 0.01 or 0.05), (3) The method for multiple testing correction (
+\begin_inset Quotes sld
+\end_inset
+
+Bonferroni
+\begin_inset Quotes srd
+\end_inset
+
+ or 
+\begin_inset Quotes srd
+\end_inset
+
+FDR
+\begin_inset Quotes srd
+\end_inset
+
+), (4) The type of GWAS (
+\begin_inset Quotes sld
+\end_inset
+
+NaiveGWAS
+\begin_inset Quotes srd
+\end_inset
+
+ or 
+\begin_inset Quotes sld
+\end_inset
+
+FullGWAS
+\begin_inset Quotes srd
+\end_inset
+
+), and (5) TRUE or FALSE whether to use quality control (QC) filters for
+ genotype and phenotype (see below).
+\end_layout
+
+\begin_layout Standard
+Then, a cleaning and filtering steps are performed on both the genotype
+ and phenotype.
+ The first to get the common individuals to work with, and the second, to
+ exclude from the analysis individuals and SNPs that are likely to be of
+ poor-quality.
+ The current filters used by MultiGWAS are: (1) MAF (minor allele frequency),
+ (2) MIND (individual missing rate), (3) GENO (SNP missing rate), and (4)
+ HWE (Hardy-Weinberg threshold).
+\end_layout
+
+\begin_layout Standard
+Finally, the filtered genotype and fenotype are transformed to the specific
+ formats requiered for each of the four GWAS tools.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 El control de calidad de los datos se lleva a cabo a través de filtros que
  se aplican tanto al genotipo y al fenotipo y que buscan eliminar individuos
  y marcadores que no cumplan ciertos criterios y que pueden sesgar el análisis.
@@ -906,6 +1002,324 @@ El control de calidad de los datos se lleva a cabo a través de filtros que
  archivo de configuración, entre estos: frecuencia del alelo menor, porcentaje
  de individuos/marcadores con perdida de información, y marcadores en equilibrio
  de Hardy-Weinber.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Parameter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Meaning and values
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+genotypeFile
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+full genotype filename
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+phenotypeFile
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+full phenotype filename
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+significanceLevel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Significance level (commonly 0.01 or 0.05)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+correctionMethod
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Correction method (
+\begin_inset Quotes sld
+\end_inset
+
+Bonferroni
+\begin_inset Quotes srd
+\end_inset
+
+ or 
+\begin_inset Quotes sld
+\end_inset
+
+FDR
+\begin_inset Quotes srd
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+gwasModel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type of GWAS (
+\begin_inset Quotes sld
+\end_inset
+
+NaiveGWAS
+\begin_inset Quotes srd
+\end_inset
+
+ or 
+\begin_inset Quotes sld
+\end_inset
+
+FullGWAS
+\begin_inset Quotes srd
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+filtering
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRUE or FALSE 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MAF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Filter for minor allele frequency
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MIND
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Filter for individual missing rate
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GENO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Filter for SNP missing rate
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HWE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Filter for Hardy-Weinberg threshold
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Config file for MultiGWAS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Multi GWAS
+\end_layout
+
+\begin_layout Standard
+MultiGWAS provides two 
+\end_layout
+
+\begin_layout Standard
+Before conducting GWAS 
 \end_layout
 
 \begin_layout Standard
