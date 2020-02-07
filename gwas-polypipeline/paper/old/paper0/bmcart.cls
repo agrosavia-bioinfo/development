@@ -1,1 +1,0 @@
-/home/lg/agrosavia/development/gwas-polypipeline/paper/template/bmc_template/bmcart.cls
