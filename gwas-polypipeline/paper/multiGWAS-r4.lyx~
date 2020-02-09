@@ -12,6 +12,9 @@
 \appnotes{Manuscript Category}
 
 \let\cite\citep
+
+% Luis Garreta defs
+\renewcommand{\textrightarrow}{$\rightarrow$}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -332,7 +335,7 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -368,7 +371,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename diagrams/multi-gwas-flowchart-horizontal-stages.pdf
+	filename diagrams/multi-gwas-flowchart-horizontal-stages-config.pdf
 	scale 55
 
 \end_inset
@@ -381,12 +384,22 @@ status open
 
 \begin_layout Plain Layout
 Flowchart of the central steps in the MultiGWAS tool.
- The input is a simple configuration file including among other information
- the genotype/phenotype files, which are cleaned, filtered, and converted
- to the specific formats for each tool.
- Results for the four tools are processed and summarized in score tables,
- charts showing shared and individual markers, SNPs profiles and Manhattan/QQ
- plots.
+ The GWAS analysis is carried out by MultiGWAS in three stages: adjustment,
+ multi analysis, and Integration.
+ In the first stage, inputs are read from a configuration file (see below)
+ and the genotype and phenotype are cleaned and filtered using the quality
+ control (QC) filters.
+ In the second stage, the new filtered genotype/phenotype are formated for
+ each GWAS tool which are executed in parallel by MultiGWAS.
+ In the last stage, MultiGWAS scans the output files generated from each
+ tool, summarizes their results, and report them through score tables, Venn
+ diagrams, SNP profiles, and Manhattan plots.
+ The configuration file includes: the genotype/phenotype filenames, genome-wide
+ significance threshold, multiple testing correction method, GWAS model,
+ number of associations to be reported, and TRUE or FALSE whether to use
+ QC filters or not.
+ The QC filters are: minor allele frequency, individual missing rate, SNP
+ missing rate, Hardy-Weinberg threshold.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -411,16 +424,16 @@ name "fig:Flowchar"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
+\align center
  
 \begin_inset Graphics
 	filename results/out-Gwaspoly-Both-Naive-Bonf-Sign-Structure-Bonf-Best5.pdf
 	lyxscale 30
 	scale 43
-	BoundingBox 5bp 15bp 500bp 410bp
-	clip
+	BoundingBox 0bp 0bp 491bp 818bp
 
 \end_inset
 
@@ -821,7 +834,7 @@ reference "subsec:Adjust"
 \end_layout
 
 \begin_layout Standard
-A flowchart of the main central steps involved in the three phases of the
+A flowchart of the main central steps involved in the three stages of the
  MultiGWAS tool is outlined in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -830,14 +843,14 @@ reference "fig:Flowchar"
 \end_inset
 
 .
- The first phase preprocesses the inputs; the second phase performs GWAS
- on each tool; and the third phase postprocesses the outputs to summarize
+ The first stage preprocesses the inputs; the second stage performs GWAS
+ on each tool; and the third stage postprocesses the outputs to summarize
  the results.
- These phases are detailed below.
+ These stages are detailed below.
 \end_layout
 
 \begin_layout Subsection
-Adjustment phase
+Adjustment stage
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Adjust"
@@ -848,33 +861,25 @@ name "subsec:Adjust"
 \end_layout
 
 \begin_layout Standard
-MultiGWAS takes as input a configuration file where the user specify the
- genomic data for the GWAS analysis (genotype and phenotype files), along
- with the arguments used by the four tools to perform GWAS quality control
- (QC) on this data (see below).
- It starts with a cleaning and filtering steps performed on the genomic
- data.
- The first to get the common individuals to work with, and the second, to
- exclude from the analysis individuals and SNPs that are likely to be of
- poor-quality.
- Then, the filtered genotype and phenotype are transformed to the specific
- formats required for each tool.
-\end_layout
-
-\begin_layout Standard
-The used format of the phenotype and genotype are the same as the the GWASpoly
- software 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rosyara2016"
+MultiGWAS takes as input a configuration file where the user specifies the
+ genomic data along with the parameters that will be used by the four tools
+ to perform their particular GWAS analysis (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Flowchar"
 
 \end_inset
 
-, except that the phenotype file must include only one trait without covariates.
- For the genotype file, the first three column correspond to the marker
- name, chromosome number, and position in the chromosome; while the next
- columns contain the marker data for each individual in the population codified
- in the 
+).
+ It starts by cleaning and filtering the genomic data.
+ The first to get the common individuals to work with, and the second, to
+ exclude from the analysis individuals and SNPs that are likely to be of
+ poor-quality.
+ 
+\end_layout
+
+\begin_layout Standard
+The allowed format for the marker data is the 
 \begin_inset Quotes sld
 \end_inset
 
@@ -882,65 +887,30 @@ ACGT
 \begin_inset Quotes srd
 \end_inset
 
- format (e.g.
- AATT, CCGG, AAAT, GGCG).
- For the phenotype file, the first column contains the individual name,
- and the second contains the trait value.
+ (e.g.
+ AAAT, ...
+ ,CCCG), suitable for the polyploid tools GWASpoly and SHEsis, but what
+ is needed to 
+\begin_inset Quotes eld
+\end_inset
+
+diploidize
+\begin_inset Quotes erd
+\end_inset
+
+ for Plink and Tassel (e.g.
+ AT, ...
+ ,CG).
+ MultiGWAS does this by coding each marker in one of two possible ways:
+ all possible homozygous genotypes are coded with two nucleotides (AAAA→AA,
+ CCCC→CC, GGGG→GG, TTTT→TT); and all possible heterozygous genotypes are
+ coded with the combination of their reference and alternate alleles calculated
+ from the tetraploid marker (e.g.
+ AAAT→AT, ...
+ ,CCCG→CG).
+ After that, the new filtered genotype and phenotype are transformed to
+ the specific formats required for each tool.
  
-\end_layout
-
-\begin_layout Standard
-The current arguments included in the configuration file are: (1) The genotype/p
-henotype filenames, (2) The genome-wide significance threshold 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$
-\backslash
-alpha$
-\end_layout
-
-\end_inset
-
- (commonly 0.01 or 0.05), (3) The method for multiple testing correction (
-\begin_inset Quotes sld
-\end_inset
-
-Bonferroni
-\begin_inset Quotes srd
-\end_inset
-
- or 
-\begin_inset Quotes srd
-\end_inset
-
-FDR
-\begin_inset Quotes srd
-\end_inset
-
-), (4) The type of GWAS (
-\begin_inset Quotes sld
-\end_inset
-
-NaiveGWAS
-\begin_inset Quotes srd
-\end_inset
-
- or 
-\begin_inset Quotes sld
-\end_inset
-
-FullGWAS
-\begin_inset Quotes srd
-\end_inset
-
-), (6) The maximum number of best ranked association to be reported, and
- (6) TRUE or FALSE whether to use quality control (QC) filters or not.
- The QC filters used by MultiGWAS are: (a) MAF (minor allele frequency),
- (b) MIND (individual missing rate), (c) GENO (SNP missing rate), and (d)
- HWE (Hardy-Weinberg threshold).
 \end_layout
 
 \begin_layout Standard
@@ -1267,87 +1237,51 @@ Config file for MultiGWAS
 \end_layout
 
 \begin_layout Subsection
-Multi analysis phase
+Multi analysis stage
 \end_layout
 
 \begin_layout Standard
-Two types of GWAS analyses can be conducted by MultiGWAS: Full and Naive.
+The four tools are executed in parallel by MultiGWAS using for each one
+ a particular script parameterized with the transformed genotype/phenotype
+ and parameters set in the configuration file (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Flowchar"
+
+\end_inset
+
+).
+ One of these parameters is the type of statistical GWAS model to be conducted,
+ where MultiGWAS allows two of them: Full (Q+K) and Naive 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sharma2018"
+
+\end_inset
+
+.
  The first with control for population structure and individual relatedness;
  and the second without any of these controls.
  Controlling of population structure is based on the principal components
- (PCs).
- Each software calculates the PCs and uses the top ten as covariates in
- the association analysis, while controlling of individual relatedness is
- based on kinship matrices calculated by each software, in the case of Tassel
- and GWASpoly, and calculated externally by the king software 
+ (PCs) where each tool calculates the PCs and uses the top ten as covariates
+ in their GWAS analysis.
+ Controlling of individual relatedness is based on kinship matrices, where
+ Tassel and GWASpoly make their own calculations, but Plink and SHEsis calculate
+ them externally by the king software 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Manichaikul2010"
 
 \end_inset
 
-, in the case of Plink and SHEsis.
+.
 \end_layout
 
 \begin_layout Standard
-The allowed format for the marker data is the 
-\begin_inset Quotes sld
-\end_inset
-
-ACGT
-\begin_inset Quotes srd
-\end_inset
-
- configuration which is suitable for the polyploid tools GWASpoly and SHEsis,
- but not for the diploid tools Plink and Tassel.
- 
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-which need a diploid genotype (e.g.
- 
-\begin_inset Quotes sld
-\end_inset
-
-AT
-\begin_inset Quotes srd
-\end_inset
-
- 
-\begin_inset Quotes sld
-\end_inset
-
-CG
-\begin_inset Quotes srd
-\end_inset
-
-).
- 
-\end_layout
-
-\end_inset
-
-So, our MultiGWAS tool 
-\begin_inset Quotes sld
-\end_inset
-
-diploidizes
-\begin_inset Quotes srd
-\end_inset
-
- the tetraploid marker data for these two tools by coding each marker in
- two ways: all possible homozygous genotypes (AAAA, CCCC, GGGG, TTTT), are
- coded with two nucleotides (AA, CC, GG, and TT); and all possible heterozygous
- genotypes (e.g.
- AAAT, ...
- ,CCCG) are coded with the combination of their reference and alternate
- alleles calculated from the tetraploid marker (e.g.
- AT, ...
- ,CG).
-\end_layout
-
-\begin_layout Standard
 When the filtered genotype and phenotype are ready for the four tools, each
  tool is executed in parallel by MultiGWAS using a parameterized script
  for each tool.
@@ -1364,6 +1298,11 @@ reference "subsec:Adjust"
  If the user has had experience with one of the four GWAS tools, these scripts
  can be modified to improve the analysis according to the specific tool
  syntax and arguments.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1435,13 +1374,72 @@ key "Endelman2012"
 \end_layout
 
 \begin_layout Subsection
-Integration phase
+Integration stage
 \end_layout
 
 \begin_layout Standard
-After the execution of the four tools by MultiGWAS, their outputs are processed
- to create tables, marker plots, and Manhattan/QQ plots that summarizes
- their resulting associations.
+The outputs resulting from the four tools are scanned and processed to identify
+ the SNPs with both: significant and best ranked associations.
+ This is done by correcting the reported 
+\emph on
+p-values
+\emph default
+, and calculating their threshold value using the correction method and
+ significance level 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+alpha$
+\end_layout
+
+\end_inset
+
+ set in configuration file.
+ These values are calculated taking into account only the number of valid
+ genotype calls (nonmissing genotype, phenotype, and covariates).
+ 
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+he threshold to be considered as significant
+\end_layout
+
+\begin_layout Standard
+calculating for the 
+\emph on
+p-values 
+\emph default
+their scores (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$-log10(
+\backslash
+text{p-value})$
+\end_layout
+
+\end_inset
+
+) and the theshold given the 
+\end_layout
+
+\begin_layout Standard
+taking the p-values for each association, calculating 
+\end_layout
+
+\begin_layout Standard
+their outputs are processed to create tables, marker plots, and Manhattan
+ plots that summarizes their resulting associations.
  Scores and thresholds for the markers are calculated taking into account:
  the p-value of each marker, the user specified correction method and significan
 ce level 
