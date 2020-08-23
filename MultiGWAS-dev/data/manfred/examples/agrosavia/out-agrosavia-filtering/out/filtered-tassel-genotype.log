@@ -1,0 +1,29 @@
+PLINK v1.90b6.12 64-bit (28 Oct 2019)
+Options in effect:
+  --file out/filtered-plink-genotype
+  --out out/filtered-tassel-genotype
+  --recode vcf-fid
+
+Hostname: agro
+Working directory: /home/lg/agrosavia/GWAS/multiGWAS-dev/examples/berdugo/out-agrosavia
+Start time: Mon Jun  8 14:58:53 2020
+
+Random number seed: 1591646333
+14942 MB RAM detected; reserving 7471 MB for main workspace.
+Scanning .ped file... done.
+Performing single-pass .bed write (2025 variants, 597 people).
+--file: out/filtered-tassel-genotype-temporary.bed +
+out/filtered-tassel-genotype-temporary.bim +
+out/filtered-tassel-genotype-temporary.fam written.
+2025 variants loaded from .bim file.
+597 people (0 males, 0 females, 597 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to out/filtered-tassel-genotype.nosex .
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 597 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.993843.
+2025 variants and 597 people pass filters and QC.
+Note: No phenotypes present.
+--recode vcf-fid to out/filtered-tassel-genotype.vcf ... done.
+
+End time: Mon Jun  8 14:58:54 2020

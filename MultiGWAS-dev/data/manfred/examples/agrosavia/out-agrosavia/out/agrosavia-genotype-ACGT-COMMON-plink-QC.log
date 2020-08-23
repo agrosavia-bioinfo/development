@@ -1,0 +1,26 @@
+PLINK v1.90b6.12 64-bit (28 Oct 2019)
+Options in effect:
+  --bfile out/agrosavia-genotype-ACGT-COMMON-plink-QC
+  --out out/agrosavia-genotype-ACGT-COMMON-plink-QC
+  --recode tab
+
+Hostname: agro
+Working directory: /home/lg/agrosavia/GWAS/multiGWAS-dev/examples/agrosavia/out-agrosavia
+Start time: Thu Jun 11 09:26:50 2020
+
+Random number seed: 1591885610
+14942 MB RAM detected; reserving 7471 MB for main workspace.
+2024 variants loaded from .bim file.
+596 people (0 males, 0 females, 596 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to out/agrosavia-genotype-ACGT-COMMON-plink-QC.nosex
+.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 596 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.993846.
+2024 variants and 596 people pass filters and QC.
+Note: No phenotypes present.
+--recode ped to out/agrosavia-genotype-ACGT-COMMON-plink-QC.ped +
+out/agrosavia-genotype-ACGT-COMMON-plink-QC.map ... done.
+
+End time: Thu Jun 11 09:26:50 2020

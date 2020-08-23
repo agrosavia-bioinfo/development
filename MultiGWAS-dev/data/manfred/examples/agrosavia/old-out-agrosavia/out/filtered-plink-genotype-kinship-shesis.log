@@ -1,0 +1,26 @@
+PLINK v2.00a2LM 64-bit Intel (13 Dec 2019)
+Options in effect:
+  --bfile out/filtered-plink-genotype
+  --king-cutoff 0.354
+  --out out/filtered-plink-genotype-kinship-shesis
+
+Hostname: agro
+Working directory: /home/lg/agrosavia/GWAS/multiGWAS-dev/examples/agrosavia/out-agrosavia
+Start time: Thu Jun 11 09:16:37 2020
+
+Random number seed: 1591884997
+14942 MiB RAM detected; reserving 7471 MiB for main workspace.
+Using up to 8 compute threads.
+596 samples (0 females, 0 males, 596 ambiguous; 596 founders) loaded from
+out/filtered-plink-genotype.fam.
+2024 variants loaded from out/filtered-plink-genotype.bim.
+Note: No phenotype data present.
+--king-cutoff pass 1/1: Scanning for rare variants... done.
+126 variants handled by initial scan (1898 remaining).
+--king-cutoff: 2024 variants processed.
+--king-cutoff: Excluded sample IDs written to
+out/filtered-plink-genotype-kinship-shesis.king.cutoff.out.id , and 131
+remaining sample IDs written to
+out/filtered-plink-genotype-kinship-shesis.king.cutoff.in.id .
+
+End time: Thu Jun 11 09:16:37 2020
