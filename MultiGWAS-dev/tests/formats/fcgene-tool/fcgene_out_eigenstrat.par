@@ -1,0 +1,11 @@
+#Lines(part of lines) starting with symbol "#" are comments. smartpca and eigenstrat accept these lines as comments and ignores when reading the script.
+#Command to run PCA in linux command line:	 ./smarteigenstrat -p fcgene_out_eigenstrat.par
+#A detailed information is given in the website: http://www.hsph.harvard.edu/alkes-price/software/
+#Comments in the scripts are according as in the readme file of eigenstrat. 
+genotypename:		fcgene_out.ped
+snpname:		fcgene_out.pedsnp
+indivname:		fcgene_out.pedind
+pcaname:		fcgene_out.pca  #modified file of "fcgene_out.evec". This file contains eigenvectors. In additional the first line of the file should have the number of eigenvectors  contained in the file.
+outputname:   fcgene_out_eigenstrat.txt  #name of output file of chisq association statistics.
+qtmode:			YES #This implies whether group label are given in quantative way or in expression.If quantative , then YES. 
+numpc:			10 #Number of eigenvectors to be analysed.

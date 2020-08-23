@@ -1,0 +1,730 @@
+#LyX file created by tex2lyx 2.2
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /home/lg/agrosavia/GWAS/MultiGWAS-dev/development/paper-ecology/overleaf/ago13/night/
+\textclass article
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection
+Adjustment stage
+\end_layout
+
+\begin_layout Standard
+MultiGWAS takes as input a configuration file where the user specifies the genomics data and the parameters used by the four tools. Once the configuration file is read and processed, the genomic data files (genotype and phenotype) are then cleaned, filtered, and checked for data quality. The output of this stage corresponds to the inputs for the four programs at the Multi Analysis stage.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%genotype/phenotype filenames, genome-wide significance threshold, multiple testing correction methods, GWAS model, number of associations to be reported, and TRUE or FALSE whether to use quality control (QC) filters or not. 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Reading configuration file
+\begin_inset CommandInset label
+LatexCommand label
+name "section-Reading-configuration-file"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The configuration file includes the following settings that we briefly describe:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (1) Input genotype and phenotype file names (2) GWAS model, (3) Significance threshold, (4) Correction (5) Quality Control (QC) filters and (6) number of associations to report. 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+Ploidy:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Numerical value for the ploidy level of the genotype, currently MultiGWAS supports diploids and tetraploids genotypes (2: for diploids, 4: for tetraploids).
+\end_layout
+
+\begin_layout Paragraph
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+Genotype and phenotype input files:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MultiGWAS uses two input files, one for the genotype and one for the phenotype. Genotypes files can be either in GWASpoly format (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Rosyara2016"
+
+\end_inset
+
+) using SNP markers in rows and samples in columns (Fig. 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:File-Formats"
+
+\end_inset
+
+.a) or Variant Call Format (VCF) (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:File-Formats"
+
+\end_inset
+
+.b) which is transformed into GWASpoly format using NGSEP 4.0.2 (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Duitama2019"
+
+\end_inset
+
+). The phenotype file contains only one trait and uses a matrix format with the first column for the sample names and the second column for the trait values (Fig. 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:File-Formats"
+
+\end_inset
+
+.c).
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+\align center
+
+\begin_inset Graphics 
+	filename images/paper-input-files
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size scriptsize
+
+\series bold
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+Examples of MultiGWAS input file formats
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\series default
+. Figures a and b show genotype files in GWASpoly and VCF formats, respectively, while figure c shows a phenotype file in a matrix format. a. Genotype file in GWASpoly format containing column headers and with the first three columns for markers names, chromosomes, and positions. The following columns correspond to the marker data of the samples in "ACGT" format (e.g., AAGG, CCTT for tetraploids, AG, CT for diploids). b. Genotype file in VCF format with metadata (first two lines) and header line. The following lines contain genotype information of the samples for each position. VCF marker data can be encoded as simple genotype calls (GT format field, e.g., 0/0/1/1 for tetraploids or 0/1 for diploids) or using the NGSEP custom format fields (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Duitama2019"
+
+\end_inset
+
+): ACN, ADP or BSDP. c. Phenotype file in a matrix format with column headers and sample names followed by their trait values. Both GWASpoly genotype and phenotype files are in CSV (Comma Separated Values format).
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:File-Formats"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+GWAS model:
+\end_layout
+
+\begin_layout Standard
+MultiGWAS is designed to work with quantitative phenotypes and can run GWAS analysis using two types of statistical models that we have called 
+\emph on
+full
+\emph default
+ and 
+\emph on
+naive
+\emph default
+ models. The 
+\emph on
+full model
+\emph default
+ is known in the literature as the Q+K model (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Yu2006"
+
+\end_inset
+
+) and includes a control for structure (Q) and relatedness between samples (K). In contrast, the 
+\emph on
+naive model
+\emph default
+ does not include any type of correction. Both models are linear regression approaches, and each one of the four GWAS packages used in MultiGWAS has some variations of those models. The 
+\emph on
+naive
+\emph default
+ is modeled with Generalized Linear Models (GLMs, Phenotype + Genotype), and the 
+\emph on
+full
+\emph default
+ is modeled with Mixed Linear Models (MLMs, Phenotype + Genotype + Structure + Kinship). The default model used by MultiGWAS is the 
+\emph on
+full model
+\emph default
+ (Q+K) (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Yu2006"
+
+\end_inset
+
+), following the equation:
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \[
+y=X\beta+S\alpha+Q\nu+Z\mu+e
+\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this equation, the 
+\begin_inset Formula $y$
+\end_inset
+
+ is the vector of observed phenotypes. Moreover, the 
+\begin_inset Formula $\beta$
+\end_inset
+
+ is a vector of fixed effects other than SNP or population group effects, the 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is a vector of SNP effects (Quantitative Trait Nucleotides), the 
+\begin_inset Formula $\nu$
+\end_inset
+
+ is a vector of population effects, the 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is a vector of polygene background effects, and the 
+\begin_inset Formula $e$
+\end_inset
+
+ is a vector of residual effects. Besides, 
+\begin_inset Formula $Q$
+\end_inset
+
+, modeled as a fixed effect, refers to the incidence matrix for subpopulation covariates relating 
+\begin_inset Formula $y$
+\end_inset
+
+ to 
+\begin_inset Formula $\nu$
+\end_inset
+
+, and 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $S$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+ are incidence matrices of 1s and 0s relating 
+\begin_inset Formula $y$
+\end_inset
+
+ to 
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+, respectively.
+\end_layout
+
+\begin_layout Paragraph
+Genome-wide significance: 
+\end_layout
+
+\begin_layout Standard
+GWAS searches SNPs associated with the phenotype in a statistically significant manner. A threshold or significance level 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is specified and compared with the 
+\emph on
+p-value
+\emph default
+ derived for each association score. Standard significance levels are 0.01 or 0.05 (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Gumpinger2018,Rosyara2016"
+
+\end_inset
+
+), and MultiGWAS uses an 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ of 0.05 for the four GWAS packages. However, in GWASpoly and TASSEL, which calculates the SNP effect for each genotypic class using different gene action models (see 
+\begin_inset Quotes eld
+\end_inset
+
+Multi analysis stage
+\begin_inset Quotes erd
+\end_inset
+
+), the threshold is adjusted according to each of those two packages. Therefore, the number of tested markers
+\emph on
+ 
+\emph default
+may be different in each model (see below), impacting the 
+\emph on
+p-value
+\emph default
+ thresholds.
+\end_layout
+
+\begin_layout Paragraph
+Multiple testing correction:
+\end_layout
+
+\begin_layout Standard
+Due to the massive number of statistical tests performed by GWAS, it is necessary to perform a correction method for multiple hypothesis testing and adjusting the 
+\emph on
+p-value
+\emph default
+ threshold accordingly. Two standard methods for multiple hypothesis testing are the false discovery rate (FDR) and the Bonferroni correction. The latter is the default method used by MultiGWAS, which is one of the most rigorous methods. However, instead of adjusting the 
+\emph on
+p-values,
+\emph default
+ MultiGWAS adjust the threshold below which a 
+\emph on
+p-value
+\emph default
+ is considered significant. That is 
+\begin_inset Formula $\alpha/m$
+\end_inset
+
+, where 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is the significance level and 
+\emph on
+m 
+\emph default
+is the number of tested markers from the genotype matrix.
+\end_layout
+
+\begin_layout Paragraph
+Number of reported associations: 
+\end_layout
+
+\begin_layout Standard
+Criticism has arisen, considering only statistically significant associations as possible correct associations (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Thomson2011, Kaler2019"
+
+\end_inset
+
+). Many low 
+\emph on
+p-value
+\emph default
+ associations, closer to being significant, are discarded due to the stringent significance levels, which consequently increases the number of false negatives. To avoid this problem, MultiGWAS provides the option to specify the number of best-ranked associations (lower 
+\emph on
+p-values
+\emph default
+), adding the corresponding 
+\emph on
+p-value
+\emph default
+ to each association found. In this way, it is possible to enlarge the number of results, and their replicability across the different programs. Nevertheless, the report displays each association with its corresponding 
+\emph on
+p-value
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  We present the resultant associations in different tables and graphics reported by MultiGWAS (see Figure 
+\backslash
+ref{fig:-View-Shared-SNPs}). 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Quality control filters:
+\end_layout
+
+\begin_layout Standard
+A control step is necessary to check the input data for the genotype or phenotype errors or poor quality that can lead to spurious GWAS results. MultiGWAS provides the option to select and define thresholds for the following filters that control the data quality: Minor Allele Frequency (MAF), individual missing rate (MIND), SNP missing rate (GENO), and Hardy-Weinberg threshold (HWE): 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+MAF of 
+\series default
+
+\series bold
+
+\emph on
+x:
+\emph default
+
+\series default
+ filters out SNPs with minor allele frequency below 
+\emph on
+x
+\emph default
+ (default 0.01); 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+MIND of 
+\series default
+
+\series bold
+
+\emph on
+x:
+\emph default
+
+\series default
+ filters out all individuals with missing genotypes exceeding 
+\emph on
+x
+\emph default
+*100% (default 0.1); 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+GENO of 
+\series default
+
+\series bold
+
+\emph on
+x:
+\emph default
+
+\series default
+ filters out SNPs with missing values exceeding 
+\emph on
+x
+\emph default
+*100% (default 0.1); 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+HWE of 
+\series default
+
+\series bold
+
+\emph on
+x:
+\emph default
+
+\series default
+ filters out SNPs with a 
+\emph on
+p-value
+\emph default
+ below the 
+\emph on
+x
+\emph default
+ threshold in the Hardy-Weinberg equilibrium exact test.(for diploids)
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%
+\backslash
+ic{Comentario de AndrÃ©s: una pregunta mÃ¡s metodolÃ³gica tiene que ver con HWE. en poliploides la hetrocigosidad estÃ¡ inflada, y por ello desviarÃ­a en HWE si estÃ© se calcula tradicionalmente. por ello, son las fercuencias genotÃ­picas esperadas calculadas para poliplodes? i.e. (p+q) elevado a la n donde n es la ploidÃ­a}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+MultiGWAS does the MAF filtering, and uses the PLINK package (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Gumpinger2018"
+
+\end_inset
+
+) for the other three filters: MIND, GENO, and HWE.
+\end_layout
+
+\begin_layout Paragraph
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+GWAS tools:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+List of names of the four GWAS software to run and integrate into MultiGWAS analysis. They are GWASpoly and SHEsis (designed for polyploid data), and PLINK and TASSEL (designed for diploid data).
+\end_layout
+
+\begin_layout Subsubsection
+Data preprocessing
+\end_layout
+
+\begin_layout Standard
+Once the configuration file is processed, the genomic data is read and cleaned by selecting individuals present in both genotype and phenotype. Then, MultiGWAS removes individuals and SNPs with poor quality following the previous selected quality-control filters and their thresholds,
+\end_layout
+
+\begin_layout Standard
+At this point, the format "ACGT" suitable for the polyploid software GWASpoly and SHEsis, is "diploidized" for PLINK and TASSEL. The homozygous tetraploid genotypes are converted to diploid thus: AAAA→AA, CCCC→CC, GGGG→GG, TTTT→TT. Moreover, for tetraploid heterozygous genotypes, the conversion depends on the reference and alternate alleles calculated for each position (e.g., AAAT →AT, ... ,CCCG→CG).
+\end_layout
+
+\begin_layout Standard
+After this process, MultiGWAS converts the genomic data, genotype, and phenotype datasets to the specific formats required for each of the four GWAS packages. 
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,18 @@
+PLINK v2.00a2LM 64-bit Intel (13 Dec 2019)
+Options in effect:
+  --import-dosage plink.raw noheader
+  --make-bed
+  --out DOSAGE
+  --psam plink.fam
+
+Hostname: agro
+Working directory: /home/lg/agrosavia/GWAS/multiGWAS-dev/development/tests/formats/plink
+Start time: Mon Jun  1 16:08:35 2020
+
+Random number seed: 1591045715
+7817 MiB RAM detected; reserving 3908 MiB for main workspace.
+Using up to 4 compute threads.
+Error: Unexpected format=infer column count in --import-dosage file (7; should
+be 10, 20, or 30).
+
+End time: Mon Jun  1 16:08:35 2020

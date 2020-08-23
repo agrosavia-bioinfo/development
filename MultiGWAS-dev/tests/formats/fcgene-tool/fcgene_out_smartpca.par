@@ -1,0 +1,18 @@
+#Lines(part of lines) starting with symbol "#" are comments. smartpca accepts these lines as comments and ignores when reading the script.
+#Command to run PCA in linux command line:	 ./smartpca -p fcgene_out_smartpca.par
+#A detailed information is given in the website: http://www.hsph.harvard.edu/alkes-price/software/
+#Comments in the scripts are also copied form http://helix.nih.gov/Applications/README.popgen.
+genotypename:		 fcgene_out.ped
+snpname:		 fcgene_out.pedsnp
+indivname:		 fcgene_out.pedind
+evecoutname:		 fcgene_out.evec  #output file of eigenvectors.
+evaloutname:		 fcgene_out.eval  #output file of all eigenvalues
+#optional commands:
+numoutevec:		 10  #number of eigenvectors to output.  Default is 10.
+numoutlieriter:		 5 #maximum number of outlier removal iterations.  Default is 5.  To turn off outlier removal, set this parameter to 0.
+numoutlierevec:		 10 #number of principal components along which to remove outliers during each outlier removal iteration.  Default is 10.
+nsnpldregress:		  0 #If set to a positive integer, then LD correction is turned on,  and input to PCA will be the residual of a regression involving that many  previous SNPs, according to physical location.  See Patterson et al. 2006.   Default is 0 (no LD correction).  If desiring LD correction,  recommend value is: 2.
+outliersigmathresh:		 6.0 #number of standard deviations which an individual must exceed, along one of the top (numoutlierevec) principal components, in order for that individual to be removed as an outlier.  Default is 6.0.
+outlieroutname:		 fcgene_out_smartpca.log #output logfile of outlier individuals removed. If not specified,  smartpca will print this information to stdout, which is the default.
+usenorm:		 YES #Whether to normalize each SNP by a quantity related to allele freq.  Default is YES.  (When analyzing microsatellite data, should be set to NO.
+#outputformat:		 EIGENSTRAT #other format types are: ANCESTRYMAP,   PED, PACKEDPED or PACKEDANCESTRYMAP 

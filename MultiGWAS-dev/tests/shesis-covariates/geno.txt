@@ -1,0 +1,9 @@
+id1 1.2 2 2 A G G C C T
+id2 2.1 1 1 A A 0 0 C C
+id3 3.0 1 1 A A G G C T
+id4 1.9 1 1 G G G G T C
+id5 8.7 2 2 A G G C T T
+id6 6.5 3 3 A G G C C C
+id7 4.3 2 2 A A G G C C
+id8 5.6 0 0 G G C G C C
+id9 7.9 2 2 A A C G T T

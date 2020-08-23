@@ -1,0 +1,111 @@
+<!DOCTYPE html> 
+	<html> 
+	<head> 
+	<style> 
+	table { 
+	    width:auto; 
+	} 
+	table, th, td { 
+	    border: 1px solid black; 
+	    border-collapse: collapse; 
+	} 
+	th, td { 
+	    padding: 5px; 
+	    text-align: left; 
+	} 
+	table tr:nth-child(even) { 
+	    background-color: #eee;
+	}
+	table tr:nth-child(odd) {
+	   background-color:#fff;
+	}
+	table th    {
+	    background-color: #AAA;
+	    color: white;
+	}
+	</style>
+	</head>
+
+	<body>
+<h1>SHEsis </h1>
+
+<h2> Single Locus Association Test (QTL): </h2>
+<table style="width:auto" class="table  bordered hovered " id="QTL_Analysis">
+<tr class="bg-cyan fg-white" style="font-weight:normal " >
+<th class="text-left info"> SNP</th>
+<th class="text-left info"> Effect allele</th>
+<th class="text-left info"> Nonmissing</th>
+<th class="text-left info"> Beta</th>
+<th class="text-left info"> SE</th>
+<th class="text-left info"> R<sup>2</sup></th>
+<th class="text-left info"> T</th>
+<th class="text-left info"> p</th>
+<th class="text-left info"> Holm</th>
+<th class="text-left info"> SidakSS</th>
+<th class="text-left info"> SidakSD</th>
+<th class="text-left info"> FDR_BH</th>
+<th class="text-left info"> FDR_BY</th>
+</tr> 
+<tr>
+<td>site1</td>
+<td>1</td>
+<td>8</td>
+<td>-1.693</td>
+<td>0.911</td>
+<td>0.365</td>
+<td>-1.858</td>
+<td>0.112</td>
+<td>0.45</td>
+<td>0.379</td>
+<td>0.379</td>
+<td>0.32</td>
+<td>0.668</td>
+</tr>
+<tr>
+<td>site2</td>
+<td>G</td>
+<td>9</td>
+<td>-0.116</td>
+<td>1.241</td>
+<td>0.001</td>
+<td>-0.093</td>
+<td>0.928</td>
+<td>0.928</td>
+<td>0.999</td>
+<td>0.928</td>
+<td>0.928</td>
+<td>1</td>
+</tr>
+<tr>
+<td>site3</td>
+<td>C</td>
+<td>8</td>
+<td>2.913</td>
+<td>1.819</td>
+<td>0.299</td>
+<td>1.601</td>
+<td>0.16</td>
+<td>0.481</td>
+<td>0.503</td>
+<td>0.408</td>
+<td>0.32</td>
+<td>0.668</td>
+</tr>
+<tr>
+<td>site4</td>
+<td>T</td>
+<td>9</td>
+<td>1.306</td>
+<td>1.14</td>
+<td>0.157</td>
+<td>1.145</td>
+<td>0.289</td>
+<td>0.579</td>
+<td>0.745</td>
+<td>0.495</td>
+<td>0.386</td>
+<td>0.804</td>
+</tr>
+</table>
+</body>
+</html>

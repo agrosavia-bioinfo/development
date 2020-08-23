@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: MultiGWASv14.aux
+The style file: apalike.bst
+Database file #1: multiGWAS.bib
+Warning--can't use both author and editor fields in De2014
+Warning--empty publisher in Gumpinger2018
+You've used 43 entries,
+            1935 wiz_defined-function locations,
+            751 strings with 14265 characters,
+and the built_in function-call counts, 21293 in all, are:
+= -- 1956
+> -- 1366
+< -- 12
++ -- 502
+- -- 496
+* -- 2108
+:= -- 3802
+add.period$ -- 128
+call.type$ -- 43
+change.case$ -- 458
+chr.to.int$ -- 43
+cite$ -- 45
+duplicate$ -- 607
+empty$ -- 1207
+format.name$ -- 553
+if$ -- 3961
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 46
+newline$ -- 217
+num.names$ -- 129
+pop$ -- 382
+preamble$ -- 1
+purify$ -- 461
+quote$ -- 0
+skip$ -- 451
+stack$ -- 0
+substring$ -- 1299
+swap$ -- 52
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 252
+warning$ -- 2
+while$ -- 153
+width$ -- 0
+write$ -- 558
+(There were 2 warnings)

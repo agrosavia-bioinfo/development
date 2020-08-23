@@ -1,0 +1,22 @@
+PLINK v1.90b6.12 64-bit (28 Oct 2019)
+Options in effect:
+  --adjust
+  --all-pheno
+  --allow-no-sex
+  --file num
+  --linear
+  --out SMALL
+  --pheno num.pheno
+
+Hostname: agro
+Working directory: /home/lg/agrosavia/GWAS/multiGWAS-dev/development/tests/formats/plink
+Start time: Mon Jun  1 15:03:23 2020
+
+Random number seed: 1591041803
+7817 MB RAM detected; reserving 3908 MB for main workspace.
+Scanning .ped file...
+Possibly irregular .ped line.  Restarting scan, assuming multichar alleles.
+
+Error: Half-missing call in .ped file at variant 2, line 1.
+
+End time: Mon Jun  1 15:03:23 2020

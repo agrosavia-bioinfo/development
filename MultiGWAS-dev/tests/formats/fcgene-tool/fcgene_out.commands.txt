@@ -1,0 +1,240 @@
+Templates of IMPUTE commands:
+
+-------------------------------------------------------------------
+Templates of IMPUTE commands for imputation without using references:
+-------------------------------------------------------------------
+Your genotype Data has a region of larger than 7Mb.IMPUTE software providers recommend to split the genotyping region into samll chunks for imputation purpose. These chunks can be  be imputed in parallel on multiple computer processors.
+The following table  describes the lower are upper boudaries (in base pair position) of the region in which imputation should be carried out.
+------------------------------------------------------------------------
+Table containing lower and upper boundaries of chunks: 
+------------------------------------------------------------------------
+chunk No:	lower boundary	Upper boundary	Size of Chunk in MB
+chunk 1:	65301	5272276	   5.20697
+chunk 2:	5272277	10479252	   5.20697
+chunk 3:	10479253	15686228	   5.20697
+chunk 4:	15686229	20893204	   5.20697
+chunk 5:	20893205	26100180	   5.20697
+chunk 6:	26100181	31307156	   5.20697
+chunk 7:	31307157	36514132	   5.20697
+chunk 8:	36514133	41721108	   5.20697
+chunk 9:	41721109	46928084	   5.20697
+chunk 10:	46928085	52135060	   5.20697
+chunk 11:	52135061	57342036	   5.20697
+chunk 12:	57342037	62549012	   5.20697
+chunk 13:	62549013	67755988	   5.20697
+chunk 14:	67755989	72962964	   5.20697
+chunk 15:	72962965	78169940	   5.20697
+chunk 16:	78169941	83376916	   5.20697
+chunk 17:	83376917	88583876	   5.20696
+------------------------------------------------------------------------
+
+The impute commands written below are just the templates to show  how you can impute your genotype data with IMPUTE. You can modify them at necessary places (especially the input data names) so that the commands can be executed with IMPUTE properly. Moreover the upper and lower base pair positions given with "-int" command, 
+are based on the genotyped data (NOT on the reference panel). If you prefer to impute with the reference panel, then  the perl script or commands given  in the section of imputation using reference panel, should be used.
+
+------------------------------------------------------------
+perl scripts to give impute commands in Linux cluster: 
+-----------------------------------------------------------
+#!/usr/bin/perl -w
+my @lowerBound=(65301, 5272277, 10479253, 15686229, 20893205, 26100181, 31307157, 36514133, 41721109, 46928085, 52135061, 57342037, 62549013, 67755989, 72962965, 78169941, 83376917);
+my @upperBound= (5272276, 10479252, 15686228, 20893204, 26100180, 31307156, 36514132, 41721108, 46928084, 52135060, 57342036, 62549012, 67755988, 72962964, 78169940, 83376916, 88583876);
+my $nChunks = 17;
+my @segs= (0 .. $nChunks-1);
+foreach $i (@segs)
+{
+	my $actChunk=$i+1;
+	 system (
+		"./impute2 ". 
+		"-m genetic_map.txt ". 
+		"-g  fcgene_out.gen ".
+		"-strand_g  fcgene_out.strand.txt ". 
+		"-int  $lowerBound[$i]  $upperBound[$i] ". 
+		"-Ne 11418  -call_thresh 0.9 -pgs ". 
+		"-o fcgene_out.impute2_chunk_$actChunk"
+	);
+	 print("\nImputation of chunk $actChunk  is finished.\n\n");
+}
+------------------------------------------------------------
+
+We have also written all the individual commands one by one as below.
+------------
+ Command 1: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 65301  5272276\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_1
+------------
+ Command 2: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 5272277  10479252\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_2
+------------
+ Command 3: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 10479253  15686228\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_3
+------------
+ Command 4: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 15686229  20893204\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_4
+------------
+ Command 5: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 20893205  26100180\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_5
+------------
+ Command 6: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 26100181  31307156\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_6
+------------
+ Command 7: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 31307157  36514132\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_7
+------------
+ Command 8: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 36514133  41721108\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_8
+------------
+ Command 9: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 41721109  46928084\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_9
+------------
+ Command 10: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 46928085  52135060\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_10
+------------
+ Command 11: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 52135061  57342036\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_11
+------------
+ Command 12: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 57342037  62549012\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_12
+------------
+ Command 13: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 62549013  67755988\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_13
+------------
+ Command 14: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 67755989  72962964\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_14
+------------
+ Command 15: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 72962965  78169940\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_15
+------------
+ Command 16: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 78169941  83376916\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_16
+------------
+ Command 17: 
+------------
+./impute2 \ 
+-m genetic_map.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 83376917  88583876\ 
+-Ne 11418  -call_thresh 0.9 -pgs\ 
+-o fcgene_out.impute2_chunk_17
+
+ If you prefer to impute the whole region at one time then you can use the following command.
+---------------------------------------------------------
+Command for imputing whole region at a time: 
+---------------------------------------------------------
+./impute2 \ 
+-m hapmap3_r2_b36/genetic_map_chr22_combined_b36.txt\ 
+-g  fcgene_out.gen \  
+-strand_g  fcgene_out.strand.txt\ 
+-int 65301  88583876\ 
+-Ne 11418  -call_thresh 0.9 -pgs -allow_large_regions\ 
+-o fcgene_out.impute2

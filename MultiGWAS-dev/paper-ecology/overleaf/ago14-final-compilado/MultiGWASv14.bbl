@@ -1,0 +1,276 @@
+\begin{thebibliography}{}
+
+\bibitem[{\'{A}}lvarez et~al., 2017]{Alvarez2017}
+{\'{A}}lvarez, M.~F., Angarita, M., Delgado, M.~C., Garc{\'{i}}a, C.,
+  Jim{\'{e}}nez-Gomez, J., Gebhardt, C., and Mosquera, T. (2017).
+\newblock {Identification of Novel Associations of Candidate Genes with
+  Resistance to Late Blight in Solanum tuberosum Group Phureja}.
+\newblock {\em Frontiers in Plant Science}, 8:1040.
+
+\bibitem[Begum et~al., 2012]{begum2012comprehensive}
+Begum, F., Ghosh, D., Tseng, G.~C., and Feingold, E. (2012).
+\newblock Comprehensive literature review and statistical considerations for
+  gwas meta-analysis.
+\newblock {\em Nucleic acids research}, 40(9):3777--3784.
+
+\bibitem[Berdugo-Cely et~al., 2017]{Berdugo2017}
+Berdugo-Cely, J., Valbuena, R.~I., S{\'{a}}nchez-Betancourt, E., Barrero,
+  L.~S., and Yockteng, R. (2017).
+\newblock {Genetic diversity and association mapping in the colombian central
+  collection of solanum tuberosum L. Andigenum group using SNPs markers}.
+\newblock {\em PLoS ONE}, 12(3).
+
+\bibitem[Blischak et~al., 2016]{blischak2016accounting}
+Blischak, P.~D., Kubatko, L.~S., and Wolfe, A.~D. (2016).
+\newblock Accounting for genotype uncertainty in the estimation of allele
+  frequencies in autopolyploids.
+\newblock {\em Molecular ecology resources}, 16(3):742--754.
+
+\bibitem[Bourke et~al., 2018]{Bourke2018}
+Bourke, P.~M., Voorrips, R.~E., Visser, R. G.~F., and Maliepaard, C. (2018).
+\newblock {Tools for Genetic Studies in Experimental Populations of
+  Polyploids}.
+\newblock {\em Frontiers in Plant Science}, 9:513.
+
+\bibitem[Bradbury et~al., 2007]{Bradbury2007}
+Bradbury, P.~J., Zhang, Z., Kroon, D.~E., Casstevens, T.~M., Ramdoss, Y., and
+  Buckler, E.~S. (2007).
+\newblock {TASSEL: software for association mapping of complex traits in
+  diverse samples}.
+\newblock {\em Bioinformatics}, 23(19):2633--2635.
+
+\bibitem[Cantor et~al., 2010]{cantor2010prioritizing}
+Cantor, R.~M., Lange, K., and Sinsheimer, J.~S. (2010).
+\newblock Prioritizing gwas results: a review of statistical methods and
+  recommendations for their application.
+\newblock {\em The American Journal of Human Genetics}, 86(1):6--22.
+
+\bibitem[Cao et~al., 2011]{cao2011whole}
+Cao, J., Schneeberger, K., Ossowski, S., G{\"u}nther, T., Bender, S., Fitz, J.,
+  Koenig, D., Lanz, C., Stegle, O., Lippert, C., et~al. (2011).
+\newblock Whole-genome sequencing of multiple arabidopsis thaliana populations.
+\newblock {\em Nature genetics}, 43(10):956.
+
+\bibitem[Chang et~al., 2015]{Chang2015}
+Chang, C.~C., Chow, C.~C., Tellier, L.~C., Vattikuti, S., Purcell, S.~M., and
+  Lee, J.~J. (2015).
+\newblock {Second-generation PLINK: Rising to the challenge of larger and
+  richer datasets}.
+\newblock {\em GigaScience}, 4(1):1--16.
+
+\bibitem[Danecek et~al., 2011]{Danecek2011}
+Danecek, P., Auton, A., Abecasis, G., Albers, C.~A., Banks, E., DePristo,
+  M.~A., Handsaker, R.~E., Lunter, G., Marth, G.~T., Sherry, S.~T., McVean, G.,
+  Durbin, R., and Group, . G. P.~A. (2011).
+\newblock {The variant call format and VCFtools}.
+\newblock {\em Bioinformatics}, 27(15):2156--2158.
+
+\bibitem[De et~al., 2014]{De2014}
+De, R., Bush, W.~S., and Moore, J.~H. (2014).
+\newblock {\em {Bioinformatics Challenges in Genome-Wide Association Studies
+  (GWAS)}}, pages 63--81.
+\newblock Springer New York, New York, NY.
+
+\bibitem[Dufresne et~al., 2014]{dufresne2014}
+Dufresne, F., Stift, M., Vergilino, R., and Mable, B.~K. (2014).
+\newblock Recent progress and challenges in population genetics of polyploid
+  organisms: an overview of current state-of-the-art molecular and statistical
+  tools.
+\newblock {\em Molecular Ecology}, 23(1):40--69.
+
+\bibitem[Ebbert et~al., 2014]{Ebbert2014}
+Ebbert, M.~T., Wadsworth, M.~E., Boehme, K.~L., Hoyt, K.~L., Sharp, A.~R.,
+  D~O'Fallon, B., Kauwe, J.~S., and Ridge, P.~G. (2014).
+\newblock Variant tool chest: an improved tool to analyze and manipulate
+  variant call format (vcf) files.
+\newblock {\em BMC bioinformatics}, 15(S7):S12.
+
+\bibitem[Ekblom and Galindo, 2011]{ekblom2011applications}
+Ekblom, R. and Galindo, J. (2011).
+\newblock Applications of next generation sequencing in molecular ecology of
+  non-model organisms.
+\newblock {\em Heredity}, 107(1):1--15.
+
+\bibitem[Ellegren, 2014]{ellegren2014genome}
+Ellegren, H. (2014).
+\newblock Genome sequencing and population genomics in non-model organisms.
+\newblock {\em Trends in ecology \& evolution}, 29(1):51--63.
+
+\bibitem[Ferr{\~{a}}o et~al., 2018]{Ferrao2018}
+Ferr{\~{a}}o, L. F.~V., Benevenuto, J., Oliveira, I. d.~B., Cellon, C.,
+  Olmstead, J., Kirst, M., Resende, M. F.~R., and Munoz, P. (2018).
+\newblock {Insights Into the Genetic Basis of Blueberry Fruit-Related Traits
+  Using Diploid and Polyploid Models in a GWAS Context}.
+\newblock {\em Frontiers in Ecology and Evolution}, 6:107.
+
+\bibitem[Grimm et~al., 2017]{Grimm2017}
+Grimm, D.~G., Roqueiro, D., Salom{\'{e}}, P.~A., Kleeberger, S., Greshake, B.,
+  Zhu, W., Liu, C., Lippert, C., Stegle, O., Sch{\"{o}}lkopf, B., Weigel, D.,
+  and Borgwardt, K.~M. (2017).
+\newblock {easyGWAS: A Cloud-Based Platform for Comparing the Results of
+  Genome-Wide Association Studies}.
+\newblock {\em The Plant Cell}, 29(1):5--19.
+
+\bibitem[Gumpinger et~al., 2018]{Gumpinger2018}
+Gumpinger, A.~C., Roqueiro, D., Grimm, D.~G., and Borgwardt, K.~M. (2018).
+\newblock {\em {Methods and Tools in Genome-wide Association Studies}}, volume
+  1819.
+
+\bibitem[Han and Huang, 2013]{han2013sequencing}
+Han, B. and Huang, X. (2013).
+\newblock Sequencing-based genome-wide association study in rice.
+\newblock {\em Current opinion in plant biology}, 16(2):133--138.
+
+\bibitem[Hardy, 2016]{hardy2016population}
+Hardy, O.~J. (2016).
+\newblock Population genetics of autopolyploids under a mixed mating model and
+  the estimation of selfing rate.
+\newblock {\em Molecular Ecology Resources}, 16(1):103--117.
+
+\bibitem[Hirsch et~al., 2013]{Hirsch2013}
+Hirsch, C.~N., Hirsch, C.~D., Felcher, K., Coombs, J., Zarka, D., {Van Deynze},
+  A., {De Jong}, W., Veilleux, R.~E., Jansky, S., Bethke, P., Douches, D.~S.,
+  and Buell, C.~R. (2013).
+\newblock {Retrospective view of North American potato (Solanum tuberosum L.)
+  breeding in the 20th and 21st centuries}.
+\newblock {\em G3: Genes, Genomes, Genetics}, 3(6):1003--1013.
+
+\bibitem[Kaler and Purcell, 2019]{Kaler2019}
+Kaler, A.~S. and Purcell, L.~C. (2019).
+\newblock {Estimation of a significance threshold for genome-wide association
+  studies}.
+\newblock {\em BMC Genomics}, 20(1):618.
+
+\bibitem[Korte and Farlow, 2013]{korte2013advantages}
+Korte, A. and Farlow, A. (2013).
+\newblock The advantages and limitations of trait analysis with gwas: a review.
+\newblock {\em Plant methods}, 9(1):29.
+
+\bibitem[Lauc et~al., 2010]{lauc2010genomics}
+Lauc, G., Essafi, A., Huffman, J.~E., Hayward, C., Kne{\v{z}}evi{\'c}, A.,
+  Kattla, J.~J., Pola{\v{s}}ek, O., Gornik, O., Vitart, V., Abrahams, J.~L.,
+  et~al. (2010).
+\newblock Genomics meets glycomics—the first gwas study of human n-glycome
+  identifies hnf1$\alpha$ as a master regulator of plasma protein fucosylation.
+\newblock {\em PLoS genetics}, 6(12).
+
+\bibitem[Lynch and Conery, 2000]{lynch2000}
+Lynch, M. and Conery, J.~S. (2000).
+\newblock The evolutionary fate and consequences of duplicate genes.
+\newblock {\em science}, 290(5494):1151--1155.
+
+\bibitem[Meirmans et~al., 2018]{meirmans2018}
+Meirmans, P.~G., Liu, S., and van Tienderen, P.~H. (2018).
+\newblock The analysis of polyploid genetic data.
+\newblock {\em Journal of Heredity}, 109(3):283--296.
+
+\bibitem[Meng et~al., 2019]{Meng2019}
+Meng, J., Song, K., Li, C., Liu, S., Shi, R., Li, B., Wang, T., Li, A., Que,
+  H., Li, L., and Zhang, G. (2019).
+\newblock {Genome-wide association analysis of nutrient traits in the oyster
+  Crassostrea gigas: Genetic effect and interaction network}.
+\newblock {\em BMC Genomics}, 20(1):1--14.
+
+\bibitem[Ohno, 1970]{ohno1970}
+Ohno, S. (1970).
+\newblock {\em Evolution by Gene Duplication}.
+\newblock Springer Berlin Heidelberg.
+
+\bibitem[Pearson and Manolio, 2008]{Pearson2008}
+Pearson, T.~A. and Manolio, T.~A. (2008).
+\newblock {How to interpret a genome-wide association study}.
+\newblock {\em JAMA - Journal of the American Medical Association},
+  299(11):1335--1344.
+
+\bibitem[Power et~al., 2016]{Power2016}
+Power, R.~A., Parkhill, J., and {De Oliveira}, T. (2016).
+\newblock {Microbial genome-wide association studies: lessons from human GWAS}.
+\newblock {\em Nature Reviews Genetics}, 18(1):41--50.
+
+\bibitem[Purcell et~al., 2007]{Purcell2007}
+Purcell, S., Neale, B., Todd-Brown, K., Thomas, L., Ferreira, M.~A., Bender,
+  D., Maller, J., Sklar, P., {De Bakker}, P.~I., Daly, M.~J., and Sham, P.~C.
+  (2007).
+\newblock {PLINK: A tool set for whole-genome association and population-based
+  linkage analyses}.
+\newblock {\em American Journal of Human Genetics}, 81(3):559--575.
+
+\bibitem[Qiao et~al., 2015]{Qiao2015}
+Qiao, H.~P., Zhang, C.~Y., Yu, Z.~L., Li, Q.~M., Jiao, Y., and Cao, J.~P.
+  (2015).
+\newblock {Genetic variants identified by GWAS was associated with colorectal
+  cancer in the Han Chinese population}.
+\newblock {\em Journal of Cancer Research and Therapeutics}, 11(2):468--470.
+
+\bibitem[Rosyara et~al., 2016]{Rosyara2016}
+Rosyara, U.~R., {De Jong}, W.~S., Douches, D.~S., and Endelman, J.~B. (2016).
+\newblock {Software for Genome-Wide Association Studies in Autopolyploids and
+  Its Application to Potato}.
+\newblock {\em The Plant Genome}, 9(2):1--10.
+
+\bibitem[Santure and Garant, 2018]{santure2018wild}
+Santure, A.~W. and Garant, D. (2018).
+\newblock Wild gwas—association mapping in natural populations.
+\newblock {\em Molecular ecology resources}, 18(4):729--738.
+
+\bibitem[Sharma et~al., 2018]{Sharma2018}
+Sharma, S.~K., MacKenzie, K., McLean, K., Dale, F., Daniels, S., and Bryan,
+  G.~J. (2018).
+\newblock {Linkage disequilibrium and evaluation of genome-wide association
+  mapping models in tetraploid potato}.
+\newblock {\em G3: Genes, Genomes, Genetics}, 8(10):3185--3202.
+
+\bibitem[Shen et~al., 2016]{Shen2016}
+Shen, J., Li, Z., Chen, J., Song, Z., Zhou, Z., and Shi, Y. (2016).
+\newblock {SHEsisPlus, a toolset for genetic studies on polyploid species}.
+\newblock {\em Scientific Reports}, 6:1--10.
+
+\bibitem[Tello et~al., 2019]{Duitama2019}
+Tello, D., Gil, J., Loaiza, C.~D., Riascos, J.~J., Cardozo, N., and Duitama, J.
+  (2019).
+\newblock {NGSEP3: accurate variant calling across species and sequencing
+  protocols}.
+\newblock {\em Bioinformatics}, 35(22):4716--4723.
+
+\bibitem[Thompson et~al., 2011]{Thomson2011}
+Thompson, J.~R., Attia, J., and Minelli, C. (2011).
+\newblock {The meta-analysis of genome-wide association studies}.
+\newblock {\em Briefings in Bioinformatics}, 12(3):259--269.
+
+\bibitem[Tian et~al., 2011]{tian2011genome}
+Tian, F., Bradbury, P.~J., Brown, P.~J., Hung, H., Sun, Q., Flint-Garcia, S.,
+  Rocheford, T.~R., McMullen, M.~D., Holland, J.~B., and Buckler, E.~S. (2011).
+\newblock Genome-wide association study of leaf architecture in the maize
+  nested association mapping population.
+\newblock {\em Nature genetics}, 43(2):159--162.
+
+\bibitem[Yan et~al., 2019]{Yan2019}
+Yan, Y.~Y., Burbridge, C., Shi, J., Liu, J., and Kusalik, A. (2019).
+\newblock {Effects of input data quantity on genome-wide association studies
+  (GWAS)}.
+\newblock {\em International Journal of Data Mining and Bioinformatics},
+  22(1):19--43.
+
+\bibitem[Yu et~al., 2006]{Yu2006}
+Yu, J., Pressoir, G., Briggs, W.~H., Vroh, I.~B., Yamasaki, M., Doebley, J.~F.,
+  McMullen, M.~D., Gaut, B.~S., Nielsen, D.~M., Holland, J.~B., and Others
+  (2006).
+\newblock {A unified mixed-model method for association mapping that accounts
+  for multiple levels of relatedness.}
+\newblock {\em Nature genetics}, 38(2):203--208.
+
+\bibitem[Yuan et~al., 2019]{Yuan2019}
+Yuan, J., Bizimungu, B., {De Koeyer}, D., Rosyara, U., Wen, Z., and
+  Lag{\"{u}}e, M. (2019).
+\newblock {Genome-Wide Association Study of Resistance to Potato Common Scab}.
+\newblock {\em Potato Research}.
+
+\bibitem[Zhang et~al., 2018]{Zhang2018}
+Zhang, S., Chen, X., Lu, C., Ye, J., Zou, M., Lu, K., Feng, S., Pei, J., Liu,
+  C., Zhou, X., Ma, P., Li, Z., Liu, C., Liao, Q., Xia, Z., and Wang, W.
+  (2018).
+\newblock {Genome-wide association studies of 11 agronomic traits in cassava
+  (Manihot esculenta crantz)}.
+\newblock {\em Frontiers in Plant Science}, 9(April):1--15.
+
+\end{thebibliography}

@@ -1,0 +1,4 @@
+MODEL,df.score,df[match(models, df$MODEL), "score"],df[match(models, df$MODEL), "score"],df[match(models, df$MODEL), "score"]
+dominant,1.49266666666667,1.47933333333333,1.506,1.556
+general,1.35266666666667,1.39266666666667,1.396,1.38433333333333
+additive,0.979666666666667,0.966333333333333,1.003,1.058

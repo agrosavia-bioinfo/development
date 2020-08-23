@@ -1,0 +1,15 @@
+PLINK v1.90b6.12 64-bit (28 Oct 2019)
+Options in effect:
+  --bfile out/GBS_Bancos_GWASPoly-COMMON-plink-QC
+  --out out/GBS_Bancos_GWASPoly-COMMON-plink-QC
+  --recode tab
+
+Hostname: hackintosh
+Working directory: /home/paula/multiGWAS/examples/Aguacate/out-Superficie_tronco
+Start time: Wed Aug 19 17:32:56 2020
+
+Random number seed: 1597876376
+31980 MB RAM detected; reserving 15990 MB for main workspace.
+Error: Failed to open out/GBS_Bancos_GWASPoly-COMMON-plink-QC.bed.
+
+End time: Wed Aug 19 17:32:56 2020

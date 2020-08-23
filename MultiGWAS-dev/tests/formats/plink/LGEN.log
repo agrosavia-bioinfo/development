@@ -1,0 +1,27 @@
+PLINK v1.90b6.12 64-bit (28 Oct 2019)
+Options in effect:
+  --file small
+  --out LGEN
+  --recode lgen
+
+Hostname: agro
+Working directory: /home/lg/agrosavia/GWAS/multiGWAS-dev/development/tests/formats/plink
+Start time: Mon Jun  1 15:31:54 2020
+
+Random number seed: 1591043514
+7817 MB RAM detected; reserving 3908 MB for main workspace.
+Scanning .ped file... done.
+Performing single-pass .bed write (4 variants, 10 people).
+--file: LGEN-temporary.bed + LGEN-temporary.bim + LGEN-temporary.fam written.
+4 variants loaded from .bim file.
+10 people (0 males, 0 females, 10 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to LGEN.nosex .
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 10 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.975.
+4 variants and 10 people pass filters and QC.
+Note: No phenotypes present.
+--recode lgen to LGEN.lgen + LGEN.map + LGEN.fam ... done.
+
+End time: Mon Jun  1 15:31:54 2020

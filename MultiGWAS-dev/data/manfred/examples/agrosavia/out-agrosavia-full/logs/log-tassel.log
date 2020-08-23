@@ -1,0 +1,188 @@
+/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/slf4j-simple-1.7.10.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/jhdf5-14.12.5.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/colt-1.2.0.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/fastutil-8.2.2.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/jfreesvg-3.2.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/biojava-alignment-4.0.0.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/snappy-java-1.1.1.6.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/guava-22.0.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/biojava-phylo-4.0.0.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/jcommon-1.0.23.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/itextpdf-5.1.0.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/commons-math3-3.4.1.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/gs-core-1.3.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/phg.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/kotlinx-coroutines-core-1.3.0.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/sqlite-jdbc-3.8.5-pre1.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/ahocorasick-0.2.4.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/forester-1.038.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/javax.json-1.0.4.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/log4j-1.2.13.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/postgresql-9.4-1201.jdbc41.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/json-simple-1.1.1.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/scala-library-2.10.1.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/kotlin-stdlib-1.3.50.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/slf4j-api-1.7.10.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/htsjdk-2.19.0.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/jfreechart-1.0.19.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/sTASSEL.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/junit-4.10.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/biojava-core-4.0.0.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/ejml-0.23.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/trove-3.0.3.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/mail-1.4.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/commons-codec-1.10.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/lib/gs-ui-1.3.jar:/home/lg/agrosavia/GWAS/multiGWAS-dev/tools/sTASSEL.jar
+Memory Settings: -Xms512m -Xmx1536m
+Tassel Pipeline Arguments: -fork1 -vcf out/filtered-tassel-genotype.vcf -fork2 -r out/filtered-tassel-phenotype.tbl -fork3 -vcf out/filtered-tassel-genotype.vcf -PrincipalComponentsPlugin -covariance -reportEigenvalues false -reportEigenvectors false -endPlugin -combine4 -input1 -input2 -input3 -intersect -fork5 -vcf out/filtered-tassel-genotype.vcf -KinshipPlugin -method Centered_IBS -endPlugin -combine6 -input4 -input5 -mlm -mlmVarCompEst P3D -mlmOutputFile out/tool-TASSEL-scores-Full
+[main] INFO net.maizegenetics.tassel.TasselLogging - Tassel Version: 5.2.57  Date: October 10, 2019
+[main] INFO net.maizegenetics.tassel.TasselLogging - Max Available Memory Reported by JVM: 1536 MB
+[main] INFO net.maizegenetics.tassel.TasselLogging - Java Version: 14.0.1
+[main] INFO net.maizegenetics.tassel.TasselLogging - OS: Linux
+[main] INFO net.maizegenetics.tassel.TasselLogging - Number of Processors: 8
+[main] INFO net.maizegenetics.pipeline.TasselPipeline - Tassel Pipeline Arguments: [-fork1, -vcf, out/filtered-tassel-genotype.vcf, -fork2, -r, out/filtered-tassel-phenotype.tbl, -fork3, -vcf, out/filtered-tassel-genotype.vcf, -PrincipalComponentsPlugin, -covariance, -reportEigenvalues, false, -reportEigenvectors, false, -endPlugin, -combine4, -input1, -input2, -input3, -intersect, -fork5, -vcf, out/filtered-tassel-genotype.vcf, -KinshipPlugin, -method, Centered_IBS, -endPlugin, -combine6, -input4, -input5, -mlm, -mlmVarCompEst, P3D, -mlmOutputFile, out/tool-TASSEL-scores-Full]
+[pool-1-thread-2] INFO net.maizegenetics.plugindef.AbstractPlugin - Starting net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:50:59
+[pool-1-thread-2] INFO net.maizegenetics.plugindef.AbstractPlugin - 
+FileLoadPlugin Parameters
+format: Phenotype
+sortPositions: false
+keepDepth: true
+
+[pool-1-thread-2] INFO net.maizegenetics.analysis.data.FileLoadPlugin - Start Loading File: out/filtered-tassel-phenotype.tbl time: Jun 8, 2020 19:50:59
+[pool-1-thread-1] INFO net.maizegenetics.plugindef.AbstractPlugin - Starting net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:50:59
+[pool-1-thread-1] INFO net.maizegenetics.plugindef.AbstractPlugin - 
+FileLoadPlugin Parameters
+format: VCF
+sortPositions: false
+keepDepth: true
+
+[pool-1-thread-1] INFO net.maizegenetics.analysis.data.FileLoadPlugin - Start Loading File: out/filtered-tassel-genotype.vcf time: Jun 8, 2020 19:50:59
+[pool-1-thread-3] INFO net.maizegenetics.plugindef.AbstractPlugin - Starting net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:50:59
+[pool-1-thread-3] INFO net.maizegenetics.plugindef.AbstractPlugin - 
+FileLoadPlugin Parameters
+format: VCF
+sortPositions: false
+keepDepth: true
+
+[pool-1-thread-3] INFO net.maizegenetics.analysis.data.FileLoadPlugin - Start Loading File: out/filtered-tassel-genotype.vcf time: Jun 8, 2020 19:50:59
+[pool-1-thread-4] INFO net.maizegenetics.plugindef.AbstractPlugin - Starting net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:50:59
+[pool-1-thread-4] INFO net.maizegenetics.plugindef.AbstractPlugin - 
+FileLoadPlugin Parameters
+format: VCF
+sortPositions: false
+keepDepth: true
+
+[pool-1-thread-4] INFO net.maizegenetics.analysis.data.FileLoadPlugin - Start Loading File: out/filtered-tassel-genotype.vcf time: Jun 8, 2020 19:50:59
+[pool-1-thread-2] INFO net.maizegenetics.analysis.data.FileLoadPlugin - Finished Loading File: out/filtered-tassel-phenotype.tbl time: Jun 8, 2020 19:50:59
+[pool-1-thread-2] INFO net.maizegenetics.plugindef.AbstractPlugin - Finished net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:50:59
+[Thread-5] INFO net.maizegenetics.plugindef.AbstractPlugin - net.maizegenetics.analysis.data.CombineDataSetsPlugin  Citation: Bradbury PJ, Zhang Z, Kroon DE, Casstevens TM, Ramdoss Y, Buckler ES. (2007) TASSEL: Software for association mapping of complex traits in diverse samples. Bioinformatics 23:2633-2635.
+[pool-1-thread-2] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:50:59: progress: 100%
+[pool-1-thread-1] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:51:1: progress: 100%
+[pool-1-thread-4] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:51:1: progress: 100%
+BuilderFromVCF data timing 1.86425s 
+BuilderFromVCF data timing 1.87609s 
+[pool-1-thread-4] INFO net.maizegenetics.analysis.data.FileLoadPlugin - Finished Loading File: out/filtered-tassel-genotype.vcf time: Jun 8, 2020 19:51:1
+Genotype Table Name: filtered-tassel-genotype
+Number of Taxa: 597
+Number of Sites: 2025
+Sites x Taxa: 1208925
+Chromosomes...
+[pool-1-thread-1] INFO net.maizegenetics.analysis.data.FileLoadPlugin - Finished Loading File: out/filtered-tassel-genotype.vcf time: Jun 8, 2020 19:51:1
+Genotype Table Name: filtered-tassel-genotype
+Number of Taxa: 597
+Number of Sites: 2025
+Sites x Taxa: 1208925
+Chromosomes...
+0: start site: 0 (10676451) last site: 30 (74664310) total: 31
+0: start site: 0 (10676451) last site: 30 (74664310) total: 31
+1: start site: 31 (10798322) last site: 238 (74721489) total: 208
+1: start site: 31 (10798322) last site: 238 (74721489) total: 208
+2: start site: 239 (10773329) last site: 422 (74689433) total: 184
+2: start site: 239 (10773329) last site: 422 (74689433) total: 184
+3: start site: 423 (10766438) last site: 611 (74764446) total: 189
+3: start site: 423 (10766438) last site: 611 (74764446) total: 189
+4: start site: 612 (10732334) last site: 769 (74801308) total: 158
+4: start site: 612 (10732334) last site: 769 (74801308) total: 158
+5: start site: 770 (10681320) last site: 927 (74767335) total: 158
+5: start site: 770 (10681320) last site: 927 (74767335) total: 158
+6: start site: 928 (10655422) last site: 1151 (74761502) total: 224
+6: start site: 928 (10655422) last site: 1151 (74761502) total: 224
+7: start site: 1152 (10665510) last site: 1349 (74793346) total: 198
+7: start site: 1152 (10665510) last site: 1349 (74793346) total: 198
+8: start site: 1350 (10677351) last site: 1511 (74688374) total: 162
+8: start site: 1350 (10677351) last site: 1511 (74688374) total: 162
+9: start site: 1512 (11705435) last site: 1653 (74795336) total: 142
+9: start site: 1512 (11705435) last site: 1653 (74795336) total: 142
+10: start site: 1654 (10783316) last site: 1747 (74712387) total: 94
+10: start site: 1654 (10783316) last site: 1747 (74712387) total: 94
+11: start site: 1748 (11610366) last site: 1899 (74760479) total: 152
+11: start site: 1748 (11610366) last site: 1899 (74760479) total: 152
+12: start site: 1900 (11728502) last site: 2006 (74810385) total: 107
+12: start site: 1900 (11728502) last site: 2006 (74810385) total: 107
+13: start site: 2007 (12714483) last site: 2024 (74601501) total: 18
+13: start site: 2007 (12714483) last site: 2024 (74601501) total: 18
+
+
+[pool-1-thread-4] INFO net.maizegenetics.plugindef.AbstractPlugin - Finished net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:51:1
+[pool-1-thread-1] INFO net.maizegenetics.plugindef.AbstractPlugin - Finished net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:51:1
+[pool-1-thread-4] INFO net.maizegenetics.plugindef.AbstractPlugin - Starting net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1
+[pool-1-thread-4] INFO net.maizegenetics.plugindef.AbstractPlugin - 
+KinshipPlugin Parameters
+method: Centered_IBS
+maxAlleles: 6
+algorithmVariation: Observed_Allele_Freq
+
+[pool-1-thread-1] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:51:1: progress: 100%
+[pool-1-thread-4] INFO net.maizegenetics.analysis.distance.EndelmanDistanceMatrix - EndelmanDistanceMatrix: estimated time: 0 minutes
+[ForkJoinPool.commonPool-worker-5] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 1%
+[ForkJoinPool.commonPool-worker-3] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 11%
+[pool-1-thread-4] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 20%
+[ForkJoinPool.commonPool-worker-3] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 30%
+[ForkJoinPool.commonPool-worker-3] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 40%
+[pool-1-thread-3] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:51:1: progress: 100%
+[ForkJoinPool.commonPool-worker-3] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 50%
+[ForkJoinPool.commonPool-worker-3] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 60%
+[pool-1-thread-4] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 70%
+[ForkJoinPool.commonPool-worker-3] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 82%
+BuilderFromVCF data timing 2.12808s 
+[pool-1-thread-3] INFO net.maizegenetics.analysis.data.FileLoadPlugin - Finished Loading File: out/filtered-tassel-genotype.vcf time: Jun 8, 2020 19:51:1
+Genotype Table Name: filtered-tassel-genotype
+Number of Taxa: 597
+Number of Sites: 2025
+Sites x Taxa: 1208925
+Chromosomes...
+0: start site: 0 (10676451) last site: 30 (74664310) total: 31
+1: start site: 31 (10798322) last site: 238 (74721489) total: 208
+2: start site: 239 (10773329) last site: 422 (74689433) total: 184
+3: start site: 423 (10766438) last site: 611 (74764446) total: 189
+4: start site: 612 (10732334) last site: 769 (74801308) total: 158
+5: start site: 770 (10681320) last site: 927 (74767335) total: 158
+6: start site: 928 (10655422) last site: 1151 (74761502) total: 224
+7: start site: 1152 (10665510) last site: 1349 (74793346) total: 198
+8: start site: 1350 (10677351) last site: 1511 (74688374) total: 162
+9: start site: 1512 (11705435) last site: 1653 (74795336) total: 142
+10: start site: 1654 (10783316) last site: 1747 (74712387) total: 94
+11: start site: 1748 (11610366) last site: 1899 (74760479) total: 152
+12: start site: 1900 (11728502) last site: 2006 (74810385) total: 107
+13: start site: 2007 (12714483) last site: 2024 (74601501) total: 18
+
+[pool-1-thread-3] INFO net.maizegenetics.plugindef.AbstractPlugin - Finished net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:51:1
+[pool-1-thread-3] INFO net.maizegenetics.plugindef.AbstractPlugin - Starting net.maizegenetics.analysis.data.PrincipalComponentsPlugin: time: Jun 8, 2020 19:51:1
+[pool-1-thread-3] INFO net.maizegenetics.plugindef.AbstractPlugin - 
+PrincipalComponentsPlugin Parameters
+covariance: true
+limitBy: number_of_components
+ncomponents: 5
+minEigenval: 0.0
+totalVar: 0.5
+reportEigenvalues: false
+reportEigenvectors: false
+
+[ForkJoinPool.commonPool-worker-3] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 92%
+[pool-1-thread-4] INFO net.maizegenetics.analysis.distance.EndelmanDistanceMatrix - EndelmanDistanceMatrix: actual time: 0 minutes
+[pool-1-thread-4] INFO net.maizegenetics.plugindef.AbstractPlugin - Finished net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1
+[pool-1-thread-4] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.distance.KinshipPlugin: time: Jun 8, 2020 19:51:1: progress: 100%
+[pool-1-thread-4] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:51:1: progress: 100%
+[pool-1-thread-3] INFO net.maizegenetics.plugindef.AbstractPlugin - Starting net.maizegenetics.analysis.numericaltransform.ImputationPlugin: time: Jun 8, 2020 19:51:2
+[pool-1-thread-3] INFO net.maizegenetics.plugindef.AbstractPlugin - 
+ImputationPlugin Parameters
+ByMean: true
+nearestNeighbors: 5
+distance: Euclidean
+
+[pool-1-thread-3] INFO net.maizegenetics.plugindef.AbstractPlugin - Finished net.maizegenetics.analysis.numericaltransform.ImputationPlugin: time: Jun 8, 2020 19:51:2
+[pool-1-thread-3] INFO net.maizegenetics.matrixalgebra.Matrix.DoubleMatrixFactory - TasselBlas library for system-specific BLAS/LAPACK not found. Using system-independent EJML for DoubleMatrix operations.
+[pool-1-thread-3] INFO net.maizegenetics.plugindef.AbstractPlugin - Finished net.maizegenetics.analysis.data.PrincipalComponentsPlugin: time: Jun 8, 2020 19:51:8
+[pool-1-thread-3] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.data.PrincipalComponentsPlugin: time: Jun 8, 2020 19:51:8: progress: 100%
+[pool-1-thread-3] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.data.FileLoadPlugin: time: Jun 8, 2020 19:51:8: progress: 100%
+[Thread-11] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.data.IntersectionAlignmentPlugin: time: Jun 8, 2020 19:51:8: progress: 100%
+[Thread-13] INFO net.maizegenetics.plugindef.AbstractPlugin - Starting net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:8
+[Thread-13] INFO net.maizegenetics.plugindef.AbstractPlugin - Starting net.maizegenetics.analysis.data.ExportPlugin: time: Jun 8, 2020 19:51:12
+[Thread-13] INFO net.maizegenetics.plugindef.AbstractPlugin - 
+ExportPlugin Parameters
+saveAs: out/tool-TASSEL-scores-Full_Residuals for Gota._residuals.txt
+format: Phenotype
+keepDepth: true
+includeTaxaAnnotations: true
+
+[Thread-13] INFO net.maizegenetics.analysis.data.ExportPlugin - performFunction: wrote dataset: Residuals for Gota. to file: /home/lg/agrosavia/GWAS/multiGWAS-dev/examples/agrosavia/out-agrosavia/out/tool-TASSEL-scores-Full_Residuals for Gota._residuals.txt
+[Thread-13] INFO net.maizegenetics.plugindef.AbstractPlugin - Finished net.maizegenetics.analysis.data.ExportPlugin: time: Jun 8, 2020 19:51:12
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:13: progress: 0%
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:16: progress: 10%
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:18: progress: 20%
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:21: progress: 30%
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:24: progress: 40%
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:26: progress: 50%
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:29: progress: 60%
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:31: progress: 70%
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:33: progress: 80%
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:35: progress: 90%
+[Thread-13] INFO net.maizegenetics.pipeline.TasselPipeline - net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:37: progress: 100%
+[Thread-13] INFO net.maizegenetics.plugindef.AbstractPlugin - net.maizegenetics.analysis.association.WeightedMLMPlugin  Citation: Shang Xue, Zachary Miller, Janu Verma,  First Annual Tassel Hackathon
+[Thread-13] INFO net.maizegenetics.plugindef.AbstractPlugin - Finished net.maizegenetics.analysis.association.WeightedMLMPlugin: time: Jun 8, 2020 19:51:37

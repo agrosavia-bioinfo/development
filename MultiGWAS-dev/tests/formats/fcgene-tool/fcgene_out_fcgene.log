@@ -1,0 +1,49 @@
+
+||====================================================================================||
+*-> Version: 1.0.7
+*-> Copyright:  GNU General Public License
+*-> Program Developer: 	
+	 Nab Raj Roshyara	 
+	 email: roshyara@yahoo.com	 
+	 Universitaet Leipzig		 
+	 Leipzig Research Center for Civilization Diseases(LIFE)
+	 Institute for Medical Informatics, Statistics and Epidemiology (IMISE)
+	 Group: Genetical Statistics and Systems Biology 
+	 Group Leader: Prof. Dr. Markus Scholz
+|--------------------------------------------------------------------------------------|
+*->Given command options:
+	 --ped COMMONQC.ped
+	 --map COMMONQC.map
+	 --oformat snptest
+||====================================================================================||
+	**->Used command options: 
+	 --ped COMMONQC.ped
+	 --map COMMONQC.map
+	 --oformat snptest
+
+*->Reading map file "COMMONQC.map":
+
+*-> Reading  ped file: "COMMONQC.ped":
+**->Total number of successfully read individuals: 100
+	           **->Total number of successfully read: 1779
+
+
+*->Individual summary:
+	**->Total females:                                0
+	**->Total males:                                  0
+	**->Total individuals with undefined sex:         100
+
+	**->Total cases:                                  0
+	**->Total controls:                               0
+	**->Total individuals with undefined status:      100
+*->Writing files in snptest format: 
+	**->Impute gens file has been written out and saved as "fcgene_out.gen". 
+	**->Impute strand file has been written out and saved as "fcgene_out.strand.txt". 
+	**->A file containing impute command(s)  has been written out and saved as "fcgene_out.commands.txt". The command(s) can be used to impute your genotype data. 
+	**->One extra "snpinfo.txt" file has been written out and saved as "fcgene_out_snpinfo.txt". 
+	**->One extra "pedinfo.txt" file has  been written out and saved as "fcgene_out_pedinfo.txt".
+	**-> IMPUTE2/SNPTEST *.SAMPLE file has been written out and saved as "fcgene_out.sample". 
+
+*->The analysis has ended at Sun May 17 18:17:43 2020
+
+*->Total time taken for the analysis is: 0 hours, 0 minutes and 0.00 seconds.

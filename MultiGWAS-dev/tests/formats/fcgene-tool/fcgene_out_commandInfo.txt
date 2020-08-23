@@ -1,0 +1,8 @@
+To make PCA analysis, the following command steps can be recommended. 
+=====================
+step1:  	run program smartpca using file "fcgene_out_smartpca.par" 
+step2: 		create a plot of the first two (or any specified pair) principal components 
+step3: 		create *.pca file from file "fcgene_out.evec"
+step4: 		run program eigenstrat using file fcgene_out_eigenstrat.par
+step5: 		run program twstats 
+=====================

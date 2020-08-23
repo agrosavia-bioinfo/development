@@ -1,0 +1,1065 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+GWAS Paper Test Resources
+\end_layout
+
+\begin_layout Description
+Allele_dosage:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bourke2018: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+We use the term marker “dosage” to denote the minor allele count of a marker;
+ a species of ploidy q possesses q + 1 distinct dosage classes in the range
+ 0 to q
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Contributions:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Grimm2017:
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+A summary of themain contributions of easyGWAS is highlighted in Figure1.Theplatf
+ormisuniqueinfiveways: (1)It isnot limitedtoacertain species; (2) it allows
+ users to upload and manage their own genotype and gene annotation data
+ for a species of choice; (3) it supports the uploading of summary statistics
+ of GWAS obtained from third-party tools; (4) it provides a variety of different
+ methods to correct formultiple hypothesis testing; and, most importantly,
+ (5) it integrates advanced methods for comparing results of GWAS across
+ different data sets.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Integratin_tools:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Grimm2017: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The easyGWAS tool supports multiple species, the uploading of private genotype
+ data and summary statistics of existing GWAS, as well as advanced methods
+ for comparing GWAS results across different experiments and data sets in
+ an interactive and user-friendly interface.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Yan2019: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+In terms of the effects of input data quantity on GWAS results, it is both
+ program and measurement specific.
+ One can expect a linearly increasing relationship between input quantity
+ and numbers of SNPs passing a threshold for PLINK, but no guarantee for
+ TASSEL, FaST-LMM, and GAPIT.
+ Viewed alternatively, it appears that the latter three programs are less
+ robust to a reduction in the amount of input.
+ The experimental results also suggest that setting a threshold p- or q-value
+ for significant SNPs should be program specific.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Replication:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Gonzales2012:
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+New analysis based on the same raw dataset, with different parameters and
+ methodologies.
+ In this case, only the raw dataset (and indirectly the data source and
+ the retrieval methodology) are reused.
+ This would also fall in “use a different method” and “use the existing
+ datasets”, according to Gomez et al.
+ (2010).
+ In this case the research team benefits from an already collected raw dataset
+ for performing a study that can be significantly different from the original.
+ However, it could also look for the same type of results, but following
+ a completely different path.
+ Being able of reusing the results dataset would allow for easy comparison.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+De2014: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Itemize
+The biggest concern regarding GWAS results has been the lack of replication
+ of genotype–phenotype associations in an independent study.
+ But an equally formidable challenge is to ensure that a replication study
+ has sufficient statistical power to detect the initial finding.
+ Accordingly, meta-analysis and data imputation procedures can help to tackle
+ this type of challenge.
+ 
+\end_layout
+
+\begin_layout Itemize
+The sole purpose of a replication study is to evaluate an initial positive
+ finding from a GWAS and replicate it to assert its validity and give the
+ association higher credibility.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Power2016: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Itemize
+As a result, replication in an independent cohort is the gold standard for
+ reporting an association in GWAS.
+ This is both to avoid false positives and to accurately estimate the effect
+ size of the SNP
+\end_layout
+
+\begin_layout Itemize
+Generally, replication does not require the association of a SNP to reach
+ genome-wide significance in the replication cohort, but to pass a P value
+ threshold based on the number of SNPs brought forward for replication.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Smith2009: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Because of the difficulties of specifying a significance threshold in genome-wid
+e association studies and the multitude of potential methodological errors,
+ ultimate proof of association must come from replication of significantly
+ associated SNPs in independent samples (14).
+ Even for SNPs near genes that constitute strong biological candidates,
+ from previous experimental studies or simi- lar Mendelian traits, replication
+ is still necessary for convincing association.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Barret2020: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Replication.
+ The ultimate arbiter of a GWAS result is whether it can be replicated independe
+ntly.
+ It’s important to remember that this doesn’t just mean independent samples
+ (though that’s crucial) but also using an independent technology.
+ That way, any QC problems or confounders which affected the original study
+ won’t affect the replication.
+ 5.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Pearson2008: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Itemize
+The typical GWA study has 4 parts: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(1) selection of a large number of individuals with the disease or trait
+ of interest and a suitable comparison group; 
+\end_layout
+
+\begin_layout Itemize
+(2) DNA isolation, genotyping, and data review to ensure high genotyping
+ quality; 
+\end_layout
+
+\begin_layout Itemize
+(3) statistical tests for associations between the SNPs pass- ing quality
+ thresholds and the disease/ trait; and 
+\end_layout
+
+\begin_layout Itemize
+(4) replication of identified associations in an independent population
+ sample or examination of functional implications experimentally.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Ten Basic Questions to Ask About a Genome-wide Association Study Reporta
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+5.
+ Were appropriate quality control measures applied to genotyping assays,
+ in- cluding visual inspection of cluster plots and replication on an independen
+t genotyping platform?
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Hunter2008: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Thus, the sine qua non for belief in any specific result from a genomewide
+ association study is not the strength of the P value in the initial study,
+ but the consistency and strength of the association across one or more
+ large-scale replication studies.
+ Robust replication should permit the identification of true positive results
+ and the weeding out of false positive results.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+http://rescience.github.io/faq/
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Replication of a scientific study (computational or other) means repeating
+ a published protocol, respecting its spirit and intentions but varying
+ the technical details.
+ For computational work, this would mean using different software, running
+ a simulation from different initial conditions, etc.
+ The idea is to change something that everyone believes shouldn’t matter,
+ and see if the scientific conclusions are affected or not.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+easyGWAS: A Cloud-Based Platform for Comparing the Results of Genome-Wide
+ Association Studies:
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The ever-growing availability of high-quality genotypes for a multitude
+ of species has enabled researchers to explore the underlying genetic architectu
+re of complex phenotypes at an unprecedented level of detail using genome-wide
+ association studies (GWAS).
+ The systematic comparison of results obtained from GWAS of different traits
+ opens up new possibilities, including the analysis of pleiotropic effects.
+ Other advantages that result from the integration of multiple GWAS are
+ the ability to replicate GWAS signals and to increase statistical power
+ to detect such signals through meta-analyses.
+ In order to facilitate the simple comparison of GWAS results, we present
+ easyGWAS, a powerful, species-independent online resource for computing,
+ storing, sharing, annotating, and comparing GWAS.
+ The easyGWAS tool supports multiple species, the uploading of private genotype
+ data and summary statistics of existing GWAS, as well as advanced methods
+ for comparing GWAS results across different experiments and data sets in
+ an interactive and user-friendly interface.
+ easyGWAS is also a public data repository for GWAS data and summary statistics
+ and already includes published data and results from several major GWAS.
+ We demonstrate the potential of easyGWAS with a case study of the model
+ organism Arabidopsis thaliana, using flowering and growth-related traits.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Threshold
+\begin_inset CommandInset label
+LatexCommand label
+name "Threshold:"
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Rosyara2016
+\series default
+: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Three different methods are available in GWASpoly for establishing a p-value
+ detection threshold for statisti- cal significance.
+ The first is the Bonferroni correction, which uses a threshold of a/m to
+ ensure the genome- wide type I error with m markers is no greater than
+ a.
+ The second approach is the random permutation test, in which phenotypes
+ are randomly permuted to explicitly construct the genome-wide null distribution
+ of p-values (Churchill and Doerge, 1994).
+ The third option uses the qvalue package (Storey and Tibshirani, 2003)
+ to control the genome-wide false discovery rate (rather than Type I error
+ = probability of false positive).
+ For the simulations, due to their computationally intensive nature, we
+ used the Bonferroni correction with a = 0.05.
+ For the analysis of the real potato data, we used the permutation test
+ with 1000 permutations and genome-wide a = 0.05.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gumpinger2018
+\series default
+: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+In a traditional (univariate) genome-wide association study, a measure of
+ association or statistical dependence between each individual SNP and the
+ phenotype is computed.
+ Then a p-value is derived for each association score, which represents
+ the probability of observing an association signal of the same strength
+ or stronger under the null hypothesis of no association between the SNP
+ and the phenotype.
+ If the p-value falls below a predefined significance threshold α, commonly
+ 0.01 or 0.05, the null hypothesis is rejected, which means that there is
+ an association between the SNP and the phenotype.
+ Despite the strong evidence against the null hypothesis in this case, there
+ remains a chance of α∗ 100% that the low p-value is purely due to random
+ chance and that the detected association is therefore a false positive
+ result.
+ Avoiding false positive findings is among the major challenges in GWAS.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Manhattan
+\begin_inset space ~
+\end_inset
+
+plots
+\begin_inset CommandInset label
+LatexCommand label
+name "Manhattanplots:"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ferrao2018: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Manhattan plots displaying the significance threshold for each locus in
+ their genomic location are shown in Supplementary Figures
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Powel2016:
+\series default
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The first is the Manhattan plot, which plots the P value of each variant
+ against its position (see the figure).
+ The x-axis represents the genomic location.
+ The y-axis is the –log(P value).
+ The logarithmic scale is used so that the most significant single-nucleotide
+ polymorphisms (SNPs) stand out with higher values than the majority of
+ non-significant SNPs.
+ A reference line is used on the y-axis to reflect genome-wide significance,
+ occasionally with a second line to represent a ‘suggestive significance’
+ threshold.
+ Owing to the expectation of linkage disequilibrium (LD), a single highly
+ significant SNP on its own is often interpreted as a genotyping error.
+ Columns of significant SNPs in LD with the truly causal variant are seen
+ in human studies, although this expectation is dependent on the LD of the
+ organism.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gumpinger2018
+\series default
+: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+In a Manhattan plot [42], each dot corresponds to one genetic marker (SNP).
+ Its genetic location is indicated on the x-axis, and the –log10 of its
+ p-value on the y-axis (see plots in second column of Fig.
+ 3a–d).
+ This transformation results in SNPs with low p- values (and therefore stronger
+ association) to have high values on the y-axis.
+ Due to LD, SNPs in close proximity to each other show similar association
+ to the phenotype, resulting in spikes in close proximity to SNPs with low
+ p-values.
+ This resembles the Manhattan skyline and gave rise to the term Manhattan
+ plot.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Tan2016: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Associations between phenotypes and genetic markers are outputted to tab-delimit
+ed text files (Supplemental Table S1) and displayed as Manhattan plots.
+ Genetic markers are positioned by their chromosomes and ordered by their
+ base-pair positions.
+ Genetic markers on adjacent chromo- somes are displayed with different
+ colors.
+ The strength of the association signal is displayed in two ways.
+ One indicator of strength is the height on the vertical axis for –log P-values;
+ 
+\series bold
+the greater the height, the stronger the associa- tio
+\series default
+n (Fig.
+ 4).
+ The other indicator is the degree of filling in the dots; the greater the
+ area filled within the dot, the stronger the association.
+ Users can place vertical lines at specific positions along the x-axis to
+ identify candidate genes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+QQ-plots
+\begin_inset CommandInset label
+LatexCommand label
+name "QQ-plots:"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This figure is called a Q-Q plot and can be very useful in evaluating GWAS
+ data for systematic bias.
+\end_layout
+
+\begin_layout Itemize
+Two types of plot are used to visualize the results of genome-wide association
+ studies (GWAS).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pearson2008: 
+\series default
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+The Q-Q plot is used to assess the number and magnitude of observed associations
+ between genotyped single- nucleotide polymorphisms (SNPs) and the disease
+ or trait under study
+\series default
+, compared to the association statistics expected under the null hypothesis
+ of no association.
+ Observed association statistics (eg, ?2 or t statistics) or −log10 P values
+ calculated from them, are ranked in order from smallest to largest on the
+ y-axis and plotted against the distribution that would be expected under
+ the null hypothesis of no association on the x-axis.
+ Deviations from the identity line suggest either that the assumed distribution
+ is incorrect or that the sample contains values arising in some other manner,
+ as by a true association.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Powel2016:
+\series default
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The second is the quantile-quantile (QQ) plot, which compares the distribution
+ of –log(P value)s observed in the study (y-axis) with the expected distribution
+ under the null hypothesis (x-axis; see the figure).
+ 
+\series bold
+\color blue
+Departure of observed SNP P values from the y = x reference line may reflect
+ systematic inflation in the test statistics owing to population stratification.
+ However, a departure from this line is also expected for a truly polygenic
+ trait, as many causal SNPs may not yet have reached genome-wide significance
+ owing to a lack of power.
+
+\series default
+ 
+\color inherit
+This will lead to an excess of low P values across all SNPs.
+ As a result, it is the point at which the observed –log(P value)s depart
+ the y = x distribution that is important.
+ Inflated –log(P value)s for all SNPs reflects population stratification,
+ w
+\series bold
+hereas polygenicity should lead to inflation for only those SNPs with high
+ –log(P value)s.
+
+\series default
+ The QQ plot is, therefore, a qualitative judgement rather than a quantitative
+ one.
+ 
+\series bold
+\color blue
+However, a calculation of the lambda value (λ; also known as the genomic
+ inflation factor), which is derived by dividing the median value of the
+ observed chi-squared statistic by the median expected chi-squared statistic
+ (for P = 0.5), 
+\series default
+\color inherit
+gives a measure of the inflation in the sample.
+ This should be 1 in the case of the null and is generally seen as inflation
+ if above 1.05.
+ The lambda value can be weighted by sample size to avoid polygenic inflation,
+ as larger samples have the power to detect inflation owing to many SNPs
+ of small effect.
+ In this case, λ1000 is used to get an inflation estimate proportional to
+ a GWAS that contained only 1,000 samples.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gumpinger2018: 
+\series default
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Under the null-hypothesis of no association, p-values follow a uniform distribut
+ion.
+ Quantile-quantile (Q-Q) plots illustrate this expected distribution of
+ p-values compared to the observed distribution.
+ In a Q-Q plot, 
+\series bold
+\color blue
+each dot corresponds to one SNP, and its position corresponds to its expected
+ p-value (x-axis) against its observed p-value (y-axis)
+\series default
+\color inherit
+ in –log10 space (see plots in first column ofFig.
+ 3).
+ 
+\series bold
+Under the general assumption in GWAS that only a small portion of the SNPs
+ are associated to the phenotype [56], the majority of the expected and
+ observed values should coincide (i.e., lie on the bisecting line of the plot).
+
+\series default
+ Deviations for a high number of markers, especially in the range of intermediat
+e to high p-values, indicate the presence of confounders that artificially
+ inflate the p-values (e.g., Fig.
+ 3a).
+ This
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Rosyara2016
+\series default
+: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+A key diagnostic for GWAS is a quantile-quantile plot of the observed vs.
+ expected –log p values, which should follow a uniform distribution under
+ the null hypothesis.
+ The inflation of p-values above the y = x line in such a plot is an indicator
+ of the failure of the model to control for population structure.
+ Inflation was quantified by the linear regression coefficient of the observed
+ vs.
+ expected – log10 p-values, denoted l, which has a value of 1 under the
+ null hypothesis (Riedelsheimer et al., 2012)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Childs2012: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+Another approach is to visually observe how the most significant P values
+ deviate from the expected distribution.
+
+\series default
+ Ideally, a higher than expected fraction of marker-associated P values
+ will be skewed toward significant values.
+ To assist in this form of analysis, quantile-quantile plots of the association
+ values per trait are available.
+ Such plots are a scatterplot of the expected and observed distributions
+ that allow deviations to be clearly identified.
+ Points that are noticeably different from the diagonal or deviate from
+ the trend are potential candidates for further examination.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Tan2016: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+First, QQ plots illustrate how well the majority of genetic markers fit
+ the null hypothesis (i.e., the markers that are not associated with the phenotype
+).
+ A red line indicates the expectation.
+ The area of the 95% confidence interval is filled in gray.
+ The dots above the confidence interval on the right indicate the genetic
+ markers that are associated with the phenotype.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+False_negatives:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Gumpinger2018:
+\series default
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Similar to the importance of avoiding false positive findings in GWAS, it
+ is equally crucial to avoid missing true associations, the so-called false
+ negatives.
+ False negatives occur when the statistical signal of the marker is not
+ strong enough to reach genome- wide significance.
+ Possible reasons for this are (a) little evidence in the data to support
+ the statistical association, e.g., because of a small sample size, or (b)
+ the significance threshold being too low.
+ In
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Logarithm_scale:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Powel2016: 
+\series default
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The logarithmic scale is used so that the most significant single-nucleotide
+ polymorphisms (SNPs) stand out with higher values than the majority of
+ non-significant SNPs.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+GWAS_statistical_models:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Anonymous: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+When dealing with quantitative phenotypes, linear regression approaches
+ are usually applied, often based on Generalised Linear Models (GLMs) and
+ Mixed Linear Models (MLMs).
+ MLMs are also known as Linear Mixed Models (LMMs) in the literature.
+ In this work, we will also refer to them as LMMs 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Inflation_factor:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Gumpinger2018:
+\series default
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Deviations for a high number of markers, especially in the range of intermediate
+ to high p-values, indicate the presence of confounders that artificially
+ inflate the p-values (e.g., Fig.
+ 3a).
+ This inflation can be caused, for example, by population structure or cryptic
+ relatedness among the individuals.
+ As mentioned in Subheadings 1.3.1 and 3.4—for population structure—a correction
+ needs to be performed in order to avoid reporting false positive results
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Multiple_hypothesis_testing:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Childs2012: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+As the very nature of GWAS involves hundreds of thousands of accession-phenotype
+ association tests, multiple testing correction needs to be addressed.
+ To this end, the Benjamini-Hochberg method (Benjamini and Hochberg, 1995)
+ is employed to correct the pro- vided P values.
+ Another approach is to visually ob- serve how the most significant P values
+ deviate from the expected distribution.
+ Ideally, a higher than ex- pected fraction of marker-associated P values
+ will be skewed toward significant values.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Inflation_factor: 
+\end_layout
+
+\begin_layout Itemize
+Powel2016: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+However, a calculation of the lambda value (λ; also known as the genomic
+ inflation factor), which is derived by dividing the median value of the
+ observed chi-squared statistic by the median expected chi-squared statistic
+ (for P = 0.5)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Gumpinger2018: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+A common way to assess the degree of population structure in the data is
+ to compute the genomic inflation factor λGC [55].
+ It describes the deviation of the median of the observed test statistics
+ from the median of the expected test statistics.
+ Since the distribution of the test statistics under the null hypothesis
+ is known (either because there is a closed form representation, or because
+ it has been derived empirically using permutation testing), so is its median.
+ Considering the assumption that most of the SNPs are not associated with
+ the trait, λGC should be close to one if no confounder is present [56].
+ If λGC is inflated (larger than 1) or deflated (lower than 1), a correction
+ for population structure is recommended to avoid false positives or false
+ negatives, respectively.
+ The inflation or deflation of p-values can be easily visualized in a Q-Q
+ plot (refer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Formats:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+http://zzlab.net/blink/BLINK_User_Manual.pdf: 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Phenotype file is coded as text file with extension of “txt”.
+ The file name must be the same as genotype file(s) so they can be analyzed
+ together.
+ BLINK supports multiple traits.
+ The first column is reserved for individual name.
+ Each trait occupies one column.
+ The first row is reserved as the header of each column.
+ The following figure demonstrates the first eight rows of the phenotype
+ file from the demonstration dataset.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

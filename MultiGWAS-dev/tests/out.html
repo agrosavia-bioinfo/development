@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Naive report</title>
+
+<script src="out_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="out_files/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="out_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="out_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="out_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="out_files/navigation-1.1/tabsets.js"></script>
+<link href="out_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="out_files/highlightjs-9.12.0/highlight.js"></script>
+<script src="out_files/kePrint-0.0.1/kePrint.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Naive report</h1>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#input-parameters"><span class="toc-section-number">1</span> Input Parameters</a></li>
+<li><a href="#best-ranked-snps"><span class="toc-section-number">2</span> Best-ranked SNPs</a><ul>
+<li><a href="#table-of-best-ranked-snps"><span class="toc-section-number">2.1</span> Table of best-ranked SNPs</a></li>
+<li><a href="#venn-diagram-of-best-ranked-snps"><span class="toc-section-number">2.2</span> Venn diagram of best-ranked SNPs</a></li>
+</ul></li>
+<li><a href="#significative-snps"><span class="toc-section-number">3</span> Significative SNPs</a><ul>
+<li><a href="#table-of-significative-snps"><span class="toc-section-number">3.1</span> Table of significative SNPs</a></li>
+<li><a href="#venn-diagram-of-significative-snps"><span class="toc-section-number">3.2</span> Venn diagram of significative SNPs</a></li>
+</ul></li>
+<li><a href="#manhattan-and-qq-plots"><span class="toc-section-number">4</span> Manhattan and QQ plots</a></li>
+<li><a href="#profiles-for-common-significative-snps"><span class="toc-section-number">5</span> Profiles for common significative SNPs</a></li>
+</ul>
+</div>
+
+<p>This report, created by the MultiGWAS tool, is a summary of the input parameters used to run the tool and its main outputs. The outputs include the best-ranked and significative SNPs found for each tool. For each one, there is a score table, Venn diagram, and an SNP profile.</p>
+<div id="input-parameters" class="section level1">
+<h1><span class="header-section-number">1</span> Input Parameters</h1>
+<p>MultiGWAS uses as input a configuration file where the user specifies the input genomic data (genotype and phenotype files) along with different values for parameters used by the MultiGWAS tool and by the other four GWAS software (GWASpoly, SHEsis, PLINK, and TASSEL).</p>
+<p>The following table shows the current input parameters specified by the user in the configuration file:</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+PARAMETER
+</th>
+<th style="text-align:left;">
+VALUE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Genotype filename
+</td>
+<td style="text-align:left;">
+example-genotype.tbl
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Phenotype filename
+</td>
+<td style="text-align:left;">
+example-phenotype.tbl
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Significance level (Genome-wide significance level)
+</td>
+<td style="text-align:left;">
+0.05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Correction method (Bonferroni or FDR)
+</td>
+<td style="text-align:left;">
+Bonferroni
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GWAS model (Full or Naive)
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NBest (Number of best-ranked SNPs to be reported)
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Filtering (TRUE or FALSE)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MIND Filter (Individual with missing genotype)
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GENO Filter (SNPs with missing genotype)
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MAF Filter (Minor allele frequency)
+</td>
+<td style="text-align:left;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HWE Filter (Hardy-Weinberg test)
+</td>
+<td style="text-align:left;">
+1e-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="best-ranked-snps" class="section level1">
+<h1><span class="header-section-number">2</span> Best-ranked SNPs</h1>
+<p>This section shows a table and a Venn diagram for the best ranked SNPs (For this report, N=5). The configuration file allows defining the parameter N.</p>
+<div id="table-of-best-ranked-snps" class="section level2">
+<h2><span class="header-section-number">2.1</span> Table of best-ranked SNPs</h2>
+<p>The following table shows the associations between SNPs and the trait as transformed p-values to scores as -log 10 (p-value) sorted from the highest to the lowest scores based on each tool analysis and the model selected (Full or Naive). Each SNP has its associated information, such as the chromosome, position in the genome, and name. Also, based on the threshold calculated by a multiple testing correction (i.e., Bonferroni or FDR), the table marks the significance of each SNP as a TRUE or FALSE.</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+TOOL
+</th>
+<th style="text-align:left;">
+MODEL
+</th>
+<th style="text-align:right;">
+CHROM
+</th>
+<th style="text-align:right;">
+POSITION
+</th>
+<th style="text-align:left;">
+SNP
+</th>
+<th style="text-align:right;">
+PVALUE
+</th>
+<th style="text-align:right;">
+SCORE
+</th>
+<th style="text-align:right;">
+THRESHOLD
+</th>
+<th style="text-align:left;">
+SIGNIFICANCE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+GWASpoly
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+48863165
+</td>
+<td style="text-align:left;">
+c1_8019
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+11.560000
+</td>
+<td style="text-align:right;">
+4.500000
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GWASpoly
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+48020996
+</td>
+<td style="text-align:left;">
+c1_13526
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10.610000
+</td>
+<td style="text-align:right;">
+4.500000
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GWASpoly
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+70371898
+</td>
+<td style="text-align:left;">
+c2_53380
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10.370000
+</td>
+<td style="text-align:right;">
+4.500000
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GWASpoly
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+48808404
+</td>
+<td style="text-align:left;">
+c2_25471
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+9.890000
+</td>
+<td style="text-align:right;">
+4.500000
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLINK
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+32820618
+</td>
+<td style="text-align:left;">
+c2_11977
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.848054
+</td>
+<td style="text-align:right;">
+3.283301
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLINK
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+13697423
+</td>
+<td style="text-align:left;">
+c1_8019
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+5.040577
+</td>
+<td style="text-align:right;">
+3.301030
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLINK
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+46046095
+</td>
+<td style="text-align:left;">
+c2_53380
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4.967240
+</td>
+<td style="text-align:right;">
+3.260071
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLINK
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+72026885
+</td>
+<td style="text-align:left;">
+c2_47760
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4.771482
+</td>
+<td style="text-align:right;">
+3.292256
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SHEsis
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+46046095
+</td>
+<td style="text-align:left;">
+c2_53380
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+9.497204
+</td>
+<td style="text-align:right;">
+3.313867
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SHEsis
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+13697423
+</td>
+<td style="text-align:left;">
+c1_8019
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+8.031405
+</td>
+<td style="text-align:right;">
+3.357935
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SHEsis
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+30837971
+</td>
+<td style="text-align:left;">
+c1_13526
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7.933190
+</td>
+<td style="text-align:right;">
+3.330414
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SHEsis
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+32820618
+</td>
+<td style="text-align:left;">
+c2_11977
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.565176
+</td>
+<td style="text-align:right;">
+3.334454
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TASSEL
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+3515956
+</td>
+<td style="text-align:left;">
+c2_11977
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+8.830326
+</td>
+<td style="text-align:right;">
+4.549984
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TASSEL
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+48863165
+</td>
+<td style="text-align:left;">
+c1_8019
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7.040577
+</td>
+<td style="text-align:right;">
+4.549984
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TASSEL
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+70371898
+</td>
+<td style="text-align:left;">
+c2_53380
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.926245
+</td>
+<td style="text-align:right;">
+4.549984
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TASSEL
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+46270954
+</td>
+<td style="text-align:left;">
+c2_54811
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.859964
+</td>
+<td style="text-align:right;">
+4.549984
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="venn-diagram-of-best-ranked-snps" class="section level2">
+<h2><span class="header-section-number">2.2</span> Venn diagram of best-ranked SNPs</h2>
+<p>The Venn diagram shows the best-ranked SNPs with high scores that are either unique or shared by the four software. Shared SNPs appear in the intersection areas of the diagram.</p>
+<p><input type="image" src="report/out-multiGWAS-vennDiagram-best.png" alt = "Floating .png"
+  data-external="1"></p>
+<p><img src="report/out-multiGWAS-vennDiagram-best.png" width="240" style="display: block; margin: auto;" /> <img src="report/out-multiGWAS-vennDiagram-best.png" alt="Venn diagram for best SNPs" /></p>
+</div>
+</div>
+<div id="significative-snps" class="section level1">
+<h1><span class="header-section-number">3</span> Significative SNPs</h1>
+<p>This section shows a table and a Venn diagram for the signifcative SNPs (score is above the significance threshold for each tool).</p>
+<div id="table-of-significative-snps" class="section level2">
+<h2><span class="header-section-number">3.1</span> Table of significative SNPs</h2>
+<p>The following table shows the associations between SNPs and the trait as transformed p-values to scores as -log 10 (p-value) sorted from the highest to the lowest scores based on each tool analysis and the model selected (Full or Naive). Each SNP has its associated information, such as the chromosome, position in the genome, and name.</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+TOOL
+</th>
+<th style="text-align:left;">
+MODEL
+</th>
+<th style="text-align:right;">
+CHROM
+</th>
+<th style="text-align:right;">
+POSITION
+</th>
+<th style="text-align:left;">
+SNP
+</th>
+<th style="text-align:right;">
+PVALUE
+</th>
+<th style="text-align:right;">
+SCORE
+</th>
+<th style="text-align:right;">
+THRESHOLD
+</th>
+<th style="text-align:left;">
+SIGNIFICANCE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+GWASpoly
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+48863165
+</td>
+<td style="text-align:left;">
+c1_8019
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+11.560000
+</td>
+<td style="text-align:right;">
+4.500000
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GWASpoly
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+48020996
+</td>
+<td style="text-align:left;">
+c1_13526
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10.610000
+</td>
+<td style="text-align:right;">
+4.500000
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GWASpoly
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+70371898
+</td>
+<td style="text-align:left;">
+c2_53380
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10.370000
+</td>
+<td style="text-align:right;">
+4.500000
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GWASpoly
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+48808404
+</td>
+<td style="text-align:left;">
+c2_25471
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+9.890000
+</td>
+<td style="text-align:right;">
+4.500000
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLINK
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+32820618
+</td>
+<td style="text-align:left;">
+c2_11977
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.848054
+</td>
+<td style="text-align:right;">
+3.283301
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLINK
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+13697423
+</td>
+<td style="text-align:left;">
+c1_8019
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+5.040577
+</td>
+<td style="text-align:right;">
+3.301030
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLINK
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+46046095
+</td>
+<td style="text-align:left;">
+c2_53380
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4.967240
+</td>
+<td style="text-align:right;">
+3.260071
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PLINK
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+72026885
+</td>
+<td style="text-align:left;">
+c2_47760
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4.771482
+</td>
+<td style="text-align:right;">
+3.292256
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SHEsis
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+46046095
+</td>
+<td style="text-align:left;">
+c2_53380
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+9.497204
+</td>
+<td style="text-align:right;">
+3.313867
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SHEsis
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+13697423
+</td>
+<td style="text-align:left;">
+c1_8019
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+8.031405
+</td>
+<td style="text-align:right;">
+3.357935
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SHEsis
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+30837971
+</td>
+<td style="text-align:left;">
+c1_13526
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7.933190
+</td>
+<td style="text-align:right;">
+3.330414
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SHEsis
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+32820618
+</td>
+<td style="text-align:left;">
+c2_11977
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.565176
+</td>
+<td style="text-align:right;">
+3.334454
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TASSEL
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+3515956
+</td>
+<td style="text-align:left;">
+c2_11977
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+8.830326
+</td>
+<td style="text-align:right;">
+4.549984
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TASSEL
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+48863165
+</td>
+<td style="text-align:left;">
+c1_8019
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7.040577
+</td>
+<td style="text-align:right;">
+4.549984
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TASSEL
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+70371898
+</td>
+<td style="text-align:left;">
+c2_53380
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.926245
+</td>
+<td style="text-align:right;">
+4.549984
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TASSEL
+</td>
+<td style="text-align:left;">
+Naive
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+46270954
+</td>
+<td style="text-align:left;">
+c2_54811
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.859964
+</td>
+<td style="text-align:right;">
+4.549984
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="venn-diagram-of-significative-snps" class="section level2">
+<h2><span class="header-section-number">3.2</span> Venn diagram of significative SNPs</h2>
+<p>The Venn diagram shows the significative SNPs that are either unique or shared by the four software. Shared SNPs appear in the intersection areas of the diagram.</p>
+<p><img src="report/out-multiGWAS-vennDiagram-significatives.png" width="240" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="manhattan-and-qq-plots" class="section level1">
+<h1><span class="header-section-number">4</span> Manhattan and QQ plots</h1>
+<p>MultiGWAS uses classical Manhattan and Quantile–Quantile (QQ) plots to visually summarize GWAS results and identify both best-ranked and significative SNPs for each GWAS software. The Manhattan plot shows each SNPs distributed in the genetic location (x-axis) vs. the p-value (y-axis). The best-ranked SNPs are above the blue line and the significative SNPs above the blue line. In green are the SNPs that got high scores in more than one software. The QQ plot plots the observed (black dot lines) vs. expected -log 10 (p-value) (red line).</p>
+<p><img src="report/out-multiGWAS-manhattanQQ-plots.png" width="660" /></p>
+</div>
+<div id="profiles-for-common-significative-snps" class="section level1">
+<h1><span class="header-section-number">5</span> Profiles for common significative SNPs</h1>
+<p>For the common significative SNPs, MultiGWAS provides a figure to visualize each trait by individuals (rows) and genotypes (columns). At the left, the individuals are grouped in a dendrogram by their genotype. At the right, there is the name or ID of each individual. At the bottom, the genotypes are ordered from left to right, starting from the major to the minor allele (i.e., AAAA, AAAB, AABB, ABBB, BBBB). At the top, there is a description of the trait based on a histogram of frequency (top left) and by an assigned color for each numerical phenotype value using a grayscale (top right). Thus, each individual appears as a colored line by its phenotype value on its genotype column. For each column, there is a solid cyan line with the mean of each column and a broken cyan line that indicates how far the cell deviates from the mean.</p>
+<p>Because each multiGWAS report shows one specific trait at a time, the histogram and color key will remain the same for all the best-ranked SNPs.</p>
+<p><img src="report/out-SNPProfile-c1_13526.png" /> <img src="report/out-SNPProfile-c1_8019.png" /> <img src="report/out-SNPProfile-c2_11977.png" /> <img src="report/out-SNPProfile-c2_53380.png" /></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
