@@ -1,0 +1,2 @@
+Dear Prof. Endelman:
+   In your article "Software for Genome-Wide Association Studies in Autopolyploids and Its Application to Potato" you are referring to a simulated potato dataset used to validate your GWASpoly software. I am currently working  
