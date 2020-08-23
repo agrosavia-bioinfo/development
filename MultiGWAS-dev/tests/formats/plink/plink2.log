@@ -1,0 +1,12 @@
+PLINK v2.00a2LM 64-bit Intel (13 Dec 2019)
+Options in effect:
+  --import-dosage plink.raw noheader
+
+Hostname: agro
+Working directory: /home/lg/agrosavia/GWAS/multiGWAS-dev/development/tests/formats/plink
+Start time: Mon Jun  1 16:06:13 2020
+
+Error: --import-dosage requires a .fam file.
+For more info, try "plink2 --help <flag name>" or "plink2 --help | more".
+
+End time: Mon Jun  1 16:06:13 2020

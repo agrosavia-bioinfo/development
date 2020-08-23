@@ -1,0 +1,25 @@
+\section{Discussion}
+%PAULA: Falta discutir un tris los resultados a nivel de informaicón
+%PAULA: Tools diploides vs Tools poliploides en poliploides - dosis de los alelos
+%IVANIA: Hice una revisión general y me parece que lo escrito por Paula está muy bien, solo corregí algunos detallitos. Sin embargo propongo que la discusión siga el mismo orden que se plantea en la intro sobre los problemas de GWAS en poliploides (replicación, diploidización, integración y modelos de allele dosage). O sino, cambiar la intro con el orden propuesto en la discusión (los datos y la herencia). Como sea, ambas secciones deben coincidir para dar un orden y mostrar específicamente el aporte de MultiGWAS en mejorar esos aspectos (17-Julio).
+
+%Paula Consideraciones para polyploides que afectan multiGWAS requieren estudios
+%polyploides allele frequencies (alllele copy number). A way to solve is considering that each allele in partial heterozygotes has an equal likekihood of being present in more tahn one copy
+% HW polyploides autopolyploides tengo dudas si se cumple - porque la segregación es 
+
+The reanalysis of potato data with MultiGWAS showed that this tool is handy to improve the GWAS in tetraploid species. Through MultiGWAS performance, we could test its effectiveness to answer some of the challenges associating phenotypic in a polyploid organism. They include the integration and replication among parameters and software, the diploidization of polyploid data, and the incorporation of allele dosage models (\cite{dufresne2014}). 
+
+The main advantage of MultiGWAS is that replicate the GWAS analysis among four software and integrate the results obtained across software, models and parameters. Depending on the software, users usually have to choose between sensitivity or specificity. But using MultiGWAS, users do not have to choose between both approaches because they can observe their effect in the analysis within the same environment.  
+
+Another difficulty for replication among software is the variability of structures for the genomic input data. Currently, the most common format for next-generation sequencing variant data is the VCF (Variant Call Format) (\cite{Danecek2011}; \cite{Ebbert2014}) . One of the advantages of VCF is the versatility to summarize important genome information for hundreds or thousands of individuals and SNP, including information about levels of ploidy. MultiGWAS different from most of GWAS software available allows the VCF as an input (but see VarStats tool in VTC).  
+
+Moreover, the MultiGWAS is the unique tool as far as we know that allows us to compare the effect of diploidized the tetraploid data in the performance of the analysis directly. The graphic outputs are a handy approach to find similar results. The SNP profile allows identifying what the significant associations detected by more than one software are. Furthermore, although MultiGWAS check for significative SNPs based on the p-value, it is essential to go back to the data and check if the SNP is a real association between the genotype and phenotype. For this purpose, the SNP profile gives visual feedback for the accuracy of the association.
+
+
+
+Finally, the MultyGWAS allows comparing among the gene action models that offer GWASPoly and TASSEL.  GWASpoly (\cite{Rosyara2016}) provides models of different types of polyploid gene action including additive, diploidized additive, duplex dominant, simplex dominant, and general. On the other hand, TASSEL (\cite{Bradbury2007}) also models different types of gene action for diploids general, additive and dominant. To choose among models, We propose an automatic selection of the gene action model for both tools based on a balance between three criteria: the inflation factor, the replicability of identified SNPs and the significance of identified SNPs. 
+This inflation index is a new tool for comparison that do not offer either GWASPoly or TASSEL. This automatic strategy will help to understand the gene action model for the trait of interest. Even though the main focus is on the resultant SNPs, the model has assumptions that reflect the gene actions for a specific phenotype.
+
+On the other hand, although MultyGWAS does not solve the uncertainty in the allele dosage and null alleles, However the active comparison among models that MultiGWAS addresses the search of the inheritance mechanisms by comparing among two designed for polysomic inheritance software (\cite{Rosyara2016, Shen2016}) with two software for disomic inheritance (\cite{Purcell2007, Bradbury2007}). Understanding the inheritance mechanisms for polyploids organism is an open question. For autopolyploids, most loci have a polysomic heritage. However, sections of the genome that did not duplicate lead to disomic inheritance for some loci (\cite{ohno1970, lynch2000,dufresne2014}). Thus it is a useful tool for researchers because it looks for significative associations that involve both types of inheritance.
+
+%Thus, we are positive that any tool that allows comparing among models and tools will help to improve the variant calling stage accuracy for current software.

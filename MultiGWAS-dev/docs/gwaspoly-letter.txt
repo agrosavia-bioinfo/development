@@ -1,0 +1,8 @@
+Dear Prof. Endelman:
+
+   In your article "Software for Genome-Wide Association Studies in Autopolyploids and Its Application to Potato" you are referring to a  simulated autotetraploid datasets (400 individuals and 600 markers)  used to validate your GWASpoly software, and which are not in the supplementary information of the  article.  
+
+  Currently, I am working in a postdoctoral research analyzing the genomic information of a native tetraploid potato from the Colombian germplasm bank, developing a tool to integrate GWAS results from tetraploid and diploid packages (including GWASpoly). And I would like to ask you if you could send me this simulated dataset (or giving a link access) for further analysis as it would help me to analyze the effect having the diploid tools when diploidizing a tetraploid genomic and how to select the best gene action model.
+
+Thank you in advance.
+Best regards

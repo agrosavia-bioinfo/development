@@ -1,0 +1,19 @@
+#!/bin/bash
+#Command to run SMARTPCA:
+#To use this script, make sure that program SMARTPCA,ploteig,smarteigenstrat and twstats  are executable and saved respectively with these names in the same folder from where you run fcGENE.
+#If this is not the case, you should give its  path and name while excuting above commands.
+#If necessary, you can also edit (add/delete) the necessary command options in file: fcgene_out_smartpca.par
+./smartpca -p fcgene_out_smartpca.par>fcgene_out_smartpca_screenOutput.txt 
+#construct a pca plot using ploteig
+./ploteig -i fcgene_out.evec -c 1:2 -p Case:Control -x .pdf -o fcgene_out.xtxt 
+#create an  *.pca file necessary for eigenstrat 
+#Before running the following command, please replace k with  the number of principal components in example.evec file (e.g. 10)
+cols=$(sed -n 2p smartpca/example.evec |awk '{print  NF  }') 
+k=$(echo $cols-2 | bc) 
+./evec2pca.perl $k fcgene_out.evec fcgene_out.pedind fcgene_out.pca
+#run eigenstrat using the following command 
+./smarteigenstart -p fcgene_out_eigenstrat.par>fcgene_out_eigenstrat_screenOutput.txt 
+#To calculate  Tracy-Widom statistics to evaluate the statistical significance of each principal component identified by pca (Patterson et al. 2006): 
+#use twstats program.
+#Make sure that twtable is contained in current folder. 
+./twstats -t twtable -i fcgene_out.eval -o fcgene_out_twstats.txt 

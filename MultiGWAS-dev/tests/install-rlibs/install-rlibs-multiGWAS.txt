@@ -1,0 +1,11 @@
+GWASpoly
+parallel
+config
+dplyr
+stringi
+vcfR
+qqman
+VennDiagram
+RColorBrewer
+circlize
+gplots 

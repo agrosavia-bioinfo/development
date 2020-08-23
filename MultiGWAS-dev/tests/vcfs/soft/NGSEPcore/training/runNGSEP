@@ -1,0 +1,14 @@
+p=$1;
+f=$2;
+t=$3;
+
+ # input files
+REFERENCE=/path/to/reference/reference.fa;
+
+ # software variables. Write paths only if you can not install the programs or can not use installed versions
+JAVA="/path/to/java -d64 -XX:MaxHeapSize=1g";
+
+ # jars for java packages
+NGSEP=/path/to/NGSEPcore.jar;
+
+${JAVA} -Xmx4g -jar ${NGSEP} SingleSampleVariantsDetector -ignore5 ${f} -ignore3 ${t} -maxBaseQS 30 -minQuality 40 -maxAlnsPerStartPos 2 -sampleId ${p} -r ${REFERENCE} -i ${p}_sorted.bam -o ${p}_NGSEP >& ${p}_NGSEP.log;

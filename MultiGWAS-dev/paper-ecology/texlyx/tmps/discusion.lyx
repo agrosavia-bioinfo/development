@@ -1,0 +1,269 @@
+#LyX file created by tex2lyx 2.2
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /home/lg/agrosavia/GWAS/MultiGWAS-dev/development/paper-ecology/overleaf/jul15-lyx/tmps/
+\textclass article
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%PAULA: Falta discutir un tris los resultados a nivel de informaicÃ³n
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%PAULA: Tools diploides vs Tools poliploides en poliploides - dosis de los alelos
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%IVANIA: Hice una revisiÃ³n general y me parece que lo escrito por Paula estÃ¡ muy bien, solo corregÃ­ algunos detallitos. Sin embargo propongo que la discusiÃ³n siga el mismo orden que se plantea en la intro sobre los problemas de GWAS en poliploides (replicaciÃ³n, diploidizaciÃ³n, integraciÃ³n y modelos de allele dosage). O sino, cambiar la intro con el orden propuesto en la discusiÃ³n (los datos y la herencia). Como sea, ambas secciones deben coincidir para dar un orden y mostrar especÃ­ficamente el aporte de MultiGWAS en mejorar esos aspectos (17-Julio).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%Paula Consideraciones para polyploides que afectan multiGWAS requieren estudios
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%polyploides allele frequencies (alllele copy number). A way to solve is considering that each allele in partial heterozygotes has an equal likekihood of being present in more tahn one copy
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% HW polyploides autopolyploides tengo dudas si se cumple - porque la segregaciÃ³n es 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The reanalysis of potato data with MultiGWAS showed that this tool is handy to improve the GWAS in tetraploid species. Through MultiGWAS performance, we could test its effectiveness to answer some of the challenges associating phenotypic in a polyploid organism. They include the integration and replication among parameters and software, the diploidization of polyploid data, and the incorporation of allele dosage models (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "dufresne2014"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The main advantage of MultiGWAS is that replicate the GWAS analysis among four software and integrate the results obtained across software, models and parameters. Depending on the software, users usually have to choose between sensitivity or specificity. But using MultiGWAS, users do not have to choose between both approaches because they can observe their effect in the analysis within the same environment.
+\end_layout
+
+\begin_layout Standard
+Another difficulty for replication among software is the variability of structures for the genomic input data. Currently, the most common format for next-generation sequencing variant data is the VCF (Variant Call Format) (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Danecek2011"
+
+\end_inset
+
+; 
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Ebbert2014"
+
+\end_inset
+
+) . One of the advantages of VCF is the versatility to summarize important genome information for hundreds or thousands of individuals and SNP, including information about levels of ploidy. MultiGWAS different from most of GWAS software available allows the VCF as an input (but see VarStats tool in VTC).
+\end_layout
+
+\begin_layout Standard
+Moreover, the MultiGWAS is the unique tool as far as we know that allows us to compare the effect of diploidized the tetraploid data in the performance of the analysis directly. The graphic outputs are a handy approach to find similar results. The SNP profile allows identifying what the significant associations detected by more than one software are. Furthermore, although MultiGWAS check for significative SNPs based on the p-value, it is essential to go back to the data and check if the SNP is a real association between the genotype and phenotype. For this purpose, the SNP profile gives visual feedback for the accuracy of the association.
+\end_layout
+
+\begin_layout Standard
+Finally, the MultyGWAS allows comparing among the gene action models that offer GWASPoly and TASSEL. GWASpoly (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Rosyara2016"
+
+\end_inset
+
+) provides models of different types of polyploid gene action including additive, diploidized additive, duplex dominant, simplex dominant, and general. On the other hand, TASSEL (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Bradbury2007"
+
+\end_inset
+
+) also models different types of gene action for diploids general, additive and dominant. To choose among models, We propose an automatic selection of the gene action model for both tools based on a balance between three criteria: the inflation factor, the replicability of identified SNPs and the significance of identified SNPs. This inflation index is a new tool for comparison that do not offer either GWASPoly or TASSEL. This automatic strategy will help to understand the gene action model for the trait of interest. Even though the main focus is on the resultant SNPs, the model has assumptions that reflect the gene actions for a specific phenotype.
+\end_layout
+
+\begin_layout Standard
+On the other hand, although MultyGWAS does not solve the uncertainty in the allele dosage and null alleles, However the active comparison among models that MultiGWAS addresses the search of the inheritance mechanisms by comparing among two designed for polysomic inheritance software (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Rosyara2016, Shen2016"
+
+\end_inset
+
+) with two software for disomic inheritance (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "Purcell2007, Bradbury2007"
+
+\end_inset
+
+). Understanding the inheritance mechanisms for polyploids organism is an open question. For autopolyploids, most loci have a polysomic heritage. However, sections of the genome that did not duplicate lead to disomic inheritance for some loci (
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "ohno1970, lynch2000,dufresne2014"
+
+\end_inset
+
+). Thus it is a useful tool for researchers because it looks for significative associations that involve both types of inheritance.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%Thus, we are positive that any tool that allows comparing among models and tools will help to improve the variant calling stage accuracy for current software.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

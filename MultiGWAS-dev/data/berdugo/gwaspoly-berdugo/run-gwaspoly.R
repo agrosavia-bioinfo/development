@@ -1,0 +1,1 @@
+/home/lg/agrosavia/GWAS/multiGWAS-dev/development/data/berdugo/gwaspoly-berdugo/dev/run-gwaspoly.R

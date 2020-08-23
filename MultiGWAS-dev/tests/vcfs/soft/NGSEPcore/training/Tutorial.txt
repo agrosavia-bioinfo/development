@@ -1,0 +1,233 @@
+                          Getting started with NGSEP
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Requirements:
+    - Java 1.8
+    - File picard.jar. Download from http://github.com/broadinstitute/picard/releases/latest)
+    - Samtools. Follow instructions at http://samtools.sourceforge.net/  
+
+Tutorial:
+  0. Create a Working Directory
+  1. Obtain the data
+  2. Install NGSEP
+  3. Map Reads
+  4. Find Variants
+  5. Genotype Variation
+  6. Annotate the VCF
+  7. Filter the VCF
+  8. Export the Data
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+0. Create a Working Directory
+    The directory structure we suggest is the following:
+
+        ~/path/to/ngsep_tutorial/reads
+                                 reference
+                                 mapping
+                                 genotyping
+                                 population
+
+    To create this directories open a Terminal window, select a place in any disk with more than 10Gb space and type:
+
+        $ cd some/place
+        $ mkdir ngsep_tutorial
+        $ cd ngsep_tutorial
+        $ mkdir reads reference mapping genotyping population
+        $ ls -l
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Obtain the data
+    During this tutorial we are going to use yeast sequencing data because yeast is a small eukaryote, in which we can rapidly test all the features of NGSEP.
+
+    The first step will be to obtain the sequences from public repositories. For this, please refer to the NCBI web page: www.ncbi.nlm.nih.gov and type into the search field: SRA054394. This should take you to the results view. Here, select from the 'Genomes' section the SRA (Sequence Read Archive) option. At this point you should see four ILLUMINA files: two parental strains (CBS4C and ER7A), and two segregant pools (selected and unselected)*.
+
+        * NOTE: If you wish to find out more about this experiment look for Hubmann et al. (2013) Quantitative trait analysis of yeast biodiversity yields novel gene tools for metabolic engineering. Metabolic Engineering 17: Pag 68–81. doi:10.1016/j.ymben.2013.02.006.
+
+    The next step is to download the parental strains files, go back to the NCBI main site (www.ncbi.nlm.nih.gov), go to 'Download -> Download Tools'. 
+    Find there the 'SRA Toolkit', with a link to download it. Follow that link and select from the first list ("1. NCBI SRA Toolkit latest release") the option that matches your Operating System. 
+    Move the 'sratoolkit' package to a convenient directory and uncompress it. 
+    Open a Terminal window and go to the 'reads' directory that you created before
+    
+        $ cd reads
+    
+    To download the SRA files to FASTQ format, type the whole path of the 'sratoolkit' directory and the fastq-dump binary, with the Accession name of the file:
+
+        $ ~/path/to/sratoolkit.VERSION-OS/bin/fastq-dump --gzip --split-files SRR514834 &
+        $ ~/path/to/sratoolkit.VERSION-OS/bin/fastq-dump --gzip --split-files SRR514835 &
+
+    For files this big, the download should take about 20 minutes, depending on your internet connection. When it finishes, you should have four files in the "reads" directory: 
+        SRR514834_1.fastq.gz
+        SRR514834_2.fastq.gz
+        SRR514835_1.fastq.gz
+        SRR514835_2.fastq.gz
+
+    It is a good idea to change the names of the files to match the names of the samples, like this:
+        ER7A_1.fastq.gz
+        ER7A_2.fastq.gz
+        CBS4C_1.fastq.gz
+        CBS4C_2.fastq.gz
+    This are the sample files that are going to be needed throughout the rest of the tutorial.
+    
+    Files related to the reference genome of S. cerevisiae are available at the training directiy of NGSEP:
+    
+    https://sourceforge.net/projects/ngsep/files/training/
+    
+    Download the files starting with "Saccharomyces_cerevisiae" to the "reference" folder
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2. Install NGSEP
+    To get and install NGSEP go to the project site: sourceforge.net/projects/ngsep/, go to the 'Files -> Library' directory. Double-click the latest version of NGSEP
+    (File NGSEPcore_<VERSION>.jar) where <VERSION> is the current version number
+.
+    Move the 'NGSEPcore_<VERSION>.jar' file to a convenient directory. (for example ~/javaPrograms). Test if NGSEP is running correctly by typing in a Terminal window:
+	
+        $ java -jar ~/javaPrograms/NGSEPcore_<VERSION>.jar
+
+    It should produce a list with all the modules that NGSEP has, and a small description of each module.
+
+    To simplify the commands throughout the manuscript, we will remove the version number from the file NGSEPcore_<VERSION>.jar. This can be done either creating a symbolic link:
+
+    ln -s ~/javaPrograms/NGSEPcore_<VERSION>.jar ~/javaPrograms/NGSEPcore.jar
+
+    or just changing the name of the file NGSEPcore_<VERSION>.jar to NGSEPcore.jar. However, for real analysis, we recommend to keep the version name in the file to keep track
+    of the version of the product used at each time.
+
+    We will also assume for simplicity that both the files NGSEPcore.jar and picard.jar are located at the path ~/javaPrograms 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3. Map Reads
+	To start, download the reference genome of Saccharomyces cerevisiae from the 'training' directory in the NGSEP site in the "Files" sheet.
+    The sequence is in FASTA format, the annotation is in gff format and the repeats and STRs are text files.
+    Download all files and save them in the 'reference' directory created at step 0.
+    At this point, you can create a file with the list of sequences in the reference, which will be useful to merge variants from different samples. 
+    To do that use the following awk command:
+
+        $ awk '{ if(substr($1,1,1)==">") print substr($1,2) }' Saccharomyces_cerevisiae.fa > Saccharomyces_cerevisiae_seqNames.txt
+    
+    The result of the samtools faidx command can also be used as list of sequence names.
+    
+    For simplicity, we will always refer to ER7A as an example, but each step must be made for CBS4C too.
+    To map the reads of the sequencing experiment to the reference genome go to the mapping directory and type the following commands:
+
+        $ cd ../mapping/
+
+        $ java -jar ~/javaPrograms/NGSEPcore.jar ReadsAligner -r ../reference/Saccharomyces_cerevisiae.fa -i ../reads/ER7A_1.fastq.gz -i2 ../reads/ER7A_2.fastq.gz -o ER7A.bam >& ER7A_aln.log
+        
+        $ mkdir tmpdir_sort_ER7A
+        $ java -jar ~/javaPrograms/picard.jar SortSam SO=coordinate CREATE_INDEX=true TMP_DIR=tmpdir_sort_ER7A I=ER7A.bam O=ER7A_sorted.bam >& ER7A_sort.log 
+
+    Now you should have a BAM file in the mapping directory, this is a binary file that contains the same reads that were present in the FASTQ files, but aligned to the reference genome. The reads are sorted according to their position in the reference genome.        
+    Finally, it is a good idea to get some statistics about the sequencing experiment. The ones that are most useful are: sequencing quality of each position of the reads, average coverage of each nucleotide in the genome, and average fragment length. To get this statistics use the following commands.
+
+        $ java -jar ~/javaPrograms/NGSEPcore.jar BasePairQualStats -r ../reference/Saccharomyces_cerevisiae.fa -o ER7A_readpos.stats ER7A_sorted.bam 
+        $ java -jar ~/javaPrograms/NGSEPcore.jar CoverageStats -i ER7A_sorted.bam -o ER7A_coverage.stats
+        $ java -jar ~/javaPrograms/picard.jar CollectInsertSizeMetrics I=ER7A_sorted.bam O=ER7A_insertLength.stats H=ER7A_insertLength.pdf
+
+    This should produce a set of files, with the mapping results and some useful statistics from the process:
+        ER7A_aln.log
+        ER7A_coverage.stats
+        ER7A_insertLength.stats
+        ER7A_readpos.stats
+        ER7A_sorted.bai
+        ER7A_sorted.bam
+    
+    After this step, there are two alternatives to discover and genotype variants. If only interested in the type of variants that can be discovered out of the pileup process
+    (SNVs, small indels and short tandem repeats), follow step 4 and then jump to step 6. To learn how to run the sample-by-sample analysis to discover also structural variants
+    from whole genome sequencing data, jump to the step 5a.   
+
+    Note: The last command of Picard requires that R is installed in the computer. If you do not wish to install R, an alternative command to output these statistics using 
+    samtools (http://samtools.sourceforge.net/) is:
+
+	$ samtools view -F 268 ER7A_sorted.bam | awk '{l=$9;if(l>=0){i=sprintf("%d",l/25)+1;if(i<100)a[i]++;else aM++}}END{for(i=1;i<100;i++)print (i-1)*25,a[i];print "More",aM}' > ER7A_insertLength.stats;
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4. Variants discovery and genotyping over multiple samples
+    Once reads of the different samples are aligned to the reference genome, a database of variants can be directly generated running the command MultisampleVariantsDetector
+    as follows:
+    
+        $ java -jar ~/javaPrograms/NGSEPcore.jar MultisampleVariantsDetector -maxBaseQS 30 -maxAlnsPerStartPos 2 -knownSTRs ../reference/Saccharomyces_cerevisiae_STRs.txt -r ../reference/Saccharomyces_cerevisiae.fa -o yeastDemo.vcf CBS4C_sorted.bam ER7A_sorted.bam >& yeastDemoMVD.log
+
+    This command will directly generate the VCF file yeastDemo.vcf with the genotype information of the samples listed at the end of step 1 for the SNVs, indels and STRs that are variable within the samples analyzed.
+    To continue, jump to step 6 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+5a. Find Variants for individual samples
+    In the same directory, perform the detection of Single Nucleotide Variants (SNVs) and Structural Variants (SVs) from each sample, using the SingleSampleVariantsDetector command of NGSEP like this:
+
+        $ java -jar ~/javaPrograms/NGSEPcore.jar SingleSampleVariantsDetector -runRep -runRD -runRP -maxBaseQS 30 -minQuality 40 -maxAlnsPerStartPos 2 -knownSTRs ../reference/Saccharomyces_cerevisiae_STRs.txt -sampleId ER7A -r ../reference/Saccharomyces_cerevisiae.fa -i ER7A_sorted.bam -o ER7A_NGSEP >& ER7A_NGSEP.log
+
+    This will produce three files, a VCF with SNPs and small indels, a GFF with structural variants and a log file.
+        ER7A_NGSEP.vcf
+        ER7A_NGSEP_SV.gff
+        ER7A_NGSEP.log
+
+    The VCF file contains a list of all the SNVs, small indels and STRs, and the quality information of each variant in each sample. The GFF file contains the information about structural variation in each sample, including calls to repetitive regions, insertions, inversions, inversions and Copy Number Variation (CNVs).
+
+    Note: If either the VCF or the GFF is not produced or is empty, the log file usually finishes with a description of the problem.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+5b. Genotype variation and merge individual samples
+
+    After the Variant positions in each sample have been identified, the next step is to collect all this positions in a list, to be able to genotype each sample in the same positions and compare them with each other. For that, the procedure involves three steps: collecting the variation from all the population, genotyping the samples, and merging them in a single database (VCF file). First, go to the genotyping directory and use the MergeVariants command of NGSEP.
+
+        $ cd ../genotyping
+        $ java -jar ~/javaPrograms/NGSEPcore.jar MergeVariants -s ../reference/Saccharomyces_cerevisiae_seqNames.txt -o yeast_list_variants.vcf ../mapping/*_NGSEP.vcf >& yeast_list_variants.log
+
+    Then, call variants for each sample again, but this time use the '-knownVariants' parameter to tell the program that you want to genotype a given set of positions, this time it is not required to call SVs:
+
+        $ java -jar ~/javaPrograms/NGSEPcore.jar SingleSampleVariantsDetector -knownVariants yeast_list_variants.vcf -maxBaseQS 30 -maxAlnsPerStartPos 2 -sampleId ER7A -r ../reference/Saccharomyces_cerevisiae.fa -i ../mapping/ER7A_sorted.bam -o ER7A_NGSEP_gt >& ER7A_NGSEP_gt.log
+
+    Finally, go to the 'population' directory and merge the VCFs from the genotyping process of each sample using the MergeVCF command:
+
+        $ cd ../population
+        $ java -jar ~/javaPrograms/NGSEPcore.jar VCFMerge -s ../reference/Saccharomyces_cerevisiae_seqNames.txt -o yeastDemo.vcf ../genotyping/*_NGSEP_gt.vcf 
+
+    At the end of this process, you should have a VCF file with the genotype information of the samples listed at the end of step 1 for all variants included in the file yeast_list_variants.vcf 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+6. Annotate the VCF
+    With the database created in the previous step, the last thing to do is to enter the functional annotation of each variant, using the VCFAnnotate command:
+
+        $ java -jar ~/javaPrograms/NGSEPcore.jar VCFAnnotate -i yeastDemo.vcf -t ../reference/Saccharomyces_cerevisiae.gff3 -r ../reference/Saccharomyces_cerevisiae.fa -o yeastDemo_ann.vcf >& yeastDemo_ann.log
+
+    This file is the complete database, with all the available information about the population of interest, in this case yeast. It contains all the variant positions, the genotype of each sample at each position, and the functional annotation of those positions. Put it in a safe place, you will need to come back to this file many times in the future.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+7. Filter the VCF
+    Further steps require applying some filtering criteria to the database of the your samples. For this use the FilterVCF command:
+
+        $ java -jar ~/javaPrograms/NGSEPcore.jar VCFFilter -q 40 -s -fi -m 2 -i yeastDemo_ann.vcf -o yeastDemo_ann_q40_s_fi_I2.vcf
+
+    The reasons of the filtering criteria are the following:
+        -q 40    : keep only calls with a genotype quality (GQ field) of 40 or more. This is useful to be more confident about the variants called.
+        -s       : keep only biallelic SNPs. These kind of the SNPs are used as input for most of the downstream analysis.
+        -m 2     : keep only positions in which both samples are genotyped
+        -fi      : keep only positions in which the two samples differ. These are the most informative positions, the other ones differ only from the reference.
+
+    It is also a good idea to keep only unique positions in the genome, removing repetitive regions or detected CNVs. Many genomes have available a catalog of repetitive regions.
+    If such catalog is not available but you ran the sample-by-sample analysis (step 6), create a catalog of the Repeats and CNVs detected by NGSEP, using the following awk command:
+
+        $ awk '{ if($3=="REPEAT" || $3=="CNV") print $1,$4,$5 }' ../mapping/*_NGSEP_SV.gff > reps_cnvs_catalogue.txt
+
+    And then pass it to the VCFFilter command with the '-frs' parameter:
+
+        $ java -jar ~/javaPrograms/NGSEPcore.jar VCFFilter -frs reps_cnvs_catalogue.txt -i yeastDemo_ann_q40_s_fi_I2.vcf -o yeastDemo_ann_q40_s_fi_I2_noREP_noCNV.vcf
+
+    Otherwise, this step can also be performed with the repeat annotations from the saccharomyces cerevisiae database available in the file ../reference/Saccharomyces_cerevisiae_repeats.txt
+    
+    To check if the process ended correctly, you can compare your final, filtered, annotated, VCF with the one provided in the 'Training' directory in SourceForge.
+
+        $ java -jar ~/javaPrograms/NGSEPcore.jar VCFComparator -g 0 -d 100 -r ../reference/Saccharomyces_cerevisiae.fa -i yeastDemo_ann_q40_s_fi_I2_noREP_noCNV.vcf -i2 ../reference/yeastDemo_ann_q40_s_fi_I2_noREP_noCNV.vcf.gz -o yeast_population.comparation
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+8. Export the Data
+    Finally, for using your database in further analyses, it is useful to convert it from the VCF format to the format accepted by other software, for that we can use the ConvertVCF command of NGSEP like this:
+
+        $ java -jar ~/javaPrograms/NGSEPcore.jar VCFConverter -flapjack -i yeastDemo_ann_q40_s_fi_I2_noREP_noCNV.vcf -o yeastDemo_ann_q40_s_fi_I2_noREP_noCNV
+
+    There are many useful formats to export your data in this step, it will depend on the kind of analysis that will be performed afterwards, you can always come back to the original annotated VCF file, and apply new filtering criteria, and export the resulting file into other format for a different analysis.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To Find more information, more available parameters, useful statistics and other formats to convert your final VCF, check the README at 'sourceforge.net/projects/ngsep/files/Library/'

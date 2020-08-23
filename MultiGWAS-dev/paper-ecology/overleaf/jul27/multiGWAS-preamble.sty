@@ -1,0 +1,51 @@
+\ProvidesPackage{multiGWAS-preamble}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{charter} 
+\usepackage[charter]{mathdesign}  
+
+%\usepackage[charter]{mathdesign}  
+\usepackage[table]{xcolor}   % For table rows coloring
+\usepackage{listings}        % To show when calling multiGWAS from console
+\usepackage{hyphenat}
+%------------ For comments in the PDF --------------
+\usepackage[colorinlistoftodos]{todonotes}
+\setlength{\marginparwidth}{4.3cm}
+\newcommand{\lc}[1]{\todo[size=\small,color=red!20!white]{#1}}
+\newcommand{\ic}[1]{\todo[size=\small,color=green!20!white]{#1}}
+\newcommand{\pr}[1]{\todo[size=\small,color=blue!20!white]{#1}}
+%---------------------------------------------------
+% Added by LuisG
+\usepackage{amsmath}         % For writhing p-values
+\usepackage{textcomp}
+
+\newcommand{\mathA}[1]{{\operatorname{#1}}}
+\newcommand{\mathB}[1]{{\operatorname{\mathit{#1}}}}
+\renewcommand{\textrightarrow}{$\rightarrow$}
+
+% Para letra pequenha en los captions de las figuras
+\usepackage[font=small,labelfont=bf]{caption}
+\hyphenation{GWAS-poly tetra-ploid}
+%---------------------------------------------------
+\usepackage[active]{srcltx}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{authblk}
+\usepackage{lineno}
+\usepackage{subfigure}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{hyperref}
+
+%----For References ---------------
+% PAULA
+\usepackage[
+    backend=biber, 
+    style=apa,]
+    {biblatex}
+\addbibresource{multiGWAS.bib}
+
+%---------------------------------------------
+
+\makeatother
+\linenumbers

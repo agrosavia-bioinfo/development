@@ -1,0 +1,8 @@
+Aug 19, 2020 5:32:53 PM ngsep.vcf.VCFConverter logParameters
+INFO: Input file: GBS_Bancos.vcf
+Prefix for output files: GBS_Bancos
+Formats:
+ GWASPoly
+
+Aug 19, 2020 5:32:55 PM ngsep.vcf.VCFConverter run
+INFO: Process finished

@@ -1,0 +1,68 @@
+#-----------------------------------------------------------
+# Create a chord diagram for SNPs vs Chromosomes from
+# summary table of best scores
+#-----------------------------------------------------------
+createChordDiagramSharedSNPs <- function (scoresFile) {
+	">>>>>> get shared SNPs <<<<<<>"
+		getSharedSNPsFromFile <- function (scoresFile, N) {
+		scores = read.table (file=scoresFile, header=T, sep="\t"); 
+		summary = data.frame (add_count (scores, SNP, sort=T)); 
+		sharedDups = summary [summary$n > 1,]
+		shared = sharedDups [!duplicated (sharedDups$SNP),]
+		return (shared)
+	}
+	">>>>>> get shared SNPs <<<<<<>"
+
+	scores    = getSharedSNPsFromFile (scoresFile)
+	tbl       = scores [,c("TOOL","CHROM","SNP")]
+	tbl$CHROM = paste0 ("Chrom_", tbl$CHROM)
+
+	# Group by TOOL and select 3 SNPs for each one
+	#tblr = Reduce (rbind, by (tbl, tbl["TOOL"], head, n=2))
+	tblm = tbl [,c(2,3)]
+	chrs = sort (tblm [!duplicated (tblm [,1]), 1])
+	snps = sort (as.character (tblm [!duplicated (tblm [,2]), 2]))
+
+	# Create matrix Chroms X SNPs
+	n   = length (chrs)
+	m   = length (snps)
+	mat = as.data.frame (matrix (rep (0,n*m),nrow=n, ncol=m), stringAsFactor=F )
+	rownames (mat) = chrs
+	colnames (mat) = snps
+
+	# Fill the matrix
+
+	dmat = as.data.frame (mat)
+	for (i in 1:nrow (tblm)) {
+		chr = as.character (tblm [i, 1])
+		snp = as.character (tblm [i, 2])
+		dmat [chr,snp] = dmat [chr,snp] + 1
+	}
+
+	outFile = paste0(strsplit (scoresFile, split="[.]")[[1]][1], "-chordDiagram.pdf")
+	pdf (file=outFile, width=7, height=7)
+
+	grid.col <- setNames(rainbow(length(unlist(dimnames(dmat))), start=.3, end=.1,
+								 ), union(rownames(dmat), colnames(dmat)))
+
+	dmat = as.matrix (dmat) 
+
+	N = length(unlist(dimnames(mat)))
+	COLORS=rev (brewer.pal (n=N, name="RdBu"))
+	print (COLORS)
+	grid.col <- setNames(COLORS, union(rownames(mat), colnames(mat)))
+
+	chordDiagram(dmat, annotationTrack = "grid", directional = -1, direction.type = c("arrows"), # c("diffHeight", "arrows"),
+				 #link.arr.type = "big.arrow", 
+				 grid.col = grid.col,
+				preAllocateTracks = list(track.height = max(strwidth(unlist(dimnames(dmat))))))
+
+	# we go back to the first track and customize sector labels
+	circos.track(track.index = 1, panel.fun = function(x, y) {
+			circos.text(CELL_META$xcenter, CELL_META$ylim[1], CELL_META$sector.index, 
+			facing = "clockwise", niceFacing = TRUE, adj = c(0, 0.5))
+	}, bg.border = NA) # here set bg.border to NA is important
+
+	dev.off()
+}
+

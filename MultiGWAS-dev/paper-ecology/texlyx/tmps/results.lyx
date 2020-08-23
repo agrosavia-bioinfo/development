@@ -1,0 +1,223 @@
+#LyX file created by tex2lyx 2.2
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /home/lg/agrosavia/GWAS/MultiGWAS-dev/development/paper-ecology/overleaf/jul15-lyx/tmps/
+\textclass article
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection
+Tables and Venn diagrams for single and shared SNPs
+\end_layout
+
+\begin_layout Standard
+MultiGWAS provides tabular and graphic views to report the best-ranked and significant SNPs identified by the four GWAS packages in an integrative way (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Table-Shared-SNPs"
+
+\end_inset
+
+). Both 
+\emph on
+p-values
+\emph default
+ and significance levels have been scaled as 
+\begin_inset Formula $-log_{10}(\mathB{p-value})$
+\end_inset
+
+ to give high scores to the best statistically evaluated SNPs.
+\end_layout
+
+\begin_layout Standard
+First, best-ranked SNPs correspond to the top-scored 
+\emph on
+N
+\emph default
+ SNPs, whether they were assessed significant or not by its package, and with
+\emph on
+ N
+\emph default
+ defined by the user in the configuration file. These SNPs appears in both a SNPs table (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Table-Shared-SNPs"
+
+\end_inset
+
+.a), and in a Venn diagram (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Table-Shared-SNPs"
+
+\end_inset
+
+.b). The table lists them by package and sorts by decreasing score, whereas the Venn diagram emphasizes if they were best-ranked either in a single package or in several at once (shared).
+\end_layout
+
+\begin_layout Standard
+Second, the significant SNPs correspond to the ones valued statistically significant by each package. They appear in a Venn diagram (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Table-Shared-SNPs"
+
+\end_inset
+
+.c), and in the SNPs table, marked with significance TRUE (T) in the table of the Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Table-Shared-SNPs"
+
+\end_inset
+
+.a.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+\align center
+
+\begin_inset Graphics 
+	filename images/paper-table-venn-best
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Shared SNPs Views. 
+\series default
+ Tabular and graphical views of SNP associations identified by one or more GWAS packages (shared SNPs). SNPs identified by all packages are marker with red background in all figures. 
+\series bold
+(a)
+\series default
+ Table with details of the N=9 best-ranked SNPs from each GWAS package. Each row corresponds to a single SNP, and the nine columns are tool name, the model used by the tool, genomic control factor (inflation factor), SNP name, chromosome, position in the genome, 
+\emph on
+p-value
+\emph default
+, score as 
+\begin_inset Formula $-log_{10}(\mathB{p-value})$
+\end_inset
+
+, significance threshold as 
+\begin_inset Formula $-log_{10}(\alpha/m)$
+\end_inset
+
+ where 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is the significance level, and 
+\begin_inset Formula $m$
+\end_inset
+
+ is the number of tested markers, and significance as true (T) or false (F) whether score > threshold or not. 
+\series bold
+(b)
+\series default
+ Venn diagram of the N=9 best-ranked SNPs. SNPs identified by all packages are in the central intersection. Other SNPs identified by more than one packages are in both upper central and lower central intersections. 
+\series bold
+(c)
+\series default
+ Venn diagram of the significant SNPs (score > threshold). 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Table-Shared-SNPs"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

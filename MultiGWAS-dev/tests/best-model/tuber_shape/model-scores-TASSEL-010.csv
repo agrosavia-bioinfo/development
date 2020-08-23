@@ -1,0 +1,4 @@
+MODEL,GC,x,scoreGC,scoreShared,score
+general,0.94,18,0.94,0.6,1.54
+additive,0.857,20,0.857,0.666666666666667,1.52366666666667
+dominant,0.839,18,0.839,0.6,1.439
